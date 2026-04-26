@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="天晴ひなた × 雨海ルカ コラボ ゲーミングデバイスコレクション。限定デザインのメカニカルキーボード・ワイヤレスマウス。"
+        />
+        <title>晴雨コレクション | ゲーミングマウス & キーボード</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="test.css" />
+    </head>
+    <body>
+        <!-- ===== HEADER ===== -->
+        <header class="header" id="header">
+            <div class="header__inner">
+                <a href="#hero" class="header__logo">
+                    <span class="header__logo-main">晴雨</span>
+                    <span class="header__logo-sub">Collection</span>
+                </a>
+                <button
+                    class="header__menu-btn"
+                    id="menuBtn"
+                    aria-label="メニューを開く"
+                    aria-expanded="false"
+                >
+                    <span></span><span></span><span></span>
+                </button>
+                <nav class="header__nav" id="headerNav">
+                    <a href="#keyboard" class="header__nav-link">キーボード</a>
+                    <a href="#mouse" class="header__nav-link">マウス</a>
+                    <a href="#footer" class="header__nav-link">購入方法</a>
+                    <a href="#footer" class="header__nav-link header__nav-cta"
+                        >今すぐ注文</a
+                    >
+                </nav>
+            </div>
+        </header>
+
+        <!-- ===== FLOATING CTA ===== -->
+        <div class="float-cta" id="floatCta" aria-hidden="true">
+            <a href="#footer" class="float-cta__btn">
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <circle cx="9" cy="21" r="1" />
+                    <circle cx="20" cy="21" r="1" />
+                    <path
+                        d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                    />
+                </svg>
+                <span>今すぐ注文</span>
+            </a>
+        </div>
+
+        <!-- ===== SECTION 1: HERO ===== -->
+        <section class="hero" id="hero">
+            <div class="hero__bg">
+                <div class="hero__bg-orb hero__bg-orb--1"></div>
+                <div class="hero__bg-orb hero__bg-orb--2"></div>
+                <div class="hero__bg-orb hero__bg-orb--3"></div>
+                <canvas class="hero__canvas" id="particleCanvas"></canvas>
+            </div>
+
+            <div class="hero__inner">
+                <!-- Character: Hinata -->
+                <div class="hero__char hero__char--hinata reveal reveal--left">
+                    <div class="char-frame char-frame--hinata">
+                        <!--
+            【画像設置】ここにひなたの立ち絵を配置してください:
+            <img src="images/hinata.png" alt="天晴ひなた" class="char-frame__img">
+          -->
+                        <div class="char-frame__placeholder">
+                            <div class="char-frame__deco-top">☀️ ✦ ☀️</div>
+                            <div class="char-frame__name-art">
+                                ひ<br />な<br />た
+                            </div>
+                            <div class="char-frame__sparkles">
+                                <span class="sparkle s1">✦</span>
+                                <span class="sparkle s2">✧</span>
+                                <span class="sparkle s3">✦</span>
+                                <span class="sparkle s4">✧</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="char-label">
+                        <span class="char-label__jp">天晴ひなた</span>
+                        <span class="char-label__en">Appare Hinata</span>
+                    </div>
+                </div>
+
+                <!-- Center: Hero Text -->
+                <div class="hero__content">
+                    <p class="hero__eyebrow reveal">
+                        ✦ LIMITED COLLAB COLLECTION ✦
+                    </p>
+                    <h1 class="hero__title reveal">
+                        <span class="hero__title-ja">晴雨</span>
+                        <span class="hero__title-en">Collection</span>
+                    </h1>
+                    <p class="hero__subtitle reveal">
+                        天晴ひなた <span class="hero__x">×</span> 雨海ルカ<br />
+                        <small>コラボ ゲーミングデバイス</small>
+                    </p>
+
+                    <div class="hero__products reveal">
+                        <a
+                            href="#keyboard"
+                            class="hero__product-badge hero__product-badge--kb"
+                        >
+                            <span class="hero__badge-icon">⌨️</span>
+                            <div class="hero__badge-text">
+                                <strong>晴天65</strong>
+                                <small>メカニカルキーボード</small>
+                            </div>
+                        </a>
+                        <a
+                            href="#mouse"
+                            class="hero__product-badge hero__product-badge--ms"
+                        >
+                            <span class="hero__badge-icon">🖱️</span>
+                            <div class="hero__badge-text">
+                                <strong>海波Pro</strong>
+                                <small>ワイヤレスマウス</small>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="hero__ctas reveal">
+                        <a href="#keyboard" class="btn btn--primary"
+                            >製品を見る</a
+                        >
+                        <a href="#footer" class="btn btn--outline">購入方法</a>
+                    </div>
+                </div>
+
+                <!-- Character: Ruka -->
+                <div class="hero__char hero__char--ruka reveal reveal--right">
+                    <div class="char-frame char-frame--ruka">
+                        <!--
+            【画像設置】ここにルカの立ち絵を配置してください:
+            <img src="images/ruka.png" alt="雨海ルカ" class="char-frame__img">
+          -->
+                        <div class="char-frame__placeholder">
+                            <div class="char-frame__deco-top">🌊 ✦ 🌊</div>
+                            <div class="char-frame__name-art">ル<br />カ</div>
+                            <div class="char-frame__sparkles">
+                                <span class="sparkle s1">✦</span>
+                                <span class="sparkle s2">✧</span>
+                                <span class="sparkle s3">✦</span>
+                                <span class="sparkle s4">✧</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="char-label">
+                        <span class="char-label__jp">雨海ルカ</span>
+                        <span class="char-label__en">Amagai Ruka</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero__scroll-hint">
+                <span>SCROLL</span>
+                <div class="hero__scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- Wave divider -->
+        <div class="wave-divider">
+            <svg
+                viewBox="0 0 1440 80"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M0,40 C240,80 480,0 720,40 C960,80 1200,20 1440,50 L1440,80 L0,80 Z"
+                    fill="#ffffff"
+                />
+            </svg>
+        </div>
+
+        <!-- ===== SECTION 2: KEYBOARD ===== -->
+        <section class="product-sec product-sec--kb" id="keyboard">
+            <div class="product-sec__inner">
+                <div class="section-head reveal">
+                    <p class="section-head__eye">GAMING KEYBOARD</p>
+                    <h2 class="section-head__title">晴天<span>65</span></h2>
+                    <p class="section-head__sub">メカニカルキーボード</p>
+                </div>
+
+                <div class="product-layout">
+                    <!-- Product Visual -->
+                    <div class="product-visual reveal reveal--left">
+                        <!--
+            【画像設置】ここにキーボードの商品画像を配置してください:
+            <img src="images/keyboard.png" alt="晴天65 メカニカルキーボード" class="product-visual__img">
+          -->
+                        <div
+                            class="product-visual__placeholder product-visual__placeholder--kb"
+                        >
+                            <div class="kb-art">
+                                <div class="kb-art__body">
+                                    <div class="kb-art__row">
+                                        <div
+                                            class="kb-art__key kb-art__key--wide"
+                                        >
+                                            ESC
+                                        </div>
+                                        <div class="kb-art__key">1</div>
+                                        <div class="kb-art__key">2</div>
+                                        <div class="kb-art__key">3</div>
+                                        <div class="kb-art__key">4</div>
+                                        <div class="kb-art__key">5</div>
+                                        <div class="kb-art__key">6</div>
+                                        <div
+                                            class="kb-art__key kb-art__key--wide"
+                                        >
+                                            DEL
+                                        </div>
+                                    </div>
+                                    <div class="kb-art__row">
+                                        <div
+                                            class="kb-art__key kb-art__key--tab"
+                                        >
+                                            TAB
+                                        </div>
+                                        <div class="kb-art__key">Q</div>
+                                        <div
+                                            class="kb-art__key kb-art__key--hi"
+                                        >
+                                            W
+                                        </div>
+                                        <div class="kb-art__key">E</div>
+                                        <div class="kb-art__key">R</div>
+                                        <div class="kb-art__key">T</div>
+                                        <div class="kb-art__key">Y</div>
+                                        <div
+                                            class="kb-art__key kb-art__key--enter kb-art__key--r1"
+                                        >
+                                            ↵
+                                        </div>
+                                    </div>
+                                    <div class="kb-art__row">
+                                        <div
+                                            class="kb-art__key kb-art__key--caps"
+                                        >
+                                            CAP
+                                        </div>
+                                        <div
+                                            class="kb-art__key kb-art__key--hi"
+                                        >
+                                            A
+                                        </div>
+                                        <div
+                                            class="kb-art__key kb-art__key--hi"
+                                        >
+                                            S
+                                        </div>
+                                        <div
+                                            class="kb-art__key kb-art__key--hi"
+                                        >
+                                            D
+                                        </div>
+                                        <div class="kb-art__key">F</div>
+                                        <div class="kb-art__key">G</div>
+                                        <div class="kb-art__key">H</div>
+                                        <div
+                                            class="kb-art__key kb-art__key--enter kb-art__key--r2"
+                                        ></div>
+                                    </div>
+                                    <div class="kb-art__row">
+                                        <div
+                                            class="kb-art__key kb-art__key--shift"
+                                        >
+                                            ⇧
+                                        </div>
+                                        <div
+                                            class="kb-art__key kb-art__key--hi"
+                                        >
+                                            Z
+                                        </div>
+                                        <div
+                                            class="kb-art__key kb-art__key--hi"
+                                        >
+                                            X
+                                        </div>
+                                        <div
+                                            class="kb-art__key kb-art__key--hi"
+                                        >
+                                            C
+                                        </div>
+                                        <div class="kb-art__key">V</div>
+                                        <div class="kb-art__key">B</div>
+                                        <div
+                                            class="kb-art__key kb-art__key--shift"
+                                        >
+                                            ⇧
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="kb-art__row kb-art__row--bottom"
+                                    >
+                                        <div
+                                            class="kb-art__key kb-art__key--mod"
+                                        >
+                                            CTL
+                                        </div>
+                                        <div
+                                            class="kb-art__key kb-art__key--mod"
+                                        >
+                                            ALT
+                                        </div>
+                                        <div
+                                            class="kb-art__key kb-art__key--space"
+                                        ></div>
+                                        <div class="kb-art__key">◀</div>
+                                        <div class="kb-art__key">▼</div>
+                                        <div class="kb-art__key">▶</div>
+                                    </div>
+                                </div>
+                                <div class="kb-art__glow"></div>
+                            </div>
+                            <div class="product-visual__tag">
+                                晴天65 Keyboard
+                            </div>
+                        </div>
+                        <div
+                            class="product-visual__accent product-visual__accent--hinata"
+                        >
+                            ひなた
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="product-info reveal reveal--right">
+                        <div class="product-info__tags">
+                            <span class="tag tag--blue">Limited Edition</span>
+                            <span class="tag tag--yellow">コラボモデル</span>
+                        </div>
+                        <h3 class="product-info__name">晴天<em>65</em></h3>
+                        <p class="product-info__name-en">
+                            Seiten 65 Mechanical Keyboard
+                        </p>
+                        <p class="product-info__price">
+                            ¥<strong>19,800</strong><small>（税込）</small>
+                        </p>
+
+                        <p class="product-info__desc">
+                            天晴ひなた ×
+                            雨海ルカの世界観をキーで表現。晴れ渡る空をイメージしたスカイブルーのボディに
+                            限定デザインのキーキャップを採用。ゲームも配信も毎日の作業も、もっと楽しくなる一台。
+                        </p>
+
+                        <ul class="feature-list">
+                            <li class="feature-list__item reveal">
+                                <span class="feature-list__icon">✦</span>
+                                <div>
+                                    <strong>65% コンパクトレイアウト</strong>
+                                    <span
+                                        >デスクスペースを有効活用、ゲームに最適なコンパクトサイズ</span
+                                    >
+                                </div>
+                            </li>
+                            <li class="feature-list__item reveal">
+                                <span class="feature-list__icon">✦</span>
+                                <div>
+                                    <strong>ホットスワップ対応</strong>
+                                    <span
+                                        >工具不要でスイッチ交換可能（Gateron G
+                                        Pro 赤軸付属）</span
+                                    >
+                                </div>
+                            </li>
+                            <li class="feature-list__item reveal">
+                                <span class="feature-list__icon">✦</span>
+                                <div>
+                                    <strong>フル RGB バックライト</strong>
+                                    <span
+                                        >1,600万色のカスタマイズ可能なライティングエフェクト</span
+                                    >
+                                </div>
+                            </li>
+                            <li class="feature-list__item reveal">
+                                <span class="feature-list__icon">✦</span>
+                                <div>
+                                    <strong>USB-C & Bluetooth 5.0</strong>
+                                    <span
+                                        >有線・無線どちらでも使用可能、最大3台マルチデバイス対応</span
+                                    >
+                                </div>
+                            </li>
+                            <li class="feature-list__item reveal">
+                                <span class="feature-list__icon">✦</span>
+                                <div>
+                                    <strong>限定 PBT キーキャップ</strong>
+                                    <span
+                                        >ダブルショット印字、耐摩耗性に優れた高品質仕様</span
+                                    >
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="product-info__actions">
+                            <a href="#footer" class="btn btn--primary"
+                                >注文する</a
+                            >
+                            <a href="#footer" class="btn btn--ghost"
+                                >詳細を見る</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wave divider (reversed) -->
+        <div class="wave-divider wave-divider--rev">
+            <svg
+                viewBox="0 0 1440 80"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M0,30 C240,0 480,70 720,30 C960,0 1200,60 1440,30 L1440,0 L0,0 Z"
+                    fill="#ffffff"
+                />
+            </svg>
+        </div>
+
+        <!-- ===== SECTION 3: MOUSE ===== -->
+        <section class="product-sec product-sec--ms" id="mouse">
+            <div class="product-sec__inner">
+                <div class="section-head reveal">
+                    <p class="section-head__eye">GAMING MOUSE</p>
+                    <h2 class="section-head__title">海波<span>Pro</span></h2>
+                    <p class="section-head__sub">ワイヤレスゲーミングマウス</p>
+                </div>
+
+                <div class="product-layout product-layout--rev">
+                    <!-- Product Info -->
+                    <div class="product-info reveal reveal--left">
+                        <div class="product-info__tags">
+                            <span class="tag tag--blue">Limited Edition</span>
+                            <span class="tag tag--yellow">コラボモデル</span>
+                        </div>
+                        <h3 class="product-info__name">海波<em>Pro</em></h3>
+                        <p class="product-info__name-en">
+                            Umiba Pro Wireless Gaming Mouse
+                        </p>
+                        <p class="product-info__price">
+                            ¥<strong>14,800</strong><small>（税込）</small>
+                        </p>
+
+                        <p class="product-info__desc">
+                            雨海ルカの海の世界観をインスパイアしたデザイン。超軽量ハニカム構造で
+                            疲れにくく、長時間のゲームセッションも快適。プロ仕様のセンサーで
+                            あらゆるゲームシーンに対応します。
+                        </p>
+
+                        <ul class="feature-list">
+                            <li class="feature-list__item reveal">
+                                <span class="feature-list__icon">✦</span>
+                                <div>
+                                    <strong>超軽量設計 58g</strong>
+                                    <span
+                                        >ハニカム構造採用、長時間使用でも手首への負担を軽減</span
+                                    >
+                                </div>
+                            </li>
+                            <li class="feature-list__item reveal">
+                                <span class="feature-list__icon">✦</span>
+                                <div>
+                                    <strong>PAW3395 センサー搭載</strong>
+                                    <span
+                                        >最大26,000DPI、プロゲーマーも使用するハイエンドセンサー</span
+                                    >
+                                </div>
+                            </li>
+                            <li class="feature-list__item reveal">
+                                <span class="feature-list__icon">✦</span>
+                                <div>
+                                    <strong
+                                        >2.4GHz ワイヤレス & 有線対応</strong
+                                    >
+                                    <span
+                                        >最大1,000Hz
+                                        ポーリングレート、遅延ゼロの応答速度</span
+                                    >
+                                </div>
+                            </li>
+                            <li class="feature-list__item reveal">
+                                <span class="feature-list__icon">✦</span>
+                                <div>
+                                    <strong>最大70時間バッテリー</strong>
+                                    <span
+                                        >急速充電対応、10分で約3時間使用可能</span
+                                    >
+                                </div>
+                            </li>
+                            <li class="feature-list__item reveal">
+                                <span class="feature-list__icon">✦</span>
+                                <div>
+                                    <strong>限定 RGB ライティング</strong>
+                                    <span
+                                        >「海の波」をテーマにした専用アニメーションパターン搭載</span
+                                    >
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="product-info__actions">
+                            <a href="#footer" class="btn btn--primary"
+                                >注文する</a
+                            >
+                            <a href="#footer" class="btn btn--ghost"
+                                >詳細を見る</a
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Product Visual -->
+                    <div class="product-visual reveal reveal--right">
+                        <!--
+            【画像設置】ここにマウスの商品画像を配置してください:
+            <img src="images/mouse.png" alt="海波Pro ワイヤレスゲーミングマウス" class="product-visual__img">
+          -->
+                        <div
+                            class="product-visual__placeholder product-visual__placeholder--ms"
+                        >
+                            <div class="ms-art">
+                                <div class="ms-art__body">
+                                    <div class="ms-art__split"></div>
+                                    <div class="ms-art__wheel"></div>
+                                    <div class="ms-art__side-btn"></div>
+                                    <div class="ms-art__rgb-strip"></div>
+                                </div>
+                                <div class="ms-art__shadow"></div>
+                            </div>
+                            <div class="product-visual__tag">海波Pro Mouse</div>
+                        </div>
+                        <div
+                            class="product-visual__accent product-visual__accent--ruka"
+                        >
+                            ルカ
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 4: FOOTER ===== -->
+        <footer class="footer" id="footer">
+            <div class="footer__wave">
+                <svg
+                    viewBox="0 0 1440 100"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M0,60 C360,100 720,20 1080,60 C1260,80 1380,90 1440,85 L1440,0 L0,0 Z"
+                        fill="#eef7ff"
+                    />
+                </svg>
+            </div>
+
+            <div class="footer__inner">
+                <!-- Characters + Logo -->
+                <div class="footer__top">
+                    <div class="footer__char-badge footer__char-badge--hinata">
+                        <div class="footer__char-icon">☀️</div>
+                        <span>天晴ひなた</span>
+                    </div>
+                    <div class="footer__brand">
+                        <div class="footer__brand-logo">晴雨</div>
+                        <div class="footer__brand-sub">Collection</div>
+                    </div>
+                    <div class="footer__char-badge footer__char-badge--ruka">
+                        <div class="footer__char-icon">🌊</div>
+                        <span>雨海ルカ</span>
+                    </div>
+                </div>
+
+                <!-- Purchase Guide -->
+                <div class="purchase-guide">
+                    <h3 class="purchase-guide__title">📦 購入方法</h3>
+                    <div class="purchase-guide__steps">
+                        <div class="purchase-step">
+                            <div class="purchase-step__num">1</div>
+                            <div class="purchase-step__body">
+                                <h4>フォームで注文</h4>
+                                <p>専用注文フォームから商品をお選びください</p>
+                            </div>
+                        </div>
+                        <div class="purchase-step__arrow">→</div>
+                        <div class="purchase-step">
+                            <div class="purchase-step__num">2</div>
+                            <div class="purchase-step__body">
+                                <h4>お支払い</h4>
+                                <p>クレカ / 銀行振込 / コンビニ払い対応</p>
+                            </div>
+                        </div>
+                        <div class="purchase-step__arrow">→</div>
+                        <div class="purchase-step">
+                            <div class="purchase-step__num">3</div>
+                            <div class="purchase-step__body">
+                                <h4>発送</h4>
+                                <p>注文確定後 3〜5 営業日以内に発送</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="purchase-guide__cta">
+                        <a href="#" class="btn btn--primary btn--large"
+                            >注文フォームへ ↗</a
+                        >
+                        <p class="purchase-guide__note">
+                            ※
+                            在庫状況によりお届けまでお時間をいただく場合がございます
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Info Grid -->
+                <div class="footer__info">
+                    <div class="footer__info-block">
+                        <h4>商品・価格</h4>
+                        <ul>
+                            <li>晴天65 キーボード — ¥19,800</li>
+                            <li>海波Pro マウス — ¥14,800</li>
+                            <li>セット購入 — ¥32,800（¥1,800 お得）</li>
+                        </ul>
+                    </div>
+                    <div class="footer__info-block">
+                        <h4>配送・サポート</h4>
+                        <ul>
+                            <li>全国送料 ¥800（¥10,000 以上 無料）</li>
+                            <li>到着後 7 日以内の初期不良対応</li>
+                            <li>お問い合わせ: support@haruame.jp</li>
+                        </ul>
+                    </div>
+                    <div class="footer__info-block">
+                        <h4>キャラクター</h4>
+                        <ul>
+                            <li>天晴ひなた（Appare Hinata）</li>
+                            <li>雨海ルカ（Amagai Ruka）</li>
+                            <li>© Weather Planet Inc.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Bottom Bar -->
+                <div class="footer__bottom">
+                    <p class="footer__copy">
+                        © 2025 晴雨コレクション All rights reserved.
+                        キャラクターイラスト ©
+                        <a
+                            href="https://weather-pla.net/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >Weather Planet</a
+                        >
+                        All Rights Reserved.
+                    </p>
+                    <div class="footer__links">
+                        <a href="#">特定商取引法に基づく表記</a>
+                        <a href="#">プライバシーポリシー</a>
+                        <a href="#">お問い合わせ</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="test.js"></script>
+    </body>
+</html>
