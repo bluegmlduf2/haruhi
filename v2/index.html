@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Premium Collection</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&display=swap");
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        overflow-x: hidden;
+      }
+
+      body {
+        font-family: "M PLUS 1", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        color: #3b1519;
+        line-height: 1.6;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      li {
+        list-style-type: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      img {
+        vertical-align: bottom;
+        border: none;
+        max-width: 100%;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        margin: 0;
+      }
+
+      .sp_only {
+        display: none;
+      }
+
+      .wrapper {
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .flex {
+        display: flex;
+      }
+
+      .flex_reverse {
+        flex-direction: row-reverse;
+      }
+
+      .flex_center {
+        justify-content: center;
+      }
+
+      .flex_between {
+        justify-content: space-between;
+      }
+
+      .flex_end {
+        justify-content: flex-end;
+      }
+
+      .flex_middle {
+        align-items: center;
+      }
+
+      .flex_bottom {
+        align-items: flex-end;
+      }
+
+      .flex_column {
+        flex-direction: column;
+      }
+
+      .fadeup {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: 300ms;
+      }
+
+      .fadeup.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Header */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        background-color: #66c1ff;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+        padding: 1rem 2rem;
+      }
+
+      .header_container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .header_logo {
+        font-size: 28px;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .header_menu ul {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .header_menu ul li a {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .header_menu ul li a:hover {
+        opacity: 0.8;
+      }
+
+      main {
+        position: relative;
+        margin-top: 70px;
+      }
+
+      main::before {
+        content: "";
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 70px);
+        background: linear-gradient(135deg, rgba(102, 193, 255, 0.08) 0%, rgba(255, 213, 128, 0.08) 100%);
+        z-index: -1;
+      }
+
+      /* Section Wrapper */
+      .section_wrapper {
+        padding: 6em 0;
+      }
+
+      .section_container {
+        position: relative;
+        width: 1100px;
+        max-width: 96%;
+        margin: 0 auto;
+        background-color: #e6f0ff;
+        box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.08);
+        border-radius: 90px;
+      }
+
+      .section_inner {
+        position: relative;
+        z-index: 2;
+        width: 82%;
+        margin: 0 auto;
+        padding: 6em 0;
+      }
+
+      .section_title_text h2 {
+        position: relative;
+        z-index: 2;
+        font-size: 44px;
+        font-weight: 900;
+        letter-spacing: -0.05em;
+        color: #66c1ff;
+        -webkit-text-stroke-width: 6px;
+        -webkit-text-stroke-color: #fff;
+        paint-order: stroke;
+        margin-bottom: 1.5em;
+      }
+
+      .product_block {
+        margin-bottom: 3em;
+        display: flex;
+        align-items: center;
+        gap: 2em;
+      }
+
+      .product_block.flex_reverse {
+        flex-direction: row-reverse;
+      }
+
+      .product_img {
+        max-width: 60%;
+        flex-shrink: 0;
+      }
+
+      .product_img img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #66c1ff, #ffd580);
+        padding: 2rem;
+      }
+
+      .product_text {
+        position: relative;
+        width: 320px;
+        max-width: 35%;
+        padding: 0 1em;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.64em;
+        text-align: left;
+      }
+
+      .product_text h5 {
+        margin-bottom: 1em;
+        font-size: 18px;
+        font-weight: 800;
+        color: #66c1ff;
+      }
+
+      .link_btn {
+        position: relative;
+        width: 300px;
+        max-width: 80%;
+        margin: 2em auto;
+      }
+
+      .link_btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #333;
+        border-radius: 25px;
+        transform: translate(3px, 3px);
+        z-index: -1;
+      }
+
+      .link_btn a {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #66c1ff;
+        border-radius: 25px;
+        transition: 200ms;
+        padding: 1em 2em;
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .link_btn a:hover {
+        transform: translate(3px, 3px);
+      }
+
+      /* Special Section */
+      .special_container {
+        position: relative;
+        z-index: 2;
+        width: 1100px;
+        max-width: 96%;
+        margin: 0 auto;
+        padding: 6em 2em;
+        background: linear-gradient(135deg, #ffd580, #66c1ff);
+        border-radius: 90px;
+        color: #fff;
+        text-align: center;
+      }
+
+      .special_container h3 {
+        font-size: 36px;
+        font-weight: 900;
+        margin-bottom: 1em;
+      }
+
+      .special_container p {
+        font-size: 16px;
+        margin-bottom: 1.5em;
+        line-height: 1.8;
+      }
+
+      .bottom_btn {
+        position: relative;
+        width: 500px;
+        max-width: 80%;
+        margin: 2em auto;
+      }
+
+      .bottom_btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #333;
+        border-radius: 25px;
+        transform: translate(5px, 5px);
+        z-index: -1;
+      }
+
+      .bottom_btn a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 25px;
+        transition: 200ms;
+        padding: 1em 2em;
+        color: #333;
+        font-weight: 600;
+      }
+
+      .bottom_btn a:hover {
+        transform: translate(5px, 5px);
+      }
+
+      /* Grid Product Section */
+      .product_grid_container {
+        width: 1100px;
+        max-width: 96%;
+        margin: 0 auto;
+        background-color: #ffe9d9;
+        box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.08);
+        border-radius: 90px;
+        padding: 4em 2em;
+      }
+
+      .product_grid_title {
+        font-size: 44px;
+        font-weight: 900;
+        color: #ffd580;
+        -webkit-text-stroke-width: 6px;
+        -webkit-text-stroke-color: #fff;
+        paint-order: stroke;
+        margin-bottom: 2em;
+        text-align: center;
+      }
+
+      .product_grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2em;
+      }
+
+      .product_card {
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .product_card:hover {
+        transform: translateY(-8px);
+      }
+
+      .product_card_image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #66c1ff, #ffd580);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 64px;
+      }
+
+      .product_card_info {
+        padding: 1.5em;
+      }
+
+      .product_card_name {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 0.5em;
+        color: #3b1519;
+      }
+
+      .product_card_desc {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 1em;
+      }
+
+      .product_card_price {
+        font-size: 18px;
+        font-weight: 800;
+        color: #66c1ff;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #3b1519;
+        color: #fff;
+        padding: 3em 2em;
+        margin-top: 4em;
+      }
+
+      .footer_content {
+        max-width: 1100px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 12px;
+      }
+
+      /* Responsive */
+      @media screen and (max-width: 1420px) {
+        .section_title_text h2 {
+          font-size: 32px;
+        }
+
+        .product_grid_title {
+          font-size: 32px;
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        .pc_only {
+          display: none !important;
+        }
+
+        .sp_only {
+          display: block !important;
+        }
+
+        header {
+          padding: 1rem;
+        }
+
+        .header_menu ul {
+          gap: 1rem;
+          font-size: 12px;
+        }
+
+        main {
+          margin-top: 60px;
+        }
+
+        main::before {
+          top: 60px;
+          height: calc(100% - 60px);
+        }
+
+        .section_wrapper {
+          padding: 3em 0;
+        }
+
+        .section_container,
+        .product_grid_container,
+        .special_container {
+          width: 98%;
+          padding: 3em 1.5em;
+          border-radius: 40px;
+        }
+
+        .section_inner {
+          width: 90%;
+          padding: 3em 0;
+        }
+
+        .section_title_text h2,
+        .product_grid_title {
+          font-size: 24px;
+          -webkit-text-stroke-width: 3px;
+        }
+
+        .product_block {
+          flex-direction: column;
+          gap: 1.5em;
+        }
+
+        .product_block.flex_reverse {
+          flex-direction: column;
+        }
+
+        .product_img {
+          max-width: 100%;
+        }
+
+        .product_text {
+          width: 100%;
+          max-width: 100%;
+          padding: 0;
+          text-align: center;
+        }
+
+        .link_btn,
+        .bottom_btn {
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .product_grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1em;
+        }
+
+        .product_card_image {
+          height: 120px;
+          font-size: 40px;
+        }
+
+        .special_container {
+          padding: 3em 1.5em;
+        }
+
+        .special_container h3 {
+          font-size: 24px;
+        }
+
+        .special_container p {
+          font-size: 14px;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .product_grid {
+          grid-template-columns: 1fr;
+        }
+
+        .header_menu {
+          display: none;
+        }
+
+        .section_container,
+        .product_grid_container,
+        .special_container {
+          border-radius: 30px;
+        }
+
+        .link_btn a,
+        .bottom_btn a {
+          padding: 0.8em 1.5em;
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header_container">
+        <div class="header_logo">PREMIUM</div>
+        <nav class="header_menu pc_only">
+          <ul>
+            <li><a href="#products">제품</a></li>
+            <li><a href="#features">특징</a></li>
+            <li><a href="#about">소개</a></li>
+            <li><a href="#contact">연락</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main role="main">
+      <!-- Section 1 -->
+      <section class="section_wrapper">
+        <div class="section_container">
+          <div class="section_inner">
+            <div class="section_title_text">
+              <h2>프리미엄 컬렉션</h2>
+            </div>
+            <div class="product_block flex">
+              <div class="product_img">
+                <div style="background: linear-gradient(135deg, #66c1ff, #ffd580); border-radius: 12px; padding: 2rem; height: 300px; display: flex; align-items: center; justify-content: center; font-size: 120px;">
+                  🎁
+                </div>
+              </div>
+              <div class="product_text">
+                <h5>특별한 경험</h5>
+                <p>세계적 수준의 품질과 디자인을 갖춘 프리미엄 컬렉션입니다. 각 제품은 정교한 장인정신과 최신 기술의 완벽한 조화로 만들어졌습니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2 -->
+      <section class="section_wrapper">
+        <div class="section_container">
+          <div class="section_inner">
+            <div class="section_title_text">
+              <h2>제품 1</h2>
+            </div>
+            <div class="product_block flex_reverse">
+              <div class="product_img">
+                <div style="background: linear-gradient(135deg, #66c1ff, #ffd580); border-radius: 12px; padding: 2rem; height: 300px; display: flex; align-items: center; justify-content: center; font-size: 120px;">
+                  ✨
+                </div>
+              </div>
+              <div class="product_text">
+                <h5>프로덕트 A</h5>
+                <p>혁신적인 디자인과 뛰어난 기능성을 갖춘 제품입니다. 사용자 경험을 최우선으로 고려하여 개발되었으며, 모든 세부사항이 완벽하게 조정되어 있습니다.</p>
+                <div class="link_btn">
+                  <a href="#"><span>자세히 보기</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3 -->
+      <section class="section_wrapper">
+        <div class="section_container">
+          <div class="section_inner">
+            <div class="section_title_text">
+              <h2>제품 2</h2>
+            </div>
+            <div class="product_block flex">
+              <div class="product_img">
+                <div style="background: linear-gradient(135deg, #66c1ff, #ffd580); border-radius: 12px; padding: 2rem; height: 300px; display: flex; align-items: center; justify-content: center; font-size: 120px;">
+                  🎨
+                </div>
+              </div>
+              <div class="product_text">
+                <h5>프로덕트 B</h5>
+                <p>예술성과 실용성이 조화를 이룬 독특한 제품입니다. 제한된 수량으로만 제공되는 한정판으로, 수집가들 사이에서도 높은 평가를 받고 있습니다.</p>
+                <div class="link_btn">
+                  <a href="#"><span>자세히 보기</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4 -->
+      <section class="section_wrapper">
+        <div class="section_container">
+          <div class="section_inner">
+            <div class="section_title_text">
+              <h2>제품 3</h2>
+            </div>
+            <div class="product_block flex_reverse">
+              <div class="product_img">
+                <div style="background: linear-gradient(135deg, #66c1ff, #ffd580); border-radius: 12px; padding: 2rem; height: 300px; display: flex; align-items: center; justify-content: center; font-size: 120px;">
+                  💎
+                </div>
+              </div>
+              <div class="product_text">
+                <h5>프로덕트 C</h5>
+                <p>럭셔리한 경험을 제공하는 최고급 제품입니다. 프리미엄 소재와 고급 기술이 결합되어 최상의 가치를 전달합니다. 엘리트를 위한 선택입니다.</p>
+                <div class="link_btn">
+                  <a href="#"><span>자세히 보기</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Product Grid Section -->
+      <section class="section_wrapper">
+        <div class="product_grid_container">
+          <h2 class="product_grid_title">더 보기</h2>
+          <div class="product_grid">
+            <div class="product_card">
+              <div class="product_card_image">🌟</div>
+              <div class="product_card_info">
+                <div class="product_card_name">프로덕트 D</div>
+                <div class="product_card_desc">베스트셀러 제품</div>
+                <div class="product_card_price">¥24,000</div>
+              </div>
+            </div>
+            <div class="product_card">
+              <div class="product_card_image">🎭</div>
+              <div class="product_card_info">
+                <div class="product_card_name">프로덕트 E</div>
+                <div class="product_card_desc">한정판 에디션</div>
+                <div class="product_card_price">¥36,000</div>
+              </div>
+            </div>
+            <div class="product_card">
+              <div class="product_card_image">🏆</div>
+              <div class="product_card_info">
+                <div class="product_card_name">프로덕트 F</div>
+                <div class="product_card_desc">수상 제품</div>
+                <div class="product_card_price">¥40,000</div>
+              </div>
+            </div>
+            <div class="product_card">
+              <div class="product_card_image">👑</div>
+              <div class="product_card_info">
+                <div class="product_card_name">프로덕트 G</div>
+                <div class="product_card_desc">프리미엄 라인</div>
+                <div class="product_card_price">¥48,000</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Special Section -->
+      <section class="section_wrapper">
+        <div class="special_container">
+          <h3>특별 제안</h3>
+          <p>지금 구독하면 20% 할인을 받으실 수 있습니다!</p>
+          <p>이 특별한 기회를 놓치지 마세요. 우리의 뉴스레터 구독자들만 누릴 수 있는 특가 혜택입니다.</p>
+          <div class="bottom_btn">
+            <a href="#"><span>지금 구독하기</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer_content">
+        <p>&copy; 2024 Premium Collection. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
