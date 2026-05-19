@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Planet × PCデバイスコラボ | Darmoshark × Haruhi Products</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100;400;700;900&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Noto Sans JP", sans-serif; overflow-x: hidden; line-height: 1.7; }
+    img { max-width: 100%; height: auto; vertical-align: bottom; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    h1,h2,h3,h4,h5 { font-family: "M PLUS 1", sans-serif; line-height: 1.15; }
+
+    :root {
+      --blue: #66c1ff;
+      --blue-dark: #1a7fc4;
+      --yellow: #ffd580;
+      --yellow-dark: #c98a00;
+      --ink: #0e0e1a;
+      --cream: #f8f4ee;
+      --indigo: #13102a;
+      --amber: #fffaed;
+      --muted: #888;
+    }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+
+    /* ── Reveal ── */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    .reveal-l { opacity: 0; transform: translateX(-32px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal-r { opacity: 0; transform: translateX(32px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal-l.is-visible, .reveal-r.is-visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: .12s !important; }
+    .d2 { transition-delay: .24s !important; }
+    .d3 { transition-delay: .36s !important; }
+    .d4 { transition-delay: .48s !important; }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 36px; border-radius: 2px;
+      font-family: "M PLUS 1", sans-serif; font-weight: 700; font-size: 13px;
+      letter-spacing: .12em; text-transform: uppercase; cursor: pointer;
+      transition: .22s; border: none;
+    }
+    .btn--ink { background: var(--ink); color: #fff; }
+    .btn--ink:hover { background: #2a2a3e; }
+    .btn--blue { background: var(--blue); color: var(--ink); }
+    .btn--blue:hover { background: #80ccff; }
+    .btn--yellow { background: var(--yellow); color: var(--ink); }
+    .btn--yellow:hover { background: #ffe49a; }
+    .btn--outline-w { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.6); }
+    .btn--outline-w:hover { background: rgba(255,255,255,0.1); }
+    .btn--lg { padding: 17px 48px; font-size: 15px; }
+
+    /* ── Tags ── */
+    .tag {
+      display: inline-block; padding: 2px 12px;
+      font-size: 10px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+      border: 1px solid; margin-right: 5px; margin-bottom: 5px;
+    }
+    .tag--blue { color: var(--blue-dark); border-color: var(--blue); background: rgba(102,193,255,.08); }
+    .tag--yellow { color: var(--yellow-dark); border-color: var(--yellow); background: rgba(255,213,128,.1); }
+
+    /* ══════════════════════════════════════
+       HEADER
+    ══════════════════════════════════════ */
+    .header {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 200;
+      background: rgba(14,14,26,0.94); backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 12px 0;
+    }
+    .header__inner { display: flex; align-items: center; justify-content: space-between; max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+    .header__logo { display: flex; align-items: center; gap: 10px; }
+    .header__logo-icon { width: 30px; height: 30px; }
+    .header__logo-icon img { width: 100%; height: 100%; object-fit: contain; filter: brightness(0) invert(1); }
+    .header__logo-text { font-family: "M PLUS 1", sans-serif; font-weight: 900; font-size: 13px; color: #fff; letter-spacing: .04em; }
+    .header__nav { display: flex; gap: 32px; align-items: center; }
+    .header__nav a { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.55); transition: color .2s; }
+    .header__nav a:hover { color: var(--blue); }
+    .header__nav .btn { padding: 8px 20px; font-size: 12px; letter-spacing: .1em; }
+    .header__burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .header__burger span { display: block; width: 22px; height: 1.5px; background: rgba(255,255,255,0.8); }
+
+    /* ══════════════════════════════════════
+       HERO  — deep purple-black
+    ══════════════════════════════════════ */
+    .hero {
+      position: relative; min-height: 100vh;
+      background: var(--indigo);
+      overflow: hidden; display: flex; align-items: stretch;
+      padding-top: 70px;
+    }
+    /* Huge ghost text watermark */
+    .hero__ghost {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: "M PLUS 1", sans-serif; font-weight: 900;
+      font-size: clamp(100px, 18vw, 220px);
+      color: rgba(102,193,255,0.04);
+      white-space: nowrap; pointer-events: none; z-index: 0;
+      letter-spacing: -.03em; line-height: 1;
+      user-select: none;
+    }
+    /* Diagonal color band */
+    .hero__band {
+      position: absolute; top: 0; right: 0; bottom: 0;
+      width: 44%;
+      background: linear-gradient(180deg, rgba(102,193,255,0.06) 0%, rgba(255,213,128,0.06) 100%);
+      clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%);
+      pointer-events: none; z-index: 0;
+    }
+    .hero__grid {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1.1fr 1fr;
+      align-items: flex-end;
+      max-width: 1300px; margin: 0 auto; padding: 0 24px; width: 100%;
+    }
+    .hero__char { display: flex; justify-content: center; align-items: flex-end; }
+    .hero__char--ruka { justify-content: flex-end; padding-right: 8px; }
+    .hero__char--hinata { justify-content: flex-start; padding-left: 8px; }
+    .hero__char img {
+      width: auto; height: 74vh; max-height: 700px; max-width: 420px;
+      filter: drop-shadow(0 20px 48px rgba(0,0,0,.5));
+    }
+    .hero__content { text-align: center; padding: 56px 12px 80px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .hero__kicker {
+      font-size: 10px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--blue); border-top: 1px solid rgba(102,193,255,0.4); border-bottom: 1px solid rgba(102,193,255,0.4);
+      padding: 6px 0; width: 100%; max-width: 260px;
+    }
+    .hero__title {
+      font-size: clamp(34px, 5.5vw, 68px); font-weight: 900; line-height: 1.05; letter-spacing: -.02em;
+      color: #fff;
+    }
+    .hero__title span { display: block; color: transparent; -webkit-text-stroke: 1.5px rgba(255,255,255,0.35); }
+    .hero__title em { font-style: normal; color: var(--blue); }
+    .hero__sub { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.9; letter-spacing: .02em; }
+    .hero__sub strong { color: rgba(255,255,255,0.9); font-weight: 700; }
+    .hero__icons { display: flex; gap: 14px; align-items: center; justify-content: center; }
+    .hero__icons img { width: 40px; height: 40px; object-fit: contain; filter: brightness(0) invert(1) opacity(.5); animation: flt 4s ease-in-out infinite; }
+    .hero__icons img:nth-child(2) { animation-delay: .7s; }
+    .hero__icons img:nth-child(3) { animation-delay: 1.4s; }
+    .hero__icons img:nth-child(4) { animation-delay: 2.1s; }
+    @keyframes flt { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    .hero__rule { width: 40px; height: 1px; background: rgba(255,255,255,0.2); }
+    .hero__badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 320px; }
+    .hero__badge {
+      padding: 5px 14px; border: 1px solid rgba(255,255,255,0.14);
+      font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: .06em;
+    }
+    .hero__ctas { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    /* Bottom line decoration */
+    .hero__deco { position: absolute; pointer-events: none; z-index: 1; }
+    .hero__deco img { width: 100%; height: auto; object-fit: contain; filter: brightness(0) invert(1) opacity(.15); }
+    .hero__deco--1 { top: 13%; left: 5%; width: 48px; animation: flt 4.5s ease-in-out infinite; }
+    .hero__deco--2 { top: 18%; right: 5%; width: 44px; animation: flt 5s ease-in-out infinite 1s; }
+    .hero__deco--3 { bottom: 20%; left: 4%; width: 46px; animation: flt 3.8s ease-in-out infinite .5s; }
+    .hero__deco--4 { bottom: 26%; right: 4%; width: 40px; animation: flt 4.2s ease-in-out infinite 1.5s; }
+
+    /* ── Diagonal cut divider ── */
+    .cut { width: 100%; overflow: hidden; line-height: 0; display: block; }
+    .cut svg { display: block; width: 100%; }
+
+    /* ══════════════════════════════════════
+       ABOUT  — warm cream
+    ══════════════════════════════════════ */
+    .section--about {
+      background: var(--cream);
+      padding: 100px 0 80px;
+      position: relative; overflow: hidden;
+    }
+    .about__issue {
+      position: absolute; top: -20px; right: -10px;
+      font-family: "M PLUS 1", sans-serif; font-weight: 900;
+      font-size: clamp(120px, 18vw, 200px);
+      color: rgba(0,0,0,0.04); line-height: 1;
+      pointer-events: none; user-select: none;
+      letter-spacing: -.04em;
+    }
+    .about__inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: center;
+    }
+    .about__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; color: var(--blue-dark); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .about__eyebrow::before { content: ""; display: block; width: 32px; height: 1px; background: var(--blue-dark); }
+    .about__title { font-size: clamp(32px, 4.5vw, 54px); font-weight: 900; color: var(--ink); line-height: 1.1; margin-bottom: 28px; }
+    .about__title em { font-style: normal; color: var(--blue-dark); }
+    .about__lead { font-size: 15px; line-height: 2; color: #444; margin-bottom: 20px; }
+    .about__body { font-size: 13px; line-height: 2; color: #666; }
+    .wp-badge {
+      display: flex; align-items: center; gap: 16px;
+      background: #fff; padding: 20px 24px; margin-top: 32px;
+      border-left: 3px solid var(--blue);
+    }
+    .wp-badge__icon { width: 48px; height: 48px; flex-shrink: 0; }
+    .wp-badge__icon img { width: 100%; height: 100%; object-fit: contain; }
+    .wp-badge__text h4 { font-size: 14px; font-weight: 700; margin-bottom: 3px; color: var(--ink); }
+    .wp-badge__text p { font-size: 12px; color: #777; }
+    .about__chars { display: flex; gap: 0; justify-content: center; align-items: flex-end; }
+    .about__char { flex: 1; text-align: center; }
+    .about__char img { width: 100%; max-width: 210px; filter: drop-shadow(4px 6px 16px rgba(0,0,0,.1)); }
+    .about__char-name {
+      display: inline-block; margin-top: 12px;
+      font-size: 13px; font-weight: 700; letter-spacing: .08em;
+    }
+    .about__char-name--ruka { color: var(--blue-dark); border-bottom: 2px solid var(--blue); padding-bottom: 2px; }
+    .about__char-name--hinata { color: var(--yellow-dark); border-bottom: 2px solid var(--yellow); padding-bottom: 2px; }
+
+    /* ── CHAR ANIMATION STRIP ── */
+    .char-strip { overflow: hidden; display: block; line-height: 0; font-size: 0; background: var(--cream); }
+    .char-strip__inner {
+      width: 100vw; position: relative; left: 50%; transform: translateX(-50%);
+      display: flex; align-items: flex-end; justify-content: center;
+      gap: 0; line-height: 0; font-size: 0;
+    }
+    .char-anim { position: relative; display: flex; align-items: flex-end; flex-shrink: 0; }
+    .char-anim img:nth-child(1) { display: block; height: var(--h, 180px); width: auto; filter: drop-shadow(3px 4px 0 rgba(0,0,0,0.08)); }
+    .char-anim img:nth-child(2) { position: absolute; bottom: 0; left: 0; height: var(--h, 180px); width: auto; filter: drop-shadow(3px 4px 0 rgba(0,0,0,0.08)); }
+    .char-anim:not(.char-anim--s) img:nth-child(1) { animation: caA var(--dur,2s) step-end infinite var(--del,0s); }
+    .char-anim:not(.char-anim--s) img:nth-child(2) { animation: caB var(--dur,2s) step-end infinite var(--del,0s); }
+    .char-anim--s img:nth-child(1) { animation: none; }
+    @keyframes caA { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+    @keyframes caB { 0%,49%{opacity:0} 50%,100%{opacity:1} }
+    .char-strip__wave { display: block; width: 100%; margin-top: -1px; }
+    @media (max-width:600px) { .char-anim img:nth-child(1), .char-anim img:nth-child(2) { height: calc(var(--h,180px)*.6); } }
+
+    /* ══════════════════════════════════════
+       MOUSE — alternating colored halves
+    ══════════════════════════════════════ */
+    .section--mouse { padding: 0; }
+    /* M2 Ruka — blue */
+    .mouse-block {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 560px;
+    }
+    .mouse-block__vis {
+      display: flex; align-items: center; justify-content: center;
+      padding: 60px 48px; position: relative; overflow: hidden;
+    }
+    .mouse-block__vis--blue { background: #cce8ff; }
+    .mouse-block__vis--yellow { background: #fff3cc; }
+    .mouse-block__vis-num {
+      position: absolute; bottom: -20px; right: -10px;
+      font-family: "M PLUS 1", sans-serif; font-weight: 900;
+      font-size: 180px; line-height: 1; color: rgba(0,0,0,0.05);
+      pointer-events: none; user-select: none;
+    }
+    .mouse-block__vis img { width: 100%; max-width: 400px; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.18)); position: relative; z-index: 1; }
+    .mouse-block__body {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 60px 52px;
+    }
+    .mouse-block__body--light { background: #fff; }
+    .mouse-block__body--cream { background: var(--cream); }
+    .mouse-block__eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .mouse-block__eyebrow--blue { color: var(--blue-dark); }
+    .mouse-block__eyebrow--blue::before { content: ""; width: 28px; height: 2px; background: var(--blue); display: block; }
+    .mouse-block__eyebrow--yellow { color: var(--yellow-dark); }
+    .mouse-block__eyebrow--yellow::before { content: ""; width: 28px; height: 2px; background: var(--yellow); display: block; }
+    .mouse-block__model { font-size: 64px; font-weight: 900; line-height: 1; letter-spacing: -.03em; color: var(--ink); }
+    .mouse-block__model em { font-style: normal; }
+    .mouse-block__model--blue em { color: var(--blue-dark); }
+    .mouse-block__model--yellow em { color: var(--yellow-dark); }
+    .mouse-block__sub { font-size: 12px; color: var(--muted); margin: 8px 0 20px; letter-spacing: .04em; }
+    .mouse-block__desc { font-size: 13px; line-height: 1.95; color: #555; margin-bottom: 22px; }
+    .feat-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .feat-item { display: flex; align-items: flex-start; gap: 12px; font-size: 13px; }
+    .feat-item__num {
+      flex-shrink: 0; font-family: "M PLUS 1", sans-serif; font-weight: 900;
+      font-size: 11px; color: var(--blue-dark); min-width: 20px;
+      padding-top: 2px;
+    }
+    .feat-item__num--y { color: var(--yellow-dark); }
+    .feat-item__text strong { display: block; font-weight: 700; color: var(--ink); margin-bottom: 1px; }
+    .feat-item__text span { font-size: 12px; color: var(--muted); }
+
+    /* ══════════════════════════════════════
+       KEYBOARD — deep indigo
+    ══════════════════════════════════════ */
+    .section--keyboard {
+      background: var(--indigo); color: #fff;
+      padding: 100px 0;
+      position: relative; overflow: hidden;
+    }
+    .section--keyboard .sec-eyebrow {
+      font-size: 10px; font-weight: 700; letter-spacing: .25em; text-transform: uppercase;
+      color: var(--blue); text-align: center; margin-bottom: 16px;
+      display: flex; align-items: center; justify-content: center; gap: 16px;
+    }
+    .section--keyboard .sec-eyebrow::before, .section--keyboard .sec-eyebrow::after {
+      content: ""; display: block; height: 1px; width: 48px; background: rgba(102,193,255,0.35);
+    }
+    .section--keyboard .sec-title {
+      font-size: clamp(36px, 5.5vw, 64px); font-weight: 900; text-align: center;
+      color: #fff; letter-spacing: -.02em; margin-bottom: 8px;
+    }
+    .section--keyboard .sec-sub { text-align: center; font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 52px; }
+    .kb-main-img {
+      width: 100%; max-width: 1000px; margin: 0 auto 28px; display: block;
+      border-radius: 4px;
+      box-shadow: 0 32px 80px rgba(0,0,0,.6);
+    }
+    .kb-back-img {
+      width: 100%; max-width: 1000px; margin: 0 auto 56px; display: block;
+      border-radius: 4px; box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    }
+    .kb-feats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; margin-bottom: 56px; background: rgba(255,255,255,0.06); }
+    .kb-feat {
+      background: var(--indigo); padding: 32px 24px; text-align: left;
+      transition: background .2s;
+    }
+    .kb-feat:hover { background: rgba(102,193,255,0.07); }
+    .kb-feat__ico { font-size: 28px; display: block; margin-bottom: 14px; }
+    .kb-feat h4 { font-size: 14px; font-weight: 700; margin-bottom: 8px; color: #fff; }
+    .kb-feat p { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.7; }
+
+    .creator-bar { padding-top: 44px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; }
+    .creator-bar h3 { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 28px; }
+    .creator-cards { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
+    .creator-card { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+    .creator-card__ava { width: 76px; height: 76px; border-radius: 50%; object-fit: cover; border: 2px solid var(--blue); }
+    .creator-card__ava--y { border-color: var(--yellow); }
+    .creator-card__role { font-size: 10px; color: rgba(255,255,255,0.35); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .creator-card__name { font-size: 14px; font-weight: 700; color: #fff; margin-top: -4px; }
+
+    /* ══════════════════════════════════════
+       MOUSEPAD — warm amber split
+    ══════════════════════════════════════ */
+    .section--mousepad { background: var(--amber); padding: 100px 0; position: relative; overflow: hidden; }
+    .mousepad__bg-text {
+      position: absolute; bottom: -30px; left: -10px;
+      font-family: "M PLUS 1", sans-serif; font-weight: 900;
+      font-size: clamp(80px, 14vw, 160px);
+      color: rgba(201,138,0,0.07); line-height: 1; pointer-events: none; user-select: none;
+      letter-spacing: -.03em;
+    }
+    .sec-eyebrow-y {
+      font-size: 10px; font-weight: 700; letter-spacing: .25em; text-transform: uppercase;
+      color: var(--yellow-dark); text-align: center; margin-bottom: 16px;
+      display: flex; align-items: center; justify-content: center; gap: 16px;
+    }
+    .sec-eyebrow-y::before, .sec-eyebrow-y::after { content: ""; display: block; height: 1px; width: 48px; background: rgba(201,138,0,0.4); }
+    .sec-title-y { font-size: clamp(34px, 5.5vw, 60px); font-weight: 900; text-align: center; color: var(--ink); letter-spacing: -.02em; margin-bottom: 8px; }
+    .sec-sub-amber { text-align: center; font-size: 13px; color: #888; margin-bottom: 52px; }
+    .pad-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 48px; }
+    .pad-card {
+      background: #fff; overflow: hidden;
+      box-shadow: 0 4px 32px rgba(0,0,0,.08);
+    }
+    .pad-card__img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
+    .pad-card__body { padding: 28px; border-top: 2px solid; }
+    .pad-card__body--ruka { border-color: var(--blue); }
+    .pad-card__body--hinata { border-color: var(--yellow); }
+    .pad-card__type { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 6px; }
+    .pad-card__type--ruka { color: var(--blue-dark); }
+    .pad-card__type--hinata { color: var(--yellow-dark); }
+    .pad-card__title { font-size: 26px; font-weight: 900; margin-bottom: 4px; color: var(--ink); }
+    .pad-card__sub { font-size: 12px; color: var(--muted); margin-bottom: 16px; }
+    .pad-card__feats { display: flex; flex-direction: column; gap: 6px; }
+    .pad-card__feat { display: flex; align-items: center; gap: 10px; font-size: 13px; color: #444; }
+    .pad-card__feat::before { content: "—"; color: var(--blue-dark); font-weight: 700; flex-shrink: 0; }
+    .pad-card--hinata .pad-card__feat::before { color: var(--yellow-dark); }
+
+    /* ══════════════════════════════════════
+       BRAND — black
+    ══════════════════════════════════════ */
+    .section--brand { background: #0e0e1a; color: #fff; padding: 100px 0; }
+    .brand-eyebrow {
+      font-size: 10px; font-weight: 700; letter-spacing: .25em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); text-align: center; margin-bottom: 16px;
+    }
+    .brand-title { font-size: clamp(34px, 5vw, 58px); font-weight: 900; text-align: center; color: #fff; letter-spacing: -.02em; margin-bottom: 60px; }
+    .brand-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.07); }
+    .brand-card { background: #0e0e1a; padding: 52px 44px; }
+    .brand-card__no { font-family: "M PLUS 1", sans-serif; font-weight: 100; font-size: 72px; color: rgba(255,255,255,0.07); line-height: 1; margin-bottom: 20px; }
+    .brand-card__logo-text { font-family: "M PLUS 1", sans-serif; font-weight: 900; font-size: 28px; margin-bottom: 4px; }
+    .brand-card__logo-text--blue { color: var(--blue); }
+    .brand-card__logo-text--yellow { color: var(--yellow); }
+    .brand-card__sub { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
+    .brand-card p { font-size: 13px; line-height: 2; color: rgba(255,255,255,0.55); }
+    .brand-rule { width: 100%; height: 1px; background: rgba(255,255,255,0.07); margin: 0; }
+
+    /* ══════════════════════════════════════
+       RESERVATION
+    ══════════════════════════════════════ */
+    .reservation {
+      padding: 120px 0;
+      background: linear-gradient(120deg, #1a3a5c 0%, var(--indigo) 40%, #2a1a00 70%, #1a0f00 100%);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .reservation__cross {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .reservation__inner { position: relative; z-index: 1; }
+    .reservation__eyebrow {
+      font-size: 10px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); margin-bottom: 20px; display: block;
+    }
+    .reservation__title {
+      font-size: clamp(36px, 6vw, 80px); font-weight: 900; letter-spacing: -.03em;
+      background: linear-gradient(120deg, var(--blue) 0%, #fff 50%, var(--yellow) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 16px; line-height: 1.05;
+    }
+    .reservation__sub { font-size: 15px; color: rgba(255,255,255,0.5); margin-bottom: 56px; line-height: 1.9; }
+    .res-benefits { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; max-width: 820px; margin: 0 auto 48px; background: rgba(255,255,255,0.07); }
+    .res-benefit { background: rgba(14,14,26,0.6); padding: 32px 24px; backdrop-filter: blur(4px); }
+    .res-benefit__ico { font-size: 28px; display: block; margin-bottom: 10px; }
+    .res-benefit h4 { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .res-benefit p { font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.7; }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    .footer { background: #08080f; color: #fff; padding: 60px 0 28px; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer__top { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 28px; }
+    .footer__brand h2 { font-size: 16px; font-weight: 900; color: #fff; margin-bottom: 10px; letter-spacing: .02em; }
+    .footer__brand p { font-size: 12px; color: rgba(255,255,255,0.28); line-height: 1.9; }
+    .footer__col h4 { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .18em; color: rgba(255,255,255,0.25); margin-bottom: 16px; }
+    .footer__col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer__col ul li a { font-size: 13px; color: rgba(255,255,255,0.32); transition: color .2s; }
+    .footer__col ul li a:hover { color: var(--blue); }
+    .footer__bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer__copy { font-size: 11px; color: rgba(255,255,255,0.18); }
+    .footer__links { display: flex; gap: 20px; }
+    .footer__links a { font-size: 11px; color: rgba(255,255,255,0.22); transition: color .2s; }
+    .footer__links a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .hero__grid { grid-template-columns: 1fr; }
+      .hero__char--ruka, .hero__char--hinata { display: none; }
+      .hero__content { padding: 80px 16px 60px; }
+      .about__inner { grid-template-columns: 1fr; gap: 40px; }
+      .mouse-block { grid-template-columns: 1fr; }
+      .mouse-block__vis { min-height: 300px; }
+      .kb-feats { grid-template-columns: 1fr 1fr; }
+      .pad-grid { grid-template-columns: 1fr; }
+      .brand-grid { grid-template-columns: 1fr; }
+      .res-benefits { grid-template-columns: 1fr; max-width: 420px; }
+      .footer__top { grid-template-columns: 1fr; gap: 32px; }
+      .header__nav { display: none; }
+      .header__burger { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .kb-feats { grid-template-columns: 1fr; }
+      .hero__ctas { flex-direction: column; align-items: center; }
+      .footer__bottom { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════ HEADER ════════ -->
+<header class="header">
+  <div class="header__inner">
+    <a href="#top" class="header__logo">
+      <div class="header__logo-icon"><img src="../img1/傘.png" alt="" /></div>
+      <span class="header__logo-text">Weather Planet × PCデバイスコラボ</span>
+    </a>
+    <nav class="header__nav">
+      <a href="#mouse">Mouse</a>
+      <a href="#keyboard">Keyboard</a>
+      <a href="#mousepad">Mousepad</a>
+      <a href="#brands">Brand</a>
+      <a href="#reservation" class="btn btn--blue">予約する</a>
+    </nav>
+    <button class="header__burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero" id="top">
+  <div class="hero__ghost">COLLAB</div>
+  <div class="hero__band"></div>
+  <div class="hero__deco hero__deco--1"><img src="../img1/傘.png" alt="" /></div>
+  <div class="hero__deco hero__deco--2"><img src="../img1/太陽.png" alt="" /></div>
+  <div class="hero__deco hero__deco--3"><img src="../img1/土星.png" alt="" /></div>
+  <div class="hero__deco hero__deco--4"><img src="../img1/肉球.png" alt="" /></div>
+
+  <div class="hero__grid">
+    <div class="hero__char hero__char--ruka reveal-l">
+      <img src="../img1/ルカさん立ち絵.png" alt="雨海ルカ" />
+    </div>
+
+    <div class="hero__content">
+      <div class="hero__kicker reveal">Limited Collab Collection 2026</div>
+      <h1 class="hero__title reveal d1">
+        Weather<br />Planet<br /><span>×</span><br /><em>PC Device</em>
+      </h1>
+      <div class="hero__rule reveal d2"></div>
+      <p class="hero__sub reveal d2">
+        <strong>天晴ひなた × 雨海ルカ</strong> 監修<br />
+        Darmoshark × Haruhi Products
+      </p>
+      <div class="hero__icons reveal d3">
+        <img src="../img1/イルカ.png" alt="" />
+        <img src="../img1/メンダコ.png" alt="" />
+        <img src="../img1/土星.png" alt="" />
+        <img src="../img1/肉球.png" alt="" />
+      </div>
+      <div class="hero__badges reveal d3">
+        <span class="hero__badge">Gaming Mouse M2 / M3XS</span>
+        <span class="hero__badge">Keyboard TOP75</span>
+        <span class="hero__badge">Mousepad × 2</span>
+      </div>
+      <div class="hero__ctas reveal d4">
+        <a href="#mouse" class="btn btn--blue btn--lg">製品を見る</a>
+        <a href="#reservation" class="btn btn--outline-w btn--lg">予約する ↗</a>
+      </div>
+    </div>
+
+    <div class="hero__char hero__char--hinata reveal-r">
+      <img src="../img1/ひなたさん立ち絵.png" alt="天晴ひなた" />
+    </div>
+  </div>
+</section>
+
+<!-- cut hero → about -->
+<div class="cut" style="background:var(--indigo)">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="0,0 1440,0 1440,60 0,0" fill="var(--cream)"/>
+  </svg>
+</div>
+
+<!-- ════════ ABOUT ════════ -->
+<section class="section--about" id="about">
+  <div class="about__issue">01</div>
+  <div class="container">
+    <div class="about__inner">
+      <div class="reveal-l">
+        <div class="about__eyebrow">① About This Collab</div>
+        <h2 class="about__title">Weather Planet<br />× <em>PCデバイスコラボ</em></h2>
+        <p class="about__lead">今回コラボの枠を越え、雨海ルカ様・天晴ひなた様、お二方監修の元、各コラボアイテムが開発されました！</p>
+        <p class="about__body">マウス・キーボードはDarmoshark、マウスパッドはハルヒプロダクツが製造。各アイテムはキャラクターの世界観を丁寧に落とし込んだ、こだわりの詰まったデバイスです。デザイナー・イラストレーターの方々とも連携し、細部まで徹底的にこだわった一点ものをご覧ください。</p>
+        <div class="wp-badge">
+          <div class="wp-badge__icon"><img src="../img1/傘.png" alt="" /></div>
+          <div class="wp-badge__text">
+            <h4>Weather Planet</h4>
+            <p>天晴ひなた・雨海ルカが所属するVTuberグループ。晴れの日も雨の日も楽しい天気予報をお届け。</p>
+          </div>
+        </div>
+      </div>
+      <div class="about__chars reveal-r">
+        <div class="about__char">
+          <img src="../img1/雨海ルカ様.png" alt="雨海ルカ" />
+          <p class="about__char-name about__char-name--ruka">雨海ルカ</p>
+        </div>
+        <div class="about__char">
+          <img src="../img1/天晴ひなた様.png" alt="天晴ひなた" />
+          <p class="about__char-name about__char-name--hinata">天晴ひなた</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- character animation strip (cream bg → blue section) -->
+<div class="char-strip">
+  <div class="char-strip__inner">
+    <div class="char-anim" style="--h:230px; --dur:2.2s; --del:0.1s">
+      <img src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト3R.png" alt="ルカ 全身A">
+      <img src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト3R@.png" alt="ルカ 全身B">
+    </div>
+    <div class="char-anim" style="--h:160px; --dur:1.6s; --del:0s">
+      <img src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2R.png" alt="ルカ のぞきA">
+      <img src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2R@.png" alt="ルカ のぞきB">
+    </div>
+    <div class="char-anim" style="--h:160px; --dur:1.8s; --del:0.6s">
+      <img src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2H.png" alt="ひなた のぞきA">
+      <img src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2H@.png" alt="ひなた のぞきB">
+    </div>
+    <div class="char-anim char-anim--s" style="--h:230px">
+      <img src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト3H.png" alt="ひなた 全身">
+    </div>
+  </div>
+  <svg class="char-strip__wave" viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="0,48 1440,0 1440,48" fill="#cce8ff"/>
+  </svg>
+</div>
+
+<!-- ════════ MOUSE ════════ -->
+<section class="section--mouse" id="mouse">
+
+  <!-- M2 Ruka -->
+  <div class="mouse-block reveal">
+    <div class="mouse-block__vis mouse-block__vis--blue">
+      <div class="mouse-block__vis-num">M2</div>
+      <img src="../img1/M2正面ルカモデル.png" alt="Darmoshark M2 雨海ルカモデル" />
+    </div>
+    <div class="mouse-block__body mouse-block__body--light">
+      <div class="mouse-block__eyebrow mouse-block__eyebrow--blue">② Gaming Mouse — 雨海ルカ Edition</div>
+      <p class="mouse-block__model mouse-block__model--blue"><em>M2</em></p>
+      <p class="mouse-block__sub">Darmoshark M2 ゲーミングマウス | ルカモデル</p>
+      <p class="mouse-block__desc">雨海ルカの海と雨の世界観をインスパイアしたスカイブルースパークルカラー。ハニカム構造による超軽量設計で、長時間のゲームセッションも快適にプレイ可能です。</p>
+      <ul class="feat-list">
+        <li class="feat-item"><span class="feat-item__num">01</span><div class="feat-item__text"><strong>特注スカイブルースパークルカラー</strong><span>雨海ルカ監修の限定カラーリング・スパークル塗装</span></div></li>
+        <li class="feat-item"><span class="feat-item__num">02</span><div class="feat-item__text"><strong>ハニカム構造 超軽量設計</strong><span>手首への負担を軽減、長時間プレイも疲れにくい</span></div></li>
+        <li class="feat-item"><span class="feat-item__num">03</span><div class="feat-item__text"><strong>高性能ゲーミングセンサー搭載</strong><span>2.4GHz ワイヤレス / USB有線 両対応</span></div></li>
+        <li class="feat-item"><span class="feat-item__num">04</span><div class="feat-item__text"><strong>雨海ルカ 監修デザイン</strong><span>サイドボタン・ホイール部にもルカモチーフを採用</span></div></li>
+      </ul>
+      <a href="#reservation" class="btn btn--blue">予約する ↗</a>
+    </div>
+  </div>
+
+  <!-- M3XS Hinata -->
+  <div class="mouse-block reveal" style="direction:rtl">
+    <div class="mouse-block__vis mouse-block__vis--yellow" style="direction:ltr">
+      <div class="mouse-block__vis-num">M3XS</div>
+      <img src="../img1/M3XS正面ひなたモデル.png" alt="Darmoshark M3XS 天晴ひなたモデル" />
+    </div>
+    <div class="mouse-block__body mouse-block__body--cream" style="direction:ltr">
+      <div class="mouse-block__eyebrow mouse-block__eyebrow--yellow">天晴ひなた Edition</div>
+      <p class="mouse-block__model mouse-block__model--yellow"><em>M3XS</em></p>
+      <p class="mouse-block__sub">Darmoshark M3XS ゲーミングマウス | ひなたモデル</p>
+      <p class="mouse-block__desc">天晴ひなたの宇宙・惑星の世界観をイメージしたスターリーブラック×ゴールドカラー。ボディには惑星と肉球モチーフのカラフルなスパークルが散りばめられています。</p>
+      <ul class="feat-list">
+        <li class="feat-item"><span class="feat-item__num feat-item__num--y">01</span><div class="feat-item__text"><strong>スターリーブラック × ゴールド</strong><span>宇宙をイメージしたカラフルスパークル塗装</span></div></li>
+        <li class="feat-item"><span class="feat-item__num feat-item__num--y">02</span><div class="feat-item__text"><strong>惑星 × 肉球モチーフデザイン</strong><span>ひなたのシンボルが散りばめられたオリジナルデザイン</span></div></li>
+        <li class="feat-item"><span class="feat-item__num feat-item__num--y">03</span><div class="feat-item__text"><strong>コンパクトエルゴノミクス設計</strong><span>長時間の使用でも手にフィットする形状</span></div></li>
+        <li class="feat-item"><span class="feat-item__num feat-item__num--y">04</span><div class="feat-item__text"><strong>天晴ひなた 監修デザイン</strong><span>ボトムに限定ひなたロゴ刻印入り</span></div></li>
+      </ul>
+      <a href="#reservation" class="btn btn--yellow">予約する ↗</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- cut mouse → keyboard -->
+<div class="cut" style="background:#fff3cc">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="0,60 1440,0 1440,60" fill="var(--indigo)"/>
+  </svg>
+</div>
+
+<!-- ════════ KEYBOARD ════════ -->
+<section class="section--keyboard" id="keyboard">
+  <div class="container">
+    <div class="sec-eyebrow reveal">③ Gaming Keyboard</div>
+    <h2 class="sec-title reveal d1">ゲーミングキーボード</h2>
+    <p class="sec-sub reveal d2">Darmoshark TOP75 × Weather Planet 限定デザイン</p>
+
+    <img class="kb-main-img reveal" src="../img1/keyboard front ESC 2.png" alt="TOP75 表面" />
+    <img class="kb-back-img reveal" src="../img1/keyboard back ESC 2.png" alt="TOP75 裏面" />
+
+    <div class="kb-feats">
+      <div class="kb-feat reveal"><span class="kb-feat__ico">⌨️</span><h4>75% コンパクトレイアウト</h4><p>テンキーレスで省スペース。ゲームにも作業にも最適。</p></div>
+      <div class="kb-feat reveal d1"><span class="kb-feat__ico">🔧</span><h4>ホットスワップ対応</h4><p>工具不要でスイッチ交換可能。好みの打鍵感に。</p></div>
+      <div class="kb-feat reveal d2"><span class="kb-feat__ico">🌈</span><h4>South-facing RGB</h4><p>1,600万色のカスタマイズライティング。</p></div>
+      <div class="kb-feat reveal d1"><span class="kb-feat__ico">🔌</span><h4>USB-C 有線接続</h4><p>安定した有線接続。遅延ゼロでプレイ。</p></div>
+      <div class="kb-feat reveal d2"><span class="kb-feat__ico">🎨</span><h4>限定キーキャップ</h4><p>Weather Planet世界観の限定PBTキーキャップ。</p></div>
+      <div class="kb-feat reveal d3"><span class="kb-feat__ico">🇯🇵</span><h4>日本語配列（JIS）</h4><p>日本語入力に最適化した配列。</p></div>
+    </div>
+
+    <!-- Packaging -->
+    <div class="reveal" style="margin-bottom:52px">
+      <p style="font-size:10px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,0.3); text-align:center; margin-bottom:20px">Package Design</p>
+      <img src="../img1/WeatherPlanetさま コラボキーボード 外箱デザイン案.png" alt="外箱デザイン案"
+        style="display:block; width:100%; max-width:900px; margin:0 auto; box-shadow:0 24px 60px rgba(0,0,0,.6)" />
+    </div>
+
+    <div class="creator-bar reveal">
+      <h3>Keyboard Designer</h3>
+      <div class="creator-cards">
+        <div class="creator-card">
+          <img class="creator-card__ava" src="../img1/みたらしねこアイコン(キーボードデザイナー).jpg" alt="みたらしねこ" />
+          <p class="creator-card__role">Keyboard Designer</p>
+          <p class="creator-card__name">みたらしねこ</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- cut keyboard → mousepad -->
+<div class="cut" style="background:var(--indigo)">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="0,0 1440,60 0,60" fill="var(--amber)"/>
+  </svg>
+</div>
+
+<!-- ════════ MOUSEPAD ════════ -->
+<section class="section--mousepad" id="mousepad">
+  <div class="mousepad__bg-text">PAD</div>
+  <div class="container" style="position:relative; z-index:1">
+    <div class="sec-eyebrow-y reveal">④ Gaming Mousepad</div>
+    <h2 class="sec-title-y reveal d1">ゲーミングマウスパッド</h2>
+    <p class="sec-sub-amber reveal d2">Haruhi Products × Weather Planet — 2タイプ展開</p>
+
+    <div class="pad-grid">
+      <div class="pad-card reveal-l">
+        <img class="pad-card__img" src="../img1/マウスパッド　ルカイラスト.png" alt="コントロールタイプ ルカ" />
+        <div class="pad-card__body pad-card__body--ruka">
+          <p class="pad-card__type pad-card__type--ruka">Control Type — 雨海ルカ Edition</p>
+          <h3 class="pad-card__title">コントロールタイプ</h3>
+          <p class="pad-card__sub">細かいエイムコントロールを実現する表面素材</p>
+          <ul class="pad-card__feats">
+            <li class="pad-card__feat">コントロール特化のテキスタイル表面</li>
+            <li class="pad-card__feat">防水コーティング加工</li>
+            <li class="pad-card__feat">4mm 厚 高密度ゴムベース</li>
+            <li class="pad-card__feat">サイズ: 900 × 400 mm</li>
+          </ul>
+          <img src="../img1/ルカ様コントロールタイプ(実物).png" alt="実物"
+            style="width:100%; margin-top:18px; box-shadow:0 4px 20px rgba(0,0,0,.1)" />
+        </div>
+      </div>
+      <div class="pad-card pad-card--hinata reveal-r">
+        <img class="pad-card__img" src="../img1/マウスパッド　ひなたイラスト.png" alt="スピードタイプ ひなた" />
+        <div class="pad-card__body pad-card__body--hinata">
+          <p class="pad-card__type pad-card__type--hinata">Speed Type — 天晴ひなた Edition</p>
+          <h3 class="pad-card__title">スピードタイプ</h3>
+          <p class="pad-card__sub">素早いマウス操作をサポートする低摩擦表面</p>
+          <ul class="pad-card__feats">
+            <li class="pad-card__feat">スピード特化の低摩擦表面</li>
+            <li class="pad-card__feat">防水コーティング加工</li>
+            <li class="pad-card__feat">4mm 厚 高密度ゴムベース</li>
+            <li class="pad-card__feat">サイズ: 900 × 400 mm</li>
+          </ul>
+          <img src="../img1/ひなた様スピードタイプ(実物).png" alt="実物"
+            style="width:100%; margin-top:18px; box-shadow:0 4px 20px rgba(0,0,0,.1)" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Back quality -->
+    <div class="reveal" style="margin-bottom:48px">
+      <p style="font-size:10px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:#999; text-align:center; margin-bottom:18px">Carbon Fiber Backing</p>
+      <div style="position:relative; max-width:720px; margin:0 auto; overflow:hidden; box-shadow:0 16px 48px rgba(0,0,0,.15)">
+        <img src="../img1/ひなた裏面.jpg" alt="裏面" style="width:100%; display:block" />
+        <div style="position:absolute; bottom:0; left:0; right:0; padding:20px 28px; background:linear-gradient(transparent,rgba(0,0,0,.62)); color:#fff">
+          <p style="font-size:13px; font-weight:700">高密度カーボンファイバーテクスチャー採用</p>
+          <p style="font-size:12px; opacity:.75; margin-top:3px">滑り止めゴムベースで、激しいプレイ中もずれにくい安定した使い心地を提供</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Illustrator -->
+    <div style="padding-top:36px; border-top:1px solid rgba(0,0,0,0.1); text-align:center" class="reveal">
+      <p style="font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:#aaa; margin-bottom:24px">Illustrator</p>
+      <div style="display:flex; gap:24px; justify-content:center; flex-wrap:wrap">
+        <div style="display:flex; flex-direction:column; align-items:center; gap:8px">
+          <img style="width:76px; height:76px; border-radius:50%; object-fit:cover; border:2px solid var(--yellow)" src="../img1/平山寛菜アイコン(マウスパッドデザイナー).jpg" alt="平山寛菜" />
+          <p style="font-size:10px; color:#aaa; font-weight:700; letter-spacing:.1em; text-transform:uppercase">Illustrator</p>
+          <p style="font-size:15px; font-weight:700; color:var(--ink); margin-top:-4px">平山寛菜</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- cut mousepad → brand -->
+<div class="cut" style="background:var(--amber)">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="0,0 1440,60 1440,0" fill="#0e0e1a"/>
+  </svg>
+</div>
+
+<!-- ════════ BRAND ════════ -->
+<section class="section--brand" id="brands">
+  <div class="container">
+    <p class="brand-eyebrow reveal">⑤ Brand</p>
+    <h2 class="brand-title reveal d1">ブランド紹介</h2>
+    <div class="brand-grid">
+      <div class="brand-card reveal-l">
+        <div class="brand-card__no">01</div>
+        <p class="brand-card__logo-text brand-card__logo-text--blue">Darmoshark</p>
+        <p class="brand-card__sub">高性能ゲーミングデバイスブランド</p>
+        <p>Darmosharkは高性能・高品質なゲーミングデバイスを手掛けるブランド。マウス・キーボードをはじめとした製品は、世界中のゲーマーに愛されています。今回のコラボでは、マウス（M2・M3XS）とキーボード（TOP75）を担当。最高の技術とキャラクターの世界観を融合させた限定モデルを実現しました。</p>
+      </div>
+      <div class="brand-card reveal-r">
+        <div class="brand-card__no">02</div>
+        <p class="brand-card__logo-text brand-card__logo-text--yellow">Haruhi Products</p>
+        <p class="brand-card__sub">プレミアムゲーミングマウスパッドブランド</p>
+        <p>ハルヒプロダクツは国内発の高品質ゲーミングマウスパッドブランド。素材選びから縫製まで細部にこだわったマウスパッドは、プロゲーマーからも支持される品質を誇ります。今回のコラボでは、コントロールタイプ（ルカ）・スピードタイプ（ひなた）の2種類を担当しました。</p>
+      </div>
+    </div>
+    <div class="brand-rule"></div>
+  </div>
+</section>
+
+<!-- ════════ RESERVATION ════════ -->
+<section class="reservation" id="reservation">
+  <div class="reservation__cross"></div>
+  <div class="reservation__inner container">
+    <span class="reservation__eyebrow reveal">⑥ 予約特典</span>
+    <h2 class="reservation__title reveal d1">予約特典</h2>
+    <p class="reservation__sub reveal d2">ご予約いただいた方限定の特別特典をご用意しています。<br />数量限定のため、お早めにご予約ください。</p>
+    <div class="res-benefits">
+      <div class="res-benefit reveal d1">
+        <span class="res-benefit__ico">🎁</span>
+        <h4>限定ステッカーセット</h4>
+        <p>ひなた・ルカのオリジナルステッカーセット（非売品）をプレゼント</p>
+      </div>
+      <div class="res-benefit reveal d2">
+        <span class="res-benefit__ico">📮</span>
+        <h4>キャラクターポストカード</h4>
+        <p>描き下ろしイラストを使用した限定ポストカードをお届け</p>
+      </div>
+      <div class="res-benefit reveal d3">
+        <span class="res-benefit__ico">🚀</span>
+        <h4>先行発送</h4>
+        <p>予約者には一般販売より先行して優先発送いたします</p>
+      </div>
+    </div>
+    <a href="#" class="btn btn--blue btn--lg reveal d3">予約フォームへ ↗</a>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <h2>Weather Planet × PCデバイスコラボ</h2>
+        <p>天晴ひなた × 雨海ルカ 監修<br />Darmoshark × Haruhi Products<br />© 2026 Weather Planet. All rights reserved.</p>
+      </div>
+      <div class="footer__col">
+        <h4>製品</h4>
+        <ul>
+          <li><a href="#mouse">ゲーミングマウス M2</a></li>
+          <li><a href="#mouse">ゲーミングマウス M3XS</a></li>
+          <li><a href="#keyboard">ゲーミングキーボード TOP75</a></li>
+          <li><a href="#mousepad">マウスパッド コントロール</a></li>
+          <li><a href="#mousepad">マウスパッド スピード</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>リンク</h4>
+        <ul>
+          <li><a href="https://weather-pla.net/" target="_blank" rel="noopener">Weather Planet 公式</a></li>
+          <li><a href="#brands">Darmoshark</a></li>
+          <li><a href="#brands">Haruhi Products</a></li>
+          <li><a href="#reservation">予約フォーム</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 Weather Planet × PCデバイスコラボ — キャラクターイラスト © Weather Planet</p>
+      <div class="footer__links">
+        <a href="#">特定商取引法に基づく表記</a>
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">お問い合わせ</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("is-visible"); }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll(".reveal, .reveal-l, .reveal-r").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
