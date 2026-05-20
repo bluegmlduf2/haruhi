@@ -5,671 +5,2269 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
             name="description"
-            content="天晴ひなた × 雨海ルカ コラボ ゲーミングデバイスコレクション。限定デザインのメカニカルキーボード・ワイヤレスマウス。"
+            content="天晴ひなた × 雨海ルカ 監修。Weather Planet × PCデバイスコラボ。Darmoshark × Haruhi Products。限定デザインのゲーミングマウス・キーボード・マウスパッド。"
         />
-        <title>晴雨コレクション | ゲーミングマウス & キーボード</title>
+        <title>
+            Weather Planet × PCデバイスコラボ | Darmoshark × Haruhi Products
+        </title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="test.css" />
+        <style>
+            /* ============================
+       Reset & Base
+    ============================ */
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                font-family:
+                    "Noto Sans JP",
+                    -apple-system,
+                    sans-serif;
+                color: #2c2c3e;
+                background: #fff;
+                overflow-x: hidden;
+                line-height: 1.7;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+                vertical-align: bottom;
+            }
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+            ul {
+                list-style: none;
+            }
+            h1,
+            h2,
+            h3,
+            h4,
+            h5 {
+                font-family: "M PLUS 1", sans-serif;
+                line-height: 1.3;
+            }
+
+            /* ============================
+       Tokens
+    ============================ */
+            :root {
+                --blue: #66c1ff;
+                --blue-light: #dff0ff;
+                --blue-mid: #a8d8f8;
+                --blue-dark: #3a9fd9;
+                --yellow: #ffd580;
+                --yellow-light: #fff6dc;
+                --yellow-mid: #ffe4a0;
+                --yellow-dark: #e09800;
+                --dark: #1a1a2e;
+                --text: #2c2c3e;
+                --muted: #777;
+                --white: #fff;
+                --radius: 20px;
+                --radius-lg: 40px;
+                --shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+            }
+
+            /* ============================
+       Utilities
+    ============================ */
+            .container {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 0 24px;
+            }
+            .section {
+                padding: 88px 0;
+            }
+            .section--blue {
+                background: var(--blue-light);
+            }
+            .section--yellow {
+                background: var(--yellow-light);
+            }
+            .section--dark {
+                background: var(--dark);
+                color: #fff;
+            }
+
+            .reveal {
+                opacity: 0;
+                transform: translateY(28px);
+                transition:
+                    opacity 0.65s ease,
+                    transform 0.65s ease;
+            }
+            .reveal.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .reveal-l {
+                opacity: 0;
+                transform: translateX(-28px);
+                transition:
+                    opacity 0.65s ease,
+                    transform 0.65s ease;
+            }
+            .reveal-r {
+                opacity: 0;
+                transform: translateX(28px);
+                transition:
+                    opacity 0.65s ease,
+                    transform 0.65s ease;
+            }
+            .reveal-l.is-visible,
+            .reveal-r.is-visible {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            .d1 {
+                transition-delay: 0.1s !important;
+            }
+            .d2 {
+                transition-delay: 0.2s !important;
+            }
+            .d3 {
+                transition-delay: 0.3s !important;
+            }
+            .d4 {
+                transition-delay: 0.4s !important;
+            }
+
+            /* ============================
+       Section Header
+    ============================ */
+            .sec-head {
+                text-align: center;
+                margin-bottom: 56px;
+            }
+            .sec-eye {
+                display: inline-block;
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.2em;
+                text-transform: uppercase;
+                background: var(--blue-light);
+                color: var(--blue-dark);
+                padding: 4px 18px;
+                border-radius: 20px;
+                margin-bottom: 14px;
+            }
+            .sec-eye--y {
+                background: var(--yellow-light);
+                color: var(--yellow-dark);
+            }
+            .sec-title {
+                font-size: clamp(30px, 5vw, 50px);
+                font-weight: 900;
+                color: var(--blue);
+                -webkit-text-stroke: 4px #fff;
+                paint-order: stroke fill;
+            }
+            .sec-title--y {
+                color: var(--yellow-dark);
+            }
+            .sec-title--w {
+                color: #fff;
+                -webkit-text-stroke-color: rgba(0, 0, 0, 0.15);
+            }
+            .sec-sub {
+                font-size: 15px;
+                color: var(--muted);
+                margin-top: 10px;
+            }
+
+            /* ============================
+       Buttons
+    ============================ */
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                padding: 13px 30px;
+                border-radius: 50px;
+                font-family: "M PLUS 1", sans-serif;
+                font-weight: 700;
+                font-size: 14px;
+                cursor: pointer;
+                transition: 0.2s;
+                position: relative;
+            }
+            .btn--blue {
+                background: var(--blue);
+                color: #fff;
+                box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.22);
+            }
+            .btn--blue:hover {
+                transform: translate(2px, 2px);
+                box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.22);
+            }
+            .btn--yellow {
+                background: var(--yellow);
+                color: var(--dark);
+                box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.18);
+            }
+            .btn--yellow:hover {
+                transform: translate(2px, 2px);
+                box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.18);
+            }
+            .btn--ghost {
+                border: 2px solid #fff;
+                color: #fff;
+                background: transparent;
+            }
+            .btn--ghost:hover {
+                background: rgba(255, 255, 255, 0.15);
+            }
+            .btn--lg {
+                padding: 16px 44px;
+                font-size: 17px;
+            }
+
+            /* ============================
+       Header
+    ============================ */
+            .header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 100;
+                background: rgba(255, 255, 255, 0.92);
+                backdrop-filter: blur(14px);
+                border-bottom: 1px solid rgba(102, 193, 255, 0.2);
+                padding: 10px 0;
+            }
+            .header__inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 0 24px;
+            }
+            .header__logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            .header__logo-icon {
+                width: 34px;
+                height: 34px;
+            }
+            .header__logo-icon img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+            .header__logo-text {
+                font-family: "M PLUS 1", sans-serif;
+                font-weight: 900;
+                font-size: 15px;
+                background: linear-gradient(
+                    120deg,
+                    var(--blue-dark),
+                    var(--yellow-dark)
+                );
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+            .header__nav {
+                display: flex;
+                gap: 28px;
+                align-items: center;
+            }
+            .header__nav a {
+                font-size: 13px;
+                font-weight: 600;
+                color: var(--text);
+                transition: 0.2s;
+                position: relative;
+            }
+            .header__nav a::after {
+                content: "";
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: var(--blue);
+                transition: 0.3s;
+            }
+            .header__nav a:hover {
+                color: var(--blue);
+            }
+            .header__nav a:hover::after {
+                width: 100%;
+            }
+            .header__nav .btn {
+                padding: 7px 18px;
+                font-size: 13px;
+            }
+            .header__nav .btn::after {
+                display: none;
+            }
+            .header__burger {
+                display: none;
+                flex-direction: column;
+                gap: 5px;
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 6px;
+            }
+            .header__burger span {
+                display: block;
+                width: 22px;
+                height: 2px;
+                background: var(--text);
+                border-radius: 2px;
+            }
+
+            /* ============================
+       Hero
+    ============================ */
+            .hero {
+                position: relative;
+                min-height: 100vh;
+                padding-top: 70px;
+                background: linear-gradient(
+                    140deg,
+                    #d8edff 0%,
+                    #edf6ff 35%,
+                    #fffbf0 65%,
+                    #fff5d6 100%
+                );
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+            }
+            .hero::before {
+                content: "";
+                position: absolute;
+                top: -120px;
+                left: -120px;
+                width: 520px;
+                height: 520px;
+                border-radius: 50%;
+                background: radial-gradient(
+                    circle,
+                    rgba(102, 193, 255, 0.28) 0%,
+                    transparent 70%
+                );
+                pointer-events: none;
+            }
+            .hero::after {
+                content: "";
+                position: absolute;
+                bottom: -120px;
+                right: -120px;
+                width: 580px;
+                height: 580px;
+                border-radius: 50%;
+                background: radial-gradient(
+                    circle,
+                    rgba(255, 213, 128, 0.32) 0%,
+                    transparent 70%
+                );
+                pointer-events: none;
+            }
+            .hero__grid {
+                position: relative;
+                z-index: 2;
+                display: grid;
+                grid-template-columns: 1fr 1.1fr 1fr;
+                align-items: flex-end;
+                max-width: 1300px;
+                margin: 0 auto;
+                padding: 0 24px;
+                width: 100%;
+            }
+            .hero__char {
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+            }
+            .hero__char--ruka {
+                justify-content: flex-end;
+                padding-right: 12px;
+            }
+            .hero__char--hinata {
+                justify-content: flex-start;
+                padding-left: 12px;
+            }
+            .hero__char img {
+                width: auto;
+                height: 74vh;
+                max-height: 700px;
+                max-width: 420px;
+                filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.14));
+            }
+            .hero__content {
+                text-align: center;
+                padding: 60px 16px 80px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 18px;
+            }
+            .hero__eye {
+                font-size: 10px;
+                font-weight: 700;
+                letter-spacing: 0.25em;
+                text-transform: uppercase;
+                color: var(--blue-dark);
+                background: rgba(102, 193, 255, 0.15);
+                padding: 5px 18px;
+                border-radius: 20px;
+                border: 1px solid rgba(102, 193, 255, 0.3);
+            }
+            .hero__title {
+                font-size: clamp(28px, 5.5vw, 64px);
+                font-weight: 900;
+                line-height: 1.1;
+                background: linear-gradient(135deg, #3a9fd9 0%, #e09800 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+            .hero__sub {
+                font-size: clamp(12px, 1.8vw, 16px);
+                color: var(--muted);
+                line-height: 1.8;
+            }
+            .hero__sub strong {
+                color: var(--text);
+            }
+            .hero__icons {
+                display: flex;
+                gap: 12px;
+                align-items: center;
+                justify-content: center;
+            }
+            .hero__icons img {
+                width: 44px;
+                height: 44px;
+                object-fit: contain;
+            }
+            .hero__badges {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+                width: 100%;
+                max-width: 340px;
+            }
+            .hero__badge {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                background: #fff;
+                border-radius: 12px;
+                padding: 10px 14px;
+                box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            }
+            .hero__badge--blue {
+                border-top: 3px solid var(--blue);
+            }
+            .hero__badge--yellow {
+                border-top: 3px solid var(--yellow);
+            }
+            .hero__badge-ico {
+                font-size: 22px;
+            }
+            .hero__badge-text strong {
+                display: block;
+                font-size: 13px;
+                font-weight: 700;
+            }
+            .hero__badge-text span {
+                font-size: 11px;
+                color: var(--muted);
+            }
+            .hero__ctas {
+                display: flex;
+                gap: 14px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            /* Floating decorations */
+            .hero__deco {
+                position: absolute;
+                pointer-events: none;
+                z-index: 1;
+            }
+            .hero__deco img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+            .hero__deco--1 {
+                top: 14%;
+                left: 7%;
+                width: 58px;
+                animation: flt 4s ease-in-out infinite;
+            }
+            .hero__deco--2 {
+                top: 22%;
+                right: 7%;
+                width: 50px;
+                animation: flt 5s ease-in-out infinite 1s;
+            }
+            .hero__deco--3 {
+                bottom: 22%;
+                left: 5%;
+                width: 54px;
+                animation: flt 6s ease-in-out infinite 0.5s;
+            }
+            .hero__deco--4 {
+                bottom: 28%;
+                right: 5%;
+                width: 46px;
+                animation: flt 4.5s ease-in-out infinite 1.5s;
+            }
+            @keyframes flt {
+                0%,
+                100% {
+                    transform: translateY(0) rotate(0);
+                }
+                50% {
+                    transform: translateY(-12px) rotate(6deg);
+                }
+            }
+
+            /* ============================
+       Wave Divider
+    ============================ */
+            .wave {
+                width: 100%;
+                overflow: hidden;
+                line-height: 0;
+            }
+            .wave svg {
+                display: block;
+                width: 100%;
+            }
+
+            /* ============================
+       About
+    ============================ */
+            .about__inner {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+                align-items: center;
+            }
+            .about__lead {
+                font-size: 17px;
+                font-weight: 700;
+                color: var(--blue-dark);
+                margin-bottom: 18px;
+                line-height: 1.85;
+            }
+            .about__body {
+                font-size: 14px;
+                line-height: 1.95;
+                color: var(--text);
+            }
+            .about__chars {
+                display: flex;
+                gap: 16px;
+                justify-content: center;
+                align-items: flex-end;
+            }
+            .about__char {
+                flex: 1;
+                text-align: center;
+            }
+            .about__char img {
+                width: 100%;
+                max-width: 200px;
+                filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));
+            }
+            .about__char-name {
+                margin-top: 10px;
+                font-weight: 700;
+                font-size: 14px;
+            }
+            .about__char-name--ruka {
+                color: var(--blue-dark);
+            }
+            .about__char-name--hinata {
+                color: var(--yellow-dark);
+            }
+            .wp-badge {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                background: linear-gradient(
+                    135deg,
+                    var(--blue-light),
+                    var(--yellow-light)
+                );
+                border-radius: var(--radius);
+                padding: 20px 24px;
+                margin-top: 36px;
+            }
+            .wp-badge__icon {
+                width: 56px;
+                height: 56px;
+                flex-shrink: 0;
+            }
+            .wp-badge__icon img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+            .wp-badge__text h4 {
+                font-size: 15px;
+                font-weight: 700;
+                margin-bottom: 4px;
+            }
+            .wp-badge__text p {
+                font-size: 13px;
+                color: var(--muted);
+            }
+
+            /* ============================
+       Product Blocks (Mouse)
+    ============================ */
+            .prod-block {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+                align-items: center;
+                margin-bottom: 80px;
+            }
+            .prod-block:last-child {
+                margin-bottom: 0;
+            }
+            .prod-block--rev {
+                direction: rtl;
+            }
+            .prod-block--rev > * {
+                direction: ltr;
+            }
+
+            .prod-visual {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+            }
+            .prod-visual__glow {
+                position: absolute;
+                inset: -30px;
+                border-radius: 50%;
+                filter: blur(50px);
+                opacity: 0.35;
+                z-index: 0;
+            }
+            .prod-visual__glow--blue {
+                background: var(--blue);
+            }
+            .prod-visual__glow--yellow {
+                background: var(--yellow);
+            }
+            .prod-visual img {
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                max-width: 460px;
+                height: auto;
+                filter: drop-shadow(0 18px 38px rgba(0, 0, 0, 0.2));
+            }
+
+            .prod-tags {
+                margin-bottom: 14px;
+            }
+            .tag {
+                display: inline-flex;
+                align-items: center;
+                padding: 3px 14px;
+                border-radius: 20px;
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.05em;
+                margin-right: 6px;
+                margin-bottom: 6px;
+            }
+            .tag--blue {
+                background: var(--blue-light);
+                color: var(--blue-dark);
+                border: 1px solid var(--blue-mid);
+            }
+            .tag--yellow {
+                background: var(--yellow-light);
+                color: var(--yellow-dark);
+                border: 1px solid var(--yellow-mid);
+            }
+
+            .prod-model {
+                font-size: 48px;
+                font-weight: 900;
+                line-height: 1;
+                margin-bottom: 4px;
+            }
+            .prod-model em {
+                font-style: normal;
+                color: var(--blue);
+            }
+            .prod-model--y em {
+                color: var(--yellow-dark);
+            }
+            .prod-model-sub {
+                font-size: 14px;
+                color: var(--muted);
+                margin-bottom: 18px;
+            }
+            .prod-desc {
+                font-size: 14px;
+                line-height: 1.9;
+                color: var(--text);
+                margin-bottom: 22px;
+            }
+
+            .feat-list {
+                display: flex;
+                flex-direction: column;
+                gap: 11px;
+                margin-bottom: 26px;
+            }
+            .feat-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 11px;
+                font-size: 14px;
+            }
+            .feat-item__dot {
+                flex-shrink: 0;
+                width: 26px;
+                height: 26px;
+                border-radius: 50%;
+                background: var(--blue-light);
+                color: var(--blue-dark);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+                font-weight: 700;
+            }
+            .feat-item__dot--y {
+                background: var(--yellow-light);
+                color: var(--yellow-dark);
+            }
+            .feat-item__text strong {
+                display: block;
+                font-weight: 700;
+                margin-bottom: 1px;
+            }
+            .feat-item__text span {
+                font-size: 12px;
+                color: var(--muted);
+            }
+
+            /* ============================
+       Keyboard
+    ============================ */
+            .kb-main-img {
+                width: 100%;
+                max-width: 960px;
+                margin: 0 auto 40px;
+                display: block;
+                border-radius: var(--radius-lg);
+                box-shadow: var(--shadow);
+            }
+            .kb-back-img {
+                width: 100%;
+                max-width: 960px;
+                margin: 0 auto 56px;
+                display: block;
+                border-radius: var(--radius);
+                box-shadow: var(--shadow);
+            }
+            .kb-feats {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                margin-bottom: 56px;
+            }
+            .kb-feat {
+                background: var(--blue-light);
+                border-radius: var(--radius);
+                padding: 26px 20px;
+                text-align: center;
+            }
+            .kb-feat__ico {
+                font-size: 30px;
+                display: block;
+                margin-bottom: 10px;
+            }
+            .kb-feat h4 {
+                font-size: 14px;
+                font-weight: 700;
+                margin-bottom: 6px;
+            }
+            .kb-feat p {
+                font-size: 12px;
+                color: var(--muted);
+                line-height: 1.7;
+            }
+
+            /* ============================
+       Character Animation Strip
+    ============================ */
+            /* ============================
+       Character Animation Strip
+    ============================ */
+            .char-strip {
+                overflow: hidden;
+                background: #fff;
+                /* 下に隙間を作らない */
+                display: block;
+                line-height: 0;
+                font-size: 0;
+            }
+            .char-strip__inner {
+                width: 100vw;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                align-items: flex-end; /* 画像の下端を揃える */
+                justify-content: center;
+                gap: 0;
+                line-height: 0;
+                font-size: 0;
+            }
+            .char-anim {
+                position: relative;
+                display: flex; /* inline-block → flex で下の隙間を排除 */
+                align-items: flex-end;
+                flex-shrink: 0;
+            }
+            .char-anim img:nth-child(1) {
+                display: block;
+                height: var(--h, 180px);
+                width: auto;
+                filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.12));
+            }
+            .char-anim img:nth-child(2) {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: var(--h, 180px);
+                width: auto;
+                filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.12));
+            }
+            /* ペア: 2フレームトグル */
+            .char-anim:not(.char-anim--s) img:nth-child(1) {
+                animation: caA var(--dur, 2s) step-end infinite var(--del, 0s);
+            }
+            .char-anim:not(.char-anim--s) img:nth-child(2) {
+                animation: caB var(--dur, 2s) step-end infinite var(--del, 0s);
+            }
+            .char-anim--s img:nth-child(1) {
+                animation: none;
+            }
+            @keyframes caA {
+                0%,
+                49% {
+                    opacity: 1;
+                }
+                50%,
+                100% {
+                    opacity: 0;
+                }
+            }
+            @keyframes caB {
+                0%,
+                49% {
+                    opacity: 0;
+                }
+                50%,
+                100% {
+                    opacity: 1;
+                }
+            }
+            @keyframes caSBlink {
+                /* ほぼ表示、ごく短時間だけ消えて瞬きに見せる */
+                0%,
+                91%,
+                97%,
+                100% {
+                    opacity: 1;
+                }
+                92.5%,
+                95.5% {
+                    opacity: 0;
+                }
+            }
+            /* wave を char-strip 内部に統合するための SVG スタイル */
+            .char-strip__wave {
+                display: block;
+                width: 100%;
+                margin-top: -1px; /* 1px の隙間を防ぐ */
+            }
+            @media (max-width: 600px) {
+                .char-anim img:nth-child(1),
+                .char-anim img:nth-child(2) {
+                    height: calc(var(--h, 180px) * 0.6);
+                }
+            }
+
+            /* ============================
+       Creator Cards
+    ============================ */
+            .creator-bar {
+                padding-top: 40px;
+                border-top: 1px solid rgba(102, 193, 255, 0.2);
+                text-align: center;
+            }
+            .creator-bar h3 {
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                color: var(--muted);
+                margin-bottom: 28px;
+            }
+            .creator-cards {
+                display: flex;
+                gap: 28px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .creator-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                text-align: center;
+            }
+            .creator-card__ava {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 3px solid var(--blue);
+                box-shadow: 0 4px 14px rgba(102, 193, 255, 0.3);
+            }
+            .creator-card__ava--y {
+                border-color: var(--yellow);
+                box-shadow: 0 4px 14px rgba(255, 213, 128, 0.4);
+            }
+            .creator-card__role {
+                font-size: 11px;
+                color: var(--muted);
+                font-weight: 700;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+            }
+            .creator-card__name {
+                font-size: 15px;
+                font-weight: 700;
+                color: var(--text);
+                margin-top: -6px;
+            }
+
+            /* ============================
+       Mousepad
+    ============================ */
+            .pad-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 36px;
+                margin-bottom: 56px;
+            }
+            .pad-card {
+                background: #fff;
+                border-radius: var(--radius-lg);
+                overflow: hidden;
+                box-shadow: var(--shadow);
+                transition: transform 0.3s;
+            }
+            .pad-card:hover {
+                transform: translateY(-6px);
+            }
+            .pad-card__img {
+                width: 100%;
+                aspect-ratio: 1;
+                object-fit: cover;
+            }
+            .pad-card__body {
+                padding: 26px;
+            }
+            .pad-card__type {
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.15em;
+                text-transform: uppercase;
+                margin-bottom: 6px;
+            }
+            .pad-card__type--ruka {
+                color: var(--blue-dark);
+            }
+            .pad-card__type--hinata {
+                color: var(--yellow-dark);
+            }
+            .pad-card__title {
+                font-size: 24px;
+                font-weight: 900;
+                margin-bottom: 6px;
+            }
+            .pad-card__sub {
+                font-size: 13px;
+                color: var(--muted);
+                margin-bottom: 14px;
+            }
+            .pad-card__feats {
+                display: flex;
+                flex-direction: column;
+                gap: 7px;
+            }
+            .pad-card__feat {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 13px;
+            }
+            .pad-card__feat::before {
+                content: "✦";
+                color: var(--blue);
+                flex-shrink: 0;
+                font-size: 11px;
+            }
+            .pad-card--hinata .pad-card__feat::before {
+                color: var(--yellow-dark);
+            }
+
+            /* ============================
+       Brand
+    ============================ */
+            .brand-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 36px;
+                margin-top: 56px;
+            }
+            .brand-card {
+                background: rgba(255, 255, 255, 0.06);
+                border-radius: var(--radius-lg);
+                padding: 40px 36px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                text-align: center;
+            }
+            .brand-card__logo {
+                width: 72px;
+                height: 72px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: "M PLUS 1", sans-serif;
+                font-weight: 900;
+                font-size: 18px;
+                margin: 0 auto 18px;
+            }
+            .brand-card__logo--blue {
+                background: rgba(102, 193, 255, 0.18);
+                border: 2px solid var(--blue);
+                color: var(--blue);
+            }
+            .brand-card__logo--yellow {
+                background: rgba(255, 213, 128, 0.18);
+                border: 2px solid var(--yellow);
+                color: var(--yellow);
+            }
+            .brand-card h3 {
+                font-size: 22px;
+                font-weight: 900;
+                margin-bottom: 6px;
+            }
+            .brand-card__sub {
+                font-size: 13px;
+                color: rgba(255, 255, 255, 0.45);
+                margin-bottom: 16px;
+            }
+            .brand-card p {
+                font-size: 13px;
+                line-height: 1.9;
+                color: rgba(255, 255, 255, 0.68);
+            }
+
+            /* ============================
+       Reservation
+    ============================ */
+            .reservation {
+                padding: 100px 0;
+                background: linear-gradient(
+                    135deg,
+                    #4ab2f5 0%,
+                    var(--blue) 30%,
+                    #ffd580 70%,
+                    #f5c030 100%
+                );
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+            .reservation::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0 L21 19 L40 20 L21 21 L20 40 L19 21 L0 20 L19 19Z' fill='rgba(255,255,255,.06)'/%3E%3C/svg%3E");
+                pointer-events: none;
+            }
+            .reservation__inner {
+                position: relative;
+                z-index: 1;
+            }
+            .reservation__title {
+                font-size: clamp(30px, 5vw, 52px);
+                font-weight: 900;
+                color: #fff;
+                -webkit-text-stroke: 2px rgba(0, 0, 0, 0.12);
+                paint-order: stroke fill;
+                margin-bottom: 14px;
+            }
+            .reservation__sub {
+                font-size: 16px;
+                color: rgba(255, 255, 255, 0.9);
+                margin-bottom: 48px;
+                line-height: 1.8;
+            }
+            .res-benefits {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                max-width: 780px;
+                margin: 0 auto 44px;
+            }
+            .res-benefit {
+                background: rgba(255, 255, 255, 0.22);
+                border-radius: var(--radius);
+                padding: 24px 18px;
+                backdrop-filter: blur(8px);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+            }
+            .res-benefit__ico {
+                font-size: 30px;
+                display: block;
+                margin-bottom: 8px;
+            }
+            .res-benefit h4 {
+                font-size: 14px;
+                font-weight: 700;
+                color: #fff;
+                margin-bottom: 6px;
+            }
+            .res-benefit p {
+                font-size: 12px;
+                color: rgba(255, 255, 255, 0.82);
+                line-height: 1.7;
+            }
+
+            /* ============================
+       Footer
+    ============================ */
+            .footer {
+                background: var(--dark);
+                color: #fff;
+                padding: 64px 0 32px;
+            }
+            .footer__top {
+                display: grid;
+                grid-template-columns: 1.2fr 1fr 1fr;
+                gap: 40px;
+                padding-bottom: 40px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                margin-bottom: 32px;
+            }
+            .footer__brand h2 {
+                font-size: 18px;
+                font-weight: 900;
+                background: linear-gradient(120deg, var(--blue), var(--yellow));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                margin-bottom: 10px;
+            }
+            .footer__brand p {
+                font-size: 12px;
+                color: rgba(255, 255, 255, 0.45);
+                line-height: 1.85;
+            }
+            .footer__col h4 {
+                font-size: 12px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                color: rgba(255, 255, 255, 0.55);
+                margin-bottom: 14px;
+            }
+            .footer__col ul {
+                display: flex;
+                flex-direction: column;
+                gap: 9px;
+            }
+            .footer__col ul li a {
+                font-size: 13px;
+                color: rgba(255, 255, 255, 0.45);
+                transition: 0.2s;
+            }
+            .footer__col ul li a:hover {
+                color: var(--blue);
+            }
+            .footer__bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 14px;
+            }
+            .footer__copy {
+                font-size: 11px;
+                color: rgba(255, 255, 255, 0.28);
+            }
+            .footer__links {
+                display: flex;
+                gap: 20px;
+            }
+            .footer__links a {
+                font-size: 11px;
+                color: rgba(255, 255, 255, 0.35);
+                transition: 0.2s;
+            }
+            .footer__links a:hover {
+                color: rgba(255, 255, 255, 0.7);
+            }
+
+            /* ============================
+       Responsive
+    ============================ */
+            @media (max-width: 900px) {
+                .hero__grid {
+                    grid-template-columns: 1fr;
+                }
+                .hero__char--ruka,
+                .hero__char--hinata {
+                    display: none;
+                }
+                .hero__content {
+                    padding: 80px 16px 60px;
+                }
+                .about__inner {
+                    grid-template-columns: 1fr;
+                    gap: 40px;
+                }
+                .prod-block {
+                    grid-template-columns: 1fr;
+                    gap: 40px;
+                }
+                .prod-block--rev {
+                    direction: ltr;
+                }
+                .kb-feats {
+                    grid-template-columns: 1fr 1fr;
+                }
+                .pad-grid {
+                    grid-template-columns: 1fr;
+                }
+                .brand-grid {
+                    grid-template-columns: 1fr;
+                }
+                .res-benefits {
+                    grid-template-columns: 1fr;
+                    max-width: 400px;
+                }
+                .footer__top {
+                    grid-template-columns: 1fr;
+                    gap: 28px;
+                }
+                .header__nav {
+                    display: none;
+                }
+                .header__burger {
+                    display: flex;
+                }
+            }
+            @media (max-width: 600px) {
+                .section {
+                    padding: 60px 0;
+                }
+                .kb-feats {
+                    grid-template-columns: 1fr;
+                }
+                .hero__ctas {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .hero__badges {
+                    grid-template-columns: 1fr;
+                }
+                .kb-chars img {
+                    height: 88px;
+                }
+                .footer__bottom {
+                    flex-direction: column;
+                    text-align: center;
+                }
+            }
+        </style>
     </head>
     <body>
-        <!-- ===== HEADER ===== -->
-        <header class="header" id="header">
+        <!-- ========================
+     HEADER
+======================== -->
+        <header class="header">
             <div class="header__inner">
-                <a href="#hero" class="header__logo">
-                    <span class="header__logo-main">晴雨</span>
-                    <span class="header__logo-sub">Collection</span>
+                <a href="#top" class="header__logo">
+                    <div class="header__logo-icon">
+                        <img src="../img1/傘.png" alt="Weather Planet" />
+                    </div>
+                    <span class="header__logo-text"
+                        >Weather Planet × PCデバイスコラボ</span
+                    >
                 </a>
-                <button
-                    class="header__menu-btn"
-                    id="menuBtn"
-                    aria-label="メニューを開く"
-                    aria-expanded="false"
-                >
+                <nav class="header__nav">
+                    <a href="#mouse">マウス</a>
+                    <a href="#keyboard">キーボード</a>
+                    <a href="#mousepad">マウスパッド</a>
+                    <a href="#brands">ブランド</a>
+                    <a href="#reservation" class="btn btn--blue">予約する</a>
+                </nav>
+                <button class="header__burger" aria-label="メニュー">
                     <span></span><span></span><span></span>
                 </button>
-                <nav class="header__nav" id="headerNav">
-                    <a href="#keyboard" class="header__nav-link">キーボード</a>
-                    <a href="#mouse" class="header__nav-link">マウス</a>
-                    <a href="#footer" class="header__nav-link">購入方法</a>
-                    <a href="#footer" class="header__nav-link header__nav-cta"
-                        >今すぐ注文</a
-                    >
-                </nav>
             </div>
         </header>
 
-        <!-- ===== FLOATING CTA ===== -->
-        <div class="float-cta" id="floatCta" aria-hidden="true">
-            <a href="#footer" class="float-cta__btn">
-                <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                >
-                    <circle cx="9" cy="21" r="1" />
-                    <circle cx="20" cy="21" r="1" />
-                    <path
-                        d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
-                    />
-                </svg>
-                <span>今すぐ注文</span>
-            </a>
-        </div>
-
-        <!-- ===== SECTION 1: HERO ===== -->
-        <section class="hero" id="hero">
-            <div class="hero__bg">
-                <div class="hero__bg-orb hero__bg-orb--1"></div>
-                <div class="hero__bg-orb hero__bg-orb--2"></div>
-                <div class="hero__bg-orb hero__bg-orb--3"></div>
-                <canvas class="hero__canvas" id="particleCanvas"></canvas>
+        <!-- ========================
+     HERO
+======================== -->
+        <section class="hero" id="top">
+            <!-- Floating icons -->
+            <div class="hero__deco hero__deco--1">
+                <img src="../img1/傘.png" alt="" />
+            </div>
+            <div class="hero__deco hero__deco--2">
+                <img src="../img1/太陽.png" alt="" />
+            </div>
+            <div class="hero__deco hero__deco--3">
+                <img src="../img1/土星.png" alt="" />
+            </div>
+            <div class="hero__deco hero__deco--4">
+                <img src="../img1/肉球.png" alt="" />
             </div>
 
-            <div class="hero__inner">
-                <!-- Character: Hinata -->
-                <div class="hero__char hero__char--hinata reveal reveal--left">
-                    <div class="char-frame char-frame--hinata">
-                        <!--
-            【画像設置】ここにひなたの立ち絵を配置してください:
-            <img src="images/hinata.png" alt="天晴ひなた" class="char-frame__img">
-          -->
-                        <div class="char-frame__placeholder">
-                            <div class="char-frame__deco-top">☀️ ✦ ☀️</div>
-                            <div class="char-frame__name-art">
-                                ひ<br />な<br />た
-                            </div>
-                            <div class="char-frame__sparkles">
-                                <span class="sparkle s1">✦</span>
-                                <span class="sparkle s2">✧</span>
-                                <span class="sparkle s3">✦</span>
-                                <span class="sparkle s4">✧</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="char-label">
-                        <span class="char-label__jp">天晴ひなた</span>
-                        <span class="char-label__en">Appare Hinata</span>
-                    </div>
+            <div class="hero__grid">
+                <!-- Ruka -->
+                <div class="hero__char hero__char--ruka reveal-l">
+                    <img src="../img1/ルカさん立ち絵.png" alt="雨海ルカ" />
                 </div>
 
-                <!-- Center: Hero Text -->
+                <!-- Center content -->
                 <div class="hero__content">
-                    <p class="hero__eyebrow reveal">
+                    <p class="hero__eye reveal">
                         ✦ LIMITED COLLAB COLLECTION ✦
                     </p>
-                    <h1 class="hero__title reveal">
-                        <span class="hero__title-ja">晴雨</span>
-                        <span class="hero__title-en">Collection</span>
+                    <h1 class="hero__title reveal d1">
+                        Weather Planet<br />× PCデバイスコラボ
                     </h1>
-                    <p class="hero__subtitle reveal">
-                        天晴ひなた <span class="hero__x">×</span> 雨海ルカ<br />
-                        <small>コラボ ゲーミングデバイス</small>
+                    <p class="hero__sub reveal d2">
+                        <strong>天晴ひなた × 雨海ルカ</strong> 監修<br />
+                        Darmoshark × Haruhi Products
                     </p>
-
-                    <div class="hero__products reveal">
-                        <a
-                            href="#keyboard"
-                            class="hero__product-badge hero__product-badge--kb"
-                        >
-                            <span class="hero__badge-icon">⌨️</span>
-                            <div class="hero__badge-text">
-                                <strong>晴天65</strong>
-                                <small>メカニカルキーボード</small>
-                            </div>
-                        </a>
-                        <a
-                            href="#mouse"
-                            class="hero__product-badge hero__product-badge--ms"
-                        >
-                            <span class="hero__badge-icon">🖱️</span>
-                            <div class="hero__badge-text">
-                                <strong>海波Pro</strong>
-                                <small>ワイヤレスマウス</small>
-                            </div>
-                        </a>
+                    <div class="hero__icons reveal d2">
+                        <img src="../img1/イルカ.png" alt="" />
+                        <img src="../img1/メンダコ.png" alt="" />
+                        <img src="../img1/土星.png" alt="" />
+                        <img src="../img1/肉球.png" alt="" />
                     </div>
-
-                    <div class="hero__ctas reveal">
-                        <a href="#keyboard" class="btn btn--primary"
+                    <div class="hero__badges reveal d3">
+                        <div class="hero__badge hero__badge--blue">
+                            <span class="hero__badge-ico">🖱️</span>
+                            <div class="hero__badge-text">
+                                <strong>M2 / M3XS</strong>
+                                <span>ゲーミングマウス</span>
+                            </div>
+                        </div>
+                        <div class="hero__badge hero__badge--yellow">
+                            <span class="hero__badge-ico">⌨️</span>
+                            <div class="hero__badge-text">
+                                <strong>TOP75</strong>
+                                <span>ゲーミングキーボード</span>
+                            </div>
+                        </div>
+                        <div class="hero__badge hero__badge--blue">
+                            <span class="hero__badge-ico">🖱️</span>
+                            <div class="hero__badge-text">
+                                <strong>コントロール / スピード</strong>
+                                <span>ゲーミングマウスパッド</span>
+                            </div>
+                        </div>
+                        <div class="hero__badge hero__badge--yellow">
+                            <span class="hero__badge-ico">⭐</span>
+                            <div class="hero__badge-text">
+                                <strong>お二方監修</strong>
+                                <span>限定コラボモデル</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero__ctas reveal d4">
+                        <a href="#mouse" class="btn btn--blue btn--lg"
                             >製品を見る</a
                         >
-                        <a href="#footer" class="btn btn--outline">購入方法</a>
+                        <a href="#reservation" class="btn btn--yellow btn--lg"
+                            >予約する ↗</a
+                        >
                     </div>
                 </div>
 
-                <!-- Character: Ruka -->
-                <div class="hero__char hero__char--ruka reveal reveal--right">
-                    <div class="char-frame char-frame--ruka">
-                        <!--
-            【画像設置】ここにルカの立ち絵を配置してください:
-            <img src="images/ruka.png" alt="雨海ルカ" class="char-frame__img">
-          -->
-                        <div class="char-frame__placeholder">
-                            <div class="char-frame__deco-top">🌊 ✦ 🌊</div>
-                            <div class="char-frame__name-art">ル<br />カ</div>
-                            <div class="char-frame__sparkles">
-                                <span class="sparkle s1">✦</span>
-                                <span class="sparkle s2">✧</span>
-                                <span class="sparkle s3">✦</span>
-                                <span class="sparkle s4">✧</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="char-label">
-                        <span class="char-label__jp">雨海ルカ</span>
-                        <span class="char-label__en">Amagai Ruka</span>
-                    </div>
+                <!-- Hinata -->
+                <div class="hero__char hero__char--hinata reveal-r">
+                    <img src="../img1/ひなたさん立ち絵.png" alt="天晴ひなた" />
                 </div>
-            </div>
-
-            <div class="hero__scroll-hint">
-                <span>SCROLL</span>
-                <div class="hero__scroll-line"></div>
             </div>
         </section>
 
-        <!-- Wave divider -->
-        <div class="wave-divider">
+        <!-- Wave -->
+        <div class="wave">
             <svg
-                viewBox="0 0 1440 80"
+                viewBox="0 0 1440 72"
                 preserveAspectRatio="none"
                 xmlns="http://www.w3.org/2000/svg"
             >
                 <path
-                    d="M0,40 C240,80 480,0 720,40 C960,80 1200,20 1440,50 L1440,80 L0,80 Z"
+                    d="M0,36 C360,72 720,0 1080,36 C1260,54 1380,62 1440,60 L1440,72 L0,72 Z"
                     fill="#ffffff"
                 />
             </svg>
         </div>
 
-        <!-- ===== SECTION 2: KEYBOARD ===== -->
-        <section class="product-sec product-sec--kb" id="keyboard">
-            <div class="product-sec__inner">
-                <div class="section-head reveal">
-                    <p class="section-head__eye">GAMING KEYBOARD</p>
-                    <h2 class="section-head__title">晴天<span>65</span></h2>
-                    <p class="section-head__sub">メカニカルキーボード</p>
+        <!-- ========================
+     ABOUT
+======================== -->
+        <section class="section" id="about">
+            <div class="container">
+                <div class="sec-head reveal">
+                    <p class="sec-eye">① About This Collab</p>
+                    <h2 class="sec-title">
+                        Weather Planet<br />× PCデバイスコラボ
+                    </h2>
+                    <p class="sec-sub">
+                        お二方監修のもと、こだわりの詰まった限定デバイスが誕生
+                    </p>
                 </div>
-
-                <div class="product-layout">
-                    <!-- Product Visual -->
-                    <div class="product-visual reveal reveal--left">
-                        <!--
-            【画像設置】ここにキーボードの商品画像を配置してください:
-            <img src="images/keyboard.png" alt="晴天65 メカニカルキーボード" class="product-visual__img">
-          -->
-                        <div
-                            class="product-visual__placeholder product-visual__placeholder--kb"
-                        >
-                            <div class="kb-art">
-                                <div class="kb-art__body">
-                                    <div class="kb-art__row">
-                                        <div
-                                            class="kb-art__key kb-art__key--wide"
-                                        >
-                                            ESC
-                                        </div>
-                                        <div class="kb-art__key">1</div>
-                                        <div class="kb-art__key">2</div>
-                                        <div class="kb-art__key">3</div>
-                                        <div class="kb-art__key">4</div>
-                                        <div class="kb-art__key">5</div>
-                                        <div class="kb-art__key">6</div>
-                                        <div
-                                            class="kb-art__key kb-art__key--wide"
-                                        >
-                                            DEL
-                                        </div>
-                                    </div>
-                                    <div class="kb-art__row">
-                                        <div
-                                            class="kb-art__key kb-art__key--tab"
-                                        >
-                                            TAB
-                                        </div>
-                                        <div class="kb-art__key">Q</div>
-                                        <div
-                                            class="kb-art__key kb-art__key--hi"
-                                        >
-                                            W
-                                        </div>
-                                        <div class="kb-art__key">E</div>
-                                        <div class="kb-art__key">R</div>
-                                        <div class="kb-art__key">T</div>
-                                        <div class="kb-art__key">Y</div>
-                                        <div
-                                            class="kb-art__key kb-art__key--enter kb-art__key--r1"
-                                        >
-                                            ↵
-                                        </div>
-                                    </div>
-                                    <div class="kb-art__row">
-                                        <div
-                                            class="kb-art__key kb-art__key--caps"
-                                        >
-                                            CAP
-                                        </div>
-                                        <div
-                                            class="kb-art__key kb-art__key--hi"
-                                        >
-                                            A
-                                        </div>
-                                        <div
-                                            class="kb-art__key kb-art__key--hi"
-                                        >
-                                            S
-                                        </div>
-                                        <div
-                                            class="kb-art__key kb-art__key--hi"
-                                        >
-                                            D
-                                        </div>
-                                        <div class="kb-art__key">F</div>
-                                        <div class="kb-art__key">G</div>
-                                        <div class="kb-art__key">H</div>
-                                        <div
-                                            class="kb-art__key kb-art__key--enter kb-art__key--r2"
-                                        ></div>
-                                    </div>
-                                    <div class="kb-art__row">
-                                        <div
-                                            class="kb-art__key kb-art__key--shift"
-                                        >
-                                            ⇧
-                                        </div>
-                                        <div
-                                            class="kb-art__key kb-art__key--hi"
-                                        >
-                                            Z
-                                        </div>
-                                        <div
-                                            class="kb-art__key kb-art__key--hi"
-                                        >
-                                            X
-                                        </div>
-                                        <div
-                                            class="kb-art__key kb-art__key--hi"
-                                        >
-                                            C
-                                        </div>
-                                        <div class="kb-art__key">V</div>
-                                        <div class="kb-art__key">B</div>
-                                        <div
-                                            class="kb-art__key kb-art__key--shift"
-                                        >
-                                            ⇧
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="kb-art__row kb-art__row--bottom"
-                                    >
-                                        <div
-                                            class="kb-art__key kb-art__key--mod"
-                                        >
-                                            CTL
-                                        </div>
-                                        <div
-                                            class="kb-art__key kb-art__key--mod"
-                                        >
-                                            ALT
-                                        </div>
-                                        <div
-                                            class="kb-art__key kb-art__key--space"
-                                        ></div>
-                                        <div class="kb-art__key">◀</div>
-                                        <div class="kb-art__key">▼</div>
-                                        <div class="kb-art__key">▶</div>
-                                    </div>
-                                </div>
-                                <div class="kb-art__glow"></div>
+                <div class="about__inner">
+                    <div class="reveal-l">
+                        <p class="about__lead">
+                            今回コラボの枠を越え、雨海ルカ様・天晴ひなた様、<br />
+                            お二方監修の元、各コラボアイテムが開発されました！
+                        </p>
+                        <p class="about__body">
+                            マウス・キーボードはDarmoshark、マウスパッドはハルヒプロダクツが製造。<br />
+                            各アイテムはキャラクターの世界観を丁寧に落とし込んだ、こだわりの詰まったデバイスです。
+                            デザイナー・イラストレーターの方々とも連携し、細部まで徹底的にこだわった一点ものをご覧ください。
+                        </p>
+                        <div class="wp-badge">
+                            <div class="wp-badge__icon">
+                                <img
+                                    src="../img1/傘.png"
+                                    alt="Weather Planet"
+                                />
                             </div>
-                            <div class="product-visual__tag">
-                                晴天65 Keyboard
+                            <div class="wp-badge__text">
+                                <h4>Weather Planet</h4>
+                                <p>
+                                    天晴ひなた・雨海ルカが所属するVTuberグループ。<br />晴れの日も雨の日も、いつも楽しい天気予報をお届け。
+                                </p>
                             </div>
-                        </div>
-                        <div
-                            class="product-visual__accent product-visual__accent--hinata"
-                        >
-                            ひなた
                         </div>
                     </div>
-
-                    <!-- Product Info -->
-                    <div class="product-info reveal reveal--right">
-                        <div class="product-info__tags">
-                            <span class="tag tag--blue">Limited Edition</span>
-                            <span class="tag tag--yellow">コラボモデル</span>
+                    <div class="about__chars reveal-r">
+                        <div class="about__char">
+                            <img src="../img1/雨海ルカ様.png" alt="雨海ルカ" />
+                            <p class="about__char-name about__char-name--ruka">
+                                雨海ルカ
+                            </p>
                         </div>
-                        <h3 class="product-info__name">晴天<em>65</em></h3>
-                        <p class="product-info__name-en">
-                            Seiten 65 Mechanical Keyboard
-                        </p>
-                        <p class="product-info__price">
-                            ¥<strong>19,800</strong><small>（税込）</small>
-                        </p>
-
-                        <p class="product-info__desc">
-                            天晴ひなた ×
-                            雨海ルカの世界観をキーで表現。晴れ渡る空をイメージしたスカイブルーのボディに
-                            限定デザインのキーキャップを採用。ゲームも配信も毎日の作業も、もっと楽しくなる一台。
-                        </p>
-
-                        <ul class="feature-list">
-                            <li class="feature-list__item reveal">
-                                <span class="feature-list__icon">✦</span>
-                                <div>
-                                    <strong>65% コンパクトレイアウト</strong>
-                                    <span
-                                        >デスクスペースを有効活用、ゲームに最適なコンパクトサイズ</span
-                                    >
-                                </div>
-                            </li>
-                            <li class="feature-list__item reveal">
-                                <span class="feature-list__icon">✦</span>
-                                <div>
-                                    <strong>ホットスワップ対応</strong>
-                                    <span
-                                        >工具不要でスイッチ交換可能（Gateron G
-                                        Pro 赤軸付属）</span
-                                    >
-                                </div>
-                            </li>
-                            <li class="feature-list__item reveal">
-                                <span class="feature-list__icon">✦</span>
-                                <div>
-                                    <strong>フル RGB バックライト</strong>
-                                    <span
-                                        >1,600万色のカスタマイズ可能なライティングエフェクト</span
-                                    >
-                                </div>
-                            </li>
-                            <li class="feature-list__item reveal">
-                                <span class="feature-list__icon">✦</span>
-                                <div>
-                                    <strong>USB-C & Bluetooth 5.0</strong>
-                                    <span
-                                        >有線・無線どちらでも使用可能、最大3台マルチデバイス対応</span
-                                    >
-                                </div>
-                            </li>
-                            <li class="feature-list__item reveal">
-                                <span class="feature-list__icon">✦</span>
-                                <div>
-                                    <strong>限定 PBT キーキャップ</strong>
-                                    <span
-                                        >ダブルショット印字、耐摩耗性に優れた高品質仕様</span
-                                    >
-                                </div>
-                            </li>
-                        </ul>
-
-                        <div class="product-info__actions">
-                            <a href="#footer" class="btn btn--primary"
-                                >注文する</a
+                        <div class="about__char">
+                            <img
+                                src="../img1/天晴ひなた様.png"
+                                alt="天晴ひなた"
+                            />
+                            <p
+                                class="about__char-name about__char-name--hinata"
                             >
-                            <a href="#footer" class="btn btn--ghost"
-                                >詳細を見る</a
-                            >
+                                天晴ひなた
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Wave divider (reversed) -->
-        <div class="wave-divider wave-divider--rev">
-            <svg
-                viewBox="0 0 1440 80"
-                preserveAspectRatio="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                    d="M0,30 C240,0 480,70 720,30 C960,0 1200,60 1440,30 L1440,0 L0,0 Z"
-                    fill="#ffffff"
-                />
-            </svg>
-        </div>
-
-        <!-- ===== SECTION 3: MOUSE ===== -->
-        <section class="product-sec product-sec--ms" id="mouse">
-            <div class="product-sec__inner">
-                <div class="section-head reveal">
-                    <p class="section-head__eye">GAMING MOUSE</p>
-                    <h2 class="section-head__title">海波<span>Pro</span></h2>
-                    <p class="section-head__sub">ワイヤレスゲーミングマウス</p>
-                </div>
-
-                <div class="product-layout product-layout--rev">
-                    <!-- Product Info -->
-                    <div class="product-info reveal reveal--left">
-                        <div class="product-info__tags">
-                            <span class="tag tag--blue">Limited Edition</span>
-                            <span class="tag tag--yellow">コラボモデル</span>
-                        </div>
-                        <h3 class="product-info__name">海波<em>Pro</em></h3>
-                        <p class="product-info__name-en">
-                            Umiba Pro Wireless Gaming Mouse
-                        </p>
-                        <p class="product-info__price">
-                            ¥<strong>14,800</strong><small>（税込）</small>
-                        </p>
-
-                        <p class="product-info__desc">
-                            雨海ルカの海の世界観をインスパイアしたデザイン。超軽量ハニカム構造で
-                            疲れにくく、長時間のゲームセッションも快適。プロ仕様のセンサーで
-                            あらゆるゲームシーンに対応します。
-                        </p>
-
-                        <ul class="feature-list">
-                            <li class="feature-list__item reveal">
-                                <span class="feature-list__icon">✦</span>
-                                <div>
-                                    <strong>超軽量設計 58g</strong>
-                                    <span
-                                        >ハニカム構造採用、長時間使用でも手首への負担を軽減</span
-                                    >
-                                </div>
-                            </li>
-                            <li class="feature-list__item reveal">
-                                <span class="feature-list__icon">✦</span>
-                                <div>
-                                    <strong>PAW3395 センサー搭載</strong>
-                                    <span
-                                        >最大26,000DPI、プロゲーマーも使用するハイエンドセンサー</span
-                                    >
-                                </div>
-                            </li>
-                            <li class="feature-list__item reveal">
-                                <span class="feature-list__icon">✦</span>
-                                <div>
-                                    <strong
-                                        >2.4GHz ワイヤレス & 有線対応</strong
-                                    >
-                                    <span
-                                        >最大1,000Hz
-                                        ポーリングレート、遅延ゼロの応答速度</span
-                                    >
-                                </div>
-                            </li>
-                            <li class="feature-list__item reveal">
-                                <span class="feature-list__icon">✦</span>
-                                <div>
-                                    <strong>最大70時間バッテリー</strong>
-                                    <span
-                                        >急速充電対応、10分で約3時間使用可能</span
-                                    >
-                                </div>
-                            </li>
-                            <li class="feature-list__item reveal">
-                                <span class="feature-list__icon">✦</span>
-                                <div>
-                                    <strong>限定 RGB ライティング</strong>
-                                    <span
-                                        >「海の波」をテーマにした専用アニメーションパターン搭載</span
-                                    >
-                                </div>
-                            </li>
-                        </ul>
-
-                        <div class="product-info__actions">
-                            <a href="#footer" class="btn btn--primary"
-                                >注文する</a
-                            >
-                            <a href="#footer" class="btn btn--ghost"
-                                >詳細を見る</a
-                            >
-                        </div>
-                    </div>
-
-                    <!-- Product Visual -->
-                    <div class="product-visual reveal reveal--right">
-                        <!--
-            【画像設置】ここにマウスの商品画像を配置してください:
-            <img src="images/mouse.png" alt="海波Pro ワイヤレスゲーミングマウス" class="product-visual__img">
-          -->
-                        <div
-                            class="product-visual__placeholder product-visual__placeholder--ms"
-                        >
-                            <div class="ms-art">
-                                <div class="ms-art__body">
-                                    <div class="ms-art__split"></div>
-                                    <div class="ms-art__wheel"></div>
-                                    <div class="ms-art__side-btn"></div>
-                                    <div class="ms-art__rgb-strip"></div>
-                                </div>
-                                <div class="ms-art__shadow"></div>
-                            </div>
-                            <div class="product-visual__tag">海波Pro Mouse</div>
-                        </div>
-                        <div
-                            class="product-visual__accent product-visual__accent--ruka"
-                        >
-                            ルカ
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== SECTION 4: FOOTER ===== -->
-        <footer class="footer" id="footer">
-            <div class="footer__wave">
-                <svg
-                    viewBox="0 0 1440 100"
-                    preserveAspectRatio="none"
-                    xmlns="http://www.w3.org/2000/svg"
+        <!-- ========================
+     CHARACTER ANIMATION STRIP
+======================== -->
+        <div class="char-strip">
+            <div class="char-strip__inner">
+                <!-- ルカ 全身 (2フレーム) -->
+                <div
+                    class="char-anim"
+                    style="--h: 230px; --dur: 2.2s; --del: 0.1s"
                 >
-                    <path
-                        d="M0,60 C360,100 720,20 1080,60 C1260,80 1380,90 1440,85 L1440,0 L0,0 Z"
-                        fill="#eef7ff"
+                    <img
+                        src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト3R.png"
+                        alt="ルカ 全身A"
                     />
-                </svg>
-            </div>
+                    <img
+                        src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト3R@.png"
+                        alt="ルカ 全身B"
+                    />
+                </div>
 
-            <div class="footer__inner">
-                <!-- Characters + Logo -->
-                <div class="footer__top">
-                    <div class="footer__char-badge footer__char-badge--hinata">
-                        <div class="footer__char-icon">☀️</div>
-                        <span>天晴ひなた</span>
+                <!-- ルカ のぞき (2フレーム) -->
+                <div
+                    class="char-anim"
+                    style="--h: 160px; --dur: 1.6s; --del: 0s"
+                >
+                    <img
+                        src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2R.png"
+                        alt="ルカ のぞきA"
+                    />
+                    <img
+                        src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2R@.png"
+                        alt="ルカ のぞきB"
+                    />
+                </div>
+
+                <!-- ひなた のぞき (2フレーム) -->
+                <div
+                    class="char-anim"
+                    style="--h: 160px; --dur: 1.8s; --del: 0.6s"
+                >
+                    <img
+                        src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2H.png"
+                        alt="ひなた のぞきA"
+                    />
+                    <img
+                        src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2H@.png"
+                        alt="ひなた のぞきB"
+                    />
+                </div>
+
+                <!-- ひなた 全身 (静止) -->
+                <div class="char-anim char-anim--s" style="--h: 230px">
+                    <img
+                        src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト3H.png"
+                        alt="ひなた 全身"
+                    />
+                </div>
+            </div>
+            <svg
+                class="char-strip__wave"
+                viewBox="0 0 1440 72"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M0,36 C360,0 720,72 1080,36 C1260,18 1380,10 1440,14 L1440,72 L0,72 Z"
+                    fill="#dff0ff"
+                />
+            </svg>
+        </div>
+
+        <!-- ========================
+     MOUSE SECTION
+======================== -->
+        <section class="section section--blue" id="mouse">
+            <div class="container">
+                <div class="sec-head reveal">
+                    <p class="sec-eye">② Gaming Mouse</p>
+                    <h2 class="sec-title">ゲーミングマウス</h2>
+                    <p class="sec-sub">
+                        Darmoshark × Weather Planet — 2モデル展開
+                    </p>
+                </div>
+
+                <!-- M2 Ruka Model -->
+                <div class="prod-block">
+                    <div class="prod-visual reveal-l">
+                        <div
+                            class="prod-visual__glow prod-visual__glow--blue"
+                        ></div>
+                        <img
+                            src="../img1/M2正面ルカモデル.png"
+                            alt="Darmoshark M2 雨海ルカモデル"
+                        />
                     </div>
-                    <div class="footer__brand">
-                        <div class="footer__brand-logo">晴雨</div>
-                        <div class="footer__brand-sub">Collection</div>
-                    </div>
-                    <div class="footer__char-badge footer__char-badge--ruka">
-                        <div class="footer__char-icon">🌊</div>
-                        <span>雨海ルカ</span>
+                    <div class="reveal-r">
+                        <div class="prod-tags">
+                            <span class="tag tag--blue">雨海ルカ Edition</span>
+                            <span class="tag tag--blue">Limited</span>
+                        </div>
+                        <p class="prod-model"><em>M2</em></p>
+                        <p class="prod-model-sub">
+                            Darmoshark M2 ゲーミングマウス | ルカモデル
+                        </p>
+                        <p class="prod-desc">
+                            雨海ルカの海と雨の世界観をインスパイアしたスカイブルースパークルカラー。
+                            ハニカム構造による超軽量設計で、長時間のゲームセッションも快適にプレイ可能です。
+                        </p>
+                        <ul class="feat-list">
+                            <li class="feat-item">
+                                <span class="feat-item__dot">✦</span>
+                                <div class="feat-item__text">
+                                    <strong
+                                        >特注スカイブルースパークルカラー</strong
+                                    >
+                                    <span
+                                        >雨海ルカ監修の限定カラーリング・スパークル塗装</span
+                                    >
+                                </div>
+                            </li>
+                            <li class="feat-item">
+                                <span class="feat-item__dot">✦</span>
+                                <div class="feat-item__text">
+                                    <strong>ハニカム構造 超軽量設計</strong>
+                                    <span
+                                        >手首への負担を軽減、長時間プレイも疲れにくい</span
+                                    >
+                                </div>
+                            </li>
+                            <li class="feat-item">
+                                <span class="feat-item__dot">✦</span>
+                                <div class="feat-item__text">
+                                    <strong
+                                        >高性能ゲーミングセンサー搭載</strong
+                                    >
+                                    <span
+                                        >2.4GHz ワイヤレス / USB有線
+                                        両対応</span
+                                    >
+                                </div>
+                            </li>
+                            <li class="feat-item">
+                                <span class="feat-item__dot">✦</span>
+                                <div class="feat-item__text">
+                                    <strong>雨海ルカ 監修デザイン</strong>
+                                    <span
+                                        >サイドボタン・ホイール部にもルカモチーフを採用</span
+                                    >
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="#reservation" class="btn btn--blue"
+                            >予約する ↗</a
+                        >
                     </div>
                 </div>
 
-                <!-- Purchase Guide -->
-                <div class="purchase-guide">
-                    <h3 class="purchase-guide__title">📦 購入方法</h3>
-                    <div class="purchase-guide__steps">
-                        <div class="purchase-step">
-                            <div class="purchase-step__num">1</div>
-                            <div class="purchase-step__body">
-                                <h4>フォームで注文</h4>
-                                <p>専用注文フォームから商品をお選びください</p>
-                            </div>
+                <!-- M3XS Hinata Model -->
+                <div class="prod-block prod-block--rev">
+                    <div class="prod-visual reveal-r">
+                        <div
+                            class="prod-visual__glow prod-visual__glow--yellow"
+                        ></div>
+                        <img
+                            src="../img1/M3XS正面ひなたモデル.png"
+                            alt="Darmoshark M3XS 天晴ひなたモデル"
+                        />
+                    </div>
+                    <div class="reveal-l">
+                        <div class="prod-tags">
+                            <span class="tag tag--yellow"
+                                >天晴ひなた Edition</span
+                            >
+                            <span class="tag tag--yellow">Limited</span>
                         </div>
-                        <div class="purchase-step__arrow">→</div>
-                        <div class="purchase-step">
-                            <div class="purchase-step__num">2</div>
-                            <div class="purchase-step__body">
-                                <h4>お支払い</h4>
-                                <p>クレカ / 銀行振込 / コンビニ払い対応</p>
-                            </div>
-                        </div>
-                        <div class="purchase-step__arrow">→</div>
-                        <div class="purchase-step">
-                            <div class="purchase-step__num">3</div>
-                            <div class="purchase-step__body">
-                                <h4>発送</h4>
-                                <p>注文確定後 3〜5 営業日以内に発送</p>
-                            </div>
+                        <p class="prod-model prod-model--y"><em>M3XS</em></p>
+                        <p class="prod-model-sub">
+                            Darmoshark M3XS ゲーミングマウス | ひなたモデル
+                        </p>
+                        <p class="prod-desc">
+                            天晴ひなたの宇宙・惑星の世界観をイメージしたスターリーブラック×ゴールドカラー。
+                            ボディには惑星と肉球モチーフのカラフルなスパークルが散りばめられています。
+                        </p>
+                        <ul class="feat-list">
+                            <li class="feat-item">
+                                <span class="feat-item__dot feat-item__dot--y"
+                                    >✦</span
+                                >
+                                <div class="feat-item__text">
+                                    <strong
+                                        >スターリーブラック × ゴールド</strong
+                                    >
+                                    <span
+                                        >宇宙をイメージしたカラフルスパークル塗装</span
+                                    >
+                                </div>
+                            </li>
+                            <li class="feat-item">
+                                <span class="feat-item__dot feat-item__dot--y"
+                                    >✦</span
+                                >
+                                <div class="feat-item__text">
+                                    <strong>惑星 × 肉球モチーフデザイン</strong>
+                                    <span
+                                        >ひなたのシンボルが散りばめられたオリジナルデザイン</span
+                                    >
+                                </div>
+                            </li>
+                            <li class="feat-item">
+                                <span class="feat-item__dot feat-item__dot--y"
+                                    >✦</span
+                                >
+                                <div class="feat-item__text">
+                                    <strong
+                                        >コンパクトエルゴノミクス設計</strong
+                                    >
+                                    <span
+                                        >長時間の使用でも手にフィットする形状</span
+                                    >
+                                </div>
+                            </li>
+                            <li class="feat-item">
+                                <span class="feat-item__dot feat-item__dot--y"
+                                    >✦</span
+                                >
+                                <div class="feat-item__text">
+                                    <strong>天晴ひなた 監修デザイン</strong>
+                                    <span>ボトムに限定ひなたロゴ刻印入り</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="#reservation" class="btn btn--yellow"
+                            >予約する ↗</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wave -->
+        <div class="wave" style="background: #dff0ff">
+            <svg
+                viewBox="0 0 1440 72"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M0,50 C240,80 480,10 720,50 C960,80 1200,20 1440,40 L1440,72 L0,72 Z"
+                    fill="#ffffff"
+                />
+            </svg>
+        </div>
+
+        <!-- ========================
+     KEYBOARD SECTION
+======================== -->
+        <section class="section" id="keyboard">
+            <div class="container">
+                <div class="sec-head reveal">
+                    <p class="sec-eye">③ Gaming Keyboard</p>
+                    <h2 class="sec-title">ゲーミングキーボード</h2>
+                    <p class="sec-sub">
+                        Darmoshark TOP75 × Weather Planet 限定デザイン
+                    </p>
+                </div>
+
+                <img
+                    class="kb-main-img reveal"
+                    src="../img1/keyboard front ESC 2.png"
+                    alt="TOP75 キーボード 表面"
+                />
+                <img
+                    class="kb-back-img reveal"
+                    src="../img1/keyboard back ESC 2.png"
+                    alt="TOP75 キーボード 裏面"
+                />
+
+                <div class="kb-feats">
+                    <div class="kb-feat reveal">
+                        <span class="kb-feat__ico">⌨️</span>
+                        <h4>75% コンパクトレイアウト</h4>
+                        <p>
+                            テンキーレスで省スペース。ゲームにも作業にも最適なサイズ感。
+                        </p>
+                    </div>
+                    <div class="kb-feat reveal d1">
+                        <span class="kb-feat__ico">🔧</span>
+                        <h4>ホットスワップ対応</h4>
+                        <p>
+                            工具不要でスイッチ交換可能。好みの打鍵感にカスタマイズ。
+                        </p>
+                    </div>
+                    <div class="kb-feat reveal d2">
+                        <span class="kb-feat__ico">🌈</span>
+                        <h4>South-facing RGB バックライト</h4>
+                        <p>
+                            1,600万色のカスタマイズ可能なライティングエフェクト搭載。
+                        </p>
+                    </div>
+                    <div class="kb-feat reveal d1">
+                        <span class="kb-feat__ico">🔌</span>
+                        <h4>USB-C 有線接続</h4>
+                        <p>
+                            安定した有線接続。ゲームの重要な場面でも遅延ゼロ。
+                        </p>
+                    </div>
+                    <div class="kb-feat reveal d2">
+                        <span class="kb-feat__ico">🎨</span>
+                        <h4>Weather Planet キーキャップ</h4>
+                        <p>
+                            ひなた・ルカの世界観を落とし込んだ限定デザインのPBTキーキャップ。
+                        </p>
+                    </div>
+                    <div class="kb-feat reveal d3">
+                        <span class="kb-feat__ico">🇯🇵</span>
+                        <h4>日本語配列（JIS）</h4>
+                        <p>日本語入力に最適化した配列。日常使いにも対応。</p>
+                    </div>
+                </div>
+
+                <!-- Mini chibi key illustrations -->
+                <!-- Box / Packaging -->
+                <div class="reveal" style="margin-bottom: 48px">
+                    <p
+                        style="
+                            text-align: center;
+                            font-size: 12px;
+                            font-weight: 700;
+                            letter-spacing: 0.15em;
+                            text-transform: uppercase;
+                            color: var(--muted);
+                            margin-bottom: 16px;
+                        "
+                    >
+                        パッケージデザイン
+                    </p>
+                    <img
+                        src="../img1/WeatherPlanetさま コラボキーボード 外箱デザイン案.png"
+                        alt="TOP75 外箱デザイン案"
+                        style="
+                            display: block;
+                            width: 100%;
+                            max-width: 860px;
+                            margin: 0 auto;
+                            border-radius: var(--radius-lg);
+                            box-shadow: var(--shadow);
+                        "
+                    />
+                </div>
+
+                <!-- Designer credit -->
+                <div class="creator-bar reveal">
+                    <h3>キーボードデザイナー</h3>
+                    <div class="creator-cards">
+                        <div class="creator-card">
+                            <img
+                                class="creator-card__ava"
+                                src="../img1/みたらしねこアイコン(キーボードデザイナー).jpg"
+                                alt="みたらしねこ"
+                            />
+                            <p class="creator-card__role">Keyboard Designer</p>
+                            <p class="creator-card__name">みたらしねこ</p>
                         </div>
                     </div>
-                    <div class="purchase-guide__cta">
-                        <a href="#" class="btn btn--primary btn--large"
-                            >注文フォームへ ↗</a
+                </div>
+            </div>
+        </section>
+
+        <!-- Wave -->
+        <div class="wave" style="background: #fff">
+            <svg
+                viewBox="0 0 1440 72"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M0,30 C360,72 720,0 1080,40 C1260,60 1380,54 1440,50 L1440,72 L0,72 Z"
+                    fill="#fff6dc"
+                />
+            </svg>
+        </div>
+
+        <!-- ========================
+     MOUSEPAD SECTION
+======================== -->
+        <section class="section section--yellow" id="mousepad">
+            <div class="container">
+                <div class="sec-head reveal">
+                    <p class="sec-eye sec-eye--y">④ Gaming Mousepad</p>
+                    <h2 class="sec-title sec-title--y">
+                        ゲーミングマウスパッド
+                    </h2>
+                    <p class="sec-sub">
+                        Haruhi Products × Weather Planet — 2タイプ展開
+                    </p>
+                </div>
+
+                <div class="pad-grid">
+                    <!-- Control: Ruka -->
+                    <div class="pad-card reveal-l">
+                        <!-- Art illustration (square) -->
+                        <img
+                            class="pad-card__img"
+                            src="../img1/マウスパッド　ルカイラスト.png"
+                            alt="コントロールタイプ ルカ アート"
+                        />
+                        <div class="pad-card__body">
+                            <p class="pad-card__type pad-card__type--ruka">
+                                Control Type — 雨海ルカ Edition
+                            </p>
+                            <h3 class="pad-card__title">コントロールタイプ</h3>
+                            <p class="pad-card__sub">
+                                細かいエイムコントロールを実現する表面素材
+                            </p>
+                            <ul class="pad-card__feats">
+                                <li class="pad-card__feat">
+                                    コントロール特化のテキスタイル表面
+                                </li>
+                                <li class="pad-card__feat">
+                                    防水コーティング加工
+                                </li>
+                                <li class="pad-card__feat">
+                                    4mm 厚 高密度ゴムベース
+                                </li>
+                                <li class="pad-card__feat">
+                                    サイズ: 900 × 400 mm
+                                </li>
+                                <li class="pad-card__feat">
+                                    雨海ルカ 描き下ろしイラスト
+                                </li>
+                            </ul>
+                            <!-- Actual product photo -->
+                            <img
+                                src="../img1/ルカ様コントロールタイプ(実物).png"
+                                alt="コントロールタイプ 実物"
+                                style="
+                                    width: 100%;
+                                    border-radius: var(--radius);
+                                    margin-top: 16px;
+                                    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+                                "
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Speed: Hinata -->
+                    <div class="pad-card pad-card--hinata reveal-r">
+                        <!-- Art illustration (square) -->
+                        <img
+                            class="pad-card__img"
+                            src="../img1/マウスパッド　ひなたイラスト.png"
+                            alt="スピードタイプ ひなた アート"
+                        />
+                        <div class="pad-card__body">
+                            <p class="pad-card__type pad-card__type--hinata">
+                                Speed Type — 天晴ひなた Edition
+                            </p>
+                            <h3 class="pad-card__title">スピードタイプ</h3>
+                            <p class="pad-card__sub">
+                                素早いマウス操作をサポートする低摩擦表面
+                            </p>
+                            <ul class="pad-card__feats">
+                                <li class="pad-card__feat">
+                                    スピード特化の低摩擦表面
+                                </li>
+                                <li class="pad-card__feat">
+                                    防水コーティング加工
+                                </li>
+                                <li class="pad-card__feat">
+                                    4mm 厚 高密度ゴムベース
+                                </li>
+                                <li class="pad-card__feat">
+                                    サイズ: 900 × 400 mm
+                                </li>
+                                <li class="pad-card__feat">
+                                    天晴ひなた 描き下ろしイラスト
+                                </li>
+                            </ul>
+                            <!-- Actual product photo -->
+                            <img
+                                src="../img1/ひなた様スピードタイプ(実物).png"
+                                alt="スピードタイプ 実物"
+                                style="
+                                    width: 100%;
+                                    border-radius: var(--radius);
+                                    margin-top: 16px;
+                                    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+                                "
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Back / Quality Section -->
+                <div class="reveal" style="margin-bottom: 56px">
+                    <p
+                        style="
+                            text-align: center;
+                            font-size: 12px;
+                            font-weight: 700;
+                            letter-spacing: 0.15em;
+                            text-transform: uppercase;
+                            color: var(--muted);
+                            margin-bottom: 20px;
+                        "
+                    >
+                        高密度カーボンファイバー裏面
+                    </p>
+                    <div
+                        style="
+                            position: relative;
+                            max-width: 700px;
+                            margin: 0 auto;
+                            border-radius: var(--radius-lg);
+                            overflow: hidden;
+                            box-shadow: var(--shadow);
+                        "
+                    >
+                        <img
+                            src="../img1/ひなた裏面.jpg"
+                            alt="マウスパッド 裏面 カーボンファイバーテクスチャー"
+                            style="width: 100%; display: block"
+                        />
+                        <div
+                            style="
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                right: 0;
+                                padding: 20px 24px;
+                                background: linear-gradient(
+                                    transparent,
+                                    rgba(0, 0, 0, 0.6)
+                                );
+                                color: #fff;
+                            "
                         >
-                        <p class="purchase-guide__note">
-                            ※
-                            在庫状況によりお届けまでお時間をいただく場合がございます
+                            <p style="font-size: 13px; font-weight: 700">
+                                高密度カーボンファイバーテクスチャー採用の裏面
+                            </p>
+                            <p
+                                style="
+                                    font-size: 12px;
+                                    opacity: 0.8;
+                                    margin-top: 4px;
+                                "
+                            >
+                                滑り止めゴムベースで、激しいゲームプレイ中もずれにくい安定した使い心地を提供
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Illustrator credit -->
+                <div class="creator-bar reveal">
+                    <h3>イラストレーター</h3>
+                    <div class="creator-cards">
+                        <div class="creator-card">
+                            <img
+                                class="creator-card__ava creator-card__ava--y"
+                                src="../img1/平山寛菜アイコン(マウスパッドデザイナー).jpg"
+                                alt="平山寛菜"
+                            />
+                            <p class="creator-card__role">Illustrator</p>
+                            <p class="creator-card__name">平山寛菜</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wave -->
+        <div class="wave" style="background: #fff6dc">
+            <svg
+                viewBox="0 0 1440 72"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M0,40 C240,80 480,10 720,40 C960,70 1200,20 1440,50 L1440,72 L0,72 Z"
+                    fill="#1a1a2e"
+                />
+            </svg>
+        </div>
+
+        <!-- ========================
+     BRAND SECTION
+======================== -->
+        <section class="section section--dark" id="brands">
+            <div class="container">
+                <div class="sec-head reveal">
+                    <p
+                        class="sec-eye"
+                        style="
+                            background: rgba(102, 193, 255, 0.18);
+                            color: var(--blue);
+                        "
+                    >
+                        ⑤ Brand
+                    </p>
+                    <h2 class="sec-title sec-title--w">ブランド紹介</h2>
+                    <p class="sec-sub" style="color: rgba(255, 255, 255, 0.5)">
+                        本コラボを実現した2つのブランド
+                    </p>
+                </div>
+
+                <div class="brand-grid">
+                    <div class="brand-card reveal-l">
+                        <div class="brand-card__logo brand-card__logo--blue">
+                            DS
+                        </div>
+                        <h3>Darmoshark</h3>
+                        <p class="brand-card__sub">
+                            高性能ゲーミングデバイスブランド
+                        </p>
+                        <p>
+                            Darmosharkは高性能・高品質なゲーミングデバイスを手掛けるブランド。
+                            マウス・キーボードをはじめとした製品は、世界中のゲーマーに愛されています。
+                            今回のコラボでは、マウス（M2・M3XS）とキーボード（TOP75）を担当。
+                            最高の技術とキャラクターの世界観を融合させた限定モデルを実現しました。
+                        </p>
+                    </div>
+                    <div class="brand-card reveal-r">
+                        <div class="brand-card__logo brand-card__logo--yellow">
+                            HP
+                        </div>
+                        <h3>Haruhi Products</h3>
+                        <p class="brand-card__sub">
+                            プレミアムゲーミングマウスパッドブランド
+                        </p>
+                        <p>
+                            ハルヒプロダクツは国内発の高品質ゲーミングマウスパッドブランド。
+                            素材選びから縫製まで細部にこだわったマウスパッドは、プロゲーマーからも支持される品質を誇ります。
+                            今回のコラボでは、コントロールタイプ（ルカ）・スピードタイプ（ひなた）の2種類を担当しました。
                         </p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Info Grid -->
-                <div class="footer__info">
-                    <div class="footer__info-block">
-                        <h4>商品・価格</h4>
-                        <ul>
-                            <li>晴天65 キーボード — ¥19,800</li>
-                            <li>海波Pro マウス — ¥14,800</li>
-                            <li>セット購入 — ¥32,800（¥1,800 お得）</li>
-                        </ul>
+        <!-- ========================
+     RESERVATION
+======================== -->
+        <section class="reservation" id="reservation">
+            <div class="reservation__inner container">
+                <p
+                    class="sec-eye"
+                    style="
+                        background: rgba(255, 255, 255, 0.25);
+                        color: #fff;
+                        margin-bottom: 14px;
+                    "
+                >
+                    ⑥ 予約特典
+                </p>
+                <h2 class="reservation__title">予約特典</h2>
+                <p class="reservation__sub">
+                    ご予約いただいた方限定の特別特典をご用意しています。<br />
+                    数量限定のため、お早めにご予約ください。
+                </p>
+
+                <div class="res-benefits">
+                    <div class="res-benefit reveal d1">
+                        <span class="res-benefit__ico">🎁</span>
+                        <h4>限定ステッカーセット</h4>
+                        <p>
+                            ひなた・ルカのオリジナルステッカーセット（非売品）をプレゼント
+                        </p>
                     </div>
-                    <div class="footer__info-block">
-                        <h4>配送・サポート</h4>
-                        <ul>
-                            <li>全国送料 ¥800（¥10,000 以上 無料）</li>
-                            <li>到着後 7 日以内の初期不良対応</li>
-                            <li>お問い合わせ: support@haruame.jp</li>
-                        </ul>
+                    <div class="res-benefit reveal d2">
+                        <span class="res-benefit__ico">📮</span>
+                        <h4>キャラクターポストカード</h4>
+                        <p>
+                            描き下ろしイラストを使用した限定ポストカードをお届け
+                        </p>
                     </div>
-                    <div class="footer__info-block">
-                        <h4>キャラクター</h4>
-                        <ul>
-                            <li>天晴ひなた（Appare Hinata）</li>
-                            <li>雨海ルカ（Amagai Ruka）</li>
-                            <li>© Weather Planet Inc.</li>
-                        </ul>
+                    <div class="res-benefit reveal d3">
+                        <span class="res-benefit__ico">🚀</span>
+                        <h4>先行発送</h4>
+                        <p>予約者には一般販売より先行して優先発送いたします</p>
                     </div>
                 </div>
 
-                <!-- Bottom Bar -->
+                <a href="#" class="btn btn--ghost btn--lg reveal"
+                    >予約フォームへ ↗</a
+                >
+            </div>
+        </section>
+
+        <!-- ========================
+     FOOTER
+======================== -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__top">
+                    <div class="footer__brand">
+                        <h2>Weather Planet × PCデバイスコラボ</h2>
+                        <p>
+                            天晴ひなた × 雨海ルカ 監修<br />
+                            Darmoshark × Haruhi Products<br />
+                            © 2026 Weather Planet. All rights reserved.
+                        </p>
+                    </div>
+                    <div class="footer__col">
+                        <h4>製品</h4>
+                        <ul>
+                            <li><a href="#mouse">ゲーミングマウス M2</a></li>
+                            <li><a href="#mouse">ゲーミングマウス M3XS</a></li>
+                            <li>
+                                <a href="#keyboard"
+                                    >ゲーミングキーボード TOP75</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#mousepad"
+                                    >マウスパッド コントロール</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#mousepad">マウスパッド スピード</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer__col">
+                        <h4>リンク</h4>
+                        <ul>
+                            <li>
+                                <a
+                                    href="https://weather-pla.net/"
+                                    target="_blank"
+                                    rel="noopener"
+                                    >Weather Planet 公式</a
+                                >
+                            </li>
+                            <li><a href="#brands">Darmoshark</a></li>
+                            <li><a href="#brands">Haruhi Products</a></li>
+                            <li><a href="#reservation">予約フォーム</a></li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="footer__bottom">
                     <p class="footer__copy">
-                        © 2025 晴雨コレクション All rights reserved.
-                        キャラクターイラスト ©
-                        <a
-                            href="https://weather-pla.net/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >Weather Planet</a
-                        >
-                        All Rights Reserved.
+                        © 2026 Weather Planet × PCデバイスコラボ —
+                        キャラクターイラスト © Weather Planet
                     </p>
                     <div class="footer__links">
                         <a href="#">特定商取引法に基づく表記</a>
@@ -680,6 +2278,19 @@
             </div>
         </footer>
 
-        <script src="test.js"></script>
+        <script>
+            const io = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((e) => {
+                        if (e.isIntersecting)
+                            e.target.classList.add("is-visible");
+                    });
+                },
+                { threshold: 0.12 },
+            );
+            document
+                .querySelectorAll(".reveal, .reveal-l, .reveal-r")
+                .forEach((el) => io.observe(el));
+        </script>
     </body>
 </html>
