@@ -1,0 +1,1210 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Planet × Darmoshark × Haruhi Products コラボ ✦</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet" />
+    <style>
+        /* ══════════════════════════════════════
+           RESET & BASE
+        ══════════════════════════════════════ */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+        body {
+            font-family: "Noto Sans JP", sans-serif;
+            background: #f8fcff;
+            color: #3a2d45;
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; }
+
+        /* ══════════════════════════════════════
+           DESIGN TOKENS
+        ══════════════════════════════════════ */
+        :root {
+            --blue:     #66c1ff;
+            --yellow:   #ffd580;
+            --mint:     #9adfb6;
+            --sky:      #b0dcff;
+            --lemon:    #ffe8a8;
+            --cream:    #fffdf5;
+            --text:     #3a2d45;
+            --text-sub: #6b6075;
+            --r:        20px;
+            --r-xl:     40px;
+            --r-pill:   999px;
+            --shadow-b: 0 8px 40px rgba(102,193,255,0.18);
+            --shadow-y: 0 8px 40px rgba(255,213,128,0.22);
+        }
+
+        /* ══════════════════════════════════════
+           MAGICAL BACKGROUND
+        ══════════════════════════════════════ */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background:
+                radial-gradient(ellipse 80% 60% at 15% 10%, rgba(102,193,255,0.14) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 85% 20%, rgba(255,213,128,0.13) 0%, transparent 60%),
+                radial-gradient(ellipse 70% 55% at 50% 80%, rgba(102,193,255,0.1) 0%, transparent 60%),
+                linear-gradient(160deg, #ffffff 0%, #f0f9ff 40%, #fffdf0 70%, #f5faff 100%);
+        }
+
+        /* ══════════════════════════════════════
+           ANIMATIONS
+        ══════════════════════════════════════ */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-14px) rotate(-3deg); }
+            66% { transform: translateY(-7px) rotate(3deg); }
+        }
+        @keyframes float-alt {
+            0%, 100% { transform: translateY(0) rotate(2deg); }
+            50% { transform: translateY(-18px) rotate(-2deg); }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.1; transform: scale(0.4) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1) rotate(180deg); }
+        }
+        @keyframes sparkle-drift {
+            0% { transform: translateY(0) translateX(0) scale(0); opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 0.6; }
+            100% { transform: translateY(-120px) translateX(var(--drift, 20px)) scale(1); opacity: 0; }
+        }
+        @keyframes rainbow-shift {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes magical-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(102,193,255,0.45), 0 0 40px rgba(255,213,128,0.2); }
+            50%       { box-shadow: 0 0 32px rgba(255,213,128,0.5), 0 0 64px rgba(102,193,255,0.25); }
+        }
+        @keyframes bounce-in {
+            0% { opacity: 0; transform: translateY(40px) scale(0.9); }
+            60% { transform: translateY(-8px) scale(1.02); }
+            100% { opacity: 1; transform: none; }
+        }
+        @keyframes heart-beat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(0.95); }
+            75% { transform: scale(1.1); }
+        }
+        @keyframes spin-star {
+            to { transform: rotate(360deg); }
+        }
+        @keyframes blinkA { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+        @keyframes blinkB { 0%,49% { opacity: 0; } 50%,100% { opacity: 1; } }
+        @keyframes slide-up {
+            from { opacity: 0; transform: translateY(36px); }
+            to   { opacity: 1; transform: none; }
+        }
+        @keyframes shimmer-text {
+            0%   { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes border-spin {
+            to { --angle: 360deg; }
+        }
+
+        .blink-a { animation: blinkA 2s step-end infinite; }
+        .blink-b { animation: blinkB 2s step-end infinite; }
+
+        /* ══════════════════════════════════════
+           SCROLL REVEAL
+        ══════════════════════════════════════ */
+        .reveal, .reveal-l, .reveal-r {
+            opacity: 0;
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal   { transform: translateY(32px); }
+        .reveal-l { transform: translateX(-32px); }
+        .reveal-r { transform: translateX(32px); }
+        .reveal.vis, .reveal-l.vis, .reveal-r.vis { opacity: 1; transform: none; }
+        .d1 { transition-delay: 0.1s !important; }
+        .d2 { transition-delay: 0.22s !important; }
+        .d3 { transition-delay: 0.34s !important; }
+        .d4 { transition-delay: 0.46s !important; }
+        .d5 { transition-delay: 0.58s !important; }
+
+        /* ══════════════════════════════════════
+           LAYOUT UTILITIES
+        ══════════════════════════════════════ */
+        .container { max-width: 1060px; margin: 0 auto; padding: 0 28px; }
+        section { position: relative; z-index: 1; padding: 110px 0; }
+
+        /* ══════════════════════════════════════
+           SECTION TITLE — ANIME RIBBON STYLE
+        ══════════════════════════════════════ */
+        .sec-title {
+            font-family: "M PLUS Rounded 1c", sans-serif;
+            font-size: clamp(22px, 5vw, 40px);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 10px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+        .sec-title::before,
+        .sec-title::after {
+            content: "✦";
+            font-size: 0.55em;
+            animation: spin-star 4s linear infinite;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--blue), var(--yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .sec-title::after { animation-direction: reverse; }
+        .sec-title span {
+            background: linear-gradient(135deg, #0090cc, #66c1ff, #ffd580);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .sec-sub {
+            text-align: center;
+            color: var(--text-sub);
+            font-size: 11px;
+            letter-spacing: 0.22em;
+            margin-bottom: 72px;
+            font-weight: 700;
+        }
+
+        /* ══════════════════════════════════════
+           SPARKLE BACKGROUND LAYER
+        ══════════════════════════════════════ */
+        .magic-layer {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .sp {
+            position: absolute;
+            animation: twinkle var(--d, 3s) ease-in-out infinite var(--dl, 0s);
+            font-style: normal;
+            line-height: 1;
+        }
+
+        /* ══════════════════════════════════════
+           HEADER
+        ══════════════════════════════════════ */
+        .site-header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 200;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            background: rgba(248, 252, 255, 0.78);
+            backdrop-filter: blur(20px);
+            border-bottom: 1.5px solid rgba(102, 193, 255, 0.2);
+        }
+        .header-brand {
+            font-family: "M PLUS Rounded 1c", sans-serif;
+            font-size: 12px;
+            font-weight: 900;
+            background: linear-gradient(90deg, #0090cc, #66c1ff, #9adfb6, #ffd580, #0090cc);
+            background-size: 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbow-shift 5s ease infinite;
+        }
+        .site-nav {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            list-style: none;
+        }
+        .site-nav a {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: var(--text-sub);
+            transition: color 0.2s ease;
+        }
+        .site-nav a:hover { color: #0090cc; }
+        .nav-cta a {
+            padding: 6px 20px;
+            border-radius: var(--r-pill);
+            background: linear-gradient(90deg, var(--blue), var(--yellow));
+            color: #fff !important;
+            -webkit-text-fill-color: #fff !important;
+        }
+
+        /* ══════════════════════════════════════
+           FLOATING RESERVE BUTTON
+        ══════════════════════════════════════ */
+        .float-reserve {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 150;
+            writing-mode: vertical-rl;
+            background: linear-gradient(180deg, #66c1ff 0%, #9adfb6 50%, #ffd580 100%);
+            color: #fff;
+            font-family: "M PLUS Rounded 1c", sans-serif;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0.16em;
+            padding: 24px 12px;
+            border-radius: 16px 0 0 16px;
+            box-shadow: -4px 0 28px rgba(102, 193, 255, 0.38);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            animation: magical-glow 3s ease-in-out infinite;
+        }
+        .float-reserve:hover {
+            transform: translateY(-50%) translateX(-6px);
+            box-shadow: -8px 0 40px rgba(255, 213, 128, 0.5);
+        }
+
+        /* ══════════════════════════════════════
+           HERO SECTION
+        ══════════════════════════════════════ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 140px 28px 120px;
+            overflow: hidden;
+        }
+
+        .hero-ring {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero-ring--1 {
+            width: 560px; height: 560px;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px dashed rgba(102, 193, 255, 0.22);
+            animation: spin-star 30s linear infinite;
+        }
+        .hero-ring--2 {
+            width: 720px; height: 720px;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px dashed rgba(255, 213, 128, 0.18);
+            animation: spin-star 45s linear infinite reverse;
+        }
+
+        .hero-eyebrow {
+            font-size: clamp(10px, 2vw, 13px);
+            font-weight: 700;
+            letter-spacing: 0.26em;
+            color: var(--text-sub);
+            margin-bottom: 18px;
+            animation: slide-up 0.8s ease both;
+        }
+        .hero-eyebrow em {
+            font-style: normal;
+            background: linear-gradient(90deg, var(--blue), var(--mint), var(--yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-title {
+            font-family: "M PLUS Rounded 1c", sans-serif;
+            font-weight: 900;
+            font-size: clamp(32px, 7.5vw, 72px);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            animation: slide-up 0.9s ease 0.15s both;
+        }
+        .hero-title .grad {
+            background: linear-gradient(135deg, #66c1ff 0%, #9adfb6 45%, #ffd580 100%);
+            background-size: 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer-text 4s linear infinite;
+        }
+        .hero-title .sub-brand {
+            display: block;
+            font-size: 0.42em;
+            letter-spacing: 0.1em;
+            color: var(--text-sub);
+            -webkit-text-fill-color: var(--text-sub);
+            margin-top: 12px;
+            background: none;
+        }
+
+        /* Characters */
+        .hero-chars {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: clamp(12px, 4vw, 52px);
+            margin: 44px 0;
+            animation: slide-up 0.9s ease 0.3s both;
+        }
+        .hero-char-wrap { position: relative; }
+        .hero-char-wrap::before {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            height: 30%;
+            background: radial-gradient(ellipse, rgba(102,193,255,0.28) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(8px);
+        }
+        .hero-char {
+            width: clamp(200px, 40vw, 500px);
+            filter: drop-shadow(0 16px 40px rgba(102, 193, 255, 0.22));
+            transition: transform 0.45s cubic-bezier(.34,1.56,.64,1), filter 0.45s ease;
+            animation: float var(--fa, 5.5s) ease-in-out infinite var(--fd, 0s);
+        }
+        .hero-char--ruka   { --fa: 5.5s; --fd: 0s; }
+        .hero-char--hinata { --fa: 6.2s; --fd: 0.8s; }
+        .hero-char:hover {
+            transform: scale(1.05) translateY(-8px);
+            filter: drop-shadow(0 28px 56px rgba(255, 213, 128, 0.38));
+        }
+
+        .char-star {
+            position: absolute;
+            pointer-events: none;
+            font-size: var(--fs, 18px);
+            animation: sparkle-drift var(--d, 3s) ease-out infinite var(--dl, 0s);
+            --drift: var(--dx, 15px);
+        }
+
+        /* Intro speech bubble */
+        .hero-bubble {
+            position: relative;
+            z-index: 2;
+            max-width: 660px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(16px);
+            border-radius: 28px;
+            padding: clamp(24px, 4vw, 40px) clamp(28px, 5vw, 52px);
+            border: 2px solid rgba(102, 193, 255, 0.3);
+            box-shadow: 0 8px 48px rgba(255, 213, 128, 0.18);
+            animation: slide-up 0.9s ease 0.5s both;
+        }
+        .hero-bubble::before {
+            content: "✦ COLLAB MESSAGE ✦";
+            display: block;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            color: #0090cc;
+            margin-bottom: 14px;
+        }
+        .hero-bubble p { font-size: 14px; line-height: 2.1; color: var(--text); }
+        .hero-bubble p + p { margin-top: 10px; }
+
+        /* ══════════════════════════════════════
+           WEATHER PLANET SECTION
+        ══════════════════════════════════════ */
+        .wp-imgwrap {
+            max-width: 700px;
+            margin: 0 auto 52px;
+            border-radius: var(--r-xl);
+            overflow: hidden;
+            box-shadow: 0 20px 64px rgba(102, 193, 255, 0.18);
+            border: 3px solid rgba(255, 213, 128, 0.3);
+            position: relative;
+        }
+        .wp-imgwrap::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: var(--r-xl);
+            background: linear-gradient(135deg, rgba(102,193,255,0.08), rgba(255,213,128,0.08));
+            z-index: 1;
+            pointer-events: none;
+        }
+        .wp-imgwrap img { width: 100%; transition: transform 0.5s ease; display: block; }
+        .wp-imgwrap:hover img { transform: scale(1.03); }
+
+        .wp-textbox {
+            max-width: 680px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(14px);
+            border-radius: var(--r-xl);
+            padding: clamp(28px, 4vw, 48px) clamp(28px, 5vw, 56px);
+            border: 2px solid rgba(102, 193, 255, 0.2);
+            box-shadow: var(--shadow-b);
+        }
+        .wp-textbox p { line-height: 2.1; font-size: 14px; }
+        .wp-textbox p + p { margin-top: 12px; }
+
+        /* ══════════════════════════════════════
+           KAWAII CARD (shared)
+        ══════════════════════════════════════ */
+        .kawaii-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: var(--r-xl);
+            padding: clamp(24px, 3.5vw, 44px);
+            border: 2px solid rgba(255, 213, 128, 0.28);
+            box-shadow: 0 8px 36px rgba(102, 193, 255, 0.12);
+            transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.35s ease;
+        }
+        .kawaii-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 20px 56px rgba(102, 193, 255, 0.2), 0 0 0 3px rgba(255,213,128,0.3);
+        }
+
+        /* ══════════════════════════════════════
+           TAG CHIPS
+        ══════════════════════════════════════ */
+        .chip {
+            display: inline-block;
+            padding: 5px 18px;
+            border-radius: var(--r-pill);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .chip--ruka    { background: linear-gradient(90deg, #66c1ff, #4aabee); }
+        .chip--hinata  { background: linear-gradient(90deg, #ffd580, #f0b830); }
+        .chip--yellow  { background: linear-gradient(90deg, #ffd580, #e8a800); }
+        .chip--blue    { background: linear-gradient(90deg, #66c1ff, #0090cc); }
+
+        /* ══════════════════════════════════════
+           MOUSE SECTION
+        ══════════════════════════════════════ */
+        .mouse-product {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(32px, 6vw, 80px);
+            align-items: center;
+            margin-bottom: 100px;
+        }
+        .mouse-vis { position: relative; }
+        .mouse-vis__img {
+            width: 100%;
+            filter: drop-shadow(0 20px 48px rgba(102, 193, 255, 0.22));
+            transition: transform 0.45s cubic-bezier(.34,1.56,.64,1), filter 0.45s ease;
+        }
+        .mouse-vis:hover .mouse-vis__img {
+            transform: translateY(-10px) scale(1.03);
+            filter: drop-shadow(0 32px 64px rgba(255, 213, 128, 0.35));
+        }
+        .mouse-vis__glow {
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 40px;
+            background: radial-gradient(ellipse, rgba(102,193,255,0.4) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(12px);
+        }
+
+        /* Blink mini chara */
+        .mini-wrap {
+            position: absolute;
+            width: clamp(80px, 14vw, 130px);
+            height: clamp(80px, 14vw, 130px);
+            z-index: 2;
+        }
+        .mini-wrap--tl { top: -20px; left: -20px; animation: float 5.5s ease-in-out infinite; }
+        .mini-wrap--tr { top: -20px; right: -20px; animation: float-alt 6s ease-in-out infinite; }
+        .mini-wrap img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: auto;
+            filter: drop-shadow(0 4px 14px rgba(0,0,0,0.1));
+        }
+
+        .product-name {
+            font-family: "M PLUS Rounded 1c", sans-serif;
+            font-size: clamp(18px, 3vw, 26px);
+            font-weight: 900;
+            margin-bottom: 14px;
+            line-height: 1.3;
+            color: var(--text);
+        }
+        .product-desc { font-size: 13px; color: var(--text-sub); line-height: 2.1; }
+        .spec-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+        .spec-pill {
+            background: linear-gradient(135deg, rgba(102,193,255,0.12), rgba(255,213,128,0.12));
+            border: 1.5px solid rgba(102, 193, 255, 0.28);
+            color: var(--text-sub);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 15px;
+            border-radius: var(--r-pill);
+        }
+
+        /* Compare grid */
+        .compare-title {
+            font-family: "M PLUS Rounded 1c", sans-serif;
+            font-size: clamp(17px, 3vw, 24px);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text);
+        }
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(24px, 4vw, 56px);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .compare-item { text-align: center; }
+        .compare-item img {
+            width: 100%;
+            filter: drop-shadow(0 10px 28px rgba(102, 193, 255, 0.2));
+            transition: transform 0.35s cubic-bezier(.34,1.56,.64,1);
+        }
+        .compare-item img:hover { transform: translateY(-8px) scale(1.04); }
+        .compare-label {
+            font-family: "M PLUS Rounded 1c", sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            margin-top: 14px;
+            color: var(--text-sub);
+        }
+
+        /* ══════════════════════════════════════
+           KEYBOARD SECTION
+        ══════════════════════════════════════ */
+        .kb-products {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(72px, 9vw, 110px);
+            margin-bottom: 72px;
+        }
+        .kb-product {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(36px, 6vw, 88px);
+            align-items: center;
+        }
+        .kb-product__vis { position: relative; }
+        .kb-product__vis img:not(.kb-deco) {
+            width: 100%;
+            border-radius: var(--r);
+            box-shadow: 0 16px 52px rgba(102, 193, 255, 0.18);
+            border: 2px solid rgba(255, 213, 128, 0.2);
+        }
+        .kb-deco {
+            position: absolute !important;
+            width: clamp(110px, 16vw, 190px) !important;
+            height: auto !important;
+            filter: drop-shadow(0 3px 10px rgba(0,0,0,0.1));
+            z-index: 2;
+            box-shadow: none !important;
+            border: none !important;
+        }
+        .kb-deco--tl { top: 0; left: 10px; transform: translateY(-75%); }
+        .kb-deco--tr { top: 0; right: 10px; transform: translateY(-75%); }
+
+        .kb-eyebrow { font-size: 10px; font-weight: 900; letter-spacing: 0.2em; color: #0090cc; margin-bottom: 12px; }
+        .kb-title { font-family: "M PLUS Rounded 1c", sans-serif; font-size: clamp(18px, 3vw, 26px); font-weight: 900; margin-bottom: 16px; line-height: 1.3; }
+        .kb-desc { font-size: 13px; color: var(--text-sub); line-height: 2.1; }
+
+        /* ══════════════════════════════════════
+           DESIGNER CARD
+        ══════════════════════════════════════ */
+        .designer-card {
+            max-width: 480px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.92);
+            border-radius: var(--r-xl);
+            padding: clamp(22px, 3vw, 36px) clamp(24px, 3.5vw, 44px);
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            border: 2px solid rgba(102, 193, 255, 0.25);
+            box-shadow: var(--shadow-b);
+        }
+        .designer-card--yellow { border-color: rgba(255, 213, 128, 0.35); }
+        .designer-ava {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            box-shadow: 0 0 0 3px rgba(102, 193, 255, 0.4), 0 4px 20px rgba(102,193,255,0.18);
+        }
+        .designer-role { font-size: 10px; font-weight: 900; letter-spacing: 0.16em; margin-bottom: 6px; color: #0090cc; }
+        .designer-role--yellow { color: #c88a00; }
+        .designer-name { font-family: "M PLUS Rounded 1c", sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 7px; }
+        .designer-bio { font-size: 12px; color: var(--text-sub); line-height: 1.9; }
+
+        /* ══════════════════════════════════════
+           MOUSEPAD SECTION
+        ══════════════════════════════════════ */
+        .pad-product {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(40px, 6vw, 88px);
+            align-items: center;
+            margin-bottom: 88px;
+        }
+        .pad-vis { position: relative; }
+        .pad-vis__main {
+            width: 100%;
+            border-radius: var(--r);
+            box-shadow: 0 18px 56px rgba(102, 193, 255, 0.16);
+            border: 2px solid rgba(255, 213, 128, 0.22);
+            transition: transform 0.4s cubic-bezier(.34,1.56,.64,1);
+        }
+        .pad-vis:hover .pad-vis__main { transform: translateY(-8px); }
+        .pad-vis__deco {
+            position: absolute;
+            width: clamp(60px, 9vw, 100px);
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
+        }
+        .pad-vis__deco--tl { top: -18px; left: -8px; animation: float 6s ease-in-out infinite; }
+        .pad-vis__deco--tr { top: -18px; right: -8px; animation: float-alt 7s ease-in-out infinite; }
+
+        .pad-tag {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--blue), var(--yellow));
+            color: #fff;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            padding: 5px 18px;
+            border-radius: var(--r-pill);
+            margin-bottom: 16px;
+        }
+        .pad-name { font-family: "M PLUS Rounded 1c", sans-serif; font-size: clamp(18px, 3vw, 24px); font-weight: 900; margin-bottom: 16px; line-height: 1.3; }
+        .pad-desc { font-size: 13px; color: var(--text-sub); line-height: 2.1; }
+
+        /* ══════════════════════════════════════
+           BRAND SECTION
+        ══════════════════════════════════════ */
+        .brand-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 36px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .brand-card {
+            background: rgba(255,255,255,0.92);
+            border-radius: var(--r-xl);
+            padding: clamp(30px, 4vw, 52px) clamp(26px, 4vw, 44px);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-b);
+            transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.35s ease;
+        }
+        .brand-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 5px;
+            border-radius: 4px 4px 0 0;
+        }
+        .brand-card--d::before { background: linear-gradient(90deg, var(--blue), var(--mint)); }
+        .brand-card--h::before { background: linear-gradient(90deg, var(--yellow), var(--blue)); }
+        .brand-card:hover { transform: translateY(-8px); box-shadow: 0 20px 56px rgba(102, 193, 255, 0.2); }
+        .brand-name { font-family: "M PLUS Rounded 1c", sans-serif; font-size: clamp(18px, 3vw, 26px); font-weight: 900; margin-bottom: 8px; }
+        .brand-card--d .brand-name { color: #0090cc; }
+        .brand-card--h .brand-name { color: #c88a00; }
+        .brand-tagline { font-size: 10px; color: var(--text-sub); letter-spacing: 0.12em; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid rgba(102,193,255,0.15); }
+        .brand-desc { font-size: 13px; color: var(--text-sub); line-height: 2.1; }
+
+        /* ══════════════════════════════════════
+           BENEFITS SECTION
+        ══════════════════════════════════════ */
+        .benefit-outer {
+            max-width: 720px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: var(--r-xl);
+            padding: 3px;
+            background: linear-gradient(135deg, var(--blue), var(--mint), var(--yellow), var(--mint), var(--blue));
+            background-size: 300%;
+            animation: rainbow-shift 5s ease infinite;
+            box-shadow: 0 16px 60px rgba(102, 193, 255, 0.22);
+        }
+        .benefit-inner {
+            background: rgba(255,255,255,0.96);
+            border-radius: calc(var(--r-xl) - 2px);
+            padding: clamp(44px, 6vw, 72px) clamp(28px, 5vw, 64px);
+            text-align: center;
+        }
+        .benefit-icon { font-size: 56px; display: block; margin-bottom: 24px; animation: heart-beat 1.6s ease-in-out infinite; }
+        .benefit-title {
+            font-family: "M PLUS Rounded 1c", sans-serif;
+            font-size: clamp(20px, 4vw, 32px);
+            font-weight: 900;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #0090cc, #66c1ff, #ffd580);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .benefit-list {
+            list-style: none;
+            text-align: left;
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+        .benefit-list li {
+            padding: 13px 0;
+            border-bottom: 1px solid rgba(102,193,255,0.15);
+            font-size: 14px;
+            color: var(--text);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            line-height: 1.75;
+        }
+        .benefit-list li::before {
+            content: "✦";
+            color: var(--blue);
+            font-size: 13px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            animation: heart-beat 1.8s ease-in-out infinite;
+        }
+        .benefit-list li:nth-child(2)::before { color: var(--yellow); content: "★"; animation-delay: 0.4s; }
+        .benefit-list li:nth-child(3)::before { color: var(--mint);   content: "✿"; animation-delay: 0.8s; }
+        .benefit-list li:nth-child(4)::before { color: #0090cc;       content: "♡"; animation-delay: 1.2s; }
+        .benefit-note { font-size: 11px; color: var(--text-sub); margin-top: 22px; line-height: 2; opacity: 0.7; }
+
+        /* ══════════════════════════════════════
+           CTA BUTTON
+        ══════════════════════════════════════ */
+        .cta-wrap { text-align: center; margin-top: 64px; }
+        .btn-magic {
+            display: inline-block;
+            padding: clamp(16px, 2.5vw, 22px) clamp(44px, 6.5vw, 80px);
+            background: linear-gradient(120deg, #66c1ff, #9adfb6, #ffd580, #9adfb6, #66c1ff);
+            background-size: 300%;
+            color: #fff;
+            font-family: "M PLUS Rounded 1c", sans-serif;
+            font-size: clamp(14px, 2.5vw, 20px);
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            border-radius: var(--r-pill);
+            animation: rainbow-shift 4s ease infinite, magical-glow 3s ease-in-out infinite;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.12);
+            transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);
+        }
+        .btn-magic:hover { transform: scale(1.06) translateY(-4px); }
+
+        /* ══════════════════════════════════════
+           FOOTER
+        ══════════════════════════════════════ */
+        .grad-line {
+            height: 4px;
+            background: linear-gradient(90deg, var(--blue), var(--mint), var(--yellow), var(--mint), var(--blue));
+            background-size: 200%;
+            animation: rainbow-shift 6s ease infinite;
+        }
+        footer {
+            background: #1a1e2e;
+            color: rgba(255,255,255,0.42);
+            text-align: center;
+            padding: 56px 28px;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            line-height: 2.6;
+        }
+        .footer-brand {
+            font-family: "M PLUS Rounded 1c", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(90deg, var(--blue), var(--mint), var(--yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        footer a { color: var(--blue); }
+
+        /* ══════════════════════════════════════
+           DECORATIVE STARS (per-section)
+        ══════════════════════════════════════ */
+        .sec-star {
+            position: absolute;
+            pointer-events: none;
+            color: var(--c, rgba(102,193,255,0.38));
+            font-size: var(--fs, 16px);
+            animation: twinkle var(--d, 3s) ease-in-out infinite var(--dl, 0s);
+        }
+
+        /* ══════════════════════════════════════
+           RESPONSIVE
+        ══════════════════════════════════════ */
+        @media (max-width: 860px) {
+            .mouse-product,
+            .kb-product,
+            .pad-product { grid-template-columns: 1fr; }
+            .kb-product--rev .kb-product__vis { order: -1; }
+            .brand-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            section { padding: 80px 0; }
+            .hero { padding: 120px 20px 100px; }
+            .site-nav { display: none; }
+            .float-reserve { font-size: 11px; padding: 18px 10px; }
+            .hero-ring--1 { width: 360px; height: 360px; }
+            .hero-ring--2 { width: 480px; height: 480px; }
+        }
+        @media (max-width: 560px) {
+            .hero-chars { gap: 8px; }
+            .hero-char { width: clamp(150px, 42vw, 280px); }
+            .compare-grid { grid-template-columns: 1fr; }
+            .mini-wrap { width: 64px; height: 64px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-brand">Weather Planet × Darmoshark × Haruhi Products</div>
+        <nav>
+            <ul class="site-nav">
+                <li><a href="#about">✦ Weather Planet</a></li>
+                <li><a href="#mouse">マウス</a></li>
+                <li><a href="#keyboard">キーボード</a></li>
+                <li><a href="#mousepad">マウスパッド</a></li>
+                <li><a href="#brand">ブランド</a></li>
+                <li class="nav-cta"><a href="#benefits">✦ ご予約</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Floating reserve -->
+    <a href="#benefits" class="float-reserve">今すぐ予約 ✦</a>
+
+    <!-- Fixed sparkle layer -->
+    <div class="magic-layer" aria-hidden="true">
+        <span class="sp" style="top:4%;left:6%;--d:2.6s;--dl:0s;font-size:12px;color:rgba(102,193,255,0.5)">✦</span>
+        <span class="sp" style="top:12%;left:92%;--d:3.2s;--dl:0.5s;font-size:10px;color:rgba(255,213,128,0.5)">★</span>
+        <span class="sp" style="top:23%;left:3%;--d:2.3s;--dl:1s;font-size:14px;color:rgba(102,193,255,0.45)">✧</span>
+        <span class="sp" style="top:36%;left:97%;--d:3.5s;--dl:0.3s;font-size:9px;color:rgba(255,213,128,0.45)">♡</span>
+        <span class="sp" style="top:51%;left:1%;--d:2.8s;--dl:0.8s;font-size:13px;color:rgba(154,223,182,0.55)">✦</span>
+        <span class="sp" style="top:64%;left:98%;--d:2.4s;--dl:1.3s;font-size:10px;color:rgba(102,193,255,0.45)">✿</span>
+        <span class="sp" style="top:77%;left:4%;--d:3.1s;--dl:0.4s;font-size:15px;color:rgba(255,213,128,0.42)">✦</span>
+        <span class="sp" style="top:88%;left:94%;--d:2.7s;--dl:0.9s;font-size:11px;color:rgba(102,193,255,0.45)">★</span>
+        <span class="sp" style="top:94%;left:8%;--d:3s;--dl:1.5s;font-size:9px;color:rgba(255,213,128,0.4)">♡</span>
+        <span class="sp" style="top:6%;left:47%;--d:2.5s;--dl:0.2s;font-size:12px;color:rgba(154,223,182,0.5)">✧</span>
+        <span class="sp" style="top:44%;left:50%;--d:3.4s;--dl:1.1s;font-size:10px;color:rgba(102,193,255,0.35)">✦</span>
+        <span class="sp" style="top:72%;left:52%;--d:2.9s;--dl:0.6s;font-size:13px;color:rgba(255,213,128,0.35)">★</span>
+    </div>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero">
+        <div class="hero-ring hero-ring--1"></div>
+        <div class="hero-ring hero-ring--2"></div>
+
+        <div class="hero-eyebrow">✦ <em>× C O L L A B O R A T I O N ×</em> ✦</div>
+
+        <h1 class="hero-title">
+            <span class="grad">Weather Planet</span><br>
+            <span class="grad">× Gaming Devices</span>
+            <span class="sub-brand">Darmoshark × Haruhi Products</span>
+        </h1>
+
+        <div class="hero-chars">
+            <div class="hero-char-wrap">
+                <img class="hero-char hero-char--ruka" src="../img1/マウスパッド　ルカイラスト.png" alt="雨海ルカ" />
+                <span class="char-star" style="top:10%;left:-10px;--fs:18px;--d:2.8s;--dl:0s;--dx:20px;color:#66c1ff">✦</span>
+                <span class="char-star" style="top:30%;left:90%;--fs:13px;--d:3.2s;--dl:1s;--dx:-15px;color:#ffd580">★</span>
+            </div>
+            <div class="hero-char-wrap">
+                <img class="hero-char hero-char--hinata" src="../img1/マウスパッド　ひなたイラスト.png" alt="天晴ひなた" />
+                <span class="char-star" style="top:8%;right:-8px;--fs:16px;--d:3s;--dl:0.5s;--dx:-18px;color:#ffd580">✦</span>
+                <span class="char-star" style="top:25%;left:0;--fs:12px;--d:2.5s;--dl:1.3s;--dx:12px;color:#66c1ff">♡</span>
+            </div>
+        </div>
+
+        <div class="hero-bubble">
+            <p>今回コラボの枠を越え、雨海ルカ様、天晴ひなた様、お二方監修の元、各コラボアイテムが開発されました！</p>
+            <p>マウス・キーボードはDarmoshark、マウスパッドはハルヒプロダクツが製造、こだわりの詰まった各デバイスをご覧ください。</p>
+        </div>
+    </section>
+
+    <!-- ═══ WEATHER PLANET ═══ -->
+    <section id="about">
+        <span class="sec-star" style="top:6%;left:3%;--fs:22px;--d:2.6s;--dl:0s;--c:rgba(102,193,255,0.38)">✦</span>
+        <span class="sec-star" style="top:15%;right:5%;--fs:16px;--d:3.1s;--dl:0.5s;--c:rgba(255,213,128,0.42)">✧</span>
+        <span class="sec-star" style="bottom:12%;left:6%;--fs:20px;--d:2.8s;--dl:0.9s;--c:rgba(154,223,182,0.45)">★</span>
+        <span class="sec-star" style="bottom:18%;right:4%;--fs:14px;--d:3.4s;--dl:0.3s;--c:rgba(102,193,255,0.35)">✦</span>
+
+        <div class="container">
+            <h2 class="sec-title reveal"><span>Weather Planet とは</span></h2>
+            <p class="sec-sub reveal d1">雨海ルカ &amp; 天晴ひなた — 天気をテーマにした二人組配信グループ</p>
+
+            <div class="wp-imgwrap reveal d2">
+                <img src="../img1/WeatherPlanetさま コラボキーボード 外箱デザイン案.png" alt="コラボキーボード 外箱デザイン案" />
+            </div>
+
+            <div class="wp-textbox reveal d3">
+                <p>🌤 Weather Planetは、雨海ルカと天晴ひなたによる二人組配信グループです。</p>
+                <p>それぞれ雨と晴れをテーマにした個性豊かなキャラクターが魅力で、今回 Darmoshark × Haruhi Products との特別コラボレーションが実現しました！</p>
+                <p>お二方が監修した、世界観いっぱいのゲーミングデバイスをぜひご覧ください。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ MOUSE ═══ -->
+    <section id="mouse">
+        <div class="container">
+            <h2 class="sec-title reveal"><span>ゲーミングマウス</span></h2>
+            <p class="sec-sub reveal d1">GAMING MOUSE — Darmoshark × Weather Planet</p>
+
+            <!-- Ruka M2 -->
+            <div class="mouse-product">
+                <div class="mouse-vis reveal">
+                    <img class="mouse-vis__img" src="../img1/M2正面ルカモデル.png" alt="Darmoshark M2 雨海ルカモデル" />
+                    <div class="mouse-vis__glow"></div>
+                    <div class="mini-wrap mini-wrap--tl">
+                        <img class="blink-a" src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2R.png" alt="" />
+                        <img class="blink-b" src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2R@.png" alt="" />
+                    </div>
+                </div>
+                <div class="kawaii-card reveal d2">
+                    <div class="chip chip--ruka">✦ RUKA MODEL</div>
+                    <div class="product-name">Darmoshark M2<br>雨海ルカ コラボモデル</div>
+                    <p class="product-desc">雨海ルカ様監修のオリジナルカラーリングを纏った高性能ゲーミングマウス。左右対称ボディで両手対応、ルカ様のイメージカラーが美しく映える特別デザインです。精密なセンサーとしっとりした持ち心地を両立しました。</p>
+                    <div class="spec-row">
+                        <span class="spec-pill">高精度センサー</span>
+                        <span class="spec-pill">左右対称ボディ</span>
+                        <span class="spec-pill">オリジナルカラー</span>
+                        <span class="spec-pill">軽量設計</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hinata M3XS -->
+            <div class="mouse-product">
+                <div class="mouse-vis reveal">
+                    <img class="mouse-vis__img" src="../img1/M3XS正面ひなたモデル.png" alt="Darmoshark M3XS 天晴ひなたモデル" />
+                    <div class="mouse-vis__glow"></div>
+                    <div class="mini-wrap mini-wrap--tr">
+                        <img class="blink-a" src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2H.png" alt="" />
+                        <img class="blink-b" src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2H@.png" alt="" />
+                    </div>
+                </div>
+                <div class="kawaii-card reveal d2">
+                    <div class="chip chip--hinata">✦ HINATA MODEL</div>
+                    <div class="product-name">Darmoshark M3XS<br>天晴ひなた コラボモデル</div>
+                    <p class="product-desc">天晴ひなた様監修の超軽量コンパクトゲーミングマウス。M3XSの優れた応答性と精密センサーに、ひなた様ならではのキュートなデザインをまとわせた特別モデルです。小さな手にも馴染むコンパクトボディが特徴。</p>
+                    <div class="spec-row">
+                        <span class="spec-pill">超軽量ボディ</span>
+                        <span class="spec-pill">コンパクト設計</span>
+                        <span class="spec-pill">高応答センサー</span>
+                        <span class="spec-pill">キュートデザイン</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compare -->
+            <div class="reveal">
+                <div class="compare-title">✦ 2モデル 並べてみると… ✦</div>
+                <div class="compare-grid">
+                    <div class="compare-item reveal-l">
+                        <img src="../img1/M2正面ルカモデル.png" alt="M2 雨海ルカモデル" />
+                        <div class="compare-label">M2 雨海ルカモデル</div>
+                    </div>
+                    <div class="compare-item reveal-r">
+                        <img src="../img1/M3XS正面ひなたモデル.png" alt="M3XS 天晴ひなたモデル" />
+                        <div class="compare-label">M3XS 天晴ひなたモデル</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-wrap reveal d2">
+                <a href="#benefits" class="btn-magic">✦ ご予約はこちら ✦</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ KEYBOARD ═══ -->
+    <section id="keyboard">
+        <div class="container">
+            <h2 class="sec-title reveal"><span>ゲーミングキーボード</span></h2>
+            <p class="sec-sub reveal d1">GAMING KEYBOARD — Darmoshark × Weather Planet</p>
+
+            <div class="kb-products">
+                <div class="kb-product">
+                    <div class="kb-product__vis reveal-l">
+                        <img class="kb-deco kb-deco--tl" src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト3R@.png" alt="" />
+                        <img src="../img1/keyboard front ESC 2.png" alt="キーボード 表面" />
+                    </div>
+                    <div class="kb-product__info reveal-r">
+                        <div class="kb-eyebrow">✦ FRONT DESIGN</div>
+                        <div class="kb-title">キーボード 表面デザイン</div>
+                        <p class="kb-desc">Weather Planetの世界観をキーキャップ全体に落とし込んだコラボデザイン。使うたびに心躍るキュートなビジュアルです。細部まで丁寧に仕上げた、こだわりの一台です。</p>
+                    </div>
+                </div>
+
+                <div class="kb-product kb-product--rev">
+                    <div class="kb-product__info reveal-l">
+                        <div class="kb-eyebrow">✦ BACK DESIGN</div>
+                        <div class="kb-title">キーボード 裏面デザイン</div>
+                        <p class="kb-desc">裏面まで細部にこだわったデザイン。飾っても映えるクオリティで、デスクをさらに彩ります。コレクターズアイテムとしても大変貴重な仕上がりです。</p>
+                    </div>
+                    <div class="kb-product__vis reveal-r">
+                        <img class="kb-deco kb-deco--tr" src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト3H.png" alt="" />
+                        <img src="../img1/keyboard back ESC 2.png" alt="キーボード 裏面" />
+                    </div>
+                </div>
+
+                <div class="kb-product">
+                    <div class="kb-product__vis reveal-l">
+                        <img src="../img1/ひなた裏面.jpg" alt="ひなたモデル 裏面イラスト" />
+                    </div>
+                    <div class="kb-product__info reveal-r">
+                        <div class="kb-eyebrow">✦ HINATA SPECIAL</div>
+                        <div class="kb-title">天晴ひなた 裏面イラスト</div>
+                        <p class="kb-desc">ひなた様の特別イラストを裏面にプリント。普段は見えない裏面にも遊び心を詰め込みました。ファン必見のスペシャル仕様です。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="designer-card reveal">
+                <img class="designer-ava" src="../img1/みたらしねこアイコン(キーボードデザイナー).jpg" alt="みたらしねこ" />
+                <div>
+                    <div class="designer-role">✦ KEYBOARD DESIGNER</div>
+                    <div class="designer-name">みたらしねこ</div>
+                    <p class="designer-bio">キーボードデザインを担当。Weather Planetの世界観をキーボード全体で丁寧に表現しました。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ MOUSEPAD ═══ -->
+    <section id="mousepad">
+        <div class="container">
+            <h2 class="sec-title reveal"><span>ゲーミングマウスパッド</span></h2>
+            <p class="sec-sub reveal d1">GAMING MOUSEPAD — Haruhi Products × Weather Planet</p>
+
+            <div class="pad-product">
+                <div class="pad-vis reveal-l">
+                    <img class="pad-vis__deco pad-vis__deco--tl" src="../img1/傘.png" alt="" />
+                    <img class="pad-vis__main" src="../img1/ルカ様コントロールタイプ(実物).png" alt="雨海ルカ コントロールタイプ" />
+                </div>
+                <div class="reveal-r" style="padding-top:8px">
+                    <div class="pad-tag">✦ CONTROL TYPE</div>
+                    <div class="pad-name">雨海ルカ<br>コントロールタイプ</div>
+                    <p class="pad-desc">精密なコントロールを実現する表面加工を採用。ルカ様のオリジナルイラストを大きくあしらった、存在感抜群のマウスパッドです。エイムの精度を高めたい方に最適なコントロールタイプ。</p>
+                </div>
+
+                <div class="reveal-l" style="padding-top:8px">
+                    <div class="pad-tag">★ SPEED TYPE</div>
+                    <div class="pad-name">天晴ひなた<br>スピードタイプ</div>
+                    <p class="pad-desc">滑らかな動きをサポートするスピードタイプ表面。ひなた様のオリジナルイラストが映える大判サイズで、テンポよくプレイしたい方にぴったりです。</p>
+                </div>
+                <div class="pad-vis reveal-r">
+                    <img class="pad-vis__deco pad-vis__deco--tr" src="../img1/土星.png" alt="" />
+                    <img class="pad-vis__main" src="../img1/ひなた様スピードタイプ(実物).png" alt="天晴ひなた スピードタイプ" />
+                </div>
+            </div>
+
+            <div class="designer-card designer-card--yellow reveal">
+                <img class="designer-ava" src="../img1/平山寛菜アイコン(マウスパッドデザイナー).jpg" alt="平山寛菜" />
+                <div>
+                    <div class="designer-role designer-role--yellow">★ MOUSEPAD DESIGNER</div>
+                    <div class="designer-name">平山寛菜</div>
+                    <p class="designer-bio">マウスパッドイラストを担当。キャラクターの魅力を最大限に引き出したデザインで製作しました。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ BRAND ═══ -->
+    <section id="brand">
+        <div class="container">
+            <h2 class="sec-title reveal"><span>コラボブランド紹介</span></h2>
+            <p class="sec-sub reveal d1">COLLABORATION BRANDS</p>
+
+            <div class="brand-grid">
+                <div class="brand-card brand-card--d reveal-l">
+                    <div class="brand-name">Darmoshark</div>
+                    <div class="brand-tagline">HIGH-PERFORMANCE GAMING PERIPHERALS</div>
+                    <p class="brand-desc">Darmosharkは、高性能ゲーミングデバイスを手がけるブランドです。精密なセンサーと革新的なデザインで、プロからカジュアルゲーマーまで幅広く支持されています。<br><br>今回のコラボでは、Weather Planetのお二方と共にマウス・キーボードを制作。パフォーマンスと個性が融合した特別デバイスが誕生しました。</p>
+                </div>
+                <div class="brand-card brand-card--h reveal-r">
+                    <div class="brand-name">Haruhi Products</div>
+                    <div class="brand-tagline">ORIGINAL GAMING GOODS MANUFACTURER</div>
+                    <p class="brand-desc">Haruhi Productsは、クリエイターとのコラボレーションを大切にするゲーミンググッズブランドです。個性あふれるデザインのデバイスを世に届けることをミッションとしています。<br><br>今回は雨海ルカ様・天晴ひなた様のイラストを使用した特別マウスパッドを製作しました。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ BENEFITS ═══ -->
+    <section id="benefits">
+        <div class="container">
+            <h2 class="sec-title reveal"><span>予約特典</span></h2>
+            <p class="sec-sub reveal d1">RESERVATION BENEFITS</p>
+
+            <div class="benefit-outer reveal d2">
+                <div class="benefit-inner">
+                    <span class="benefit-icon">🎁</span>
+                    <div class="benefit-title">早期ご予約 特典内容</div>
+                    <ul class="benefit-list">
+                        <li>コラボ限定 アクリルスタンド（雨海ルカ ver. / 天晴ひなた ver. 各一種）</li>
+                        <li>Weather Planet オリジナル ステッカーセット</li>
+                        <li>購入者限定 デジタルウォールペーパー（PC・スマホ対応）</li>
+                        <li>お二方のサイン入り感謝状（先着順・数量限定）</li>
+                    </ul>
+                    <a href="#" class="btn-magic">✦ 今すぐ予約する ✦</a>
+                    <div class="benefit-note">
+                        ※ 特典は数量限定です。なくなり次第終了となります。<br>
+                        ※ 予約受付期間・発送スケジュールは別途ご案内します。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="grad-line"></div>
+    <footer>
+        <div class="footer-brand">Weather Planet × Darmoshark × Haruhi Products</div>
+        <p>雨海ルカ様 / 天晴ひなた様 コラボレーション ゲーミングデバイス</p>
+        <p style="margin-top:8px">© 2024 Haruhi Products. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const io = new IntersectionObserver(
+            es => es.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add("vis"); io.unobserve(e.target); }
+            }),
+            { threshold: 0.1 }
+        );
+        document.querySelectorAll(".reveal,.reveal-l,.reveal-r").forEach(el => io.observe(el));
+    </script>
+</body>
+</html>
