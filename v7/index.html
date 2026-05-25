@@ -953,7 +953,7 @@
                 display: flex;
                 flex-direction: column;
                 gap: 0;
-                margin-bottom: clamp(48px, 6vw, 72px);
+                margin-bottom: 0;
             }
             .mouse-panel {
                 min-height: 100vh;
@@ -962,14 +962,16 @@
                 overflow: hidden;
             }
 
-            /* ── マウスパネル：元の青→ミント→黄色グラデーション ── */
+            /* ── マウスパネル：透明→青→ミント→黄色（上下ともフェード） ── */
             .mouse-panels-combined {
                 background: linear-gradient(to bottom,
-                    #9ed8ff 0%,
-                    #c0eaff 18%,
-                    #d8f4ff 36%,
-                    #e4f5ee 50%,
-                    #fff0c0 68%,
+                    transparent 0%,
+                    rgba(158, 216, 255, 0.5) 5%,
+                    #9ed8ff 13%,
+                    #c0eaff 26%,
+                    #d8f4ff 40%,
+                    #e4f5ee 52%,
+                    #fff0c0 70%,
                     #ffe8a0 100%
                 );
             }
@@ -1723,6 +1725,189 @@
             }
 
             /* ══════════════════════════════════════
+           MOUSE SPEC COMPARISON — SPLIT CARDS
+        ══════════════════════════════════════ */
+
+            /* スペックセクション：フルブリード（マウスパネル末尾から連続） */
+            .mspec-fullbleed {
+                padding: clamp(52px, 6.5vw, 96px) clamp(28px, 5vw, 72px) clamp(68px, 8.5vw, 120px);
+                background: linear-gradient(to bottom,
+                    #ffe8a0 0%,
+                    rgba(255, 232, 160, 0.22) 6%,
+                    transparent 14%
+                );
+            }
+
+            /* 2カードグリッド */
+            .mspec-split {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: clamp(18px, 2.8vw, 40px);
+                max-width: 1060px;
+                margin: 0 auto clamp(44px, 5.5vw, 72px);
+            }
+
+            /* カード外枠（グラデーションボーダー + ホバーリフト） */
+            .mspec-card {
+                border-radius: var(--r-xl);
+                padding: 3px;
+                background-size: 300%;
+                animation: rainbow-shift 6s ease infinite;
+                display: flex;
+                flex-direction: column;
+                transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+            }
+            .mspec-card--ruka {
+                background: linear-gradient(135deg,
+                    rgba(102, 193, 255, 0.50),
+                    rgba(154, 223, 182, 0.38),
+                    rgba(176, 220, 255, 0.50),
+                    rgba(154, 223, 182, 0.38),
+                    rgba(102, 193, 255, 0.50));
+                box-shadow: 0 8px 40px rgba(102, 193, 255, 0.14), 0 2px 12px rgba(102, 193, 255, 0.10);
+            }
+            .mspec-card--hinata {
+                background: linear-gradient(135deg,
+                    rgba(255, 213, 128, 0.50),
+                    rgba(255, 183, 107, 0.38),
+                    rgba(255, 232, 168, 0.50),
+                    rgba(255, 183, 107, 0.38),
+                    rgba(255, 213, 128, 0.50));
+                box-shadow: 0 8px 40px rgba(255, 183, 107, 0.16), 0 2px 12px rgba(255, 213, 128, 0.12);
+                animation-delay: -3s;
+            }
+            .mspec-card:hover               { transform: translateY(-10px); }
+            .mspec-card--ruka:hover         { box-shadow: 0 24px 64px rgba(102, 193, 255, 0.28), 0 4px 20px rgba(102, 193, 255, 0.16); }
+            .mspec-card--hinata:hover       { box-shadow: 0 24px 64px rgba(255, 183, 107, 0.32), 0 4px 20px rgba(255, 213, 128, 0.20); }
+
+            /* カード内側：版ごとに微妙な色味 */
+            .mspec-card-inner {
+                backdrop-filter: blur(24px);
+                border-radius: calc(var(--r-xl) - 2px);
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+            }
+            .mspec-card--ruka   .mspec-card-inner { background: rgba(236, 249, 255, 0.76); }
+            .mspec-card--hinata .mspec-card-inner { background: rgba(255, 252, 236, 0.76); }
+
+            /* 上部イラストエリア */
+            .mspec-card-img {
+                padding: clamp(28px, 3.5vw, 52px) clamp(20px, 3vw, 40px) clamp(14px, 2vw, 22px);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            .mspec-card--ruka   .mspec-card-img { background: linear-gradient(160deg, rgba(102, 193, 255, 0.18) 0%, rgba(102, 193, 255, 0.04) 100%); }
+            .mspec-card--hinata .mspec-card-img { background: linear-gradient(200deg, rgba(255, 213, 128, 0.04) 0%, rgba(255, 213, 128, 0.18) 100%); }
+            .mspec-card-img img {
+                width: 100%;
+                max-width: clamp(200px, 30vw, 420px);
+                border-radius: 10px;
+                transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease;
+            }
+            .mspec-card--ruka   .mspec-card-img img { filter: drop-shadow(0 8px 24px rgba(60, 160, 255, 0.30)); }
+            .mspec-card--hinata .mspec-card-img img { filter: drop-shadow(0 8px 24px rgba(240, 160, 40, 0.30)); }
+            .mspec-card-img:hover img              { transform: translateY(-6px) scale(1.02); }
+            .mspec-card--ruka   .mspec-card-img:hover img { filter: drop-shadow(0 14px 36px rgba(60, 160, 255, 0.55)); }
+            .mspec-card--hinata .mspec-card-img:hover img { filter: drop-shadow(0 14px 36px rgba(240, 160, 40, 0.55)); }
+
+            /* エディション名 */
+            .mspec-card-edition {
+                font-family: "M PLUS Rounded 1c", sans-serif;
+                font-size: clamp(22px, 3vw, 36px);
+                font-weight: 900;
+                font-style: italic;
+                letter-spacing: 0.04em;
+                margin-top: 4px;
+            }
+            .mspec-card--ruka .mspec-card-edition {
+                background: linear-gradient(90deg, #0a3870 0%, #1a70c8 28%, #78d0ff 50%, #1a70c8 72%, #0a3870 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                background-size: 220% 100%;
+                animation: shimmer-ruka 4s linear infinite;
+            }
+            .mspec-card--hinata .mspec-card-edition {
+                background: linear-gradient(90deg, #6a3200 0%, #c06818 28%, #ffc84a 50%, #c06818 72%, #6a3200 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                background-size: 220% 100%;
+                animation: shimmer-hinata 4s linear infinite;
+            }
+
+            /* モデル名：バッジスタイル */
+            .mspec-card-model {
+                display: inline-block;
+                padding: 3px 14px;
+                border-radius: var(--r-pill);
+                font-size: clamp(9px, 1vw, 11px);
+                font-weight: 900;
+                letter-spacing: 0.12em;
+                opacity: 1;
+            }
+            .mspec-card--ruka   .mspec-card-model { background: rgba(102, 193, 255, 0.14); color: #0a6ea8; border: 1px solid rgba(102, 193, 255, 0.30); }
+            .mspec-card--hinata .mspec-card-model { background: rgba(255, 213, 128, 0.20); color: #8a5200; border: 1px solid rgba(255, 180, 50, 0.35); }
+
+            /* スペックリスト */
+            .mspec-card-specs { flex: 1; }
+            .mspec-card--ruka   .mspec-card-specs { border-top: 1.5px solid rgba(102, 193, 255, 0.18); }
+            .mspec-card--hinata .mspec-card-specs { border-top: 1.5px solid rgba(255, 213, 128, 0.24); }
+
+            .mspec-spec-row {
+                display: flex;
+                border-bottom: 1px solid rgba(102, 193, 255, 0.07);
+                transition: background 0.2s ease;
+            }
+            .mspec-card--hinata .mspec-spec-row    { border-bottom-color: rgba(255, 213, 128, 0.10); }
+            .mspec-spec-row:last-child              { border-bottom: none; }
+            .mspec-card--ruka   .mspec-spec-row:nth-child(even) { background: rgba(215, 240, 255, 0.45); }
+            .mspec-card--hinata .mspec-spec-row:nth-child(even) { background: rgba(255, 243, 205, 0.45); }
+            .mspec-card--ruka   .mspec-spec-row:hover { background: rgba(102, 193, 255, 0.12); }
+            .mspec-card--hinata .mspec-spec-row:hover { background: rgba(255, 213, 128, 0.12); }
+
+            /* 最初の行（モデル名）を強調 */
+            .mspec-spec-row:first-child .mspec-spec-val { font-weight: 700; font-size: clamp(12px, 1.15vw, 15px); }
+            .mspec-card--ruka   .mspec-spec-row:first-child .mspec-spec-val { color: #0a6ea8; }
+            .mspec-card--hinata .mspec-spec-row:first-child .mspec-spec-val { color: #8a5200; }
+
+            /* ラベル列：左アクセントバー */
+            .mspec-spec-label {
+                flex-shrink: 0;
+                width: clamp(76px, 10vw, 104px);
+                padding: 11px 10px 11px 14px;
+                font-size: clamp(10px, 1vw, 12px);
+                font-weight: 900;
+                letter-spacing: 0.04em;
+                color: var(--text-sub);
+                display: flex;
+                align-items: center;
+            }
+            .mspec-card--ruka   .mspec-spec-label { border-right: 1px solid rgba(102, 193, 255, 0.14); background: rgba(102, 193, 255, 0.06); }
+            .mspec-card--hinata .mspec-spec-label { border-right: 1px solid rgba(255, 213, 128, 0.18); background: rgba(255, 213, 128, 0.06); }
+
+            /* 値列 */
+            .mspec-spec-val {
+                padding: 11px 14px;
+                font-size: clamp(12px, 1.1vw, 14px);
+                line-height: 1.6;
+                color: var(--text);
+                display: flex;
+                align-items: center;
+            }
+
+            @media (max-width: 767px) {
+                .mspec-split      { grid-template-columns: 1fr; gap: 20px; }
+                .mspec-card-img   { padding: 14px 14px 10px; }
+                .mspec-spec-label { width: 72px; padding: 10px 8px 10px 10px; font-size: 10px; }
+                .mspec-spec-val   { padding: 10px 12px; font-size: 12px; }
+            }
+
+            /* ══════════════════════════════════════
            FOOTER
         ══════════════════════════════════════ */
             .grad-line {
@@ -2346,7 +2531,60 @@
             </div><!-- /.mouse-panels-combined -->
             </div><!-- /.mouse-panels -->
 
-            <div class="container" style="padding-top: clamp(48px,6vw,80px); padding-bottom: clamp(48px,6vw,80px);">
+            <!-- Spec + CTA: full-bleed, マウスパネルグラデーションの連続 -->
+            <div class="mspec-fullbleed">
+                <div class="mspec-split">
+
+                    <!-- ── ruka card ── -->
+                    <div class="mspec-card mspec-card--ruka reveal-l">
+                        <div class="mspec-card-inner">
+                            <div class="mspec-card-img">
+                                <img src="../img1/ruka_detail.png" alt="雨海ルカ × M2 DAERO" />
+                                <div class="mspec-card-edition">ruka edition</div>
+                                <div class="mspec-card-model">M2 DAERO</div>
+                            </div>
+                            <div class="mspec-card-specs">
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">モデル</div><div class="mspec-spec-val">M2 DAERO</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">素材</div><div class="mspec-spec-val">マグネシウム合金</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">重量</div><div class="mspec-spec-val">約37g</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">長さ</div><div class="mspec-spec-val">115.8mm</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">幅</div><div class="mspec-spec-val">60.4mm</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">高さ</div><div class="mspec-spec-val">36.1mm</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">スイッチ</div><div class="mspec-spec-val">TTC Falcon / Green Dragon</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">センサー</div><div class="mspec-spec-val">PixArt PAW3950</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">MCU</div><div class="mspec-spec-val">Nordic 52840</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">ポーリングレート</div><div class="mspec-spec-val">最大4000Hz / 8000Hz</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">DPI</div><div class="mspec-spec-val">最大26000 / 30000</div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ── hinata card ── -->
+                    <div class="mspec-card mspec-card--hinata reveal-r">
+                        <div class="mspec-card-inner">
+                            <div class="mspec-card-img">
+                                <img src="../img1/hinata_detail.png" alt="天晴ひなた × M3XS Ghostcat" />
+                                <div class="mspec-card-edition">hinata edition</div>
+                                <div class="mspec-card-model">M3XS ghostcat</div>
+                            </div>
+                            <div class="mspec-card-specs">
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">モデル</div><div class="mspec-spec-val">M3XS ghostcat</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">素材</div><div class="mspec-spec-val">プラスチック</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">重量</div><div class="mspec-spec-val">約45±2g（ソール込）</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">長さ</div><div class="mspec-spec-val">116mm</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">幅</div><div class="mspec-spec-val">60mm</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">高さ</div><div class="mspec-spec-val">36mm</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">スイッチ</div><div class="mspec-spec-val">TTC Green Dragon / 60M</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">センサー</div><div class="mspec-spec-val">PixArt PAW3950</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">MCU</div><div class="mspec-spec-val">Nordic 52840</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">ポーリングレート</div><div class="mspec-spec-val">最大8000Hz</div></div>
+                                <div class="mspec-spec-row"><div class="mspec-spec-label">DPI</div><div class="mspec-spec-val">最大26000 / 30000</div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
                 <div class="cta-wrap reveal d2">
                     <a href="#benefits" class="btn-magic">✦ ご予約はこちら ✦</a>
                 </div>
