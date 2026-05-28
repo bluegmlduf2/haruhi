@@ -325,7 +325,136 @@
             /* ヒーロー以外は全て透明 — body の fixed gradient を通して見せる */
             #mouse  { background: transparent; padding: 0; }
             #about  { background: transparent; padding: clamp(120px, 20vh, 240px) 0; }
-            #mousepad, #brand, #benefits { background: transparent; }
+            #benefits { background: transparent; }
+
+            /* ④ 夜空・星空 */
+            #mousepad {
+                background-image:
+                    /* ── 上部フェード：徐々に星が現れる ── */
+                    linear-gradient(to bottom,
+                        rgba(10,10,40,0.90)  0%,
+                        rgba(10,10,40,0.62)  5%,
+                        rgba(10,10,40,0.28) 10%,
+                        rgba(10,10,40,0)    16%
+                    ),
+                    /* ── 天の川 ── */
+                    radial-gradient(ellipse 60% 13% at 52% 42%, rgba(140,162,230,0.10) 0%, transparent 100%),
+                    /* ── 大きな星（固定位置） ── */
+                    radial-gradient(circle 3px at 27% 18%, #fff 0%, rgba(200,220,255,0.18) 50%, transparent 100%),
+                    radial-gradient(circle 3px at 71% 15%, #fff 0%, rgba(200,220,255,0.18) 50%, transparent 100%),
+                    radial-gradient(circle 3px at 14% 55%, #fff 0%, rgba(200,220,255,0.18) 50%, transparent 100%),
+                    radial-gradient(circle 3px at 84% 42%, #fff 0%, rgba(200,220,255,0.18) 50%, transparent 100%),
+                    radial-gradient(circle 3px at 46% 74%, #fff 0%, rgba(200,220,255,0.18) 50%, transparent 100%),
+                    radial-gradient(circle 3px at 58% 32%, #fff 0%, rgba(200,220,255,0.15) 50%, transparent 100%),
+                    radial-gradient(circle 3px at  5% 78%, #fff 0%, rgba(200,220,255,0.15) 50%, transparent 100%),
+                    radial-gradient(circle 3px at 93% 62%, #fff 0%, rgba(200,220,255,0.15) 50%, transparent 100%),
+                    radial-gradient(circle 2px at 38% 48%, #fff 0%, rgba(200,220,255,0.12) 50%, transparent 100%),
+                    radial-gradient(circle 2px at 78% 85%, #fff 0%, rgba(200,220,255,0.12) 50%, transparent 100%),
+                    /* ── 中程度の星（大きなタイルで繰り返しを目立たなくする） ── */
+                    radial-gradient(circle 1.5px at  55px  40px, rgba(255,255,255,0.92) 0%, transparent 100%),
+                    radial-gradient(circle 1.5px at 210px  90px, rgba(255,255,255,0.80) 0%, transparent 100%),
+                    radial-gradient(circle 1.5px at 390px  22px, rgba(255,255,255,0.88) 0%, transparent 100%),
+                    radial-gradient(circle 1.5px at 570px 135px, rgba(255,255,255,0.75) 0%, transparent 100%),
+                    radial-gradient(circle 1.5px at 690px  58px, rgba(255,255,255,0.85) 0%, transparent 100%),
+                    radial-gradient(circle 1.5px at 135px 250px, rgba(255,255,255,0.82) 0%, transparent 100%),
+                    radial-gradient(circle 1.5px at 320px 320px, rgba(255,255,255,0.78) 0%, transparent 100%),
+                    radial-gradient(circle 1.5px at 500px 275px, rgba(255,255,255,0.90) 0%, transparent 100%),
+                    radial-gradient(circle 1.5px at  78px 440px, rgba(255,255,255,0.72) 0%, transparent 100%),
+                    radial-gradient(circle 1.5px at 648px 415px, rgba(255,255,255,0.86) 0%, transparent 100%),
+                    /* ── 小さな星（別サイズのタイル） ── */
+                    radial-gradient(circle 1px at  92px  18px, rgba(255,255,255,0.95) 0%, transparent 100%),
+                    radial-gradient(circle 1px at 278px  58px, rgba(255,255,255,0.82) 0%, transparent 100%),
+                    radial-gradient(circle 1px at 468px  34px, rgba(255,255,255,0.90) 0%, transparent 100%),
+                    radial-gradient(circle 1px at 628px  82px, rgba(255,255,255,0.75) 0%, transparent 100%),
+                    radial-gradient(circle 1px at 162px 162px, rgba(255,255,255,0.88) 0%, transparent 100%),
+                    radial-gradient(circle 1px at 385px 195px, rgba(255,255,255,0.80) 0%, transparent 100%),
+                    radial-gradient(circle 1px at  32px 228px, rgba(255,255,255,0.85) 0%, transparent 100%),
+                    radial-gradient(circle 1px at 558px 238px, rgba(255,255,255,0.70) 0%, transparent 100%),
+                    radial-gradient(circle 1px at 235px 328px, rgba(255,255,255,0.88) 0%, transparent 100%),
+                    radial-gradient(circle 1px at 438px 375px, rgba(255,255,255,0.78) 0%, transparent 100%),
+                    radial-gradient(circle 1px at  68px 408px, rgba(255,255,255,0.85) 0%, transparent 100%),
+                    radial-gradient(circle 1px at 665px 345px, rgba(255,255,255,0.65) 0%, transparent 100%),
+                    /* ── ベースの夜空グラデーション ── */
+                    linear-gradient(to bottom,
+                        #0a0a28  0%,
+                        #0c0c32 14%,
+                        #0d0d3e 35%,
+                        #0d0d3e 62%,
+                        #0a0a30 78%,
+                        #070720 90%,
+                        #050518 100%
+                    );
+                background-size:
+                    100% 100%,
+                    100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
+                    720px 500px, 720px 500px, 720px 500px, 720px 500px, 720px 500px,
+                    720px 500px, 720px 500px, 720px 500px, 720px 500px, 720px 500px,
+                    680px 460px, 680px 460px, 680px 460px, 680px 460px, 680px 460px,
+                    680px 460px, 680px 460px, 680px 460px, 680px 460px, 680px 460px,
+                    680px 460px, 680px 460px,
+                    100% 100%;
+                background-repeat:
+                    no-repeat,
+                    no-repeat,
+                    no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+                    no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+                    repeat, repeat, repeat, repeat, repeat,
+                    repeat, repeat, repeat, repeat, repeat,
+                    repeat, repeat, repeat, repeat, repeat,
+                    repeat, repeat, repeat, repeat, repeat,
+                    repeat, repeat,
+                    no-repeat;
+            }
+
+            /* ⑤ 真夜中 — マウスパッドと同じ色系統で自然に接続、benefitsへフェード */
+            #brand {
+                background: linear-gradient(to bottom,
+                    #050518 0%,
+                    #080828 8%,
+                    #0b0b35 22%,
+                    #0e0e42 50%,
+                    #0b0b35 74%,
+                    #080828 89%,
+                    rgba(5, 5, 22, 0.45) 95%,
+                    rgba(5, 5, 22, 0) 100%
+                );
+            }
+
+            /* ─ 夜空セクションのテキスト上書き ─ */
+            #mousepad .sec-sub { color: rgba(160, 185, 235, 0.65); }
+            #mousepad .pad-name { color: #dce8ff; }
+            #mousepad .pad-desc { color: rgba(190, 210, 245, 0.78); }
+            #mousepad .pad-tag { background: linear-gradient(90deg, #2848a0, #5078c8); }
+            #mousepad .designer-card {
+                background: rgba(255, 255, 255, 0.06);
+                border-color: rgba(100, 140, 220, 0.20);
+                box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
+            }
+            #mousepad .designer-ava {
+                box-shadow: 0 0 0 3px rgba(100, 140, 220, 0.45), 0 4px 20px rgba(0, 0, 0, 0.5);
+            }
+            #mousepad .designer-role--yellow { color: #a8c8f0; }
+            #mousepad .designer-name { color: #e0eaff; }
+            #mousepad .designer-bio { color: rgba(185, 205, 240, 0.72); }
+
+            /* ─ 真夜中セクションのテキスト上書き ─ */
+            #brand .sec-sub { color: rgba(155, 170, 255, 0.6); }
+            #brand .brand-card {
+                background: rgba(255, 255, 255, 0.06);
+                border-color: rgba(102, 150, 255, 0.18);
+                box-shadow: 0 8px 40px rgba(0, 0, 0, 0.55);
+            }
+            #brand .brand-card:hover {
+                transform: translateY(-8px);
+                background: rgba(255, 255, 255, 0.10);
+                box-shadow: 0 20px 56px rgba(60, 100, 255, 0.22);
+            }
+            #brand .brand-card--d .brand-name { color: #80c8ff; }
+            #brand .brand-card--h .brand-name { color: #ffe090; }
+            #brand .brand-tagline { color: rgba(175, 190, 255, 0.45); border-bottom-color: rgba(102, 150, 255, 0.12); }
+            #brand .brand-desc { color: rgba(190, 200, 255, 0.72); }
 
             /* ══════════════════════════════════════
            SECTION TITLE — ANIME RIBBON STYLE
@@ -962,18 +1091,34 @@
                 overflow: hidden;
             }
 
-            /* ── マウスパネル：透明→青→ミント→黄色（上下ともフェード） ── */
+            /* ── マウスパネル：青空（ルカ）→朝の日差し（ひなた）→スペックへ自然接続 ── */
             .mouse-panels-combined {
                 background: linear-gradient(to bottom,
                     transparent 0%,
-                    rgba(158, 216, 255, 0.5) 5%,
-                    #9ed8ff 13%,
-                    #c0eaff 26%,
-                    #d8f4ff 40%,
-                    #e4f5ee 52%,
-                    #fff0c0 72%,
-                    #ffe8a0 88%,
-                    rgba(255, 232, 160, 0) 100%
+                    #dff0ff 2%,
+                    #b2d8f5 7%,
+                    #72b8e8 16%,
+                    #48aadf 26%,
+                    #5ab4ea 33%,
+                    #7cc6ec 38%,
+                    #a8d8f4 42%,
+                    #cce8fc 45%,
+                    #deeefa 47%,
+                    #eaf4fc 48.5%,
+                    /* --- 境界ゾーン：青→白→金の2段補間で濁りを消す --- */
+                    #f0f0f8 49.5%,
+                    #f8f0e8 50.5%,
+                    /* --- 朝の日差し --- */
+                    #fce8cc 52%,
+                    #ffe0a8 55%,
+                    #ffd07a 59%,
+                    #ffc05a 65%,
+                    #ffbc58 71%,
+                    #ffc870 76%,
+                    #ffd898 81%,
+                    #ffe8c0 86%,
+                    #fff4e4 91%,
+                    rgba(255, 250, 242, 0) 100%
                 );
             }
 
@@ -1127,7 +1272,7 @@
                 line-height: 1.1;
             }
             .mouse-panel--ruka .mp-edition-line { color: #1a5090; }
-            .mouse-panel--hinata .mp-edition-line { color: #8a5200; }
+            .mouse-panel--hinata .mp-edition-line { color: #904800; }
 
             .mp-model-line {
                 font-family: "M PLUS Rounded 1c", sans-serif;
@@ -1146,7 +1291,7 @@
                 line-height: 2.0;
             }
             .mouse-panel--ruka .mp-desc { color: rgba(10, 32, 64, 0.82); margin-top: clamp(20px, 3vw, 40px); }
-            .mouse-panel--hinata .mp-desc { color: rgba(74, 40, 0, 0.82); }
+            .mouse-panel--hinata .mp-desc { color: rgba(90, 48, 8, 0.85); }
 
             /* Detail – below description, inside info/desc col */
             .mp-detail {
@@ -1181,7 +1326,7 @@
                 animation: shimmer-ruka 4s linear infinite;
             }
             .mouse-panel--hinata .mp-model-line {
-                background: linear-gradient(90deg, #4a2800 0%, #b06010 30%, #f0b840 50%, #b06010 70%, #4a2800 100%);
+                background: linear-gradient(90deg, #b85800 0%, #d47010 30%, #f0a020 50%, #d47010 70%, #b85800 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
@@ -1729,10 +1874,16 @@
            MOUSE SPEC COMPARISON — SPLIT CARDS
         ══════════════════════════════════════ */
 
-            /* スペックセクション：フルブリード（マウスパネル末尾から連続） */
+            /* スペックセクション：下部にキーボードへの予兆グラデーション */
             .mspec-fullbleed {
                 padding: clamp(80px, 10vw, 130px) clamp(28px, 5vw, 72px) clamp(68px, 8.5vw, 120px);
-                background: none;
+                background: linear-gradient(to bottom,
+                    transparent 0%,
+                    transparent 60%,
+                    rgba(0, 55, 135, 0.06) 78%,
+                    rgba(0, 50, 125, 0.16) 90%,
+                    rgba(0, 48, 120, 0.28) 100%
+                );
             }
 
             /* 2カードグリッド */
@@ -1908,28 +2059,33 @@
            KEYBOARD SECTION — DARK EDITORIAL
         ══════════════════════════════════════ */
             #keyboard {
-                background: linear-gradient(180deg,
-                    transparent 0%,
-                    rgba(24, 38, 62, 0.05) 0.8%,
-                    rgba(26, 41, 66, 0.18) 2%,
-                    rgba(28, 44, 70, 0.40) 3.5%,
-                    rgba(31, 48, 76, 0.62) 5%,
-                    rgba(33, 51, 81, 0.82) 6.5%,
-                    rgba(35, 53, 84, 0.94) 7.5%,
-                    #243756 8.5%,
-                    #263d5e 16%,
-                    #273f61 34%,
-                    #263d5e 68%,
-                    #243756 88%,
-                    rgba(35, 53, 84, 0.93) 90.5%,
-                    rgba(33, 51, 81, 0.82) 92.5%,
-                    rgba(31, 48, 77, 0.65) 94.5%,
-                    rgba(29, 45, 73, 0.44) 96%,
-                    rgba(27, 42, 68, 0.24) 97.5%,
-                    rgba(25, 39, 63, 0.08) 99%,
-                    transparent 100%
-                );
-                padding: clamp(160px, 18vw, 220px) 0 clamp(170px, 19vw, 240px);
+                /* 水中：海面→深海へ自然なブルーグラデーション */
+                background:
+                    /* ── 水面から差し込む光の筋（より明るく） ── */
+                    radial-gradient(ellipse 90px 70% at  8% 0%, rgba(100, 190, 255, 0.22) 0%, transparent 100%),
+                    radial-gradient(ellipse 55px 55% at 28% 0%, rgba(120, 200, 255, 0.15) 0%, transparent 100%),
+                    radial-gradient(ellipse 120px 75% at 54% 0%, rgba(90, 185, 255, 0.25) 0%, transparent 100%),
+                    radial-gradient(ellipse 65px 48% at 78% 0%, rgba(110, 195, 255, 0.16) 0%, transparent 100%),
+                    radial-gradient(ellipse 80px 62% at 96% 0%, rgba(95, 188, 255, 0.20) 0%, transparent 100%),
+                    /* ── 中層の海中感（横方向の光の揺らぎ） ── */
+                    radial-gradient(ellipse 55% 18% at 30% 38%, rgba(30, 100, 200, 0.08) 0%, transparent 100%),
+                    radial-gradient(ellipse 42% 14% at 72% 55%, rgba(30, 110, 210, 0.07) 0%, transparent 100%),
+                    /* ── ベース：なだらかな入り口→均一な深海→夜空へ ── */
+                    linear-gradient(180deg,
+                        rgba(0, 48, 120, 0.28)    0%,
+                        rgba(0, 50, 130, 0.52)    5%,
+                        rgba(0, 52, 140, 0.78)   10%,
+                        rgba(0, 52, 145, 0.95)   15%,
+                        #004092                  20%,
+                        #003e8e                  32%,
+                        #003b8a                  48%,
+                        #003b8a                  62%,
+                        #002e78                  74%,
+                        #101830                  84%,
+                        #0c0c2a                  92%,
+                        #0a0a28                 100%
+                    );
+                padding: clamp(160px, 18vw, 220px) 0 clamp(80px, 9vw, 120px);
                 position: relative;
             }
 
