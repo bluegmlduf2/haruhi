@@ -4,6 +4,9 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Weather Planet × Darmoshark × Haruhi Products コラボ ✦</title>
+        <!-- ヒーロー画像を優先プリロード -->
+        <link rel="preload" as="image" href="../img_w/マウスパッド　ルカイラスト.webp" type="image/webp" />
+        <link rel="preload" as="image" href="../img_w/マウスパッド　ひなたイラスト.webp" type="image/webp" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -3326,7 +3329,7 @@
             <div class="hero-top">
                 <img
                     class="hero-logo-img"
-                    src="../img1/WeatherPlanetLogo.png"
+                    src="../img_w/WeatherPlanetLogo.webp"
                     alt="Weather Planet"
                 />
             </div>
@@ -3336,7 +3339,7 @@
                 <div class="hero-char-wrap">
                     <img
                         class="hero-char hero-char--ruka"
-                        src="../img1/マウスパッド　ルカイラスト.png"
+                        src="../img_w/マウスパッド　ルカイラスト.webp"
                         alt="雨海ルカ"
                     />
                     <span
@@ -3369,7 +3372,7 @@
                 <div class="hero-char-wrap">
                     <img
                         class="hero-char hero-char--hinata"
-                        src="../img1/マウスパッド　ひなたイラスト.png"
+                        src="../img_w/マウスパッド　ひなたイラスト.webp"
                         alt="天晴ひなた"
                     />
                     <span
@@ -3456,20 +3459,28 @@
             <div class="container">
                 <!-- ロゴ列 -->
                 <div class="about-logos reveal d2">
-                    <img class="about-logo-wp" src="../img1/WeatherPlanetLogo.png" alt="Weather Planet" />
+                    <img class="about-logo-wp" src="../img_w/WeatherPlanetLogo.webp" alt="Weather Planet"
+                        loading="lazy"
+                    />
                     <span class="about-logo-x">×</span>
-                    <img class="about-logo-ds" src="../img1/DarmosharkLogo.png" alt="Darmoshark" />
+                    <img class="about-logo-ds" src="../img_w/DarmosharkLogo.webp" alt="Darmoshark"
+                        loading="lazy"
+                    />
                 </div>
 
                 <!-- コラボメッセージ + ちびキャラ -->
                 <div class="about-collab-wrap reveal d3">
                     <div class="about-chibi-wrap about-chibi--left">
                         <img class="blink-a"
-                             src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2H.png"
-                             alt="天晴ひなた" />
+                             src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2H.webp"
+                             alt="天晴ひなた"
+                        loading="lazy"
+                    />
                         <img class="about-chibi-blink blink-b"
-                             src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2H@.png"
-                             alt="" aria-hidden="true" />
+                             src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2H@.webp"
+                             alt="" aria-hidden="true"
+                        loading="lazy"
+                    />
                     </div>
                     <div class="collab-bubble">
                         <p>今回コラボの枠を越え、雨海ルカ様、天晴ひなた様、お二方監修の元、各コラボアイテムが開発されました！</p>
@@ -3477,11 +3488,15 @@
                     </div>
                     <div class="about-chibi-wrap about-chibi--right">
                         <img class="blink-a"
-                             src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2R.png"
-                             alt="雨海ルカ" />
+                             src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2R.webp"
+                             alt="雨海ルカ"
+                        loading="lazy"
+                    />
                         <img class="about-chibi-blink blink-b"
-                             src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2R@.png"
-                             alt="" aria-hidden="true" />
+                             src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2R@.webp"
+                             alt="" aria-hidden="true"
+                        loading="lazy"
+                    />
                     </div>
                 </div>
 
@@ -3507,8 +3522,10 @@
                     <!-- Left: mouse image -->
                     <div class="mp-mouse-col">
                         <img class="mp-mouse-img"
-                             src="../img1/M2正面ルカモデル.png"
-                             alt="Darmoshark M2 DAERO 雨海ルカモデル" />
+                             src="../img_w/M2正面ルカモデル.webp"
+                             alt="Darmoshark M2 DAERO 雨海ルカモデル"
+                        loading="lazy"
+                    />
                     </div>
 
                     <!-- Right: [edition + model] + chibi / desc / detail -->
@@ -3520,11 +3537,15 @@
                             </div>
                             <div class="mp-chibi-wrap">
                                 <img class="blink-a"
-                                     src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2R.png"
-                                     alt="雨海ルカ" />
+                                     src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2R.webp"
+                                     alt="雨海ルカ"
+                        loading="lazy"
+                    />
                                 <img class="mp-chibi-blink blink-b"
-                                     src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2R@.png"
-                                     alt="" aria-hidden="true" />
+                                     src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2R@.webp"
+                                     alt="" aria-hidden="true"
+                        loading="lazy"
+                    />
                             </div>
                         </div>
                         <p class="mp-desc">
@@ -3533,8 +3554,10 @@
                         </p>
                         <div class="mp-detail">
                             <img class="mp-detail-img"
-                                 src="../img1/luca_hair.png"
-                                 alt="ルカの前髪グラデーション" />
+                                 src="../img_w/luca_hair.webp"
+                                 alt="ルカの前髪グラデーション"
+                        loading="lazy"
+                    />
                             <span class="mp-detail-caption">前髪のグラデーションに注目！</span>
                         </div>
                     </div>
@@ -3548,11 +3571,15 @@
                     <div class="mp-header">
                         <div class="mp-chibi-wrap">
                             <img class="blink-a"
-                                 src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2H.png"
-                                 alt="天晴ひなた" />
+                                 src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2H.webp"
+                                 alt="天晴ひなた"
+                        loading="lazy"
+                    />
                             <img class="mp-chibi-blink blink-b"
-                                 src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト2H@.png"
-                                 alt="" aria-hidden="true" />
+                                 src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2H@.webp"
+                                 alt="" aria-hidden="true"
+                        loading="lazy"
+                    />
                         </div>
                         <div>
                             <div class="mp-edition-line">hinata edition</div>
@@ -3568,8 +3595,10 @@
                         </p>
                         <div class="mp-detail">
                             <img class="mp-detail-img"
-                                 src="../img1/hanata_arm.png"
-                                 alt="ひなたの袖の宇宙模様" />
+                                 src="../img_w/hanata_arm.webp"
+                                 alt="ひなたの袖の宇宙模様"
+                        loading="lazy"
+                    />
                             <span class="mp-detail-caption">袖の宇宙、無限大！</span>
                         </div>
                     </div>
@@ -3577,8 +3606,10 @@
                     <!-- Right: mouse (spans header + desc rows) -->
                     <div class="mp-mouse-col">
                         <img class="mp-mouse-img"
-                             src="../img1/M3XS正面ひなたモデル.png"
-                             alt="Darmoshark M3XS Ghostcat 天晴ひなたモデル" />
+                             src="../img_w/M3XS正面ひなたモデル.webp"
+                             alt="Darmoshark M3XS Ghostcat 天晴ひなたモデル"
+                        loading="lazy"
+                    />
                     </div>
 
                 </div>
@@ -3594,7 +3625,9 @@
                     <div class="mspec-card mspec-card--ruka reveal-l">
                         <div class="mspec-card-inner">
                             <div class="mspec-card-img">
-                                <img src="../img1/ruka_detail.png" alt="雨海ルカ × M2 DAERO" />
+                                <img src="../img_w/ruka_detail.webp" alt="雨海ルカ × M2 DAERO"
+                        loading="lazy"
+                    />
                                 <div class="mspec-card-edition">ruka edition</div>
                                 <div class="mspec-card-model">M2 DAERO</div>
                             </div>
@@ -3618,7 +3651,9 @@
                     <div class="mspec-card mspec-card--hinata reveal-r">
                         <div class="mspec-card-inner">
                             <div class="mspec-card-img">
-                                <img src="../img1/hinata_detail.png" alt="天晴ひなた × M3XS Ghostcat" />
+                                <img src="../img_w/hinata_detail.webp" alt="天晴ひなた × M3XS Ghostcat"
+                        loading="lazy"
+                    />
                                 <div class="mspec-card-edition">hinata edition</div>
                                 <div class="mspec-card-model">M3XS ghostcat</div>
                             </div>
@@ -3692,7 +3727,9 @@
 
                 <!-- Keyboard Front Image -->
                 <div class="kbnew-img-full reveal">
-                    <img src="../img1/keyboard front ESC 2.png" alt="ゲーミングキーボード 表面" />
+                    <img src="../img_w/keyboard front ESC 2.webp" alt="ゲーミングキーボード 表面"
+                        loading="lazy"
+                    />
                 </div>
 
                 <!-- Intro Text -->
@@ -3703,7 +3740,9 @@
                 <!-- Feature 1: Keycap / heat sublimation — image left, text right -->
                 <div class="kbnew-feat reveal-l">
                     <div class="kbnew-feat__vis">
-                        <img src="../img1/key2.png" alt="熱昇華キーキャップ" />
+                        <img src="../img_w/key2.webp" alt="熱昇華キーキャップ"
+                        loading="lazy"
+                    />
                     </div>
                     <div class="kbnew-feat__body">
                         <div class="kbnew-feat__label">✦ DURABLE KEYCAPS</div>
@@ -3720,7 +3759,9 @@
                         <p class="kbnew-feat__text">左上には<strong>ミニ液晶画面</strong>を搭載！好きな画像やGIF画像を自由に設定できます。</p>
                     </div>
                     <div class="kbnew-feat__vis kbnew-feat__vis--rect">
-                        <img src="../img1/key1.png" alt="ミニ液晶画面" />
+                        <img src="../img_w/key1.webp" alt="ミニ液晶画面"
+                        loading="lazy"
+                    />
                     </div>
                 </div>
 
@@ -3728,7 +3769,9 @@
 
                 <!-- Keyboard Back/Bottom Image -->
                 <div class="kbnew-img-full reveal">
-                    <img src="../img1/keyboard back ESC 2.png" alt="ゲーミングキーボード 裏面" />
+                    <img src="../img_w/keyboard back ESC 2.webp" alt="ゲーミングキーボード 裏面"
+                        loading="lazy"
+                    />
                 </div>
 
                 <!-- Bottom Description -->
@@ -3739,7 +3782,9 @@
                 <!-- Custom Keycap + Speech Bubble -->
                 <div class="kbnew-keycap-row reveal">
                     <div class="kbnew-keycap-imgs">
-                        <img src="../img1/key3.png" alt="カスタム用キーキャップセット" />
+                        <img src="../img_w/key3.webp" alt="カスタム用キーキャップセット"
+                        loading="lazy"
+                    />
                     </div>
                     <div class="kbnew-speech">
                         自由に交換できる<br />カスタム用キーキャップも付いてくるよ
@@ -3750,8 +3795,9 @@
                 <div class="kbnew-designer reveal">
                     <img
                         class="designer-ava"
-                        src="../img1/みたらしねこアイコン(キーボードデザイナー).jpg"
+                        src="../img_w/みたらしねこアイコン(キーボードデザイナー).webp"
                         alt="みたらしねこ"
+                        loading="lazy"
                     />
                     <div>
                         <div class="designer-role">✦ KEYBOARD DESIGNER</div>
@@ -3799,9 +3845,10 @@
                             <div class="pad2-type-card">
                                 <img
                                     class="pad2-type-chibi"
-                                    src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト3R.png"
+                                    src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト3R.webp"
                                     alt="ルカ chibi"
-                                />
+                        loading="lazy"
+                    />
                                 <p class="pad2-type-label">コントロールタイプとは？</p>
                                 <p class="pad2-type-body">マウスを止めやすいように摩擦力の高い生地や編み方を採用したマウスパッドだよ！</p>
                             </div>
@@ -3810,9 +3857,10 @@
                     <!-- Image right -->
                     <div class="pad2-imgbox pad2-imgbox--blue reveal-r">
                         <img
-                            src="../img1/マウスパッド　ルカイラスト.png"
+                            src="../img_w/マウスパッド　ルカイラスト.webp"
                             alt="雨海ルカ コントロールタイプ"
-                        />
+                        loading="lazy"
+                    />
                         <span class="pad2-imgbox-copy">©2026 kanna hirayama</span>
                     </div>
                 </div>
@@ -3822,9 +3870,10 @@
                     <!-- Image left -->
                     <div class="pad2-imgbox pad2-imgbox--orange reveal-l">
                         <img
-                            src="../img1/マウスパッド　ひなたイラスト.png"
+                            src="../img_w/マウスパッド　ひなたイラスト.webp"
                             alt="天晴ひなた スピードタイプ"
-                        />
+                        loading="lazy"
+                    />
                         <span class="pad2-imgbox-copy">©2026 kanna hirayama</span>
                     </div>
                     <!-- Text right -->
@@ -3844,9 +3893,10 @@
                             <div class="pad2-type-card">
                                 <img
                                     class="pad2-type-chibi"
-                                    src="../img1/WeatherPlanetさま コラボキーボード ミニキャライラスト3H.png"
+                                    src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト3H.webp"
                                     alt="ひなた chibi"
-                                />
+                        loading="lazy"
+                    />
                                 <p class="pad2-type-label">スピードタイプとは？</p>
                                 <p class="pad2-type-body">マウスが滑りやすいように摩擦力の少ない生地や編み方を採用したマウスパッドだよ！</p>
                             </div>
@@ -3858,8 +3908,9 @@
                 <div class="designer-card designer-card--yellow reveal">
                     <img
                         class="designer-ava"
-                        src="../img1/平山寛菜アイコン(マウスパッドデザイナー).jpg"
+                        src="../img_w/平山寛菜アイコン(マウスパッドデザイナー).webp"
                         alt="平山寛菜"
+                        loading="lazy"
                     />
                     <div>
                         <div class="designer-role designer-role--yellow">
@@ -3889,7 +3940,9 @@
                             <div class="brand2-logo-ring"></div>
                             <div class="brand2-logo-ring2"></div>
                             <div class="brand2-logo-circle">
-                                <img src="../img1/DarmosharkLogo.png" alt="Darmoshark" />
+                                <img src="../img_w/DarmosharkLogo.webp" alt="Darmoshark"
+                        loading="lazy"
+                    />
                             </div>
                         </div>
                         <div class="brand2-name">Darmoshark</div>
@@ -3928,7 +3981,9 @@
                     <div class="benefit2-badge">✦ EARLY RESERVATION GIFT ✦</div>
 
                     <div class="benefit2-img-showcase">
-                        <img src="../img1/WeatherPlanetさま コラボキーボード 外箱デザイン案.png" alt="ウェザプラ ミニステッカー" />
+                        <img src="../img_w/WeatherPlanetさま コラボキーボード 外箱デザイン案.webp" alt="ウェザプラ ミニステッカー"
+                        loading="lazy"
+                    />
                     </div>
 
                     <p class="benefit2-text">
