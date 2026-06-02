@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Weather Planet × Darmoshark × Haruhi Products コラボ ✦</title>
+        <title>Weather Planet × Darmoshark × Haruhi Products コラボ</title>
         <!-- ヒーロー画像を優先プリロード -->
         <link rel="preload" as="image" href="../img_w/マウスパッド　ルカイラスト.webp" type="image/webp" />
         <link rel="preload" as="image" href="../img_w/マウスパッド　ひなたイラスト.webp" type="image/webp" />
@@ -495,7 +495,7 @@
             }
             .sec-title::before,
             .sec-title::after {
-                content: "✦";
+                content: "";
                 font-size: 0.55em;
                 animation: spin-star 4s linear infinite;
                 display: inline-block;
@@ -599,6 +599,84 @@
                 background: linear-gradient(90deg, var(--blue), var(--yellow));
                 color: #fff !important;
                 -webkit-text-fill-color: #fff !important;
+            }
+
+            /* ══════════════════════════════════════
+           HAMBURGER / MOBILE MENU
+        ══════════════════════════════════════ */
+            .hamburger {
+                display: none;
+                flex-direction: column;
+                justify-content: center;
+                gap: 5px;
+                width: 40px;
+                height: 40px;
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 4px;
+                z-index: 210;
+            }
+            .hamburger span {
+                display: block;
+                width: 26px;
+                height: 2px;
+                background: #0090cc;
+                border-radius: 2px;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+                transform-origin: center;
+            }
+            .hamburger.open span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+            .hamburger.open span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.open span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+            .mobile-menu {
+                display: none;
+                position: fixed;
+                top: 64px;
+                left: 0;
+                right: 0;
+                z-index: 199;
+                background: rgba(248, 252, 255, 0.97);
+                backdrop-filter: blur(20px);
+                border-bottom: 1.5px solid rgba(102, 193, 255, 0.2);
+                padding: 16px 20px 24px;
+                flex-direction: column;
+                gap: 4px;
+                transform: translateY(-8px);
+                opacity: 0;
+                transition: transform 0.25s ease, opacity 0.25s ease;
+            }
+            .mobile-menu.open {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            .mobile-menu a {
+                display: block;
+                padding: 12px 16px;
+                font-size: 14px;
+                font-weight: 700;
+                color: var(--text-sub);
+                border-radius: 10px;
+                transition: background 0.15s ease, color 0.15s ease;
+            }
+            .mobile-menu a:hover,
+            .mobile-menu a:active {
+                background: rgba(102, 193, 255, 0.12);
+                color: #0090cc;
+            }
+            .mobile-menu .mobile-cta a {
+                margin-top: 8px;
+                text-align: center;
+                background: linear-gradient(90deg, var(--blue), var(--yellow));
+                color: #fff !important;
+                -webkit-text-fill-color: #fff !important;
+                border-radius: var(--r-pill);
             }
 
             /* ══════════════════════════════════════
@@ -848,7 +926,7 @@
                 z-index: 1;
             }
             .collab-bubble::before {
-                content: "✦ COLLAB MESSAGE ✦";
+                content: "COLLAB MESSAGE";
                 display: block;
                 font-size: 11px;
                 font-weight: 900;
@@ -1940,7 +2018,7 @@
                 line-height: 1.75;
             }
             .benefit-list li::before {
-                content: "✦";
+                content: "";
                 color: var(--blue);
                 font-size: 13px;
                 flex-shrink: 0;
@@ -2784,7 +2862,7 @@
             }
             .kbnew-intro::before,
             .kbnew-intro::after {
-                content: "✦";
+                content: "";
                 position: absolute;
                 top: 2px;
                 color: rgba(102, 193, 255, 0.28);
@@ -3098,14 +3176,17 @@
             @media (max-width: 767px) {
                 .site-header   { padding: 0 20px; }
                 .site-nav      { display: none; }
+                .hamburger     { display: flex; }
+                .mobile-menu   { display: flex; }
                 .float-reserve { font-size: 11px; padding: 16px 8px; }
                 .container     { padding: 0 16px; }
                 section        { padding: 52px 0; }
                 .sec-sub       { margin-bottom: 32px; font-size: 10px; }
 
+                .hero          { height: 100svh; min-height: 480px; }
                 .hero-top      { padding-top: 68px; }
                 .hero-logo-img { width: clamp(150px, 46vw, 220px); }
-                .hero-char     { height: 64vh; max-width: 52vw; }
+                .hero-char     { height: 72vh; max-width: 52vw; }
                 .hero-ring--1  { width: 300px; height: 300px; }
                 .hero-ring--2  { width: 400px; height: 400px; }
 
@@ -3119,6 +3200,24 @@
                 .compare-grid  { grid-template-columns: 1fr; }
                 .mouse-product { margin-bottom: 48px; }
                 .pad-product   { margin-bottom: 44px; }
+
+                /* マウスパネル モバイル */
+                .mp-model-line { white-space: normal; font-size: clamp(24px, 7vw, 36px); }
+                .mouse-panel   { padding: 40px 20px; min-height: auto; }
+                .mouse-panel--ruka,
+                .mouse-panel--hinata {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 20px;
+                }
+                .mp-sectitle   { order: 1; }
+                .mp-mouse-col  { order: 2; width: 100%; display: flex; justify-content: center; }
+                .mp-info-col   { order: 3; width: 100%; }
+                .mp-header     { order: 1; width: 100%; }
+                .mp-desc-col   { order: 3; width: 100%; }
+                .mouse-panel--hinata .mp-mouse-col { order: 2; }
+                .mp-mouse-img  { width: 90vw; max-width: 420px; }
                 .mini-wrap     { width: 60px; height: 60px; }
                 .kb-deco       { display: none; }
                 .pad-vis__deco { display: none; }
@@ -3132,6 +3231,11 @@
                 .about-chibi   { width: clamp(64px, 16vw, 100px); }
                 .wp-textbox,
                 .collab-bubble { padding: 20px 16px; }
+                .about-collab-wrap { max-width: 100%; flex-wrap: wrap; justify-content: center; }
+                .collab-bubble    { order: 1; flex: 0 0 100%; width: 100%; margin-bottom: 12px; border-radius: 14px; }
+                .about-chibi-wrap { order: 2; flex: 0 0 auto; margin: 0 8px; }
+                .about-chibi--left  { margin-right: 8px; }
+                .about-chibi--right { margin-left:  8px; }
             }
 
             /* ─ 小型スマートフォン 〜 390px ──────── */
@@ -3139,7 +3243,7 @@
                 section        { padding: 44px 0; }
                 .hero-top      { padding-top: 64px; }
                 .hero-logo-img { width: 150px; }
-                .hero-char     { height: 60vh; }
+                .hero-char     { height: 68vh; }
                 .hero-ring--1  { width: 260px; height: 260px; }
                 .hero-ring--2  { width: 340px; height: 340px; }
                 .sec-title     { font-size: 20px; }
@@ -3159,18 +3263,35 @@
             </div>
             <nav>
                 <ul class="site-nav">
-                    <li><a href="#about">✦ Weather Planet</a></li>
+                    <li><a href="#about">Weather Planet</a></li>
                     <li><a href="#mouse">マウス</a></li>
                     <li><a href="#keyboard">キーボード</a></li>
                     <li><a href="#mousepad">マウスパッド</a></li>
                     <li><a href="#brand">ブランド</a></li>
-                    <li class="nav-cta"><a href="#benefits">✦ ご予約</a></li>
+                    <li><a href="#benefits">予約特典</a></li>
+                    <li class="nav-cta"><a href="#">ご予約</a></li>
                 </ul>
             </nav>
+            <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </header>
 
+        <!-- Mobile menu -->
+        <nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+            <a href="#about" class="mobile-link">Weather Planet</a>
+            <a href="#mouse" class="mobile-link">マウス</a>
+            <a href="#keyboard" class="mobile-link">キーボード</a>
+            <a href="#mousepad" class="mobile-link">マウスパッド</a>
+            <a href="#brand" class="mobile-link">ブランド</a>
+            <a href="#benefits" class="mobile-link">予約特典</a>
+            <div class="mobile-cta"><a href="#" class="mobile-link">ご予約</a></div>
+        </nav>
+
         <!-- Floating reserve -->
-        <a href="#benefits" class="float-reserve">今すぐ予約 ✦</a>
+        <a href="#" class="float-reserve">今すぐ予約</a>
 
         <!-- Fixed sparkle layer -->
         <div class="magic-layer" aria-hidden="true">
@@ -3184,7 +3305,7 @@
                     font-size: 12px;
                     color: rgba(102, 193, 255, 0.5);
                 "
-                >✦</span
+                ></span
             >
             <span
                 class="sp"
@@ -3232,7 +3353,7 @@
                     font-size: 13px;
                     color: rgba(154, 223, 182, 0.55);
                 "
-                >✦</span
+                ></span
             >
             <span
                 class="sp"
@@ -3256,7 +3377,7 @@
                     font-size: 15px;
                     color: rgba(255, 213, 128, 0.42);
                 "
-                >✦</span
+                ></span
             >
             <span
                 class="sp"
@@ -3304,7 +3425,7 @@
                     font-size: 10px;
                     color: rgba(102, 193, 255, 0.35);
                 "
-                >✦</span
+                ></span
             >
             <span
                 class="sp"
@@ -3353,7 +3474,7 @@
                             --dx: 20px;
                             color: #66c1ff;
                         "
-                        >✦</span
+                        ></span
                     >
                     <span
                         class="char-star"
@@ -3386,7 +3507,7 @@
                             --dx: -18px;
                             color: #ffd580;
                         "
-                        >✦</span
+                        ></span
                     >
                     <span
                         class="char-star"
@@ -3417,7 +3538,7 @@
                     --dl: 0s;
                     --c: rgba(102, 193, 255, 0.38);
                 "
-                >✦</span
+                ></span
             >
             <span
                 class="sec-star"
@@ -3453,7 +3574,7 @@
                     --dl: 0.3s;
                     --c: rgba(102, 193, 255, 0.35);
                 "
-                >✦</span
+                ></span
             >
 
             <div class="container">
@@ -3676,7 +3797,7 @@
                 </div>
 
                 <div class="cta-wrap reveal d2">
-                    <a href="#benefits" class="btn-magic">✦ ご予約はこちら ✦</a>
+                    <a href="#" class="btn-magic">ご予約はこちら</a>
                 </div>
             </div>
 
@@ -3745,7 +3866,7 @@
                     />
                     </div>
                     <div class="kbnew-feat__body">
-                        <div class="kbnew-feat__label">✦ DURABLE KEYCAPS</div>
+                        <div class="kbnew-feat__label">DURABLE KEYCAPS</div>
                         <p class="kbnew-feat__text">長い間の使用を想定し印字が消えにくい<strong>熱昇華印刷方式</strong>を採用。ゲームや作業、配信に普段使いとしても、長くご愛用いただけます。</p>
                     </div>
                 </div>
@@ -3800,7 +3921,7 @@
                         loading="lazy"
                     />
                     <div>
-                        <div class="designer-role">✦ KEYBOARD DESIGNER</div>
+                        <div class="designer-role">KEYBOARD DESIGNER</div>
                         <div class="designer-name">みたらしねこ</div>
                         <p class="designer-bio">
                             キーボードデザインを担当。Weather Planetの世界観をキーボード全体で丁寧に表現しました。
@@ -3810,7 +3931,7 @@
 
                 <!-- CTA -->
                 <div class="kbnew-cta reveal d2">
-                    <a href="#benefits" class="btn-magic">✦ ご予約はこちら ✦</a>
+                    <a href="#" class="btn-magic">ご予約はこちら</a>
                 </div>
 
             </div>
@@ -3978,7 +4099,7 @@
                 <p class="sec-sub reveal d1">RESERVATION BENEFITS</p>
 
                 <div class="benefit2-box reveal d2">
-                    <div class="benefit2-badge">✦ EARLY RESERVATION GIFT ✦</div>
+                    <div class="benefit2-badge">EARLY RESERVATION GIFT</div>
 
                     <div class="benefit2-img-showcase">
                         <img src="../img_w/WeatherPlanetさま コラボキーボード 外箱デザイン案.webp" alt="ウェザプラ ミニステッカー"
@@ -4025,6 +4146,26 @@
             document
                 .querySelectorAll(".reveal,.reveal-l,.reveal-r")
                 .forEach((el) => io.observe(el));
+
+            // Hamburger menu
+            const hamburger = document.getElementById("hamburger");
+            const mobileMenu = document.getElementById("mobileMenu");
+
+            function toggleMenu(open) {
+                hamburger.classList.toggle("open", open);
+                hamburger.setAttribute("aria-expanded", open);
+                mobileMenu.classList.toggle("open", open);
+                mobileMenu.setAttribute("aria-hidden", !open);
+            }
+
+            hamburger.addEventListener("click", () => {
+                const isOpen = hamburger.classList.contains("open");
+                toggleMenu(!isOpen);
+            });
+
+            document.querySelectorAll(".mobile-link").forEach((link) => {
+                link.addEventListener("click", () => toggleMenu(false));
+            });
         </script>
     </body>
 </html>
