@@ -2313,6 +2313,55 @@
                 line-height: 2.0;
             }
 
+            /* ── Mystery lock overlay ── */
+            .benefit-locked {
+                position: relative;
+                max-width: 640px;
+                margin: 0 auto;
+            }
+            .benefit-locked .benefit2-box {
+                filter: blur(10px);
+                user-select: none;
+                pointer-events: none;
+                max-width: 100%;
+                margin: 0;
+            }
+            .benefit-locked__overlay {
+                position: absolute;
+                inset: 0;
+                border-radius: 32px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 16px;
+                background: rgba(6, 2, 16, 0.55);
+                backdrop-filter: blur(4px);
+                border: 1.5px solid rgba(100, 170, 255, 0.22);
+                box-shadow: inset 0 1px 0 rgba(160, 210, 255, 0.10);
+            }
+            .benefit-locked__icon {
+                font-size: clamp(36px, 6vw, 52px);
+                line-height: 1;
+                animation: lock-pulse 2.8s ease-in-out infinite;
+            }
+            .benefit-locked__label {
+                font-size: clamp(22px, 4vw, 32px);
+                font-weight: 900;
+                letter-spacing: 0.14em;
+                color: rgba(200, 230, 255, 0.95);
+            }
+            .benefit-locked__sub {
+                font-size: clamp(11px, 1.8vw, 14px);
+                letter-spacing: 0.22em;
+                color: rgba(140, 190, 255, 0.60);
+                text-transform: uppercase;
+            }
+            @keyframes lock-pulse {
+                0%, 100% { transform: scale(1);   opacity: 0.85; }
+                50%       { transform: scale(1.08); opacity: 1;    }
+            }
+
             /* Mobile */
             @media (max-width: 767px) {
                 .brand2-grid { grid-template-columns: 1fr; max-width: 380px; }
@@ -3968,24 +4017,31 @@
                 <h2 class="sec-title reveal"><span>予約特典</span></h2>
                 <p class="sec-sub reveal d1">RESERVATION BENEFITS</p>
 
-                <div class="benefit2-box reveal d2">
-                    <div class="benefit2-badge">EARLY RESERVATION GIFT</div>
+                <div class="benefit-locked reveal d2">
+                    <div class="benefit2-box">
+                        <div class="benefit2-badge">EARLY RESERVATION GIFT</div>
 
-                    <div class="benefit2-img-showcase">
-                        <img src="../img_w/WeatherPlanetさま コラボキーボード 外箱デザイン案.webp" alt="ウェザプラ ミニステッカー"
-                        loading="lazy"
-                    />
+                        <div class="benefit2-img-showcase">
+                            <img src="../img_w/WeatherPlanetさま コラボキーボード 外箱デザイン案.webp" alt="ウェザプラ ミニステッカー"
+                            loading="lazy"
+                        />
+                        </div>
+
+                        <p class="benefit2-text">
+                            先行予約いただいた全員を対象に<br />
+                            みたらしねこ先生描き下ろしウェザプラ<br />
+                            ミニステッカーをプレゼントいたします！
+                        </p>
+
+                        <div class="benefit2-note">
+                            ※ 特典は数量限定です。なくなり次第終了となります。<br />
+                            ※ 予約受付期間・発送スケジュールは別途ご案内します。
+                        </div>
                     </div>
-
-                    <p class="benefit2-text">
-                        先行予約いただいた全員を対象に<br />
-                        みたらしねこ先生描き下ろしウェザプラ<br />
-                        ミニステッカーをプレゼントいたします！
-                    </p>
-
-                    <div class="benefit2-note">
-                        ※ 特典は数量限定です。なくなり次第終了となります。<br />
-                        ※ 予約受付期間・発送スケジュールは別途ご案内します。
+                    <div class="benefit-locked__overlay">
+                        <div class="benefit-locked__icon">🔒</div>
+                        <div class="benefit-locked__label">近日公開</div>
+                        <div class="benefit-locked__sub">Coming Soon</div>
                     </div>
                 </div>
             </div>
