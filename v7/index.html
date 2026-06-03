@@ -5,8 +5,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Weather Planet × Darmoshark × Haruhi Products コラボ</title>
         <!-- ヒーロー画像を優先プリロード -->
-        <link rel="preload" as="image" href="../img_w/マウスパッド　ルカイラスト.webp" type="image/webp" />
-        <link rel="preload" as="image" href="../img_w/マウスパッド　ひなたイラスト.webp" type="image/webp" />
+        <link
+            rel="preload"
+            as="image"
+            href="../img_w/マウスパッド　ルカイラスト.webp"
+            type="image/webp"
+        />
+        <link
+            rel="preload"
+            as="image"
+            href="../img_w/マウスパッド　ひなたイラスト.webp"
+            type="image/webp"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -334,13 +344,24 @@
             }
 
             /* ヒーロー以外は全て透明 — body の fixed gradient を通して見せる */
-            #mouse  { background: linear-gradient(to bottom, transparent 0%, #ffffff 7%); padding: 0; }
-            #about  { background: transparent; padding: clamp(120px, 20vh, 240px) 0; }
+            #mouse {
+                background: linear-gradient(
+                    to bottom,
+                    transparent 0%,
+                    #ffffff 7%
+                );
+                padding: 0;
+            }
+            #about {
+                background: transparent;
+                padding: clamp(120px, 20vh, 240px) 0;
+            }
             #benefits {
                 /* 夜明けの青空 → 淡い空色 → 黄金の朝 → 白 */
-                background: linear-gradient(to bottom,
-                    #90bcf8  0%,
-                    #a8ccf8  8%,
+                background: linear-gradient(
+                    to bottom,
+                    #90bcf8 0%,
+                    #a8ccf8 8%,
                     #c0dcff 18%,
                     #d8eaff 30%,
                     #edf5ff 40%,
@@ -361,88 +382,254 @@
             #mousepad {
                 background-image:
                     /* ── 上部フェード：徐々に星が現れる ── */
-                    linear-gradient(to bottom,
-                        rgba(10,10,40,0.90)  0%,
-                        rgba(10,10,40,0.62)  5%,
-                        rgba(10,10,40,0.28) 10%,
-                        rgba(10,10,40,0)    16%
+                    linear-gradient(
+                        to bottom,
+                        rgba(10, 10, 40, 0.9) 0%,
+                        rgba(10, 10, 40, 0.62) 5%,
+                        rgba(10, 10, 40, 0.28) 10%,
+                        rgba(10, 10, 40, 0) 16%
                     ),
                     /* ── 天の川 ── */
-                    radial-gradient(ellipse 60% 13% at 52% 42%, rgba(140,162,230,0.10) 0%, transparent 100%),
+                    radial-gradient(
+                            ellipse 60% 13% at 52% 42%,
+                            rgba(140, 162, 230, 0.1) 0%,
+                            transparent 100%
+                        ),
                     /* ── 大きな星（固定位置） ── */
-                    radial-gradient(circle 3px at 27% 18%, #fff 0%, rgba(200,220,255,0.18) 50%, transparent 100%),
-                    radial-gradient(circle 3px at 71% 15%, #fff 0%, rgba(200,220,255,0.18) 50%, transparent 100%),
-                    radial-gradient(circle 3px at 14% 55%, #fff 0%, rgba(200,220,255,0.18) 50%, transparent 100%),
-                    radial-gradient(circle 3px at 84% 42%, #fff 0%, rgba(200,220,255,0.18) 50%, transparent 100%),
-                    radial-gradient(circle 3px at 46% 74%, #fff 0%, rgba(200,220,255,0.18) 50%, transparent 100%),
-                    radial-gradient(circle 3px at 58% 32%, #fff 0%, rgba(200,220,255,0.15) 50%, transparent 100%),
-                    radial-gradient(circle 3px at  5% 78%, #fff 0%, rgba(200,220,255,0.15) 50%, transparent 100%),
-                    radial-gradient(circle 3px at 93% 62%, #fff 0%, rgba(200,220,255,0.15) 50%, transparent 100%),
-                    radial-gradient(circle 2px at 38% 48%, #fff 0%, rgba(200,220,255,0.12) 50%, transparent 100%),
-                    radial-gradient(circle 2px at 78% 85%, #fff 0%, rgba(200,220,255,0.12) 50%, transparent 100%),
+                    radial-gradient(
+                            circle 3px at 27% 18%,
+                            #fff 0%,
+                            rgba(200, 220, 255, 0.18) 50%,
+                            transparent 100%
+                        ),
+                    radial-gradient(
+                        circle 3px at 71% 15%,
+                        #fff 0%,
+                        rgba(200, 220, 255, 0.18) 50%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 3px at 14% 55%,
+                        #fff 0%,
+                        rgba(200, 220, 255, 0.18) 50%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 3px at 84% 42%,
+                        #fff 0%,
+                        rgba(200, 220, 255, 0.18) 50%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 3px at 46% 74%,
+                        #fff 0%,
+                        rgba(200, 220, 255, 0.18) 50%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 3px at 58% 32%,
+                        #fff 0%,
+                        rgba(200, 220, 255, 0.15) 50%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 3px at 5% 78%,
+                        #fff 0%,
+                        rgba(200, 220, 255, 0.15) 50%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 3px at 93% 62%,
+                        #fff 0%,
+                        rgba(200, 220, 255, 0.15) 50%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 2px at 38% 48%,
+                        #fff 0%,
+                        rgba(200, 220, 255, 0.12) 50%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 2px at 78% 85%,
+                        #fff 0%,
+                        rgba(200, 220, 255, 0.12) 50%,
+                        transparent 100%
+                    ),
                     /* ── 中程度の星（大きなタイルで繰り返しを目立たなくする） ── */
-                    radial-gradient(circle 1.5px at  55px  40px, rgba(255,255,255,0.92) 0%, transparent 100%),
-                    radial-gradient(circle 1.5px at 210px  90px, rgba(255,255,255,0.80) 0%, transparent 100%),
-                    radial-gradient(circle 1.5px at 390px  22px, rgba(255,255,255,0.88) 0%, transparent 100%),
-                    radial-gradient(circle 1.5px at 570px 135px, rgba(255,255,255,0.75) 0%, transparent 100%),
-                    radial-gradient(circle 1.5px at 690px  58px, rgba(255,255,255,0.85) 0%, transparent 100%),
-                    radial-gradient(circle 1.5px at 135px 250px, rgba(255,255,255,0.82) 0%, transparent 100%),
-                    radial-gradient(circle 1.5px at 320px 320px, rgba(255,255,255,0.78) 0%, transparent 100%),
-                    radial-gradient(circle 1.5px at 500px 275px, rgba(255,255,255,0.90) 0%, transparent 100%),
-                    radial-gradient(circle 1.5px at  78px 440px, rgba(255,255,255,0.72) 0%, transparent 100%),
-                    radial-gradient(circle 1.5px at 648px 415px, rgba(255,255,255,0.86) 0%, transparent 100%),
+                    radial-gradient(
+                            circle 1.5px at 55px 40px,
+                            rgba(255, 255, 255, 0.92) 0%,
+                            transparent 100%
+                        ),
+                    radial-gradient(
+                        circle 1.5px at 210px 90px,
+                        rgba(255, 255, 255, 0.8) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1.5px at 390px 22px,
+                        rgba(255, 255, 255, 0.88) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1.5px at 570px 135px,
+                        rgba(255, 255, 255, 0.75) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1.5px at 690px 58px,
+                        rgba(255, 255, 255, 0.85) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1.5px at 135px 250px,
+                        rgba(255, 255, 255, 0.82) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1.5px at 320px 320px,
+                        rgba(255, 255, 255, 0.78) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1.5px at 500px 275px,
+                        rgba(255, 255, 255, 0.9) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1.5px at 78px 440px,
+                        rgba(255, 255, 255, 0.72) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1.5px at 648px 415px,
+                        rgba(255, 255, 255, 0.86) 0%,
+                        transparent 100%
+                    ),
                     /* ── 小さな星（別サイズのタイル） ── */
-                    radial-gradient(circle 1px at  92px  18px, rgba(255,255,255,0.95) 0%, transparent 100%),
-                    radial-gradient(circle 1px at 278px  58px, rgba(255,255,255,0.82) 0%, transparent 100%),
-                    radial-gradient(circle 1px at 468px  34px, rgba(255,255,255,0.90) 0%, transparent 100%),
-                    radial-gradient(circle 1px at 628px  82px, rgba(255,255,255,0.75) 0%, transparent 100%),
-                    radial-gradient(circle 1px at 162px 162px, rgba(255,255,255,0.88) 0%, transparent 100%),
-                    radial-gradient(circle 1px at 385px 195px, rgba(255,255,255,0.80) 0%, transparent 100%),
-                    radial-gradient(circle 1px at  32px 228px, rgba(255,255,255,0.85) 0%, transparent 100%),
-                    radial-gradient(circle 1px at 558px 238px, rgba(255,255,255,0.70) 0%, transparent 100%),
-                    radial-gradient(circle 1px at 235px 328px, rgba(255,255,255,0.88) 0%, transparent 100%),
-                    radial-gradient(circle 1px at 438px 375px, rgba(255,255,255,0.78) 0%, transparent 100%),
-                    radial-gradient(circle 1px at  68px 408px, rgba(255,255,255,0.85) 0%, transparent 100%),
-                    radial-gradient(circle 1px at 665px 345px, rgba(255,255,255,0.65) 0%, transparent 100%),
+                    radial-gradient(
+                            circle 1px at 92px 18px,
+                            rgba(255, 255, 255, 0.95) 0%,
+                            transparent 100%
+                        ),
+                    radial-gradient(
+                        circle 1px at 278px 58px,
+                        rgba(255, 255, 255, 0.82) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1px at 468px 34px,
+                        rgba(255, 255, 255, 0.9) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1px at 628px 82px,
+                        rgba(255, 255, 255, 0.75) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1px at 162px 162px,
+                        rgba(255, 255, 255, 0.88) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1px at 385px 195px,
+                        rgba(255, 255, 255, 0.8) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1px at 32px 228px,
+                        rgba(255, 255, 255, 0.85) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1px at 558px 238px,
+                        rgba(255, 255, 255, 0.7) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1px at 235px 328px,
+                        rgba(255, 255, 255, 0.88) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1px at 438px 375px,
+                        rgba(255, 255, 255, 0.78) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1px at 68px 408px,
+                        rgba(255, 255, 255, 0.85) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1px at 665px 345px,
+                        rgba(255, 255, 255, 0.65) 0%,
+                        transparent 100%
+                    ),
                     /* ── ベースの夜空グラデーション ── */
-                    linear-gradient(to bottom,
-                        #0a0a28  0%,
-                        #0c0c32 14%,
-                        #0d0d3e 35%,
-                        #0d0d3e 62%,
-                        #0a0a30 78%,
-                        #070720 90%,
-                        #050518 100%
-                    );
+                    linear-gradient(
+                            to bottom,
+                            #0a0a28 0%,
+                            #0c0c32 14%,
+                            #0d0d3e 35%,
+                            #0d0d3e 62%,
+                            #0a0a30 78%,
+                            #070720 90%,
+                            #050518 100%
+                        );
                 background-size:
                     100% 100%,
                     100% 100%,
-                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
-                    100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%,
-                    720px 500px, 720px 500px, 720px 500px, 720px 500px, 720px 500px,
-                    720px 500px, 720px 500px, 720px 500px, 720px 500px, 720px 500px,
-                    680px 460px, 680px 460px, 680px 460px, 680px 460px, 680px 460px,
-                    680px 460px, 680px 460px, 680px 460px, 680px 460px, 680px 460px,
-                    680px 460px, 680px 460px,
+                    100% 100%,
+                    100% 100%,
+                    100% 100%,
+                    100% 100%,
+                    100% 100%,
+                    100% 100%,
+                    100% 100%,
+                    100% 100%,
+                    100% 100%,
+                    100% 100%,
+                    720px 500px,
+                    720px 500px,
+                    720px 500px,
+                    720px 500px,
+                    720px 500px,
+                    720px 500px,
+                    720px 500px,
+                    720px 500px,
+                    720px 500px,
+                    720px 500px,
+                    680px 460px,
+                    680px 460px,
+                    680px 460px,
+                    680px 460px,
+                    680px 460px,
+                    680px 460px,
+                    680px 460px,
+                    680px 460px,
+                    680px 460px,
+                    680px 460px,
+                    680px 460px,
+                    680px 460px,
                     100% 100%;
                 background-repeat:
-                    no-repeat,
-                    no-repeat,
                     no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
                     no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
-                    repeat, repeat, repeat, repeat, repeat,
-                    repeat, repeat, repeat, repeat, repeat,
-                    repeat, repeat, repeat, repeat, repeat,
-                    repeat, repeat, repeat, repeat, repeat,
-                    repeat, repeat,
-                    no-repeat;
+                    no-repeat, no-repeat, repeat, repeat, repeat, repeat,
+                    repeat, repeat, repeat, repeat, repeat, repeat, repeat,
+                    repeat, repeat, repeat, repeat, repeat, repeat, repeat,
+                    repeat, repeat, repeat, repeat, no-repeat;
             }
 
             /* ⑤ 夜空 → 深い群青 → ロイヤルブルー → 夜明けの青空 */
             #brand {
-                background: linear-gradient(to bottom,
-                    #050518  0%,
-                    #08082a  6%,
+                background: linear-gradient(
+                    to bottom,
+                    #050518 0%,
+                    #08082a 6%,
                     #0e1050 16%,
                     #182278 28%,
                     #1e2e96 40%,
@@ -456,35 +643,56 @@
             }
 
             /* ─ 夜空セクションのテキスト上書き ─ */
-            #mousepad .sec-sub { color: rgba(160, 185, 235, 0.65); }
+            #mousepad .sec-sub {
+                color: rgba(160, 185, 235, 0.65);
+            }
             #mousepad .designer-card {
                 background: rgba(255, 255, 255, 0.06);
-                border-color: rgba(100, 140, 220, 0.20);
+                border-color: rgba(100, 140, 220, 0.2);
                 box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
             }
             #mousepad .designer-ava {
-                box-shadow: 0 0 0 3px rgba(100, 140, 220, 0.45), 0 4px 20px rgba(0, 0, 0, 0.5);
+                box-shadow:
+                    0 0 0 3px rgba(100, 140, 220, 0.45),
+                    0 4px 20px rgba(0, 0, 0, 0.5);
             }
-            #mousepad .designer-role--yellow { color: #a8c8f0; }
-            #mousepad .designer-name { color: #e0eaff; }
-            #mousepad .designer-bio { color: rgba(185, 205, 240, 0.72); }
+            #mousepad .designer-role--yellow {
+                color: #a8c8f0;
+            }
+            #mousepad .designer-name {
+                color: #e0eaff;
+            }
+            #mousepad .designer-bio {
+                color: rgba(185, 205, 240, 0.72);
+            }
 
             /* ─ 群青→ロイヤルブルー セクション テキスト上書き ─ */
-            #brand .sec-sub { color: rgba(160, 205, 255, 0.65); }
+            #brand .sec-sub {
+                color: rgba(160, 205, 255, 0.65);
+            }
             #brand .brand-card {
                 background: rgba(255, 255, 255, 0.06);
-                border-color: rgba(100, 160, 255, 0.20);
-                box-shadow: 0 8px 40px rgba(0, 0, 0, 0.50);
+                border-color: rgba(100, 160, 255, 0.2);
+                box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
             }
             #brand .brand-card:hover {
                 transform: translateY(-8px);
-                background: rgba(255, 255, 255, 0.10);
+                background: rgba(255, 255, 255, 0.1);
                 box-shadow: 0 20px 56px rgba(60, 120, 255, 0.22);
             }
-            #brand .brand-card--d .brand-name { color: #88ccff; }
-            #brand .brand-card--h .brand-name { color: #ffd080; }
-            #brand .brand-tagline { color: rgba(160, 205, 255, 0.45); border-bottom-color: rgba(100, 160, 255, 0.15); }
-            #brand .brand-desc { color: rgba(200, 225, 255, 0.72); }
+            #brand .brand-card--d .brand-name {
+                color: #88ccff;
+            }
+            #brand .brand-card--h .brand-name {
+                color: #ffd080;
+            }
+            #brand .brand-tagline {
+                color: rgba(160, 205, 255, 0.45);
+                border-bottom-color: rgba(100, 160, 255, 0.15);
+            }
+            #brand .brand-desc {
+                color: rgba(200, 225, 255, 0.72);
+            }
 
             /* ══════════════════════════════════════
            SECTION TITLE — ANIME RIBBON STYLE
@@ -631,7 +839,9 @@
                 height: 2px;
                 background: #0090cc;
                 border-radius: 2px;
-                transition: transform 0.3s ease, opacity 0.3s ease;
+                transition:
+                    transform 0.3s ease,
+                    opacity 0.3s ease;
                 transform-origin: center;
             }
             .hamburger.open span:nth-child(1) {
@@ -659,7 +869,9 @@
                 transform: translateY(-8px);
                 opacity: 0;
                 pointer-events: none;
-                transition: transform 0.25s ease, opacity 0.25s ease;
+                transition:
+                    transform 0.25s ease,
+                    opacity 0.25s ease;
             }
             .mobile-menu.open {
                 transform: translateY(0);
@@ -673,7 +885,9 @@
                 font-weight: 700;
                 color: var(--text-sub);
                 border-radius: 10px;
-                transition: background 0.15s ease, color 0.15s ease;
+                transition:
+                    background 0.15s ease,
+                    color 0.15s ease;
             }
             .mobile-menu a:hover,
             .mobile-menu a:active {
@@ -921,8 +1135,14 @@
                 filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.08));
                 margin-bottom: -4px;
             }
-            .about-chibi--left  { margin-right: -16px; z-index: 2; }
-            .about-chibi--right { margin-left:  -16px; z-index: 2; }
+            .about-chibi--left {
+                margin-right: -16px;
+                z-index: 2;
+            }
+            .about-chibi--right {
+                margin-left: -16px;
+                z-index: 2;
+            }
 
             .collab-bubble {
                 flex: 1;
@@ -948,6 +1168,8 @@
                 font-size: 16px;
                 line-height: 2.2;
                 color: var(--text);
+                overflow-wrap: break-word;
+                word-break: auto-phrase;
             }
             .collab-bubble p + p {
                 margin-top: 10px;
@@ -1034,7 +1256,7 @@
                 border-radius: var(--r-pill);
                 font-size: 12px;
                 font-weight: 900;
-                letter-spacing: 0.10em;
+                letter-spacing: 0.1em;
                 color: #fff;
                 margin-bottom: 16px;
             }
@@ -1203,7 +1425,8 @@
 
             /* ── マウスパネル：青空（ルカ）→朝の日差し（ひなた）→スペックへ自然接続 ── */
             .mouse-panels-combined {
-                background: linear-gradient(to bottom,
+                background: linear-gradient(
+                    to bottom,
                     transparent 0%,
                     #dff0ff 2%,
                     #b2d8f5 7%,
@@ -1297,25 +1520,27 @@
             }
             .mp-mouse-img {
                 width: clamp(260px, 42vw, 620px);
-                filter: drop-shadow(0 16px 40px rgba(0,0,0,0.14));
-                transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1), filter 0.45s ease;
+                filter: drop-shadow(0 16px 40px rgba(0, 0, 0, 0.14));
+                transition:
+                    transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+                    filter 0.45s ease;
                 flex-shrink: 0;
             }
             .mp-mouse-col:hover .mp-mouse-img {
                 transform: translateY(-10px) scale(1.04);
             }
             .mouse-panel--ruka .mp-mouse-col:hover .mp-mouse-img {
-                filter: drop-shadow(0 28px 56px rgba(60,160,255,0.38));
+                filter: drop-shadow(0 28px 56px rgba(60, 160, 255, 0.38));
             }
             .mouse-panel--hinata .mp-mouse-col:hover .mp-mouse-img {
-                filter: drop-shadow(0 28px 56px rgba(240,175,30,0.38));
+                filter: drop-shadow(0 28px 56px rgba(240, 175, 30, 0.38));
             }
 
             /* Chibi characters */
             .mp-chibi-wrap {
                 position: relative;
                 flex-shrink: 0;
-                filter: drop-shadow(0 4px 14px rgba(0,0,0,0.10));
+                filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.1));
             }
             .mouse-panel--ruka .mp-chibi-wrap,
             .mouse-panel--hinata .mp-chibi-wrap {
@@ -1378,27 +1603,45 @@
                 margin-bottom: 0;
                 line-height: 1.1;
             }
-            .mouse-panel--ruka .mp-edition-line { color: #1a5090; }
-            .mouse-panel--hinata .mp-edition-line { color: #904800; }
+            .mouse-panel--ruka .mp-edition-line {
+                color: #1a5090;
+            }
+            .mouse-panel--hinata .mp-edition-line {
+                color: #904800;
+            }
 
             .mp-model-line {
                 font-family: "Mamelon", "Nunito", sans-serif;
                 font-size: clamp(32px, 4.8vw, 68px);
                 font-weight: 900;
-                line-height: 1.0;
+                line-height: 1;
                 margin-bottom: 18px;
                 white-space: nowrap;
             }
-            .mouse-panel--ruka .mp-model-line { color: #1a5090; }
-            .mouse-panel--hinata .mp-model-line { color: #904800; }
+            .mouse-panel--ruka .mp-model-line {
+                color: #1a5090;
+            }
+            .mouse-panel--hinata .mp-model-line {
+                color: #904800;
+            }
 
             /* Description text */
             .mp-desc {
                 font-size: clamp(15px, 1.4vw, 18px);
-                line-height: 2.0;
+                line-height: 2;
+                overflow-wrap: break-word;
+                word-break: auto-phrase;
             }
-            .mouse-panel--ruka .mp-desc { color: rgba(10, 32, 64, 0.82); margin-top: clamp(20px, 3vw, 40px); }
-            .mouse-panel--hinata .mp-desc { color: rgba(90, 48, 8, 0.85); }
+            .mp-desc p + p {
+                margin-top: 1em;
+            }
+            .mouse-panel--ruka .mp-desc {
+                color: rgba(10, 32, 64, 0.82);
+                margin-top: clamp(20px, 3vw, 40px);
+            }
+            .mouse-panel--hinata .mp-desc {
+                color: rgba(90, 48, 8, 0.85);
+            }
 
             /* Detail – below description, inside info/desc col */
             .mp-detail {
@@ -1410,7 +1653,7 @@
             .mp-detail-img {
                 width: clamp(120px, 15vw, 200px);
                 border-radius: 12px;
-                filter: drop-shadow(0 4px 16px rgba(0,0,0,0.12));
+                filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.12));
                 flex-shrink: 0;
             }
             .mp-detail-caption {
@@ -1418,37 +1661,48 @@
                 font-weight: 700;
                 line-height: 1.6;
             }
-            .mouse-panel--ruka .mp-detail-caption { color: #1a6abf; }
-            .mouse-panel--hinata .mp-detail-caption { color: #b06010; }
+            .mouse-panel--ruka .mp-detail-caption {
+                color: #1a6abf;
+            }
+            .mouse-panel--hinata .mp-detail-caption {
+                color: #b06010;
+            }
 
             /* ══ Cute animations ══ */
 
-
             /* チビキャラ：カラーグロー */
             .mouse-panel--ruka .mp-chibi-wrap {
-                filter: drop-shadow(0 4px 14px rgba(0,0,0,0.10)) drop-shadow(0 0 8px rgba(80,160,255,0.20));
+                filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.1))
+                    drop-shadow(0 0 8px rgba(80, 160, 255, 0.2));
             }
             .mouse-panel--hinata .mp-chibi-wrap {
-                filter: drop-shadow(0 4px 14px rgba(0,0,0,0.10)) drop-shadow(0 0 8px rgba(255,170,60,0.20));
+                filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.1))
+                    drop-shadow(0 0 8px rgba(255, 170, 60, 0.2));
             }
             @keyframes float-glow-ruka {
-                0%, 100% {
+                0%,
+                100% {
                     transform: translateY(0px);
-                    filter: drop-shadow(0 4px 14px rgba(0,0,0,0.10)) drop-shadow(0 0 8px rgba(80,160,255,0.20));
+                    filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.1))
+                        drop-shadow(0 0 8px rgba(80, 160, 255, 0.2));
                 }
                 50% {
                     transform: translateY(-12px);
-                    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.12)) drop-shadow(0 0 24px rgba(80,160,255,0.60));
+                    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.12))
+                        drop-shadow(0 0 24px rgba(80, 160, 255, 0.6));
                 }
             }
             @keyframes float-glow-hinata {
-                0%, 100% {
+                0%,
+                100% {
                     transform: translateY(0px);
-                    filter: drop-shadow(0 4px 14px rgba(0,0,0,0.10)) drop-shadow(0 0 8px rgba(255,170,60,0.20));
+                    filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.1))
+                        drop-shadow(0 0 8px rgba(255, 170, 60, 0.2));
                 }
                 50% {
                     transform: translateY(-12px);
-                    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.12)) drop-shadow(0 0 24px rgba(255,170,60,0.60));
+                    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.12))
+                        drop-shadow(0 0 24px rgba(255, 170, 60, 0.6));
                 }
             }
 
@@ -1460,20 +1714,30 @@
                 animation: mouse-glow-hinata 7s ease-in-out infinite;
             }
             @keyframes mouse-glow-ruka {
-                0%, 100% { filter: drop-shadow(0 16px 40px rgba(60,160,255,0.18)); }
-                50% { filter: drop-shadow(0 20px 56px rgba(60,160,255,0.48)); }
+                0%,
+                100% {
+                    filter: drop-shadow(0 16px 40px rgba(60, 160, 255, 0.18));
+                }
+                50% {
+                    filter: drop-shadow(0 20px 56px rgba(60, 160, 255, 0.48));
+                }
             }
             @keyframes mouse-glow-hinata {
-                0%, 100% { filter: drop-shadow(0 16px 40px rgba(240,160,40,0.18)); }
-                50% { filter: drop-shadow(0 20px 56px rgba(240,160,40,0.48)); }
+                0%,
+                100% {
+                    filter: drop-shadow(0 16px 40px rgba(240, 160, 40, 0.18));
+                }
+                50% {
+                    filter: drop-shadow(0 20px 56px rgba(240, 160, 40, 0.48));
+                }
             }
 
             /* 詳細画像 */
             .mouse-panel--ruka .mp-detail-img {
-                filter: drop-shadow(0 4px 16px rgba(60,160,255,0.15));
+                filter: drop-shadow(0 4px 16px rgba(60, 160, 255, 0.15));
             }
             .mouse-panel--hinata .mp-detail-img {
-                filter: drop-shadow(0 4px 16px rgba(240,160,40,0.15));
+                filter: drop-shadow(0 4px 16px rgba(240, 160, 40, 0.15));
             }
 
             /* セクションタイトル：キラキラ点滅 */
@@ -1481,31 +1745,67 @@
                 animation: title-sparkle 3s ease-in-out infinite;
             }
             @keyframes title-sparkle {
-                0%, 100% { text-shadow: none; }
-                50% { text-shadow: 0 0 16px rgba(60,140,255,0.45), 0 0 32px rgba(60,140,255,0.20); }
+                0%,
+                100% {
+                    text-shadow: none;
+                }
+                50% {
+                    text-shadow:
+                        0 0 16px rgba(60, 140, 255, 0.45),
+                        0 0 32px rgba(60, 140, 255, 0.2);
+                }
             }
 
             /* ══ Hero cute animations ══ */
 
             /* キャラ：グロー呼吸のみ */
             .hero-char {
-                animation: slide-up 0.9s ease 0.3s both, hero-glow 7s ease-in-out 1.2s infinite;
+                animation:
+                    slide-up 0.9s ease 0.3s both,
+                    hero-glow 7s ease-in-out 1.2s infinite;
             }
             @keyframes hero-glow {
-                0%, 100% { filter: drop-shadow(0 20px 48px rgba(102,193,255,0.22)); }
-                50%       { filter: drop-shadow(0 28px 64px rgba(255,213,128,0.38)); }
+                0%,
+                100% {
+                    filter: drop-shadow(0 20px 48px rgba(102, 193, 255, 0.22));
+                }
+                50% {
+                    filter: drop-shadow(0 28px 64px rgba(255, 213, 128, 0.38));
+                }
             }
 
             /* リング：スピン＋カラーグロー */
-            .hero-ring--1 { animation: spin-star 30s linear infinite, ring-pulse-1 4s ease-in-out infinite; }
-            .hero-ring--2 { animation: spin-star 45s linear infinite reverse, ring-pulse-2 5s ease-in-out infinite; }
+            .hero-ring--1 {
+                animation:
+                    spin-star 30s linear infinite,
+                    ring-pulse-1 4s ease-in-out infinite;
+            }
+            .hero-ring--2 {
+                animation:
+                    spin-star 45s linear infinite reverse,
+                    ring-pulse-2 5s ease-in-out infinite;
+            }
             @keyframes ring-pulse-1 {
-                0%, 100% { border-color: rgba(102,193,255,0.18); box-shadow: none; }
-                50%       { border-color: rgba(102,193,255,0.45); box-shadow: 0 0 24px rgba(102,193,255,0.14); }
+                0%,
+                100% {
+                    border-color: rgba(102, 193, 255, 0.18);
+                    box-shadow: none;
+                }
+                50% {
+                    border-color: rgba(102, 193, 255, 0.45);
+                    box-shadow: 0 0 24px rgba(102, 193, 255, 0.14);
+                }
             }
             @keyframes ring-pulse-2 {
-                0%, 100% { border-color: rgba(255,213,128,0.14); box-shadow: none; }
-                50%       { border-color: rgba(255,213,128,0.40); box-shadow: 0 0 24px rgba(255,213,128,0.12); }
+                0%,
+                100% {
+                    border-color: rgba(255, 213, 128, 0.14);
+                    box-shadow: none;
+                }
+                50% {
+                    border-color: rgba(255, 213, 128, 0.4);
+                    box-shadow: 0 0 24px rgba(255, 213, 128, 0.12);
+                }
             }
 
             /* ══ Weather Planet cute animations ══ */
@@ -1516,8 +1816,14 @@
                 animation: logo-x-bounce 2.5s ease-in-out infinite;
             }
             @keyframes logo-x-bounce {
-                0%, 100% { transform: scale(1) rotate(0deg); }
-                50%       { transform: scale(1.25) rotate(12deg); color: #66c1ff; }
+                0%,
+                100% {
+                    transform: scale(1) rotate(0deg);
+                }
+                50% {
+                    transform: scale(1.25) rotate(12deg);
+                    color: #66c1ff;
+                }
             }
 
             /* About chibi ラッパー */
@@ -1525,7 +1831,7 @@
                 position: relative;
                 flex-shrink: 0;
                 margin-bottom: -4px;
-                filter: drop-shadow(0 4px 14px rgba(0,0,0,0.08));
+                filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.08));
             }
             .about-chibi-wrap img {
                 display: block;
@@ -1534,25 +1840,54 @@
             }
             .about-chibi-wrap .about-chibi-blink {
                 position: absolute;
-                top: 0; left: 0;
-                width: 100%; height: auto;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: auto;
             }
-            .about-chibi-wrap { width: clamp(110px, 12vw, 180px); }
-            .about-chibi--left  { margin-right: -16px; z-index: 2; width: clamp(133px, 14.5vw, 218px); }
-            .about-chibi--right { margin-left:  -16px; z-index: 2; }
+            .about-chibi-wrap {
+                width: clamp(110px, 12vw, 180px);
+            }
+            .about-chibi--left {
+                margin-right: -16px;
+                z-index: 2;
+                width: clamp(133px, 14.5vw, 218px);
+            }
+            .about-chibi--right {
+                margin-left: -16px;
+                z-index: 2;
+            }
 
             /* コラボバブル呼吸グロー */
-            .collab-bubble { animation: bubble-breathe 4s ease-in-out infinite; }
+            .collab-bubble {
+                animation: bubble-breathe 4s ease-in-out infinite;
+            }
             @keyframes bubble-breathe {
-                0%, 100% { box-shadow: 0 6px 36px rgba(255,213,128,0.16); border-color: rgba(102,193,255,0.30); }
-                50%       { box-shadow: 0 12px 52px rgba(102,193,255,0.28); border-color: rgba(102,193,255,0.55); }
+                0%,
+                100% {
+                    box-shadow: 0 6px 36px rgba(255, 213, 128, 0.16);
+                    border-color: rgba(102, 193, 255, 0.3);
+                }
+                50% {
+                    box-shadow: 0 12px 52px rgba(102, 193, 255, 0.28);
+                    border-color: rgba(102, 193, 255, 0.55);
+                }
             }
 
             /* wp-imgwrap ボーダーグロー */
-            .wp-imgwrap { animation: imgwrap-glow 5s ease-in-out infinite; }
+            .wp-imgwrap {
+                animation: imgwrap-glow 5s ease-in-out infinite;
+            }
             @keyframes imgwrap-glow {
-                0%, 100% { box-shadow: 0 20px 64px rgba(102,193,255,0.18); border-color: rgba(255,213,128,0.30); }
-                50%       { box-shadow: 0 28px 80px rgba(102,193,255,0.35); border-color: rgba(255,213,128,0.60); }
+                0%,
+                100% {
+                    box-shadow: 0 20px 64px rgba(102, 193, 255, 0.18);
+                    border-color: rgba(255, 213, 128, 0.3);
+                }
+                50% {
+                    box-shadow: 0 28px 80px rgba(102, 193, 255, 0.35);
+                    border-color: rgba(255, 213, 128, 0.6);
+                }
             }
 
             /* Mobile */
@@ -1571,9 +1906,16 @@
                         "mouse"
                         "desc";
                 }
-                .mouse-panel--hinata .mp-mouse-col { grid-row: auto; align-self: auto; }
-                .mouse-panel--ruka .mp-chibi { width: clamp(56px, 14vw, 80px); }
-                .mp-mouse-img { width: clamp(140px, 44vw, 220px); }
+                .mouse-panel--hinata .mp-mouse-col {
+                    grid-row: auto;
+                    align-self: auto;
+                }
+                .mouse-panel--ruka .mp-chibi {
+                    width: clamp(56px, 14vw, 80px);
+                }
+                .mp-mouse-img {
+                    width: clamp(140px, 44vw, 220px);
+                }
             }
 
             /* ══════════════════════════════════════
@@ -1713,7 +2055,7 @@
                 font-size: clamp(13px, 1.5vw, 16px);
                 font-weight: 700;
                 letter-spacing: 0.18em;
-                color: rgba(160, 185, 235, 0.80);
+                color: rgba(160, 185, 235, 0.8);
                 margin-top: 8px;
             }
 
@@ -1725,16 +2067,20 @@
                 align-items: center;
                 margin-bottom: clamp(52px, 7vw, 96px);
             }
-            .pad2-row--ruka    { grid-template-columns: 5fr 6fr; }
-            .pad2-row--hinata  { grid-template-columns: 6fr 5fr; }
+            .pad2-row--ruka {
+                grid-template-columns: 5fr 6fr;
+            }
+            .pad2-row--hinata {
+                grid-template-columns: 6fr 5fr;
+            }
 
             /* Image box */
             .pad2-imgbox {
                 position: relative;
                 aspect-ratio: 1;
-                box-shadow: 0 20px 56px rgba(0, 0, 0, 0.50);
+                box-shadow: 0 20px 56px rgba(0, 0, 0, 0.5);
             }
-            .pad2-imgbox--blue  {
+            .pad2-imgbox--blue {
                 background: #1240a0;
                 box-shadow: 0 20px 56px rgba(18, 64, 160, 0.55);
             }
@@ -1783,7 +2129,7 @@
             .pad2-desc {
                 font-size: clamp(14px, 1.4vw, 16px);
                 line-height: 2.2;
-                color: rgba(190, 210, 245, 0.90);
+                color: rgba(190, 210, 245, 0.9);
             }
 
             /* Type explanation wrapper */
@@ -1798,25 +2144,27 @@
                 border-radius: 16px;
                 backdrop-filter: blur(14px);
                 padding: clamp(12px, 1.6vw, 18px) clamp(14px, 2vw, 22px);
-                transition: box-shadow 0.3s ease, border-color 0.3s ease;
+                transition:
+                    box-shadow 0.3s ease,
+                    border-color 0.3s ease;
             }
             .pad2-row--ruka .pad2-type-card {
-                background: rgba(10, 34, 100, 0.50);
+                background: rgba(10, 34, 100, 0.5);
                 border: 1px solid rgba(102, 193, 255, 0.35);
                 box-shadow: 0 6px 28px rgba(20, 80, 200, 0.22);
             }
             .pad2-row--ruka .pad2-type-card:hover {
                 box-shadow: 0 10px 40px rgba(60, 140, 255, 0.38);
-                border-color: rgba(102, 193, 255, 0.60);
+                border-color: rgba(102, 193, 255, 0.6);
             }
             .pad2-row--hinata .pad2-type-card {
-                background: rgba(90, 30, 4, 0.50);
+                background: rgba(90, 30, 4, 0.5);
                 border: 1px solid rgba(255, 148, 40, 0.35);
                 box-shadow: 0 6px 28px rgba(200, 80, 10, 0.22);
             }
             .pad2-row--hinata .pad2-type-card:hover {
                 box-shadow: 0 10px 40px rgba(255, 130, 20, 0.38);
-                border-color: rgba(255, 148, 40, 0.60);
+                border-color: rgba(255, 148, 40, 0.6);
             }
 
             /* Chibi — カードの上端境界にぴったり合わせて配置 */
@@ -1846,15 +2194,17 @@
             }
             .pad2-type-body {
                 font-size: clamp(13px, 1.1vw, 14px);
-                line-height: 2.0;
-                color: rgba(180, 210, 248, 0.90);
+                line-height: 2;
+                color: rgba(180, 210, 248, 0.9);
             }
             .pad2-row--hinata .pad2-type-body {
                 color: rgba(255, 210, 150, 0.82);
             }
 
             /* Designer card spacing */
-            #mousepad .designer-card { margin-top: clamp(16px, 2.5vw, 36px); }
+            #mousepad .designer-card {
+                margin-top: clamp(16px, 2.5vw, 36px);
+            }
 
             /* ══════════════════════════════════════
            BRAND SECTION
@@ -1911,7 +2261,7 @@
             .brand-tagline {
                 font-size: 12px;
                 color: var(--text-sub);
-                letter-spacing: 0.10em;
+                letter-spacing: 0.1em;
                 margin-bottom: 18px;
                 padding-bottom: 18px;
                 border-bottom: 1px solid rgba(102, 193, 255, 0.15);
@@ -2043,7 +2393,9 @@
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
             }
-            #benefits .sec-sub { color: rgba(10, 50, 140, 0.65); }
+            #benefits .sec-sub {
+                color: rgba(10, 50, 140, 0.65);
+            }
 
             /* Grid */
             .brand2-grid {
@@ -2123,12 +2475,30 @@
                 animation: brand2-glow-h 4.5s ease-in-out infinite;
             }
             @keyframes brand2-glow-d {
-                0%, 100% { box-shadow: 0 8px 32px rgba(0,0,0,.45), 0 0 0 3px rgba(102,193,255,.35); }
-                50%       { box-shadow: 0 12px 44px rgba(0,0,0,.40), 0 0 0 5px rgba(102,193,255,.60); }
+                0%,
+                100% {
+                    box-shadow:
+                        0 8px 32px rgba(0, 0, 0, 0.45),
+                        0 0 0 3px rgba(102, 193, 255, 0.35);
+                }
+                50% {
+                    box-shadow:
+                        0 12px 44px rgba(0, 0, 0, 0.4),
+                        0 0 0 5px rgba(102, 193, 255, 0.6);
+                }
             }
             @keyframes brand2-glow-h {
-                0%, 100% { box-shadow: 0 8px 32px rgba(0,0,0,.45), 0 0 0 3px rgba(255,213,128,.35); }
-                50%       { box-shadow: 0 12px 44px rgba(0,0,0,.40), 0 0 0 5px rgba(255,213,128,.60); }
+                0%,
+                100% {
+                    box-shadow:
+                        0 8px 32px rgba(0, 0, 0, 0.45),
+                        0 0 0 3px rgba(255, 213, 128, 0.35);
+                }
+                50% {
+                    box-shadow:
+                        0 12px 44px rgba(0, 0, 0, 0.4),
+                        0 0 0 5px rgba(255, 213, 128, 0.6);
+                }
             }
 
             .brand2-logo-circle img {
@@ -2162,27 +2532,39 @@
                 font-weight: 900;
                 margin-bottom: 6px;
             }
-            .brand2-card--d .brand2-name { color: #a0d4ff; }
-            .brand2-card--h .brand2-name { color: #ffd080; }
+            .brand2-card--d .brand2-name {
+                color: #a0d4ff;
+            }
+            .brand2-card--h .brand2-name {
+                color: #ffd080;
+            }
 
             .brand2-tagline {
                 font-size: 11px;
                 font-weight: 700;
-                letter-spacing: 0.10em;
+                letter-spacing: 0.1em;
                 margin-bottom: 14px;
                 padding-bottom: 14px;
                 border-bottom: 1px solid rgba(160, 200, 255, 0.12);
             }
-            .brand2-card--d .brand2-tagline { color: rgba(160, 205, 255, 0.50); }
-            .brand2-card--h .brand2-tagline { color: rgba(255, 215, 120, 0.50); }
+            .brand2-card--d .brand2-tagline {
+                color: rgba(160, 205, 255, 0.5);
+            }
+            .brand2-card--h .brand2-tagline {
+                color: rgba(255, 215, 120, 0.5);
+            }
 
             .brand2-desc {
                 font-size: clamp(14px, 1.3vw, 16px);
                 line-height: 2.1;
                 text-align: left;
             }
-            .brand2-card--d .brand2-desc { color: rgba(205, 228, 255, 0.80); }
-            .brand2-card--h .brand2-desc { color: rgba(255, 240, 190, 0.80); }
+            .brand2-card--d .brand2-desc {
+                color: rgba(205, 228, 255, 0.8);
+            }
+            .brand2-card--h .brand2-desc {
+                color: rgba(255, 240, 190, 0.8);
+            }
 
             /* ══════════════════════════════════════
                BENEFIT2 — KAWAII STICKER PREVIEW
@@ -2222,13 +2604,26 @@
                 overflow: hidden;
                 background: #ffffff;
                 padding: clamp(12px, 2.5vw, 22px);
-                box-shadow: 0 14px 52px rgba(0, 0, 0, 0.40);
-                border: 3px solid rgba(100, 180, 255, 0.40);
-                animation: float 5.5s ease-in-out infinite, benefit-showcase-glow 4s ease-in-out infinite;
+                box-shadow: 0 14px 52px rgba(0, 0, 0, 0.4);
+                border: 3px solid rgba(100, 180, 255, 0.4);
+                animation:
+                    float 5.5s ease-in-out infinite,
+                    benefit-showcase-glow 4s ease-in-out infinite;
             }
             @keyframes benefit-showcase-glow {
-                0%, 100% { box-shadow: 0 14px 52px rgba(0,0,0,.40), 0 0 0 0 rgba(100,180,255,.0); border-color: rgba(100,180,255,.40); }
-                50%       { box-shadow: 0 20px 64px rgba(0,0,0,.35), 0 0 0 5px rgba(100,180,255,.14); border-color: rgba(140,210,255,.65); }
+                0%,
+                100% {
+                    box-shadow:
+                        0 14px 52px rgba(0, 0, 0, 0.4),
+                        0 0 0 0 rgba(100, 180, 255, 0);
+                    border-color: rgba(100, 180, 255, 0.4);
+                }
+                50% {
+                    box-shadow:
+                        0 20px 64px rgba(0, 0, 0, 0.35),
+                        0 0 0 5px rgba(100, 180, 255, 0.14);
+                    border-color: rgba(140, 210, 255, 0.65);
+                }
             }
             .benefit2-img-showcase img {
                 width: 100%;
@@ -2236,7 +2631,9 @@
                 display: block;
                 transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
             }
-            .benefit2-img-showcase:hover img { transform: scale(1.04); }
+            .benefit2-img-showcase:hover img {
+                transform: scale(1.04);
+            }
 
             .benefit2-stickers {
                 display: flex;
@@ -2279,21 +2676,35 @@
 
             .benefit2-sticker--ruka .benefit2-sticker-img-wrap {
                 border: 3px solid rgba(102, 193, 255, 0.55);
-                box-shadow: 0 10px 36px rgba(80, 150, 255, 0.30);
+                box-shadow: 0 10px 36px rgba(80, 150, 255, 0.3);
                 animation: benefit-glow-ruka 4s ease-in-out infinite;
             }
             .benefit2-sticker--hinata .benefit2-sticker-img-wrap {
                 border: 3px solid rgba(255, 213, 128, 0.55);
-                box-shadow: 0 10px 36px rgba(255, 180, 60, 0.30);
+                box-shadow: 0 10px 36px rgba(255, 180, 60, 0.3);
                 animation: benefit-glow-hinata 4.5s ease-in-out infinite;
             }
             @keyframes benefit-glow-ruka {
-                0%, 100% { box-shadow: 0 10px 36px rgba(80,150,255,.30); }
-                50%       { box-shadow: 0 16px 52px rgba(80,150,255,.60), 0 0 0 6px rgba(102,193,255,.12); }
+                0%,
+                100% {
+                    box-shadow: 0 10px 36px rgba(80, 150, 255, 0.3);
+                }
+                50% {
+                    box-shadow:
+                        0 16px 52px rgba(80, 150, 255, 0.6),
+                        0 0 0 6px rgba(102, 193, 255, 0.12);
+                }
             }
             @keyframes benefit-glow-hinata {
-                0%, 100% { box-shadow: 0 10px 36px rgba(255,180,60,.30); }
-                50%       { box-shadow: 0 16px 52px rgba(255,180,60,.60), 0 0 0 6px rgba(255,213,128,.12); }
+                0%,
+                100% {
+                    box-shadow: 0 10px 36px rgba(255, 180, 60, 0.3);
+                }
+                50% {
+                    box-shadow:
+                        0 16px 52px rgba(255, 180, 60, 0.6),
+                        0 0 0 6px rgba(255, 213, 128, 0.12);
+                }
             }
 
             .benefit2-label {
@@ -2302,8 +2713,12 @@
                 font-weight: 700;
                 margin-top: 12px;
             }
-            .benefit2-sticker--ruka .benefit2-label    { color: rgba(130, 200, 255, 0.80); }
-            .benefit2-sticker--hinata .benefit2-label  { color: rgba(255, 220, 120, 0.80); }
+            .benefit2-sticker--ruka .benefit2-label {
+                color: rgba(130, 200, 255, 0.8);
+            }
+            .benefit2-sticker--hinata .benefit2-label {
+                color: rgba(255, 220, 120, 0.8);
+            }
 
             .benefit2-text {
                 font-family: "Mamelon", "Nunito", sans-serif;
@@ -2318,7 +2733,7 @@
                 font-size: 13px;
                 color: rgba(255, 210, 170, 0.65);
                 margin-top: 28px;
-                line-height: 2.0;
+                line-height: 2;
             }
 
             /* ── Mystery lock overlay ── */
@@ -2346,7 +2761,7 @@
                 background: rgba(6, 2, 16, 0.55);
                 backdrop-filter: blur(4px);
                 border: 1.5px solid rgba(100, 170, 255, 0.22);
-                box-shadow: inset 0 1px 0 rgba(160, 210, 255, 0.10);
+                box-shadow: inset 0 1px 0 rgba(160, 210, 255, 0.1);
             }
             .benefit-locked__icon {
                 font-size: clamp(36px, 6vw, 52px);
@@ -2362,18 +2777,30 @@
             .benefit-locked__sub {
                 font-size: clamp(11px, 1.8vw, 14px);
                 letter-spacing: 0.22em;
-                color: rgba(140, 190, 255, 0.60);
+                color: rgba(140, 190, 255, 0.6);
                 text-transform: uppercase;
             }
             @keyframes lock-pulse {
-                0%, 100% { transform: scale(1);   opacity: 0.85; }
-                50%       { transform: scale(1.08); opacity: 1;    }
+                0%,
+                100% {
+                    transform: scale(1);
+                    opacity: 0.85;
+                }
+                50% {
+                    transform: scale(1.08);
+                    opacity: 1;
+                }
             }
 
             /* Mobile */
             @media (max-width: 767px) {
-                .brand2-grid { grid-template-columns: 1fr; max-width: 380px; }
-                .benefit2-stickers { gap: 20px; }
+                .brand2-grid {
+                    grid-template-columns: 1fr;
+                    max-width: 380px;
+                }
+                .benefit2-stickers {
+                    gap: 20px;
+                }
                 .benefit2-sticker-img-wrap {
                     width: clamp(120px, 36vw, 160px);
                     height: clamp(120px, 36vw, 160px);
@@ -2421,7 +2848,8 @@
 
             /* スペックセクション：完全透明（白い体背景のまま） */
             .mspec-fullbleed {
-                padding: clamp(80px, 10vw, 130px) clamp(28px, 5vw, 72px) clamp(68px, 8.5vw, 120px);
+                padding: clamp(80px, 10vw, 130px) clamp(28px, 5vw, 72px)
+                    clamp(68px, 8.5vw, 120px);
                 background: transparent;
             }
 
@@ -2442,30 +2870,50 @@
                 animation: rainbow-shift 6s ease infinite;
                 display: flex;
                 flex-direction: column;
-                transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+                transition:
+                    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                    box-shadow 0.4s ease;
             }
             .mspec-card--ruka {
-                background: linear-gradient(135deg,
-                    rgba(102, 193, 255, 0.50),
+                background: linear-gradient(
+                    135deg,
+                    rgba(102, 193, 255, 0.5),
                     rgba(154, 223, 182, 0.38),
-                    rgba(176, 220, 255, 0.50),
+                    rgba(176, 220, 255, 0.5),
                     rgba(154, 223, 182, 0.38),
-                    rgba(102, 193, 255, 0.50));
-                box-shadow: 0 8px 40px rgba(102, 193, 255, 0.14), 0 2px 12px rgba(102, 193, 255, 0.10);
+                    rgba(102, 193, 255, 0.5)
+                );
+                box-shadow:
+                    0 8px 40px rgba(102, 193, 255, 0.14),
+                    0 2px 12px rgba(102, 193, 255, 0.1);
             }
             .mspec-card--hinata {
-                background: linear-gradient(135deg,
-                    rgba(255, 213, 128, 0.50),
+                background: linear-gradient(
+                    135deg,
+                    rgba(255, 213, 128, 0.5),
                     rgba(255, 183, 107, 0.38),
-                    rgba(255, 232, 168, 0.50),
+                    rgba(255, 232, 168, 0.5),
                     rgba(255, 183, 107, 0.38),
-                    rgba(255, 213, 128, 0.50));
-                box-shadow: 0 8px 40px rgba(255, 183, 107, 0.16), 0 2px 12px rgba(255, 213, 128, 0.12);
+                    rgba(255, 213, 128, 0.5)
+                );
+                box-shadow:
+                    0 8px 40px rgba(255, 183, 107, 0.16),
+                    0 2px 12px rgba(255, 213, 128, 0.12);
                 animation-delay: -3s;
             }
-            .mspec-card:hover               { transform: translateY(-10px); }
-            .mspec-card--ruka:hover         { box-shadow: 0 24px 64px rgba(102, 193, 255, 0.28), 0 4px 20px rgba(102, 193, 255, 0.16); }
-            .mspec-card--hinata:hover       { box-shadow: 0 24px 64px rgba(255, 183, 107, 0.32), 0 4px 20px rgba(255, 213, 128, 0.20); }
+            .mspec-card:hover {
+                transform: translateY(-10px);
+            }
+            .mspec-card--ruka:hover {
+                box-shadow:
+                    0 24px 64px rgba(102, 193, 255, 0.28),
+                    0 4px 20px rgba(102, 193, 255, 0.16);
+            }
+            .mspec-card--hinata:hover {
+                box-shadow:
+                    0 24px 64px rgba(255, 183, 107, 0.32),
+                    0 4px 20px rgba(255, 213, 128, 0.2);
+            }
 
             /* カード内側：版ごとに微妙な色味 */
             .mspec-card-inner {
@@ -2476,30 +2924,59 @@
                 flex-direction: column;
                 flex: 1;
             }
-            .mspec-card--ruka   .mspec-card-inner { background: rgba(236, 249, 255, 0.76); }
-            .mspec-card--hinata .mspec-card-inner { background: rgba(255, 252, 236, 0.76); }
+            .mspec-card--ruka .mspec-card-inner {
+                background: rgba(236, 249, 255, 0.76);
+            }
+            .mspec-card--hinata .mspec-card-inner {
+                background: rgba(255, 252, 236, 0.76);
+            }
 
             /* 上部イラストエリア */
             .mspec-card-img {
-                padding: clamp(28px, 3.5vw, 52px) clamp(20px, 3vw, 40px) clamp(14px, 2vw, 22px);
+                padding: clamp(28px, 3.5vw, 52px) clamp(20px, 3vw, 40px)
+                    clamp(14px, 2vw, 22px);
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 gap: 10px;
             }
-            .mspec-card--ruka   .mspec-card-img { background: linear-gradient(160deg, rgba(102, 193, 255, 0.18) 0%, rgba(102, 193, 255, 0.04) 100%); }
-            .mspec-card--hinata .mspec-card-img { background: linear-gradient(200deg, rgba(255, 213, 128, 0.04) 0%, rgba(255, 213, 128, 0.18) 100%); }
+            .mspec-card--ruka .mspec-card-img {
+                background: linear-gradient(
+                    160deg,
+                    rgba(102, 193, 255, 0.18) 0%,
+                    rgba(102, 193, 255, 0.04) 100%
+                );
+            }
+            .mspec-card--hinata .mspec-card-img {
+                background: linear-gradient(
+                    200deg,
+                    rgba(255, 213, 128, 0.04) 0%,
+                    rgba(255, 213, 128, 0.18) 100%
+                );
+            }
             .mspec-card-img img {
                 width: 100%;
                 max-width: clamp(200px, 30vw, 420px);
                 border-radius: 10px;
-                transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease;
+                transition:
+                    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                    filter 0.4s ease;
             }
-            .mspec-card--ruka   .mspec-card-img img { filter: drop-shadow(0 8px 24px rgba(60, 160, 255, 0.30)); }
-            .mspec-card--hinata .mspec-card-img img { filter: drop-shadow(0 8px 24px rgba(240, 160, 40, 0.30)); }
-            .mspec-card-img:hover img              { transform: translateY(-6px) scale(1.02); }
-            .mspec-card--ruka   .mspec-card-img:hover img { filter: drop-shadow(0 14px 36px rgba(60, 160, 255, 0.55)); }
-            .mspec-card--hinata .mspec-card-img:hover img { filter: drop-shadow(0 14px 36px rgba(240, 160, 40, 0.55)); }
+            .mspec-card--ruka .mspec-card-img img {
+                filter: drop-shadow(0 8px 24px rgba(60, 160, 255, 0.3));
+            }
+            .mspec-card--hinata .mspec-card-img img {
+                filter: drop-shadow(0 8px 24px rgba(240, 160, 40, 0.3));
+            }
+            .mspec-card-img:hover img {
+                transform: translateY(-6px) scale(1.02);
+            }
+            .mspec-card--ruka .mspec-card-img:hover img {
+                filter: drop-shadow(0 14px 36px rgba(60, 160, 255, 0.55));
+            }
+            .mspec-card--hinata .mspec-card-img:hover img {
+                filter: drop-shadow(0 14px 36px rgba(240, 160, 40, 0.55));
+            }
 
             /* エディション名 */
             .mspec-card-edition {
@@ -2511,7 +2988,14 @@
                 margin-top: 4px;
             }
             .mspec-card--ruka .mspec-card-edition {
-                background: linear-gradient(90deg, #0a3870 0%, #1a70c8 28%, #78d0ff 50%, #1a70c8 72%, #0a3870 100%);
+                background: linear-gradient(
+                    90deg,
+                    #0a3870 0%,
+                    #1a70c8 28%,
+                    #78d0ff 50%,
+                    #1a70c8 72%,
+                    #0a3870 100%
+                );
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
@@ -2519,7 +3003,14 @@
                 animation: shimmer-ruka 4s linear infinite;
             }
             .mspec-card--hinata .mspec-card-edition {
-                background: linear-gradient(90deg, #6a3200 0%, #c06818 28%, #ffc84a 50%, #c06818 72%, #6a3200 100%);
+                background: linear-gradient(
+                    90deg,
+                    #6a3200 0%,
+                    #c06818 28%,
+                    #ffc84a 50%,
+                    #c06818 72%,
+                    #6a3200 100%
+                );
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
@@ -2534,33 +3025,66 @@
                 border-radius: var(--r-pill);
                 font-size: clamp(11px, 1.1vw, 13px);
                 font-weight: 900;
-                letter-spacing: 0.10em;
+                letter-spacing: 0.1em;
                 opacity: 1;
             }
-            .mspec-card--ruka   .mspec-card-model { background: rgba(102, 193, 255, 0.14); color: #0a6ea8; border: 1px solid rgba(102, 193, 255, 0.30); }
-            .mspec-card--hinata .mspec-card-model { background: rgba(255, 213, 128, 0.20); color: #8a5200; border: 1px solid rgba(255, 180, 50, 0.35); }
+            .mspec-card--ruka .mspec-card-model {
+                background: rgba(102, 193, 255, 0.14);
+                color: #0a6ea8;
+                border: 1px solid rgba(102, 193, 255, 0.3);
+            }
+            .mspec-card--hinata .mspec-card-model {
+                background: rgba(255, 213, 128, 0.2);
+                color: #8a5200;
+                border: 1px solid rgba(255, 180, 50, 0.35);
+            }
 
             /* スペックリスト */
-            .mspec-card-specs { flex: 1; }
-            .mspec-card--ruka   .mspec-card-specs { border-top: 1.5px solid rgba(102, 193, 255, 0.18); }
-            .mspec-card--hinata .mspec-card-specs { border-top: 1.5px solid rgba(255, 213, 128, 0.24); }
+            .mspec-card-specs {
+                flex: 1;
+            }
+            .mspec-card--ruka .mspec-card-specs {
+                border-top: 1.5px solid rgba(102, 193, 255, 0.18);
+            }
+            .mspec-card--hinata .mspec-card-specs {
+                border-top: 1.5px solid rgba(255, 213, 128, 0.24);
+            }
 
             .mspec-spec-row {
                 display: flex;
                 border-bottom: 1px solid rgba(102, 193, 255, 0.07);
                 transition: background 0.2s ease;
             }
-            .mspec-card--hinata .mspec-spec-row    { border-bottom-color: rgba(255, 213, 128, 0.10); }
-            .mspec-spec-row:last-child              { border-bottom: none; }
-            .mspec-card--ruka   .mspec-spec-row:nth-child(even) { background: rgba(215, 240, 255, 0.45); }
-            .mspec-card--hinata .mspec-spec-row:nth-child(even) { background: rgba(255, 243, 205, 0.45); }
-            .mspec-card--ruka   .mspec-spec-row:hover { background: rgba(102, 193, 255, 0.12); }
-            .mspec-card--hinata .mspec-spec-row:hover { background: rgba(255, 213, 128, 0.12); }
+            .mspec-card--hinata .mspec-spec-row {
+                border-bottom-color: rgba(255, 213, 128, 0.1);
+            }
+            .mspec-spec-row:last-child {
+                border-bottom: none;
+            }
+            .mspec-card--ruka .mspec-spec-row:nth-child(even) {
+                background: rgba(215, 240, 255, 0.45);
+            }
+            .mspec-card--hinata .mspec-spec-row:nth-child(even) {
+                background: rgba(255, 243, 205, 0.45);
+            }
+            .mspec-card--ruka .mspec-spec-row:hover {
+                background: rgba(102, 193, 255, 0.12);
+            }
+            .mspec-card--hinata .mspec-spec-row:hover {
+                background: rgba(255, 213, 128, 0.12);
+            }
 
             /* 最初の行（モデル名）を強調 */
-            .mspec-spec-row:first-child .mspec-spec-val { font-weight: 700; font-size: clamp(12px, 1.15vw, 15px); }
-            .mspec-card--ruka   .mspec-spec-row:first-child .mspec-spec-val { color: #0a6ea8; }
-            .mspec-card--hinata .mspec-spec-row:first-child .mspec-spec-val { color: #8a5200; }
+            .mspec-spec-row:first-child .mspec-spec-val {
+                font-weight: 700;
+                font-size: clamp(12px, 1.15vw, 15px);
+            }
+            .mspec-card--ruka .mspec-spec-row:first-child .mspec-spec-val {
+                color: #0a6ea8;
+            }
+            .mspec-card--hinata .mspec-spec-row:first-child .mspec-spec-val {
+                color: #8a5200;
+            }
 
             /* ラベル列：左アクセントバー */
             .mspec-spec-label {
@@ -2574,8 +3098,14 @@
                 display: flex;
                 align-items: center;
             }
-            .mspec-card--ruka   .mspec-spec-label { border-right: 1px solid rgba(102, 193, 255, 0.14); background: rgba(102, 193, 255, 0.06); }
-            .mspec-card--hinata .mspec-spec-label { border-right: 1px solid rgba(255, 213, 128, 0.18); background: rgba(255, 213, 128, 0.06); }
+            .mspec-card--ruka .mspec-spec-label {
+                border-right: 1px solid rgba(102, 193, 255, 0.14);
+                background: rgba(102, 193, 255, 0.06);
+            }
+            .mspec-card--hinata .mspec-spec-label {
+                border-right: 1px solid rgba(255, 213, 128, 0.18);
+                background: rgba(255, 213, 128, 0.06);
+            }
 
             /* 値列 */
             .mspec-spec-val {
@@ -2588,11 +3118,25 @@
             }
 
             @media (max-width: 767px) {
-                .mspec-split      { grid-template-columns: 1fr; gap: 20px; }
-                .mspec-card-img   { padding: 14px 14px 10px; }
-                .mspec-card-img img { max-width: 100%; }
-                .mspec-spec-label { width: 72px; padding: 10px 8px 10px 10px; font-size: 10px; }
-                .mspec-spec-val   { padding: 10px 12px; font-size: 12px; }
+                .mspec-split {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                }
+                .mspec-card-img {
+                    padding: 14px 14px 10px;
+                }
+                .mspec-card-img img {
+                    max-width: 100%;
+                }
+                .mspec-spec-label {
+                    width: 72px;
+                    padding: 10px 8px 10px 10px;
+                    font-size: 10px;
+                }
+                .mspec-spec-val {
+                    padding: 10px 12px;
+                    font-size: 12px;
+                }
             }
 
             /* ══════════════════════════════════════
@@ -2602,23 +3146,26 @@
                 /* 瞳の中の水中：白から深海へ — 境界は完全に透明 */
                 background:
                     /* キャッチライト：中層に配置しy=0%への影響ゼロ */
-                    radial-gradient(ellipse 85% 60% at 50% 42%,
+                    radial-gradient(
+                        ellipse 85% 60% at 50% 42%,
                         rgba(40, 185, 255, 0.28) 0%,
                         rgba(16, 148, 240, 0.08) 55%,
-                        transparent 72%),
-                    linear-gradient(180deg,
-                        #ffffff    0%,
-                        #c8eaff    4%,
-                        #84ccf8   13%,
-                        #40aef0   24%,
-                        #189ce0   36%,
-                        #0880cc   48%,
-                        #0662b0   58%,
-                        #044488   68%,
-                        #022660   78%,
-                        #011038   87%,
-                        #060820   93%,
-                        #0a0a28  100%
+                        transparent 72%
+                    ),
+                    linear-gradient(
+                        180deg,
+                        #ffffff 0%,
+                        #c8eaff 4%,
+                        #84ccf8 13%,
+                        #40aef0 24%,
+                        #189ce0 36%,
+                        #0880cc 48%,
+                        #0662b0 58%,
+                        #044488 68%,
+                        #022660 78%,
+                        #011038 87%,
+                        #060820 93%,
+                        #0a0a28 100%
                     );
                 padding: clamp(160px, 18vw, 220px) 0 clamp(80px, 9vw, 120px);
                 position: relative;
@@ -2634,46 +3181,109 @@
                 width: 110%;
                 height: 55%;
                 background:
-                    radial-gradient(ellipse 13%  8% at 10% 14%, rgba(215, 250, 255, 0.42) 0%, transparent 100%),
-                    radial-gradient(ellipse  8%  6% at 33%  7%, rgba(205, 246, 255, 0.36) 0%, transparent 100%),
-                    radial-gradient(ellipse 16%  9% at 60% 20%, rgba(210, 248, 255, 0.40) 0%, transparent 100%),
-                    radial-gradient(ellipse  6%  5% at 84% 10%, rgba(218, 250, 255, 0.38) 0%, transparent 100%),
-                    radial-gradient(ellipse 11%  7% at 20% 34%, rgba(200, 244, 255, 0.32) 0%, transparent 100%),
-                    radial-gradient(ellipse  7%  6% at 50% 27%, rgba(196, 242, 255, 0.30) 0%, transparent 100%),
-                    radial-gradient(ellipse  9%  6% at 76% 38%, rgba(202, 245, 255, 0.32) 0%, transparent 100%),
-                    radial-gradient(ellipse  5%  4% at 44% 16%, rgba(220, 252, 255, 0.38) 0%, transparent 100%),
-                    radial-gradient(ellipse  7%  5% at 92% 28%, rgba(208, 246, 255, 0.32) 0%, transparent 100%);
+                    radial-gradient(
+                        ellipse 13% 8% at 10% 14%,
+                        rgba(215, 250, 255, 0.42) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        ellipse 8% 6% at 33% 7%,
+                        rgba(205, 246, 255, 0.36) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        ellipse 16% 9% at 60% 20%,
+                        rgba(210, 248, 255, 0.4) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        ellipse 6% 5% at 84% 10%,
+                        rgba(218, 250, 255, 0.38) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        ellipse 11% 7% at 20% 34%,
+                        rgba(200, 244, 255, 0.32) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        ellipse 7% 6% at 50% 27%,
+                        rgba(196, 242, 255, 0.3) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        ellipse 9% 6% at 76% 38%,
+                        rgba(202, 245, 255, 0.32) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        ellipse 5% 4% at 44% 16%,
+                        rgba(220, 252, 255, 0.38) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        ellipse 7% 5% at 92% 28%,
+                        rgba(208, 246, 255, 0.32) 0%,
+                        transparent 100%
+                    );
                 pointer-events: none;
                 z-index: 0;
                 animation: kb-caustic 4s ease-in-out infinite;
             }
             @keyframes kb-caustic {
-                0%   { transform: scaleX(1)    scaleY(1)    skewX(0deg);    opacity: 0.40; }
-                20%  { transform: scaleX(1.12) scaleY(0.94) skewX(1.5deg);  opacity: 1.00; }
-                48%  { transform: scaleX(0.92) scaleY(1.08) skewX(-1.1deg); opacity: 0.58; }
-                72%  { transform: scaleX(1.07) scaleY(0.96) skewX(0.7deg);  opacity: 0.92; }
-                100% { transform: scaleX(1)    scaleY(1)    skewX(0deg);    opacity: 0.40; }
+                0% {
+                    transform: scaleX(1) scaleY(1) skewX(0deg);
+                    opacity: 0.4;
+                }
+                20% {
+                    transform: scaleX(1.12) scaleY(0.94) skewX(1.5deg);
+                    opacity: 1;
+                }
+                48% {
+                    transform: scaleX(0.92) scaleY(1.08) skewX(-1.1deg);
+                    opacity: 0.58;
+                }
+                72% {
+                    transform: scaleX(1.07) scaleY(0.96) skewX(0.7deg);
+                    opacity: 0.92;
+                }
+                100% {
+                    transform: scaleX(1) scaleY(1) skewX(0deg);
+                    opacity: 0.4;
+                }
             }
 
             /* 水中の大きな光のパッチ（シアン系の光の反射） */
             .kb-light {
                 position: absolute;
                 border-radius: 60% 40% 55% 45% / 50% 55% 45% 50%;
-                background: radial-gradient(ellipse at 42% 38%,
+                background: radial-gradient(
+                    ellipse at 42% 38%,
                     rgba(180, 248, 255, 0.82) 0%,
-                    rgba(80,  215, 255, 0.42) 30%,
-                    rgba(40,  185, 245, 0.14) 60%,
-                    transparent 100%);
+                    rgba(80, 215, 255, 0.42) 30%,
+                    rgba(40, 185, 245, 0.14) 60%,
+                    transparent 100%
+                );
                 filter: blur(8px);
                 pointer-events: none;
                 z-index: 0;
-                animation: kb-light-move var(--dur, 4.5s) ease-in-out var(--dl, 0s) infinite;
+                animation: kb-light-move var(--dur, 4.5s) ease-in-out
+                    var(--dl, 0s) infinite;
             }
             @keyframes kb-light-move {
-                0%, 100% { opacity: var(--op, 0.48); }
-                28%       { opacity: calc(var(--op, 0.48) * 2.0); }
-                55%       { opacity: calc(var(--op, 0.48) * 1.1); }
-                80%       { opacity: calc(var(--op, 0.48) * 1.7); }
+                0%,
+                100% {
+                    opacity: var(--op, 0.48);
+                }
+                28% {
+                    opacity: calc(var(--op, 0.48) * 2);
+                }
+                55% {
+                    opacity: calc(var(--op, 0.48) * 1.1);
+                }
+                80% {
+                    opacity: calc(var(--op, 0.48) * 1.7);
+                }
             }
 
             /* 水中の気泡：光が反射するエアーバブル */
@@ -2682,31 +3292,52 @@
                 border-radius: 50%;
                 background:
                     /* キャッチライト：光の当たる点（左上） */
-                    radial-gradient(circle at 30% 28%,
-                        rgba(255, 255, 255, 0.70)  0%,
+                    radial-gradient(
+                        circle at 30% 28%,
+                        rgba(255, 255, 255, 0.7) 0%,
                         rgba(215, 244, 255, 0.24) 18%,
-                        transparent               42%),
+                        transparent 42%
+                    ),
                     /* 下側の映り込み */
-                    radial-gradient(circle at 68% 72%,
-                        rgba(128, 210, 255, 0.14)  0%,
-                        transparent               48%),
+                    radial-gradient(
+                            circle at 68% 72%,
+                            rgba(128, 210, 255, 0.14) 0%,
+                            transparent 48%
+                        ),
                     /* バブルのリム（縁の光） */
-                    radial-gradient(circle at 50% 50%,
-                        transparent               50%,
-                        rgba(150, 220, 255, 0.13) 72%,
-                        rgba(130, 210, 255, 0.26) 100%);
+                    radial-gradient(
+                            circle at 50% 50%,
+                            transparent 50%,
+                            rgba(150, 220, 255, 0.13) 72%,
+                            rgba(130, 210, 255, 0.26) 100%
+                        );
                 border: 1px solid rgba(165, 226, 255, 0.34);
                 pointer-events: none;
                 z-index: 0;
                 will-change: transform, opacity;
-                animation: kb-bubble-rise var(--dur, 11s) ease-in var(--dl, 0s) infinite;
+                animation: kb-bubble-rise var(--dur, 11s) ease-in var(--dl, 0s)
+                    infinite;
             }
             @keyframes kb-bubble-rise {
-                0%   { transform: translateY(0)                              translateX(0);                        opacity: 0; }
-                8%   { opacity: var(--op, 0.75); }
-                44%  { transform: translateY(calc(var(--h,-68vh) * 0.44))   translateX(var(--sx, 9px)); }
-                82%  { opacity: var(--op, 0.75); }
-                100% { transform: translateY(var(--h,-68vh))                 translateX(calc(var(--sx,9px)*-.4));  opacity: 0; }
+                0% {
+                    transform: translateY(0) translateX(0);
+                    opacity: 0;
+                }
+                8% {
+                    opacity: var(--op, 0.75);
+                }
+                44% {
+                    transform: translateY(calc(var(--h, -68vh) * 0.44))
+                        translateX(var(--sx, 9px));
+                }
+                82% {
+                    opacity: var(--op, 0.75);
+                }
+                100% {
+                    transform: translateY(var(--h, -68vh))
+                        translateX(calc(var(--sx, 9px) * -0.4));
+                    opacity: 0;
+                }
             }
 
             /* 水中の光の粒（マウスパッドの星と同じ手法） */
@@ -2718,39 +3349,140 @@
                 z-index: 0;
                 background-image:
                     /* ── 上層：水面に近い光の揺らめき ── */
-                    radial-gradient(circle 3px at 11% 11%, rgba(205,242,255,.65) 0%, rgba(150,215,255,.12) 55%, transparent 100%),
-                    radial-gradient(circle 2px at 32%  7%, rgba(215,246,255,.55) 0%, transparent 100%),
-                    radial-gradient(circle 2px at 54% 15%, rgba(200,240,255,.60) 0%, rgba(145,212,255,.10) 55%, transparent 100%),
-                    radial-gradient(circle 3px at 73%  9%, rgba(208,243,255,.58) 0%, rgba(152,216,255,.12) 55%, transparent 100%),
-                    radial-gradient(circle 1px at 90% 18%, rgba(220,248,255,.70) 0%, transparent 100%),
-                    radial-gradient(circle 2px at 22% 21%, rgba(195,238,255,.50) 0%, transparent 100%),
-                    radial-gradient(circle 1px at 64% 23%, rgba(210,244,255,.52) 0%, transparent 100%),
+                    radial-gradient(
+                        circle 3px at 11% 11%,
+                        rgba(205, 242, 255, 0.65) 0%,
+                        rgba(150, 215, 255, 0.12) 55%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 2px at 32% 7%,
+                        rgba(215, 246, 255, 0.55) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 2px at 54% 15%,
+                        rgba(200, 240, 255, 0.6) 0%,
+                        rgba(145, 212, 255, 0.1) 55%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 3px at 73% 9%,
+                        rgba(208, 243, 255, 0.58) 0%,
+                        rgba(152, 216, 255, 0.12) 55%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1px at 90% 18%,
+                        rgba(220, 248, 255, 0.7) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 2px at 22% 21%,
+                        rgba(195, 238, 255, 0.5) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1px at 64% 23%,
+                        rgba(210, 244, 255, 0.52) 0%,
+                        transparent 100%
+                    ),
                     /* ── 中層：揺れる光の粒 ── */
-                    radial-gradient(circle 2px at  7% 34%, rgba(170,228,255,.44) 0%, rgba(120,200,248,.08) 55%, transparent 100%),
-                    radial-gradient(circle 1px at 24% 29%, rgba(182,233,255,.48) 0%, transparent 100%),
-                    radial-gradient(circle 2px at 45% 40%, rgba(162,226,255,.42) 0%, transparent 100%),
-                    radial-gradient(circle 2px at 62% 27%, rgba(178,231,255,.46) 0%, rgba(122,202,248,.08) 55%, transparent 100%),
-                    radial-gradient(circle 1px at 81% 36%, rgba(192,236,255,.50) 0%, transparent 100%),
-                    radial-gradient(circle 2px at 94% 31%, rgba(168,226,255,.44) 0%, transparent 100%),
-                    radial-gradient(circle 1px at 38% 44%, rgba(158,222,255,.40) 0%, transparent 100%),
+                    radial-gradient(
+                            circle 2px at 7% 34%,
+                            rgba(170, 228, 255, 0.44) 0%,
+                            rgba(120, 200, 248, 0.08) 55%,
+                            transparent 100%
+                        ),
+                    radial-gradient(
+                        circle 1px at 24% 29%,
+                        rgba(182, 233, 255, 0.48) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 2px at 45% 40%,
+                        rgba(162, 226, 255, 0.42) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 2px at 62% 27%,
+                        rgba(178, 231, 255, 0.46) 0%,
+                        rgba(122, 202, 248, 0.08) 55%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1px at 81% 36%,
+                        rgba(192, 236, 255, 0.5) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 2px at 94% 31%,
+                        rgba(168, 226, 255, 0.44) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1px at 38% 44%,
+                        rgba(158, 222, 255, 0.4) 0%,
+                        transparent 100%
+                    ),
                     /* ── 深層：かすかな生物発光 ── */
-                    radial-gradient(circle 1px at 16% 57%, rgba(100,190,240,.34) 0%, transparent 100%),
-                    radial-gradient(circle 2px at 39% 63%, rgba( 90,185,238,.30) 0%, rgba(60,160,220,.06) 55%, transparent 100%),
-                    radial-gradient(circle 1px at 58% 52%, rgba(110,195,242,.36) 0%, transparent 100%),
-                    radial-gradient(circle 1px at 77% 60%, rgba( 95,188,240,.32) 0%, transparent 100%),
-                    radial-gradient(circle 2px at 91% 68%, rgba( 85,180,235,.28) 0%, transparent 100%),
+                    radial-gradient(
+                            circle 1px at 16% 57%,
+                            rgba(100, 190, 240, 0.34) 0%,
+                            transparent 100%
+                        ),
+                    radial-gradient(
+                        circle 2px at 39% 63%,
+                        rgba(90, 185, 238, 0.3) 0%,
+                        rgba(60, 160, 220, 0.06) 55%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1px at 58% 52%,
+                        rgba(110, 195, 242, 0.36) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1px at 77% 60%,
+                        rgba(95, 188, 240, 0.32) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 2px at 91% 68%,
+                        rgba(85, 180, 235, 0.28) 0%,
+                        transparent 100%
+                    ),
                     /* ── 深海底：極めて希薄な発光 ── */
-                    radial-gradient(circle 1px at 27% 79%, rgba(60,160,220,.22) 0%, transparent 100%),
-                    radial-gradient(circle 1px at 52% 84%, rgba(55,155,218,.20) 0%, transparent 100%),
-                    radial-gradient(circle 1px at 74% 76%, rgba(65,165,224,.24) 0%, transparent 100%);
+                    radial-gradient(
+                            circle 1px at 27% 79%,
+                            rgba(60, 160, 220, 0.22) 0%,
+                            transparent 100%
+                        ),
+                    radial-gradient(
+                        circle 1px at 52% 84%,
+                        rgba(55, 155, 218, 0.2) 0%,
+                        transparent 100%
+                    ),
+                    radial-gradient(
+                        circle 1px at 74% 76%,
+                        rgba(65, 165, 224, 0.24) 0%,
+                        transparent 100%
+                    );
                 background-size: 100% 100%;
                 background-repeat: no-repeat;
                 animation: kb-sparkle 6s ease-in-out infinite;
             }
             @keyframes kb-sparkle {
-                0%, 100% { opacity: 0.50; }
-                45%       { opacity: 1.00; }
-                75%       { opacity: 0.68; }
+                0%,
+                100% {
+                    opacity: 0.5;
+                }
+                45% {
+                    opacity: 1;
+                }
+                75% {
+                    opacity: 0.68;
+                }
             }
 
             .kbnew-wrap {
@@ -2771,7 +3503,7 @@
                 font-size: 11px;
                 font-weight: 900;
                 letter-spacing: 0.18em;
-                color: rgba(102, 193, 255, 0.90);
+                color: rgba(102, 193, 255, 0.9);
                 margin-bottom: 20px;
                 border: 1px solid rgba(102, 193, 255, 0.4);
                 padding: 5px 16px;
@@ -2802,10 +3534,18 @@
                 display: block;
                 width: clamp(36px, 5.5vw, 80px);
                 height: 1px;
-                background: linear-gradient(90deg, transparent, rgba(102, 193, 255, 0.28));
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(102, 193, 255, 0.28)
+                );
             }
             .kbnew-en::after {
-                background: linear-gradient(90deg, rgba(102, 193, 255, 0.28), transparent);
+                background: linear-gradient(
+                    90deg,
+                    rgba(102, 193, 255, 0.28),
+                    transparent
+                );
             }
 
             /* Full-width keyboard image */
@@ -2814,8 +3554,7 @@
                 margin-bottom: clamp(44px, 6vw, 72px);
                 border-radius: 20px;
                 overflow: hidden;
-                filter:
-                    drop-shadow(0 20px 60px rgba(0, 0, 0, 0.6))
+                filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.6))
                     drop-shadow(0 0 48px rgba(102, 193, 255, 0.14));
             }
             .kbnew-img-full img {
@@ -2823,7 +3562,9 @@
                 display: block;
                 transition: transform 0.7s ease;
             }
-            .kbnew-img-full:hover img { transform: scale(1.012); }
+            .kbnew-img-full:hover img {
+                transform: scale(1.012);
+            }
 
             /* Intro quote */
             .kbnew-intro {
@@ -2835,6 +3576,11 @@
                 line-height: 2.3;
                 padding: 0 20px;
                 position: relative;
+                overflow-wrap: break-word;
+                word-break: auto-phrase;
+            }
+            .kbnew-intro p + p {
+                margin-top: 0.8em;
             }
             .kbnew-intro::before,
             .kbnew-intro::after {
@@ -2845,8 +3591,13 @@
                 font-size: 13px;
                 animation: twinkle 3s ease-in-out infinite;
             }
-            .kbnew-intro::before { left: 0; }
-            .kbnew-intro::after  { right: 0; animation-delay: 1.5s; }
+            .kbnew-intro::before {
+                left: 0;
+            }
+            .kbnew-intro::after {
+                right: 0;
+                animation-delay: 1.5s;
+            }
 
             /* Feature rows */
             .kbnew-feat {
@@ -2891,6 +3642,8 @@
                 color: rgba(255, 255, 255, 0.82);
                 font-size: clamp(15px, 1.5vw, 17px);
                 line-height: 2.25;
+                overflow-wrap: break-word;
+                word-break: auto-phrase;
             }
             .kbnew-feat__text strong {
                 color: #b8e0ff;
@@ -2901,7 +3654,12 @@
             .kbnew-divider {
                 width: 64px;
                 height: 1px;
-                background: linear-gradient(90deg, transparent, rgba(102, 193, 255, 0.28), transparent);
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(102, 193, 255, 0.28),
+                    transparent
+                );
                 margin: clamp(44px, 5.5vw, 72px) auto;
             }
 
@@ -2918,6 +3676,8 @@
                 font-size: clamp(15px, 1.5vw, 17px);
                 line-height: 2.25;
                 backdrop-filter: blur(10px);
+                overflow-wrap: break-word;
+                word-break: auto-phrase;
             }
             .kbnew-bottom-box strong {
                 color: #b8e0ff;
@@ -2958,7 +3718,7 @@
                 font-family: "Mamelon", "Nunito", sans-serif;
                 font-weight: 700;
                 color: #3a2d45;
-                line-height: 2.0;
+                line-height: 2;
                 flex-shrink: 0;
                 min-width: 150px;
                 text-align: center;
@@ -2993,38 +3753,65 @@
                 gap: 20px;
                 border: 1.5px solid rgba(255, 255, 255, 0.12);
                 backdrop-filter: blur(14px);
-                transition: background 0.35s ease, border-color 0.35s ease;
+                transition:
+                    background 0.35s ease,
+                    border-color 0.35s ease;
             }
             .kbnew-designer:hover {
                 background: rgba(255, 255, 255, 0.12);
                 border-color: rgba(102, 193, 255, 0.32);
             }
             .kbnew-designer .designer-ava {
-                box-shadow: 0 0 0 3px rgba(102, 193, 255, 0.52),
-                            0 4px 20px rgba(0, 0, 0, 0.32);
+                box-shadow:
+                    0 0 0 3px rgba(102, 193, 255, 0.52),
+                    0 4px 20px rgba(0, 0, 0, 0.32);
             }
-            .kbnew-designer .designer-role { color: #66c1ff; }
-            .kbnew-designer .designer-name { color: #fff; }
-            .kbnew-designer .designer-bio  { color: rgba(255, 255, 255, 0.62); }
+            .kbnew-designer .designer-role {
+                color: #66c1ff;
+            }
+            .kbnew-designer .designer-name {
+                color: #fff;
+            }
+            .kbnew-designer .designer-bio {
+                color: rgba(255, 255, 255, 0.62);
+            }
 
             @media (max-width: 767px) {
-                .kbnew-feat { flex-direction: column; gap: 28px; }
+                .kbnew-feat {
+                    flex-direction: column;
+                    gap: 28px;
+                }
                 .kbnew-feat__vis {
                     flex: 0 0 auto;
                     width: clamp(160px, 52vw, 220px);
                     margin: 0 auto;
                 }
-                .kbnew-feat__text { padding-left: 0; }
-                .kbnew-feat__label { text-align: center; }
-                .kbnew-keycap-row { flex-direction: column; gap: 24px; }
+                .kbnew-feat__text {
+                    padding-left: 0;
+                }
+                .kbnew-feat__label {
+                    text-align: center;
+                }
+                .kbnew-keycap-row {
+                    flex-direction: column;
+                    gap: 24px;
+                }
                 .kbnew-speech::before {
-                    left: 50%; top: -12px;
+                    left: 50%;
+                    top: -12px;
                     transform: translateX(-50%);
                     border-color: transparent;
                     border-bottom-color: #fff;
                 }
-                .kbnew-designer { flex-direction: column; text-align: center; }
-                .kbnew-speech { white-space: normal; min-width: unset; width: 100%; }
+                .kbnew-designer {
+                    flex-direction: column;
+                    text-align: center;
+                }
+                .kbnew-speech {
+                    white-space: normal;
+                    min-width: unset;
+                    width: 100%;
+                }
             }
 
             /* ══════════════════════════════════════
@@ -3047,7 +3834,12 @@
                 font-size: 16px;
                 font-weight: 700;
                 margin-bottom: 12px;
-                background: linear-gradient(90deg, var(--blue), var(--mint), var(--yellow));
+                background: linear-gradient(
+                    90deg,
+                    var(--blue),
+                    var(--mint),
+                    var(--yellow)
+                );
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
@@ -3073,40 +3865,101 @@
         ══════════════════════════════════════ */
 
             /* ─ 1366 × 768  ベース ────────────── */
-            section { padding: 80px 0; }
-            .sec-sub { margin-bottom: 52px; }
-            .mouse-product { margin-bottom: 72px; }
-            .pad-product   { margin-bottom: 64px; }
+            section {
+                padding: 80px 0;
+            }
+            .sec-sub {
+                margin-bottom: 52px;
+            }
+            .mouse-product {
+                margin-bottom: 72px;
+            }
+            .pad-product {
+                margin-bottom: 64px;
+            }
 
             /* ─ 1440 × 900 ──────────────────────── */
             @media (min-width: 1440px) {
-                .container { max-width: 1160px; }
-                section { padding: 96px 0; }
-                .sec-sub { margin-bottom: 64px; }
-                .mouse-product { margin-bottom: 88px; }
-                .pad-product   { margin-bottom: 80px; }
-                .hero-ring--1  { width: 620px; height: 620px; }
-                .hero-ring--2  { width: 800px; height: 800px; }
-                .hero-char     { height: 82vh; }
+                .container {
+                    max-width: 1160px;
+                }
+                section {
+                    padding: 96px 0;
+                }
+                .sec-sub {
+                    margin-bottom: 64px;
+                }
+                .mouse-product {
+                    margin-bottom: 88px;
+                }
+                .pad-product {
+                    margin-bottom: 80px;
+                }
+                .hero-ring--1 {
+                    width: 620px;
+                    height: 620px;
+                }
+                .hero-ring--2 {
+                    width: 800px;
+                    height: 800px;
+                }
+                .hero-char {
+                    height: 82vh;
+                }
             }
 
             /* ─ 1920 × 1080 ─────────────────────── */
             @media (min-width: 1920px) {
-                .container     { max-width: 1400px; }
-                section        { padding: 110px 0; }
-                .sec-sub       { margin-bottom: 72px; }
-                .mouse-product { margin-bottom: 100px; gap: 100px; }
-                .kb-product    { gap: 100px; }
-                .pad-product   { margin-bottom: 88px; gap: 100px; }
-                .brand-grid    { max-width: 1100px; gap: 48px; }
-                .hero-logo-img { width: 360px; }
-                .hero-ring--1  { width: 720px; height: 720px; }
-                .hero-ring--2  { width: 920px; height: 920px; }
-                .hero-char     { height: 84vh; }
-                .wp-imgwrap    { max-width: 860px; }
-                .wp-textbox    { max-width: 840px; }
-                .collab-bubble { max-width: 840px; }
-                .benefit-outer { max-width: 900px; }
+                .container {
+                    max-width: 1400px;
+                }
+                section {
+                    padding: 110px 0;
+                }
+                .sec-sub {
+                    margin-bottom: 72px;
+                }
+                .mouse-product {
+                    margin-bottom: 100px;
+                    gap: 100px;
+                }
+                .kb-product {
+                    gap: 100px;
+                }
+                .pad-product {
+                    margin-bottom: 88px;
+                    gap: 100px;
+                }
+                .brand-grid {
+                    max-width: 1100px;
+                    gap: 48px;
+                }
+                .hero-logo-img {
+                    width: 360px;
+                }
+                .hero-ring--1 {
+                    width: 720px;
+                    height: 720px;
+                }
+                .hero-ring--2 {
+                    width: 920px;
+                    height: 920px;
+                }
+                .hero-char {
+                    height: 84vh;
+                }
+                .wp-imgwrap {
+                    max-width: 860px;
+                }
+                .wp-textbox {
+                    max-width: 840px;
+                }
+                .collab-bubble {
+                    max-width: 840px;
+                }
+                .benefit-outer {
+                    max-width: 900px;
+                }
             }
 
             /* ══════════════════════════════════════
@@ -3115,75 +3968,197 @@
 
             /* ─ iPad landscape 1024 × 768 ────────── */
             @media (max-width: 1365px) {
-                .container     { max-width: 100%; padding: 0 32px; }
-                section        { padding: 72px 0; }
-                .sec-sub       { margin-bottom: 44px; }
-                .hero-char     { height: 76vh; }
-                .hero-logo-img { width: clamp(200px, 22vw, 300px); }
+                .container {
+                    max-width: 100%;
+                    padding: 0 32px;
+                }
+                section {
+                    padding: 72px 0;
+                }
+                .sec-sub {
+                    margin-bottom: 44px;
+                }
+                .hero-char {
+                    height: 76vh;
+                }
+                .hero-logo-img {
+                    width: clamp(200px, 22vw, 300px);
+                }
                 .mouse-product,
-                .pad-product   { gap: 48px; }
-                .pad2-row      { gap: 36px; }
-                .kb-product    { gap: 48px; }
+                .pad-product {
+                    gap: 48px;
+                }
+                .pad2-row {
+                    gap: 36px;
+                }
+                .kb-product {
+                    gap: 48px;
+                }
             }
 
             /* ─ iPad portrait 768 × 1024 ──────────── */
             @media (max-width: 1023px) {
-                section        { padding: 64px 0; }
-                .sec-sub       { margin-bottom: 40px; }
-                .hero-logo-img { width: clamp(180px, 30vw, 280px); }
-                .hero-char     { height: 70vh; max-width: 50vw; }
-                .hero-ring--1  { width: 420px; height: 420px; }
-                .hero-ring--2  { width: 560px; height: 560px; }
+                section {
+                    padding: 64px 0;
+                }
+                .sec-sub {
+                    margin-bottom: 40px;
+                }
+                .hero-logo-img {
+                    width: clamp(180px, 30vw, 280px);
+                }
+                .hero-char {
+                    height: 70vh;
+                    max-width: 50vw;
+                }
+                .hero-ring--1 {
+                    width: 420px;
+                    height: 420px;
+                }
+                .hero-ring--2 {
+                    width: 560px;
+                    height: 560px;
+                }
                 .mouse-product,
                 .kb-product,
-                .pad-product   { grid-template-columns: 1fr; gap: 36px; }
-                .pad2-row      { grid-template-columns: 1fr; gap: 28px; }
-                .pad2-row--hinata .pad2-imgbox { order: -1; }
-                .pad2-row--ruka   .pad2-imgbox { order: -1; }
-                .pad2-type-chibi { width: clamp(80px, 18vw, 120px); }
-                .pad2-type-wrapper { padding-top: clamp(28px, 6vw, 40px); }
-                .kb-product--rev .kb-product__vis { order: -1; }
-                .brand-grid    { grid-template-columns: 1fr; max-width: 520px; }
-                .compare-grid  { max-width: 540px; }
-                .mouse-product { margin-bottom: 56px; }
-                .pad-product   { margin-bottom: 52px; }
+                .pad-product {
+                    grid-template-columns: 1fr;
+                    gap: 36px;
+                }
+                .pad2-row {
+                    grid-template-columns: 1fr;
+                    gap: 28px;
+                }
+                .pad2-row--hinata .pad2-imgbox {
+                    order: -1;
+                }
+                .pad2-row--ruka .pad2-imgbox {
+                    order: -1;
+                }
+                .pad2-type-chibi {
+                    width: clamp(80px, 18vw, 120px);
+                }
+                .pad2-type-wrapper {
+                    padding-top: clamp(28px, 6vw, 40px);
+                }
+                .kb-product--rev .kb-product__vis {
+                    order: -1;
+                }
+                .brand-grid {
+                    grid-template-columns: 1fr;
+                    max-width: 520px;
+                }
+                .compare-grid {
+                    max-width: 540px;
+                }
+                .mouse-product {
+                    margin-bottom: 56px;
+                }
+                .pad-product {
+                    margin-bottom: 52px;
+                }
             }
 
             /* ─ スマートフォン 360〜412 × 800〜915 ── */
             @media (max-width: 767px) {
-                body { background-attachment: scroll; }
-                .site-header   { padding: 0 20px; }
-                .site-nav      { display: none; }
-                .hamburger     { display: flex; }
-                .mobile-menu   { display: flex; }
-                .float-reserve { font-size: 11px; padding: 16px 8px; }
-                .container     { padding: 0 16px; }
-                section        { padding: 52px 0; }
-                .sec-sub       { margin-bottom: 32px; font-size: 10px; }
+                body {
+                    background-attachment: scroll;
+                }
+                .site-header {
+                    padding: 0 20px;
+                }
+                .site-nav {
+                    display: none;
+                }
+                .hamburger {
+                    display: flex;
+                }
+                .mobile-menu {
+                    display: flex;
+                }
+                .float-reserve {
+                    font-size: 11px;
+                    padding: 16px 8px;
+                }
+                .container {
+                    padding: 0 16px;
+                }
+                section {
+                    padding: 52px 0;
+                }
+                .sec-sub {
+                    margin-bottom: 32px;
+                    font-size: 10px;
+                }
 
-                .hero          { height: 100svh; min-height: 480px; justify-content: center; }
-                .hero-top      { padding-top: 0; }
-                .hero-logo-img { width: clamp(230px, 66vw, 300px); }
-                .hero-char     { height: 72vh; max-width: 52vw; }
-                .hero-ring--1  { width: 300px; height: 300px; }
-                .hero-ring--2  { width: 400px; height: 400px; }
+                .hero {
+                    height: 100svh;
+                    min-height: 480px;
+                    justify-content: center;
+                }
+                .hero-top {
+                    padding-top: 0;
+                }
+                .hero-logo-img {
+                    width: clamp(230px, 66vw, 300px);
+                }
+                .hero-char {
+                    height: 72vh;
+                    max-width: 52vw;
+                }
+                .hero-ring--1 {
+                    width: 300px;
+                    height: 300px;
+                }
+                .hero-ring--2 {
+                    width: 400px;
+                    height: 400px;
+                }
 
                 .mouse-product,
                 .kb-product,
-                .pad-product   { grid-template-columns: 1fr; gap: 28px; }
-                .pad2-row      { grid-template-columns: 1fr; gap: 24px; }
-                .pad2-row--hinata .pad2-imgbox { order: -1; }
-                .pad2-row--ruka   .pad2-imgbox { order: -1; }
-                .kb-product--rev .kb-product__vis { order: -1; }
-                .brand-grid    { grid-template-columns: 1fr; }
-                .compare-grid  { grid-template-columns: 1fr; }
-                .mouse-product { margin-bottom: 48px; }
-                .pad-product   { margin-bottom: 44px; }
+                .pad-product {
+                    grid-template-columns: 1fr;
+                    gap: 28px;
+                }
+                .pad2-row {
+                    grid-template-columns: 1fr;
+                    gap: 24px;
+                }
+                .pad2-row--hinata .pad2-imgbox {
+                    order: -1;
+                }
+                .pad2-row--ruka .pad2-imgbox {
+                    order: -1;
+                }
+                .kb-product--rev .kb-product__vis {
+                    order: -1;
+                }
+                .brand-grid {
+                    grid-template-columns: 1fr;
+                }
+                .compare-grid {
+                    grid-template-columns: 1fr;
+                }
+                .mouse-product {
+                    margin-bottom: 48px;
+                }
+                .pad-product {
+                    margin-bottom: 44px;
+                }
 
                 /* マウスパネル モバイル */
-                .mp-model-line { white-space: normal; font-size: clamp(24px, 7vw, 36px); }
-                .mouse-panel        { padding: 40px 20px; min-height: auto; }
-                .mouse-panel--ruka  { padding-bottom: 72px; }
+                .mp-model-line {
+                    white-space: normal;
+                    font-size: clamp(24px, 7vw, 36px);
+                }
+                .mouse-panel {
+                    padding: 40px 20px;
+                    min-height: auto;
+                }
+                .mouse-panel--ruka {
+                    padding-bottom: 72px;
+                }
                 .mouse-panel--ruka,
                 .mouse-panel--hinata {
                     display: flex;
@@ -3193,54 +4168,156 @@
                 }
 
                 /* ── Ruka: 마우스명 → 이미지 → 설명 ── */
-                .mp-sectitle        { order: 1; }
-                .mouse-panel--ruka .mp-info-col    { display: contents; }
-                .mouse-panel--ruka .mp-model-header { order: 2; width: 100%; margin-top: 64px; }
-                .mouse-panel--ruka .mp-mouse-col   { order: 3; width: 100%; display: flex; justify-content: center; margin: -32px 0; }
-                .mouse-panel--ruka .mp-desc        { order: 4; width: 100%; }
-                .mouse-panel--ruka .mp-detail      { order: 5; width: 100%; }
+                .mp-sectitle {
+                    order: 1;
+                }
+                .mouse-panel--ruka .mp-info-col {
+                    display: contents;
+                }
+                .mouse-panel--ruka .mp-model-header {
+                    order: 2;
+                    width: 100%;
+                    margin-top: 64px;
+                }
+                .mouse-panel--ruka .mp-mouse-col {
+                    order: 3;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    margin: -32px 0;
+                }
+                .mouse-panel--ruka .mp-desc {
+                    order: 4;
+                    width: 100%;
+                }
+                .mouse-panel--ruka .mp-detail {
+                    order: 5;
+                    width: 100%;
+                }
 
                 /* ── Hinata: 기존 순서 유지 ── */
-                .mp-header     { order: 1; width: 100%; margin-top: 20px; }
-                .mouse-panel--hinata .mp-mouse-col { order: 2; width: 100%; display: flex; justify-content: center; margin: -20px 0; }
-                .mp-desc-col   { order: 3; width: 100%; }
+                .mp-header {
+                    order: 1;
+                    width: 100%;
+                    margin-top: 20px;
+                }
+                .mouse-panel--hinata .mp-mouse-col {
+                    order: 2;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    margin: -20px 0;
+                }
+                .mp-desc-col {
+                    order: 3;
+                    width: 100%;
+                }
 
-                .mp-mouse-img  { width: 90vw; max-width: 420px; }
-                .mini-wrap     { width: 60px; height: 60px; }
-                .kb-deco       { display: none; }
-                .pad-vis__deco { display: none; }
-                .mouse-panel--ruka .mp-model-header .mp-chibi-wrap { position: relative; top: 20px; }
+                .mp-mouse-img {
+                    width: 90vw;
+                    max-width: 420px;
+                }
+                .mini-wrap {
+                    width: 60px;
+                    height: 60px;
+                }
+                .kb-deco {
+                    display: none;
+                }
+                .pad-vis__deco {
+                    display: none;
+                }
+                .mouse-panel--ruka .mp-model-header .mp-chibi-wrap {
+                    position: relative;
+                    top: 20px;
+                }
 
-                .designer-card { max-width: 100%; flex-direction: column;
-                                 text-align: center; gap: 16px; }
-                .benefit-list  { max-width: 100%; }
-                .about-logos   { gap: 12px; }
-                .about-logo-wp { width: clamp(100px, 36vw, 160px); }
-                .about-logo-ds { width: clamp(80px, 28vw, 130px); }
-                .about-chibi   { width: clamp(64px, 16vw, 100px); }
+                .designer-card {
+                    max-width: 100%;
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 16px;
+                }
+                .benefit-list {
+                    max-width: 100%;
+                }
+                .about-logos {
+                    gap: 12px;
+                }
+                .about-logo-wp {
+                    width: clamp(100px, 36vw, 160px);
+                }
+                .about-logo-ds {
+                    width: clamp(80px, 28vw, 130px);
+                }
+                .about-chibi {
+                    width: clamp(64px, 16vw, 100px);
+                }
                 .wp-textbox,
-                .collab-bubble { padding: 20px 16px; }
-                .about-collab-wrap { max-width: 100%; flex-wrap: wrap; justify-content: center; }
-                .collab-bubble    { order: 1; flex: 0 0 100%; width: 100%; margin-bottom: 12px; border-radius: 14px; }
-                .about-chibi-wrap { order: 2; flex: 0 0 auto; margin: 0 8px; }
-                .about-chibi--left  { margin-right: 8px; }
-                .about-chibi--right { margin-left:  8px; }
+                .collab-bubble {
+                    padding: 20px 16px;
+                }
+                .about-collab-wrap {
+                    max-width: 100%;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+                .collab-bubble {
+                    order: 1;
+                    flex: 0 0 100%;
+                    width: 100%;
+                    margin-bottom: 12px;
+                    border-radius: 14px;
+                }
+                .about-chibi-wrap {
+                    order: 2;
+                    flex: 0 0 auto;
+                    margin: 0 8px;
+                }
+                .about-chibi--left {
+                    margin-right: 8px;
+                }
+                .about-chibi--right {
+                    margin-left: 8px;
+                }
             }
 
             /* ─ 小型スマートフォン 〜 390px ──────── */
             @media (max-width: 390px) {
-                section        { padding: 44px 0; }
-                .hero-top      { padding-top: 0; }
-                .hero-logo-img { width: 220px; }
-                .hero-char     { height: 68vh; }
-                .hero-ring--1  { width: 260px; height: 260px; }
-                .hero-ring--2  { width: 340px; height: 340px; }
-                .sec-title     { font-size: 20px; }
+                section {
+                    padding: 44px 0;
+                }
+                .hero-top {
+                    padding-top: 0;
+                }
+                .hero-logo-img {
+                    width: 220px;
+                }
+                .hero-char {
+                    height: 68vh;
+                }
+                .hero-ring--1 {
+                    width: 260px;
+                    height: 260px;
+                }
+                .hero-ring--2 {
+                    width: 340px;
+                    height: 340px;
+                }
+                .sec-title {
+                    font-size: 20px;
+                }
                 .product-name,
                 .kb-title,
-                .pad-name      { font-size: 17px; }
-                .kawaii-card   { padding: 20px 16px; }
-                .benefit-inner { padding: 32px 20px; }
+                .pad-name {
+                    font-size: 17px;
+                }
+                .kawaii-card {
+                    padding: 20px 16px;
+                }
+                .benefit-inner {
+                    padding: 32px 20px;
+                }
             }
         </style>
     </head>
@@ -3261,7 +4338,12 @@
                     <li class="nav-cta"><a href="#">ご予約</a></li>
                 </ul>
             </nav>
-            <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+            <button
+                class="hamburger"
+                id="hamburger"
+                aria-label="メニューを開く"
+                aria-expanded="false"
+            >
                 <span></span>
                 <span></span>
                 <span></span>
@@ -3276,7 +4358,9 @@
             <a href="#mousepad" class="mobile-link">マウスパッド</a>
             <a href="#brand" class="mobile-link">ブランド</a>
             <a href="#benefits" class="mobile-link">予約特典</a>
-            <div class="mobile-cta"><a href="#" class="mobile-link">ご予約</a></div>
+            <div class="mobile-cta">
+                <a href="#" class="mobile-link">ご予約</a>
+            </div>
         </nav>
 
         <!-- Floating reserve -->
@@ -3294,8 +4378,7 @@
                     font-size: 12px;
                     color: rgba(102, 193, 255, 0.5);
                 "
-                ></span
-            >
+            ></span>
             <span
                 class="sp"
                 style="
@@ -3342,8 +4425,7 @@
                     font-size: 13px;
                     color: rgba(154, 223, 182, 0.55);
                 "
-                ></span
-            >
+            ></span>
             <span
                 class="sp"
                 style="
@@ -3366,8 +4448,7 @@
                     font-size: 15px;
                     color: rgba(255, 213, 128, 0.42);
                 "
-                ></span
-            >
+            ></span>
             <span
                 class="sp"
                 style="
@@ -3414,8 +4495,7 @@
                     font-size: 10px;
                     color: rgba(102, 193, 255, 0.35);
                 "
-                ></span
-            >
+            ></span>
             <span
                 class="sp"
                 style="
@@ -3464,8 +4544,7 @@
                             --dx: 20px;
                             color: #66c1ff;
                         "
-                        ></span
-                    >
+                    ></span>
                     <span
                         class="char-star"
                         style="
@@ -3498,8 +4577,7 @@
                             --dx: -18px;
                             color: #ffd580;
                         "
-                        ></span
-                    >
+                    ></span>
                     <span
                         class="char-star"
                         style="
@@ -3529,8 +4607,7 @@
                     --dl: 0s;
                     --c: rgba(102, 193, 255, 0.38);
                 "
-                ></span
-            >
+            ></span>
             <span
                 class="sec-star"
                 style="
@@ -3565,17 +4642,22 @@
                     --dl: 0.3s;
                     --c: rgba(102, 193, 255, 0.35);
                 "
-                ></span
-            >
+            ></span>
 
             <div class="container">
                 <!-- ロゴ列 -->
                 <div class="about-logos reveal d2">
-                    <img class="about-logo-wp" src="../img_w/WeatherPlanetLogo.webp" alt="Weather Planet"
+                    <img
+                        class="about-logo-wp"
+                        src="../img_w/WeatherPlanetLogo.webp"
+                        alt="Weather Planet"
                         loading="lazy"
                     />
                     <span class="about-logo-x">×</span>
-                    <img class="about-logo-ds" src="../img_w/DarmosharkLogo.webp" alt="Darmoshark"
+                    <img
+                        class="about-logo-ds"
+                        src="../img_w/DarmosharkLogo.webp"
+                        alt="Darmoshark"
                         loading="lazy"
                     />
                 </div>
@@ -3583,220 +4665,591 @@
                 <!-- コラボメッセージ + ちびキャラ -->
                 <div class="about-collab-wrap reveal d3">
                     <div class="about-chibi-wrap about-chibi--left reveal-l d4">
-                        <img class="blink-a"
-                             src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2H.webp"
-                             alt="天晴ひなた"
-                        loading="lazy"
-                    />
-                        <img class="about-chibi-blink blink-b"
-                             src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2H@.webp"
-                             alt="" aria-hidden="true"
-                        loading="lazy"
-                    />
+                        <img
+                            class="blink-a"
+                            src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2H.webp"
+                            alt="天晴ひなた"
+                            loading="lazy"
+                        />
+                        <img
+                            class="about-chibi-blink blink-b"
+                            src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2H@.webp"
+                            alt=""
+                            aria-hidden="true"
+                            loading="lazy"
+                        />
                     </div>
                     <div class="collab-bubble">
-                        <p>今回コラボの枠を越え、雨海ルカ様、天晴ひなた様、お二方監修の元、各コラボアイテムが開発されました！</p>
-                        <p>マウス・キーボードはDarmoshark、マウスパッドはハルヒプロダクツが製造、こだわりの詰まった各デバイスをご覧ください。</p>
+                        <p>
+                            今回、Weather
+                            Planetの雨海ルカ様、天晴ひなた様、お二方完全監修の元、一年以上の月日をかけ特別なコラボアイテムを制作しました。
+                        </p>
+                        <p>
+                            マウス・キーボードはDarmoshark(ダーモシャーク)、マウスパッドはハルヒプロダクツが担当、こだわりの詰まった各デバイスを是非ご覧になってください！
+                        </p>
                     </div>
-                    <div class="about-chibi-wrap about-chibi--right reveal-r d5">
-                        <img class="blink-a"
-                             src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2R.webp"
-                             alt="雨海ルカ"
-                        loading="lazy"
-                    />
-                        <img class="about-chibi-blink blink-b"
-                             src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2R@.webp"
-                             alt="" aria-hidden="true"
-                        loading="lazy"
-                    />
+                    <div
+                        class="about-chibi-wrap about-chibi--right reveal-r d5"
+                    >
+                        <img
+                            class="blink-a"
+                            src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2R.webp"
+                            alt="雨海ルカ"
+                            loading="lazy"
+                        />
+                        <img
+                            class="about-chibi-blink blink-b"
+                            src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2R@.webp"
+                            alt=""
+                            aria-hidden="true"
+                            loading="lazy"
+                        />
                     </div>
                 </div>
-
             </div>
         </section>
 
         <!-- ═══ MOUSE ═══ -->
         <section id="mouse">
-
             <!-- panels: full-bleed, outside .container -->
             <div class="mouse-panels">
-            <div class="mouse-panels-combined reveal">
+                <div class="mouse-panels-combined reveal">
+                    <!-- ─── Ruka Panel ─── -->
+                    <div class="mouse-panel mouse-panel--ruka">
+                        <!-- Section title: top center -->
+                        <div class="mp-sectitle">
+                            <div class="mp-sectitle-ja">ゲーミングマウス</div>
+                            <div class="mp-sectitle-en">Gaming mouse</div>
+                        </div>
 
-                <!-- ─── Ruka Panel ─── -->
-                <div class="mouse-panel mouse-panel--ruka">
+                        <!-- Left: mouse image -->
+                        <div class="mp-mouse-col">
+                            <img
+                                class="mp-mouse-img"
+                                src="../img_w/M2正面ルカモデル.webp"
+                                alt="Darmoshark M2 DAERO 雨海ルカモデル"
+                                loading="lazy"
+                            />
+                        </div>
 
-                    <!-- Section title: top center -->
-                    <div class="mp-sectitle">
-                        <div class="mp-sectitle-ja">ゲーミングマウス</div>
-                        <div class="mp-sectitle-en">Gaming mouse</div>
+                        <!-- Right: [edition + model] + chibi / desc / detail -->
+                        <div class="mp-info-col">
+                            <div class="mp-model-header">
+                                <div>
+                                    <div class="mp-edition-line">
+                                        ruka edition
+                                    </div>
+                                    <div class="mp-model-line">M2 DAERO</div>
+                                </div>
+                                <div class="mp-chibi-wrap reveal-r d2">
+                                    <img
+                                        class="blink-a"
+                                        src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2R.webp"
+                                        alt="雨海ルカ"
+                                        loading="lazy"
+                                    />
+                                    <img
+                                        class="mp-chibi-blink blink-b"
+                                        src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2R@.webp"
+                                        alt=""
+                                        aria-hidden="true"
+                                        loading="lazy"
+                                    />
+                                </div>
+                            </div>
+                            <div class="mp-desc">
+                                <p>
+                                    「雨海ルカ」彼女の綺麗な前髪をマウスで再現したモデル。金属特有の光沢が美しいマグネシウム製マウスです。
+                                </p>
+                                <p>
+                                    幾度もの試作と調整を重ねたグラデーション塗装は、自然光と室内灯で色の見え方が変わります。
+                                </p>
+                            </div>
+                            <div class="mp-detail">
+                                <img
+                                    class="mp-detail-img"
+                                    src="../img_w/luca_hair.webp"
+                                    alt="ルカの前髪グラデーション"
+                                    loading="lazy"
+                                />
+                                <span class="mp-detail-caption"
+                                    >前髪のグラデーションに注目！</span
+                                >
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Left: mouse image -->
-                    <div class="mp-mouse-col">
-                        <img class="mp-mouse-img"
-                             src="../img_w/M2正面ルカモデル.webp"
-                             alt="Darmoshark M2 DAERO 雨海ルカモデル"
-                        loading="lazy"
-                    />
-                    </div>
-
-                    <!-- Right: [edition + model] + chibi / desc / detail -->
-                    <div class="mp-info-col">
-                        <div class="mp-model-header">
+                    <!-- ─── Hinata Panel ─── -->
+                    <div class="mouse-panel mouse-panel--hinata">
+                        <!-- Left-top: chibi + edition / model -->
+                        <div class="mp-header">
+                            <div class="mp-chibi-wrap reveal-l d2">
+                                <img
+                                    class="blink-a"
+                                    src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2H.webp"
+                                    alt="天晴ひなた"
+                                    loading="lazy"
+                                />
+                                <img
+                                    class="mp-chibi-blink blink-b"
+                                    src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2H@.webp"
+                                    alt=""
+                                    aria-hidden="true"
+                                    loading="lazy"
+                                />
+                            </div>
                             <div>
-                                <div class="mp-edition-line">ruka edition</div>
-                                <div class="mp-model-line">M2 DAERO</div>
-                            </div>
-                            <div class="mp-chibi-wrap reveal-r d2">
-                                <img class="blink-a"
-                                     src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2R.webp"
-                                     alt="雨海ルカ"
-                        loading="lazy"
-                    />
-                                <img class="mp-chibi-blink blink-b"
-                                     src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2R@.webp"
-                                     alt="" aria-hidden="true"
-                        loading="lazy"
-                    />
+                                <div class="mp-edition-line">
+                                    hinata edition
+                                </div>
+                                <div class="mp-model-line">M3XS Ghostcat</div>
                             </div>
                         </div>
-                        <p class="mp-desc">
-                            「雨海ルカ」彼女の綺麗な前髪をマウスで再現したモデル。金属特有の光沢が美しいマグネシウム製マウスです。<br><br>
-                            ダーモシャークの10種類以上の形状から、実際にルカさんが触って選んでもらいました。
-                        </p>
-                        <div class="mp-detail">
-                            <img class="mp-detail-img"
-                                 src="../img_w/luca_hair.webp"
-                                 alt="ルカの前髪グラデーション"
-                        loading="lazy"
-                    />
-                            <span class="mp-detail-caption">前髪のグラデーションに注目！</span>
+
+                        <!-- Left-bottom: desc + detail -->
+                        <div class="mp-desc-col">
+                            <div class="mp-desc">
+                                <p>
+                                    「天晴ひなた」彼女の衣装をベースに晴天の夜空と宇宙をマウスで再現したモデル。輝き続ける星々を余すことなく散りばめた特別仕様のマウスです。
+                                </p>
+                                <p>
+                                    手作業による水圧転写を採用しひとつひとつ丁寧に仕上げています。
+                                </p>
+                            </div>
+                            <div class="mp-detail">
+                                <img
+                                    class="mp-detail-img"
+                                    src="../img_w/hinata_arm.webp"
+                                    alt="ひなたの袖の宇宙模様"
+                                    loading="lazy"
+                                />
+                                <span class="mp-detail-caption"
+                                    >袖の宇宙は無限大！</span
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Right: mouse (spans header + desc rows) -->
+                        <div class="mp-mouse-col">
+                            <img
+                                class="mp-mouse-img"
+                                src="../img_w/M3XS正面ひなたモデル.webp"
+                                alt="Darmoshark M3XS Ghostcat 天晴ひなたモデル"
+                                loading="lazy"
+                            />
                         </div>
                     </div>
-
                 </div>
-
-                <!-- ─── Hinata Panel ─── -->
-                <div class="mouse-panel mouse-panel--hinata">
-
-                    <!-- Left-top: chibi + edition / model -->
-                    <div class="mp-header">
-                        <div class="mp-chibi-wrap reveal-l d2">
-                            <img class="blink-a"
-                                 src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2H.webp"
-                                 alt="天晴ひなた"
-                        loading="lazy"
-                    />
-                            <img class="mp-chibi-blink blink-b"
-                                 src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2H@.webp"
-                                 alt="" aria-hidden="true"
-                        loading="lazy"
-                    />
-                        </div>
-                        <div>
-                            <div class="mp-edition-line">hinata edition</div>
-                            <div class="mp-model-line">M3XS Ghostcat</div>
-                        </div>
-                    </div>
-
-                    <!-- Left-bottom: desc + detail -->
-                    <div class="mp-desc-col">
-                        <p class="mp-desc">
-                            「天晴ひなた」彼女の衣装をベースに晴天の夜空と宇宙をマウスで再現したモデル。輝き続ける星々をマウスに散りばめた特別な一台、手作業で水圧転写をおこなうという手間とこだわりが詰まっています。<br><br>
-                            実際にひなたさんがダーモシャークの10種類以上の形状から、触って選んでもらいました。
-                        </p>
-                        <div class="mp-detail">
-                            <img class="mp-detail-img"
-                                 src="../img_w/hinata_arm.webp"
-                                 alt="ひなたの袖の宇宙模様"
-                        loading="lazy"
-                    />
-                            <span class="mp-detail-caption">袖の宇宙、無限大！</span>
-                        </div>
-                    </div>
-
-                    <!-- Right: mouse (spans header + desc rows) -->
-                    <div class="mp-mouse-col">
-                        <img class="mp-mouse-img"
-                             src="../img_w/M3XS正面ひなたモデル.webp"
-                             alt="Darmoshark M3XS Ghostcat 天晴ひなたモデル"
-                        loading="lazy"
-                    />
-                    </div>
-
-                </div>
-
-            </div><!-- /.mouse-panels-combined -->
-            </div><!-- /.mouse-panels -->
-
-
+                <!-- /.mouse-panels-combined -->
+            </div>
+            <!-- /.mouse-panels -->
         </section>
 
         <!-- ═══ KEYBOARD ═══ -->
         <section id="keyboard">
-
             <!-- 水中の光の反射パッチ（シアン系） -->
-            <div class="kb-light" style="top:10%; left:4%;  width:32%; height:20%; --dur:4.2s;--dl:0s;   --op:.42;--x:2.5%; --y:1.8%"></div>
-            <div class="kb-light" style="top:14%; left:34%; width:26%; height:16%; --dur:5.5s;--dl:1.4s; --op:.36;--x:-2%;  --y:2.2%"></div>
-            <div class="kb-light" style="top:8%;  left:62%; width:34%; height:20%; --dur:3.8s;--dl:2.6s; --op:.40;--x:1.8%; --y:-1.2%"></div>
-            <div class="kb-light" style="top:26%; left:10%; width:28%; height:17%; --dur:6s;  --dl:0.5s; --op:.34;--x:-1.8%;--y:2.5%"></div>
-            <div class="kb-light" style="top:22%; left:50%; width:30%; height:18%; --dur:4.8s;--dl:3.2s; --op:.36;--x:2.2%; --y:1%"></div>
-            <div class="kb-light" style="top:34%; left:28%; width:24%; height:14%; --dur:5.2s;--dl:5.5s; --op:.30;--x:1%;   --y:-1.5%"></div>
+            <div
+                class="kb-light"
+                style="
+                    top: 10%;
+                    left: 4%;
+                    width: 32%;
+                    height: 20%;
+                    --dur: 4.2s;
+                    --dl: 0s;
+                    --op: 0.42;
+                    --x: 2.5%;
+                    --y: 1.8%;
+                "
+            ></div>
+            <div
+                class="kb-light"
+                style="
+                    top: 14%;
+                    left: 34%;
+                    width: 26%;
+                    height: 16%;
+                    --dur: 5.5s;
+                    --dl: 1.4s;
+                    --op: 0.36;
+                    --x: -2%;
+                    --y: 2.2%;
+                "
+            ></div>
+            <div
+                class="kb-light"
+                style="
+                    top: 8%;
+                    left: 62%;
+                    width: 34%;
+                    height: 20%;
+                    --dur: 3.8s;
+                    --dl: 2.6s;
+                    --op: 0.4;
+                    --x: 1.8%;
+                    --y: -1.2%;
+                "
+            ></div>
+            <div
+                class="kb-light"
+                style="
+                    top: 26%;
+                    left: 10%;
+                    width: 28%;
+                    height: 17%;
+                    --dur: 6s;
+                    --dl: 0.5s;
+                    --op: 0.34;
+                    --x: -1.8%;
+                    --y: 2.5%;
+                "
+            ></div>
+            <div
+                class="kb-light"
+                style="
+                    top: 22%;
+                    left: 50%;
+                    width: 30%;
+                    height: 18%;
+                    --dur: 4.8s;
+                    --dl: 3.2s;
+                    --op: 0.36;
+                    --x: 2.2%;
+                    --y: 1%;
+                "
+            ></div>
+            <div
+                class="kb-light"
+                style="
+                    top: 34%;
+                    left: 28%;
+                    width: 24%;
+                    height: 14%;
+                    --dur: 5.2s;
+                    --dl: 5.5s;
+                    --op: 0.3;
+                    --x: 1%;
+                    --y: -1.5%;
+                "
+            ></div>
 
             <!-- 気泡：下層（底から発生） -->
-            <span class="kb-bubble" style="bottom:1%; left:4%;  width:4px; height:4px; --dur:14s;--dl:0s;   --op:.68;--h:-82vh;--sx:10px"></span>
-            <span class="kb-bubble" style="bottom:2%; left:14%; width:10px;height:10px;--dur:8s; --dl:2s;   --op:.60;--h:-90vh;--sx:-15px"></span>
-            <span class="kb-bubble" style="bottom:1%; left:24%; width:5px; height:5px; --dur:12s;--dl:5s;   --op:.65;--h:-84vh;--sx:11px"></span>
-            <span class="kb-bubble" style="bottom:2%; left:34%; width:12px;height:12px;--dur:7s; --dl:1s;   --op:.58;--h:-92vh;--sx:-18px"></span>
-            <span class="kb-bubble" style="bottom:1%; left:44%; width:4px; height:4px; --dur:15s;--dl:8s;   --op:.68;--h:-80vh;--sx:12px"></span>
-            <span class="kb-bubble" style="bottom:3%; left:54%; width:8px; height:8px; --dur:9s; --dl:3.5s; --op:.62;--h:-88vh;--sx:-12px"></span>
-            <span class="kb-bubble" style="bottom:1%; left:64%; width:5px; height:5px; --dur:13s;--dl:10s;  --op:.65;--h:-83vh;--sx:14px"></span>
-            <span class="kb-bubble" style="bottom:2%; left:74%; width:11px;height:11px;--dur:7.5s;--dl:.5s; --op:.58;--h:-93vh;--sx:-20px"></span>
-            <span class="kb-bubble" style="bottom:1%; left:84%; width:4px; height:4px; --dur:14s;--dl:7s;   --op:.68;--h:-81vh;--sx:9px"></span>
-            <span class="kb-bubble" style="bottom:3%; left:93%; width:9px; height:9px; --dur:8.5s;--dl:4s;  --op:.60;--h:-89vh;--sx:-13px"></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 1%;
+                    left: 4%;
+                    width: 4px;
+                    height: 4px;
+                    --dur: 14s;
+                    --dl: 0s;
+                    --op: 0.68;
+                    --h: -82vh;
+                    --sx: 10px;
+                "
+            ></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 2%;
+                    left: 14%;
+                    width: 10px;
+                    height: 10px;
+                    --dur: 8s;
+                    --dl: 2s;
+                    --op: 0.6;
+                    --h: -90vh;
+                    --sx: -15px;
+                "
+            ></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 1%;
+                    left: 24%;
+                    width: 5px;
+                    height: 5px;
+                    --dur: 12s;
+                    --dl: 5s;
+                    --op: 0.65;
+                    --h: -84vh;
+                    --sx: 11px;
+                "
+            ></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 2%;
+                    left: 34%;
+                    width: 12px;
+                    height: 12px;
+                    --dur: 7s;
+                    --dl: 1s;
+                    --op: 0.58;
+                    --h: -92vh;
+                    --sx: -18px;
+                "
+            ></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 1%;
+                    left: 44%;
+                    width: 4px;
+                    height: 4px;
+                    --dur: 15s;
+                    --dl: 8s;
+                    --op: 0.68;
+                    --h: -80vh;
+                    --sx: 12px;
+                "
+            ></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 3%;
+                    left: 54%;
+                    width: 8px;
+                    height: 8px;
+                    --dur: 9s;
+                    --dl: 3.5s;
+                    --op: 0.62;
+                    --h: -88vh;
+                    --sx: -12px;
+                "
+            ></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 1%;
+                    left: 64%;
+                    width: 5px;
+                    height: 5px;
+                    --dur: 13s;
+                    --dl: 10s;
+                    --op: 0.65;
+                    --h: -83vh;
+                    --sx: 14px;
+                "
+            ></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 2%;
+                    left: 74%;
+                    width: 11px;
+                    height: 11px;
+                    --dur: 7.5s;
+                    --dl: 0.5s;
+                    --op: 0.58;
+                    --h: -93vh;
+                    --sx: -20px;
+                "
+            ></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 1%;
+                    left: 84%;
+                    width: 4px;
+                    height: 4px;
+                    --dur: 14s;
+                    --dl: 7s;
+                    --op: 0.68;
+                    --h: -81vh;
+                    --sx: 9px;
+                "
+            ></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 3%;
+                    left: 93%;
+                    width: 9px;
+                    height: 9px;
+                    --dur: 8.5s;
+                    --dl: 4s;
+                    --op: 0.6;
+                    --h: -89vh;
+                    --sx: -13px;
+                "
+            ></span>
             <!-- 気泡：中層（中間から発生・短い軌跡） -->
-            <span class="kb-bubble" style="bottom:22%;left:8%;  width:4px; height:4px; --dur:11s;--dl:6s;   --op:.60;--h:-55vh;--sx:8px"></span>
-            <span class="kb-bubble" style="bottom:18%;left:20%; width:7px; height:7px; --dur:8s; --dl:13s;  --op:.55;--h:-60vh;--sx:-12px"></span>
-            <span class="kb-bubble" style="bottom:25%;left:38%; width:3px; height:3px; --dur:13s;--dl:9s;   --op:.62;--h:-52vh;--sx:7px"></span>
-            <span class="kb-bubble" style="bottom:20%;left:56%; width:8px; height:8px; --dur:7.5s;--dl:15s; --op:.55;--h:-62vh;--sx:-14px"></span>
-            <span class="kb-bubble" style="bottom:28%;left:72%; width:4px; height:4px; --dur:12s;--dl:11s;  --op:.60;--h:-54vh;--sx:10px"></span>
-            <span class="kb-bubble" style="bottom:22%;left:87%; width:6px; height:6px; --dur:9s; --dl:7s;   --op:.57;--h:-58vh;--sx:-9px"></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 22%;
+                    left: 8%;
+                    width: 4px;
+                    height: 4px;
+                    --dur: 11s;
+                    --dl: 6s;
+                    --op: 0.6;
+                    --h: -55vh;
+                    --sx: 8px;
+                "
+            ></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 18%;
+                    left: 20%;
+                    width: 7px;
+                    height: 7px;
+                    --dur: 8s;
+                    --dl: 13s;
+                    --op: 0.55;
+                    --h: -60vh;
+                    --sx: -12px;
+                "
+            ></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 25%;
+                    left: 38%;
+                    width: 3px;
+                    height: 3px;
+                    --dur: 13s;
+                    --dl: 9s;
+                    --op: 0.62;
+                    --h: -52vh;
+                    --sx: 7px;
+                "
+            ></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 20%;
+                    left: 56%;
+                    width: 8px;
+                    height: 8px;
+                    --dur: 7.5s;
+                    --dl: 15s;
+                    --op: 0.55;
+                    --h: -62vh;
+                    --sx: -14px;
+                "
+            ></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 28%;
+                    left: 72%;
+                    width: 4px;
+                    height: 4px;
+                    --dur: 12s;
+                    --dl: 11s;
+                    --op: 0.6;
+                    --h: -54vh;
+                    --sx: 10px;
+                "
+            ></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 22%;
+                    left: 87%;
+                    width: 6px;
+                    height: 6px;
+                    --dur: 9s;
+                    --dl: 7s;
+                    --op: 0.57;
+                    --h: -58vh;
+                    --sx: -9px;
+                "
+            ></span>
             <!-- 気泡：上層（上部から発生・ごく短い軌跡） -->
-            <span class="kb-bubble" style="bottom:42%;left:16%; width:3px; height:3px; --dur:10s;--dl:4s;   --op:.50;--h:-35vh;--sx:6px"></span>
-            <span class="kb-bubble" style="bottom:38%;left:45%; width:5px; height:5px; --dur:8s; --dl:16s;  --op:.48;--h:-38vh;--sx:-8px"></span>
-            <span class="kb-bubble" style="bottom:45%;left:70%; width:3px; height:3px; --dur:11s;--dl:10s;  --op:.50;--h:-34vh;--sx:7px"></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 42%;
+                    left: 16%;
+                    width: 3px;
+                    height: 3px;
+                    --dur: 10s;
+                    --dl: 4s;
+                    --op: 0.5;
+                    --h: -35vh;
+                    --sx: 6px;
+                "
+            ></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 38%;
+                    left: 45%;
+                    width: 5px;
+                    height: 5px;
+                    --dur: 8s;
+                    --dl: 16s;
+                    --op: 0.48;
+                    --h: -38vh;
+                    --sx: -8px;
+                "
+            ></span>
+            <span
+                class="kb-bubble"
+                style="
+                    bottom: 45%;
+                    left: 70%;
+                    width: 3px;
+                    height: 3px;
+                    --dur: 11s;
+                    --dl: 10s;
+                    --op: 0.5;
+                    --h: -34vh;
+                    --sx: 7px;
+                "
+            ></span>
 
             <div class="kbnew-wrap">
-
                 <!-- Section Header -->
                 <div class="kbnew-header reveal">
-                    <div class="kbnew-badge">× Weather Planet × Darmoshark ×</div>
+                    <div class="kbnew-badge">
+                        × Weather Planet × Darmoshark ×
+                    </div>
                     <p class="kbnew-ja">ゲーミングキーボード</p>
                     <p class="kbnew-en">GAMING KEYBOARD</p>
                 </div>
 
                 <!-- Keyboard Front Image -->
                 <div class="kbnew-img-full reveal">
-                    <img src="../img_w/keyboard front ESC 2.webp" alt="ゲーミングキーボード 表面"
+                    <img
+                        src="../img_w/keyboard front ESC 2.webp"
+                        alt="ゲーミングキーボード 表面"
                         loading="lazy"
                     />
                 </div>
 
                 <!-- Intro Text -->
                 <div class="kbnew-intro reveal">
-                    <p>「Weather Planet」監修の元、お二人の世界観を表現した、最新磁気キーボードが登場！彼女たちのモチーフを散りばめた特別なデザイン、試行錯誤を重ねて自信を持って紹介できる一台に仕上げました。</p>
+                    <p>
+                        「Weather
+                        Planet」完全監修の元、お二人の世界観を表現した最新磁気キーボードが登場！
+                    </p>
+                    <p>
+                        彼女たちを象徴するモチーフやカラーリングを随所に取り入れた特別モデルです。
+                    </p>
+                    <p>
+                        今回のコラボモデルの為に日本語配列を開発、ミニキャラやデザインはみたらしねこ先生にご担当いただきました。
+                    </p>
                 </div>
 
                 <!-- Feature 1: Keycap / heat sublimation — image left, text right -->
                 <div class="kbnew-feat reveal-l">
                     <div class="kbnew-feat__vis">
-                        <img src="../img_w/key2.webp" alt="熱昇華キーキャップ"
-                        loading="lazy"
-                    />
+                        <img
+                            src="../img_w/key2.webp"
+                            alt="熱昇華キーキャップ"
+                            loading="lazy"
+                        />
                     </div>
                     <div class="kbnew-feat__body">
                         <div class="kbnew-feat__label">DURABLE KEYCAPS</div>
-                        <p class="kbnew-feat__text">長い間の使用を想定し印字が消えにくい<strong>熱昇華印刷方式</strong>を採用。ゲームや作業、配信に普段使いとしても、長くご愛用いただけます。</p>
+                        <p class="kbnew-feat__text">
+                            長期間の使用を想定し、印字が消えにくい熱昇華印刷方式を採用。ゲームや作業、配信など、日常使いから本格的な用途まで、長くご愛用いただけます。
+                        </p>
                     </div>
                 </div>
 
@@ -3806,12 +5259,16 @@
                 <div class="kbnew-feat reveal-r">
                     <div class="kbnew-feat__body">
                         <div class="kbnew-feat__label">♦ MINI LCD DISPLAY</div>
-                        <p class="kbnew-feat__text">左上には<strong>ミニ液晶画面</strong>を搭載！好きな画像やGIF画像を自由に設定できます。</p>
+                        <p class="kbnew-feat__text">
+                            左上にはミニ液晶画面を搭載！！好きな画像やGIF画像を自由に設定できます。
+                        </p>
                     </div>
                     <div class="kbnew-feat__vis kbnew-feat__vis--rect">
-                        <img src="../img_w/key1.webp" alt="ミニ液晶画面"
-                        loading="lazy"
-                    />
+                        <img
+                            src="../img_w/key1.webp"
+                            alt="ミニ液晶画面"
+                            loading="lazy"
+                        />
                     </div>
                 </div>
 
@@ -3819,22 +5276,28 @@
 
                 <!-- Keyboard Back/Bottom Image -->
                 <div class="kbnew-img-full reveal">
-                    <img src="../img_w/keyboard back ESC 2.webp" alt="ゲーミングキーボード 裏面"
+                    <img
+                        src="../img_w/keyboard back ESC 2.webp"
+                        alt="ゲーミングキーボード 裏面"
                         loading="lazy"
                     />
                 </div>
 
                 <!-- Bottom Description -->
                 <div class="kbnew-bottom-box reveal">
-                    <p>底面までこだわりが詰まっています。機能面でも最新スイッチ、<strong>有線・無線・Bluetooth</strong>接続に対応！今回のために制作されたオリジナルデザインは、ミニキャライラストレーター「みたらしねこ」様が手掛けています。</p>
+                    <p>
+                        底面までデザインを施し見えない部分にもこだわっています。機能面でも最新スイッチ、有線・無線・Bluetooth接続に対応！技適認証取得済みです。
+                    </p>
                 </div>
 
                 <!-- Custom Keycap + Speech Bubble -->
                 <div class="kbnew-keycap-row reveal">
                     <div class="kbnew-keycap-imgs">
-                        <img src="../img_w/key3.webp" alt="カスタム用キーキャップセット"
-                        loading="lazy"
-                    />
+                        <img
+                            src="../img_w/key3.webp"
+                            alt="カスタム用キーキャップセット"
+                            loading="lazy"
+                        />
                     </div>
                     <div class="kbnew-speech">
                         自由に交換できる<br />カスタム用キーキャップも付いてくるよ
@@ -3853,7 +5316,8 @@
                         <div class="designer-role">KEYBOARD DESIGNER</div>
                         <div class="designer-name">みたらしねこ</div>
                         <p class="designer-bio">
-                            キーボードデザインを担当。Weather Planetの世界観をキーボード全体で丁寧に表現しました。
+                            キーボードデザインを担当。Weather
+                            Planetの世界観をキーボード全体で丁寧に表現しました。
                         </p>
                     </div>
                 </div>
@@ -3862,14 +5326,12 @@
                 <div class="kbnew-cta reveal d2">
                     <a href="#" class="btn-magic">ご予約はこちら</a>
                 </div>
-
             </div>
         </section>
 
         <!-- ═══ MOUSEPAD ═══ -->
         <section id="mousepad">
             <div class="container">
-
                 <!-- Header -->
                 <div class="pad2-header reveal">
                     <h2 class="pad2-title-ja">ゲーミングマウスパッド</h2>
@@ -3897,10 +5359,14 @@
                                     class="pad2-type-chibi"
                                     src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト3R.webp"
                                     alt="ルカ chibi"
-                        loading="lazy"
-                    />
-                                <p class="pad2-type-label">コントロールタイプとは？</p>
-                                <p class="pad2-type-body">マウスを止めやすいように摩擦力の高い生地や編み方を採用したマウスパッドだよ！</p>
+                                    loading="lazy"
+                                />
+                                <p class="pad2-type-label">
+                                    コントロールタイプとは？
+                                </p>
+                                <p class="pad2-type-body">
+                                    マウスを止めやすいように摩擦力の高い生地や編み方を採用したマウスパッドだよ！
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -3909,8 +5375,8 @@
                         <img
                             src="../img_w/ゲーミングマウスパッド_ルカ.webp"
                             alt="雨海ルカ コントロールタイプ"
-                        loading="lazy"
-                    />
+                            loading="lazy"
+                        />
                     </div>
                 </div>
 
@@ -3921,8 +5387,8 @@
                         <img
                             src="../img_w/ゲーミングマウスパッド_ヒナタ.webp"
                             alt="天晴ひなた スピードタイプ"
-                        loading="lazy"
-                    />
+                            loading="lazy"
+                        />
                     </div>
                     <!-- Text right -->
                     <div class="pad2-text reveal-r">
@@ -3943,10 +5409,14 @@
                                     class="pad2-type-chibi"
                                     src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト3H.webp"
                                     alt="ひなた chibi"
-                        loading="lazy"
-                    />
-                                <p class="pad2-type-label">スピードタイプとは？</p>
-                                <p class="pad2-type-body">マウスが滑りやすいように摩擦力の少ない生地や編み方を採用したマウスパッドだよ！</p>
+                                    loading="lazy"
+                                />
+                                <p class="pad2-type-label">
+                                    スピードタイプとは？
+                                </p>
+                                <p class="pad2-type-body">
+                                    マウスが滑りやすいように摩擦力の少ない生地や編み方を採用したマウスパッドだよ！
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -3988,13 +5458,17 @@
                             <div class="brand2-logo-ring"></div>
                             <div class="brand2-logo-ring2"></div>
                             <div class="brand2-logo-circle">
-                                <img src="../img_w/DarmosharkLogo.webp" alt="Darmoshark"
-                        loading="lazy"
-                    />
+                                <img
+                                    src="../img_w/DarmosharkLogo.webp"
+                                    alt="Darmoshark"
+                                    loading="lazy"
+                                />
                             </div>
                         </div>
                         <div class="brand2-name">Darmoshark</div>
-                        <div class="brand2-tagline">HIGH-PERFORMANCE GAMING PERIPHERALS</div>
+                        <div class="brand2-tagline">
+                            HIGH-PERFORMANCE GAMING PERIPHERALS
+                        </div>
                         <p class="brand2-desc">
                             ダーモシャークは、ハイエンドでありながら優れた品質とコストパフォーマンスを追求するe-sportsブランドです。
                         </p>
@@ -4005,12 +5479,18 @@
                         <div class="brand2-logo-wrap">
                             <div class="brand2-logo-ring"></div>
                             <div class="brand2-logo-ring2"></div>
-                            <div class="brand2-logo-circle brand2-logo-circle--h">
-                                <span class="brand2-h-text">ハルヒ<br>プロダクツ</span>
+                            <div
+                                class="brand2-logo-circle brand2-logo-circle--h"
+                            >
+                                <span class="brand2-h-text"
+                                    >ハルヒ<br />プロダクツ</span
+                                >
                             </div>
                         </div>
                         <div class="brand2-name">Haruhi Products</div>
-                        <div class="brand2-tagline">ORIGINAL GAMING GOODS MANUFACTURER</div>
+                        <div class="brand2-tagline">
+                            ORIGINAL GAMING GOODS MANUFACTURER
+                        </div>
                         <p class="brand2-desc">
                             ハルヒプロダクツは、黒方としてコラボ製品の開発を担当しています。世界観やキャラクター性、品質を一から考え、熱量（愛）を具現化する日本国内ブランドです。
                         </p>
@@ -4030,9 +5510,11 @@
                         <div class="benefit2-badge">EARLY RESERVATION GIFT</div>
 
                         <div class="benefit2-img-showcase">
-                            <img src="../img_w/WeatherPlanetさま コラボキーボード 外箱デザイン案.webp" alt="ウェザプラ ミニステッカー"
-                            loading="lazy"
-                        />
+                            <img
+                                src="../img_w/WeatherPlanetさま コラボキーボード 外箱デザイン案.webp"
+                                alt="ウェザプラ ミニステッカー"
+                                loading="lazy"
+                            />
                         </div>
 
                         <p class="benefit2-text">
@@ -4042,7 +5524,8 @@
                         </p>
 
                         <div class="benefit2-note">
-                            ※ 特典は数量限定です。なくなり次第終了となります。<br />
+                            ※
+                            特典は数量限定です。なくなり次第終了となります。<br />
                             ※ 予約受付期間・発送スケジュールは別途ご案内します。
                         </div>
                     </div>
