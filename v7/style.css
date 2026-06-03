@@ -2104,6 +2104,11 @@ section {
     font-size: clamp(14px, 1.4vw, 16px);
     line-height: 2.2;
     color: rgba(190, 210, 245, 0.9);
+    overflow-wrap: break-word;
+    word-break: auto-phrase;
+}
+.pad2-desc p + p {
+    margin-top: 1em;
 }
 
 /* Type explanation wrapper */
