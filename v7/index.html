@@ -1381,8 +1381,8 @@
                 margin-bottom: 18px;
                 white-space: nowrap;
             }
-            .mouse-panel--ruka .mp-model-line { color: #0a2040; }
-            .mouse-panel--hinata .mp-model-line { color: #4a2800; }
+            .mouse-panel--ruka .mp-model-line { color: #1a5090; }
+            .mouse-panel--hinata .mp-model-line { color: #904800; }
 
             /* Description text */
             .mp-desc {
@@ -1415,31 +1415,6 @@
 
             /* ══ Cute animations ══ */
 
-            /* 製品名シマーグラデーション */
-            .mouse-panel--ruka .mp-model-line {
-                background: linear-gradient(90deg, #0a2040 0%, #1a60b0 30%, #6abcff 50%, #1a60b0 70%, #0a2040 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                background-size: 220% 100%;
-                animation: shimmer-ruka 4s linear infinite;
-            }
-            .mouse-panel--hinata .mp-model-line {
-                background: linear-gradient(90deg, #b85800 0%, #d47010 30%, #f0a020 50%, #d47010 70%, #b85800 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                background-size: 220% 100%;
-                animation: shimmer-hinata 4s linear infinite;
-            }
-            @keyframes shimmer-ruka {
-                0% { background-position: 200% center; }
-                100% { background-position: -200% center; }
-            }
-            @keyframes shimmer-hinata {
-                0% { background-position: 200% center; }
-                100% { background-position: -200% center; }
-            }
 
             /* チビキャラ：カラーグロー */
             .mouse-panel--ruka .mp-chibi-wrap {
@@ -1485,20 +1460,12 @@
                 50% { filter: drop-shadow(0 20px 56px rgba(240,160,40,0.48)); }
             }
 
-            /* 詳細画像：ゆらゆらパルス */
+            /* 詳細画像 */
             .mouse-panel--ruka .mp-detail-img {
-                animation: detail-pulse-ruka 4s ease-in-out infinite;
+                filter: drop-shadow(0 4px 16px rgba(60,160,255,0.15));
             }
             .mouse-panel--hinata .mp-detail-img {
-                animation: detail-pulse-hinata 4.5s ease-in-out infinite;
-            }
-            @keyframes detail-pulse-ruka {
-                0%, 100% { transform: scale(1) rotate(-1deg); filter: drop-shadow(0 4px 16px rgba(60,160,255,0.15)); }
-                50% { transform: scale(1.06) rotate(1deg); filter: drop-shadow(0 8px 24px rgba(60,160,255,0.40)); }
-            }
-            @keyframes detail-pulse-hinata {
-                0%, 100% { transform: scale(1) rotate(1deg); filter: drop-shadow(0 4px 16px rgba(240,160,40,0.15)); }
-                50% { transform: scale(1.06) rotate(-1deg); filter: drop-shadow(0 8px 24px rgba(240,160,40,0.40)); }
+                filter: drop-shadow(0 4px 16px rgba(240,160,40,0.15));
             }
 
             /* セクションタイトル：キラキラ点滅 */
