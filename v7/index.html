@@ -1309,26 +1309,25 @@
                 flex-shrink: 0;
                 filter: drop-shadow(0 4px 14px rgba(0,0,0,0.10));
             }
-            .mouse-panel--ruka .mp-chibi-wrap {
-                width: clamp(80px, 10vw, 130px);
-                align-self: flex-end;
-                animation: float 5.5s ease-in-out infinite;
-            }
+            .mouse-panel--ruka .mp-chibi-wrap,
             .mouse-panel--hinata .mp-chibi-wrap {
-                width: clamp(80px, 10vw, 130px);
-                animation: float-alt 6s ease-in-out infinite;
+                height: clamp(88px, 11vw, 144px);
+                width: auto;
+            }
+            .mouse-panel--ruka .mp-chibi-wrap {
+                align-self: flex-end;
             }
             .mp-chibi-wrap img {
                 display: block;
-                width: 100%;
-                height: auto;
+                height: 100%;
+                width: auto;
             }
             .mp-chibi-wrap .mp-chibi-blink {
                 position: absolute;
                 top: 0;
                 left: 0;
-                width: 100%;
-                height: auto;
+                height: 100%;
+                width: auto;
             }
 
             /* Model name + chibi side by side */
@@ -1442,12 +1441,12 @@
                 100% { background-position: -200% center; }
             }
 
-            /* チビキャラ：浮遊＋カラーグロー合体 */
+            /* チビキャラ：カラーグロー */
             .mouse-panel--ruka .mp-chibi-wrap {
-                animation: float-glow-ruka 5.5s ease-in-out infinite;
+                filter: drop-shadow(0 4px 14px rgba(0,0,0,0.10)) drop-shadow(0 0 8px rgba(80,160,255,0.20));
             }
             .mouse-panel--hinata .mp-chibi-wrap {
-                animation: float-glow-hinata 6s ease-in-out infinite;
+                filter: drop-shadow(0 4px 14px rgba(0,0,0,0.10)) drop-shadow(0 0 8px rgba(255,170,60,0.20));
             }
             @keyframes float-glow-ruka {
                 0%, 100% {
@@ -1564,8 +1563,8 @@
                 width: 100%; height: auto;
             }
             .about-chibi-wrap { width: clamp(110px, 12vw, 180px); }
-            .about-chibi--left  { margin-right: -16px; z-index: 2; animation: float-glow-hinata 5.5s ease-in-out infinite; }
-            .about-chibi--right { margin-left:  -16px; z-index: 2; animation: float-glow-ruka   6s   ease-in-out infinite; }
+            .about-chibi--left  { margin-right: -16px; z-index: 2; width: clamp(133px, 14.5vw, 218px); }
+            .about-chibi--right { margin-left:  -16px; z-index: 2; }
 
             /* コラボバブル呼吸グロー */
             .collab-bubble { animation: bubble-breathe 4s ease-in-out infinite; }
@@ -3605,7 +3604,7 @@
 
                 <!-- コラボメッセージ + ちびキャラ -->
                 <div class="about-collab-wrap reveal d3">
-                    <div class="about-chibi-wrap about-chibi--left">
+                    <div class="about-chibi-wrap about-chibi--left reveal-l d4">
                         <img class="blink-a"
                              src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2H.webp"
                              alt="天晴ひなた"
@@ -3621,7 +3620,7 @@
                         <p>今回コラボの枠を越え、雨海ルカ様、天晴ひなた様、お二方監修の元、各コラボアイテムが開発されました！</p>
                         <p>マウス・キーボードはDarmoshark、マウスパッドはハルヒプロダクツが製造、こだわりの詰まった各デバイスをご覧ください。</p>
                     </div>
-                    <div class="about-chibi-wrap about-chibi--right">
+                    <div class="about-chibi-wrap about-chibi--right reveal-r d5">
                         <img class="blink-a"
                              src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2R.webp"
                              alt="雨海ルカ"
@@ -3670,7 +3669,7 @@
                                 <div class="mp-edition-line">ruka edition</div>
                                 <div class="mp-model-line">M2 DAERO</div>
                             </div>
-                            <div class="mp-chibi-wrap">
+                            <div class="mp-chibi-wrap reveal-r d2">
                                 <img class="blink-a"
                                      src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2R.webp"
                                      alt="雨海ルカ"
@@ -3704,7 +3703,7 @@
 
                     <!-- Left-top: chibi + edition / model -->
                     <div class="mp-header">
-                        <div class="mp-chibi-wrap">
+                        <div class="mp-chibi-wrap reveal-l d2">
                             <img class="blink-a"
                                  src="../img_w/WeatherPlanetさま コラボキーボード ミニキャライラスト2H.webp"
                                  alt="天晴ひなた"
