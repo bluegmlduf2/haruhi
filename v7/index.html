@@ -1721,13 +1721,10 @@
             /* Image box */
             .pad2-imgbox {
                 position: relative;
-                border-radius: 24px;
-                overflow: hidden;
                 aspect-ratio: 1;
                 box-shadow: 0 20px 56px rgba(0, 0, 0, 0.50);
                 transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
             }
-            .pad2-imgbox:hover { transform: scale(1.025) translateY(-8px); }
             .pad2-imgbox--blue  {
                 background: #1240a0;
                 box-shadow: 0 20px 56px rgba(18, 64, 160, 0.55);
@@ -1749,7 +1746,6 @@
                 display: block;
                 transition: transform 0.4s ease;
             }
-            .pad2-imgbox:hover img { transform: scale(1.03); }
             .pad2-imgbox-copy {
                 position: absolute;
                 top: 10px;
@@ -2095,48 +2091,10 @@
                 height: clamp(110px, 18vw, 168px);
                 margin-bottom: clamp(18px, 3vw, 28px);
             }
-            .brand2-card--d .brand2-logo-wrap {
-                animation: float 5.5s ease-in-out infinite;
-            }
-            .brand2-card--h .brand2-logo-wrap {
-                animation: float-alt 6.5s ease-in-out infinite;
-            }
-
-            /* Spinning dashed ring */
-            .brand2-logo-ring {
-                position: absolute;
-                inset: -9px;
-                border-radius: 50%;
-                border-width: 2px;
-                border-style: dashed;
-                pointer-events: none;
-                animation: spin-star 9s linear infinite;
-            }
-            .brand2-card--d .brand2-logo-ring {
-                border-color: rgba(102, 193, 255, 0.50);
-            }
-            .brand2-card--h .brand2-logo-ring {
-                border-color: rgba(255, 213, 128, 0.50);
-                animation-direction: reverse;
-                animation-duration: 11s;
-            }
-
-            /* Outer dotted ring */
+            /* Spinning dashed ring — hidden */
+            .brand2-logo-ring,
             .brand2-logo-ring2 {
-                position: absolute;
-                inset: -17px;
-                border-radius: 50%;
-                border-width: 1.5px;
-                border-style: dotted;
-                pointer-events: none;
-                animation: spin-star 18s linear infinite reverse;
-            }
-            .brand2-card--d .brand2-logo-ring2 {
-                border-color: rgba(102, 193, 255, 0.22);
-            }
-            .brand2-card--h .brand2-logo-ring2 {
-                border-color: rgba(255, 213, 128, 0.22);
-                animation-direction: normal;
+                display: none;
             }
 
             /* White circle */
@@ -3718,68 +3676,6 @@
             </div><!-- /.mouse-panels-combined -->
             </div><!-- /.mouse-panels -->
 
-            <!-- Spec + CTA: full-bleed, マウスパネルグラデーションの連続 -->
-            <div class="mspec-fullbleed">
-                <div class="mspec-split">
-
-                    <!-- ── ruka card ── -->
-                    <div class="mspec-card mspec-card--ruka reveal-l">
-                        <div class="mspec-card-inner">
-                            <div class="mspec-card-img">
-                                <img src="../img_w/ruka_detail.webp" alt="雨海ルカ × M2 DAERO"
-                        loading="lazy"
-                    />
-                                <div class="mspec-card-edition">ruka edition</div>
-                                <div class="mspec-card-model">M2 DAERO</div>
-                            </div>
-                            <div class="mspec-card-specs">
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">モデル</div><div class="mspec-spec-val">M2 DAERO</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">素材</div><div class="mspec-spec-val">マグネシウム合金</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">重量</div><div class="mspec-spec-val">約37g</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">長さ</div><div class="mspec-spec-val">115.8mm</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">幅</div><div class="mspec-spec-val">60.4mm</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">高さ</div><div class="mspec-spec-val">36.1mm</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">スイッチ</div><div class="mspec-spec-val">TTC Falcon / Green Dragon</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">センサー</div><div class="mspec-spec-val">PixArt PAW3950</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">MCU</div><div class="mspec-spec-val">Nordic 52840</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">ポーリングレート</div><div class="mspec-spec-val">最大4000Hz / 8000Hz</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">DPI</div><div class="mspec-spec-val">最大26000 / 30000</div></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ── hinata card ── -->
-                    <div class="mspec-card mspec-card--hinata reveal-r">
-                        <div class="mspec-card-inner">
-                            <div class="mspec-card-img">
-                                <img src="../img_w/hinata_detail.webp" alt="天晴ひなた × M3XS Ghostcat"
-                        loading="lazy"
-                    />
-                                <div class="mspec-card-edition">hinata edition</div>
-                                <div class="mspec-card-model">M3XS ghostcat</div>
-                            </div>
-                            <div class="mspec-card-specs">
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">モデル</div><div class="mspec-spec-val">M3XS ghostcat</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">素材</div><div class="mspec-spec-val">プラスチック</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">重量</div><div class="mspec-spec-val">約45±2g（ソール込）</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">長さ</div><div class="mspec-spec-val">116mm</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">幅</div><div class="mspec-spec-val">60mm</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">高さ</div><div class="mspec-spec-val">36mm</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">スイッチ</div><div class="mspec-spec-val">TTC Green Dragon / 60M</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">センサー</div><div class="mspec-spec-val">PixArt PAW3950</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">MCU</div><div class="mspec-spec-val">Nordic 52840</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">ポーリングレート</div><div class="mspec-spec-val">最大8000Hz</div></div>
-                                <div class="mspec-spec-row"><div class="mspec-spec-label">DPI</div><div class="mspec-spec-val">最大26000 / 30000</div></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="cta-wrap reveal d2">
-                    <a href="#" class="btn-magic">ご予約はこちら</a>
-                </div>
-            </div>
 
         </section>
 
