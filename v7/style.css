@@ -4188,7 +4188,7 @@ section {
     .hero-scroll {
         display: flex;
         bottom: 12px;
-        left: 4px;
+        left: 6px;
         z-index: 15;
     }
 
@@ -4250,7 +4250,7 @@ section {
     /* ロゴ：右上に絶対配置 */
     .hero-top {
         position: absolute;
-        top: calc(64px + 4vw);
+        top: calc(52px + 4vw);
         right: 14px;
         left: auto;
         padding: 0;
@@ -4272,7 +4272,7 @@ section {
        高さ・flex-end 継承を全てリセット */
     .hero-char-wrap {
         position: absolute;
-        width: clamp(260px, 82vw, 420px);
+        width: 82%;
         height: auto !important; /* base CSS の height:100% を無効化 */
         display: block !important; /* flex-end を無効化 */
         overflow: visible;
@@ -4281,7 +4281,7 @@ section {
     .hero-char-wrap:last-child {
         top: 64px;
         left: -20%;
-        width: clamp(280px, 110vw, 500px);
+        width: 110%;
         z-index: 6;
     }
     /* ルカ: 右に25%はみ出し・画面最下部に配置 */
@@ -4289,7 +4289,7 @@ section {
         top: auto;
         bottom: 0;
         right: -20%;
-        width: clamp(280px, 110vw, 500px);
+        width: 110%;
         z-index: 7;
     }
     /* max-width 継承もリセット・自然比率で全体表示 */
