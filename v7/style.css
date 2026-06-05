@@ -4089,13 +4089,23 @@ section {
         background-attachment: scroll;
     }
     .site-header {
-        padding: 0 20px;
+        padding: 0 16px;
+        gap: 8px;
+    }
+    .header-brand {
+        font-size: 9.5px;
+        flex-shrink: 1;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
     .site-nav {
         display: none;
     }
     .hamburger {
         display: flex;
+        flex-shrink: 0;
     }
     .mobile-menu {
         display: flex;
