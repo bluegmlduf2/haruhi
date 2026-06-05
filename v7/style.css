@@ -4232,9 +4232,10 @@ section {
         width: 110%;
         z-index: 6;
     }
-    /* ルカ: 右に25%はみ出し・下へ・下余白なし */
+    /* ルカ: 右に25%はみ出し・画面最下部に配置 */
     .hero-char-wrap:first-child {
-        top: 43%;
+        top: auto;
+        bottom: 0;
         right: -25%;
         width: 125%;
         z-index: 7;
@@ -4245,6 +4246,8 @@ section {
         width: 100% !important;
         max-width: 100% !important;
         height: auto !important;
+        vertical-align: bottom;
+        margin-bottom: 0 !important;
     }
 
     .hero-ring--1 {
