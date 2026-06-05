@@ -148,8 +148,7 @@ body::before {
         opacity: 0.6;
     }
     100% {
-        transform: translateY(-120px) translateX(var(--drift, 20px))
-            scale(1);
+        transform: translateY(-120px) translateX(var(--drift, 20px)) scale(1);
         opacity: 0;
     }
 }
@@ -319,11 +318,7 @@ section {
 
 /* ヒーロー以外は全て透明 — body の fixed gradient を通して見せる */
 #mouse {
-    background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        #ffffff 7%
-    );
+    background: linear-gradient(to bottom, transparent 0%, #ffffff 7%);
     padding: 0;
 }
 #about {
@@ -590,11 +585,10 @@ section {
         680px 460px,
         100% 100%;
     background-repeat:
-        no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
-        no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
-        no-repeat, no-repeat, repeat, repeat, repeat, repeat,
-        repeat, repeat, repeat, repeat, repeat, repeat, repeat,
-        repeat, repeat, repeat, repeat, repeat, repeat, repeat,
+        no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+        no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat,
+        repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat,
+        repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat,
         repeat, repeat, repeat, repeat, no-repeat;
 }
 
@@ -725,8 +719,7 @@ section {
 }
 .sp {
     position: absolute;
-    animation: twinkle var(--d, 3s) ease-in-out infinite
-        var(--dl, 0s);
+    animation: twinkle var(--d, 3s) ease-in-out infinite var(--dl, 0s);
     font-style: normal;
     line-height: 1;
 }
@@ -753,6 +746,8 @@ section {
     font-family: "Mamelon", "Nunito", sans-serif;
     font-size: 12px;
     font-weight: 900;
+    white-space: nowrap;
+    flex-shrink: 0;
     background: linear-gradient(
         90deg,
         #0090cc,
@@ -779,6 +774,28 @@ section {
     letter-spacing: 0.06em;
     color: var(--text-sub);
     transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+/* ─ 768px〜1100px：헤더 압축 ─ */
+@media (min-width: 768px) and (max-width: 1100px) {
+    .site-header {
+        padding: 0 24px;
+        gap: 12px;
+    }
+    .header-brand {
+        font-size: 10px;
+    }
+    .site-nav {
+        gap: 10px;
+    }
+    .site-nav a {
+        font-size: 11px;
+        letter-spacing: 0.02em;
+    }
+    .nav-cta a {
+        padding: 5px 14px;
+    }
 }
 .site-nav a:hover {
     color: #0090cc;
@@ -887,12 +904,7 @@ section {
     transform: translateY(-50%);
     z-index: 150;
     writing-mode: vertical-rl;
-    background: linear-gradient(
-        180deg,
-        #66c1ff 0%,
-        #9adfb6 50%,
-        #ffd580 100%
-    );
+    background: linear-gradient(180deg, #66c1ff 0%, #9adfb6 50%, #ffd580 100%);
     color: #fff;
     font-family: "Mamelon", "Nunito", sans-serif;
     font-size: 12px;
@@ -930,12 +942,7 @@ section {
             rgba(255, 222, 160, 0.5) 0%,
             transparent 65%
         ),
-        linear-gradient(
-            160deg,
-            #e4f3fb 0%,
-            #eff8f4 50%,
-            #fdf3e3 100%
-        );
+        linear-gradient(160deg, #e4f3fb 0%, #eff8f4 50%, #fdf3e3 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1064,10 +1071,64 @@ section {
     position: absolute;
     pointer-events: none;
     font-size: var(--fs, 18px);
-    animation: sparkle-drift var(--d, 3s) ease-out infinite
-        var(--dl, 0s);
+    animation: sparkle-drift var(--d, 3s) ease-out infinite var(--dl, 0s);
     --drift: var(--dx, 15px);
     z-index: 2;
+}
+
+/* ══════════════════════════════════════
+           HERO SCROLL INDICATOR (mobile only)
+        ══════════════════════════════════════ */
+.hero-scroll {
+    position: absolute;
+    left: 20px;
+    bottom: clamp(40px, 6svh, 64px);
+    z-index: 10;
+    display: none; /* hidden on desktop */
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    animation: slide-up 0.9s ease 1.4s both;
+}
+
+/* Ghost mascot icon */
+.hero-scroll-bear {
+    width: 54px;
+    height: 50px;
+    background-image: url("../img_w/scroll-ghost.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+}
+
+/* Scroll text — ルカカラー */
+.hero-scroll-text {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    color: #5aace8;
+    font-family: "Nunito", sans-serif;
+}
+
+/* Arrow */
+.hero-scroll-arrow {
+    font-size: 16px;
+    color: #5aace8;
+    font-weight: 800;
+    animation: scroll-arrow-bounce 1.6s ease-in-out infinite;
+}
+
+@keyframes scroll-arrow-bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(6px);
+    }
 }
 
 /* Collab message bubble — used in about section */
@@ -3246,8 +3307,7 @@ section {
     filter: blur(8px);
     pointer-events: none;
     z-index: 0;
-    animation: kb-light-move var(--dur, 4.5s) ease-in-out
-        var(--dl, 0s) infinite;
+    animation: kb-light-move var(--dur, 4.5s) ease-in-out var(--dl, 0s) infinite;
 }
 @keyframes kb-light-move {
     0%,
@@ -3294,8 +3354,7 @@ section {
     pointer-events: none;
     z-index: 0;
     will-change: transform, opacity;
-    animation: kb-bubble-rise var(--dur, 11s) ease-in var(--dl, 0s)
-        infinite;
+    animation: kb-bubble-rise var(--dur, 11s) ease-in var(--dl, 0s) infinite;
 }
 @keyframes kb-bubble-rise {
     0% {
@@ -3513,18 +3572,10 @@ section {
     display: block;
     width: clamp(36px, 5.5vw, 80px);
     height: 1px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(102, 193, 255, 0.28)
-    );
+    background: linear-gradient(90deg, transparent, rgba(102, 193, 255, 0.28));
 }
 .kbnew-en::after {
-    background: linear-gradient(
-        90deg,
-        rgba(102, 193, 255, 0.28),
-        transparent
-    );
+    background: linear-gradient(90deg, rgba(102, 193, 255, 0.28), transparent);
 }
 
 /* Full-width keyboard image */
@@ -3813,12 +3864,7 @@ footer {
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 12px;
-    background: linear-gradient(
-        90deg,
-        var(--blue),
-        var(--mint),
-        var(--yellow)
-    );
+    background: linear-gradient(90deg, var(--blue), var(--mint), var(--yellow));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -3835,8 +3881,7 @@ footer a {
     pointer-events: none;
     color: var(--c, rgba(102, 193, 255, 0.38));
     font-size: var(--fs, 16px);
-    animation: twinkle var(--d, 3s) ease-in-out infinite
-        var(--dl, 0s);
+    animation: twinkle var(--d, 3s) ease-in-out infinite var(--dl, 0s);
 }
 
 /* ══════════════════════════════════════
@@ -4070,28 +4115,122 @@ section {
         font-size: 10px;
     }
 
+    /* スクロールインジケーター：モバイルのみ表示 */
+    .hero-scroll {
+        display: flex;
+        bottom: 12px;
+        left: 4px;
+        z-index: 15;
+    }
+
+    /* モバイル：キャラクター순次フェードイン */
+    @keyframes mobile-char-fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+
+    /* ひなた：先に登場 */
+    .hero-char--hinata {
+        animation:
+            mobile-char-fadein 1s ease 0.3s both,
+            hero-glow 7s ease-in-out 1.3s infinite;
+    }
+
+    /* ルカ：少し遅れて登場 */
+    .hero-char--ruka {
+        animation:
+            mobile-char-fadein 1s ease 0.9s both,
+            hero-glow 7s ease-in-out 1.9s infinite;
+    }
+
+    /* ── Hero mobile: 対角レイアウト（元の背景） ── */
     .hero {
         height: 100svh;
-        min-height: 480px;
-        justify-content: center;
+        min-height: 520px;
+        align-items: center;
+        justify-content: flex-start;
+        overflow: hidden;
+        background:
+            radial-gradient(
+                ellipse 65% 90% at 18% 65%,
+                rgba(175, 220, 248, 0.6) 0%,
+                transparent 65%
+            ),
+            radial-gradient(
+                ellipse 65% 90% at 82% 65%,
+                rgba(255, 222, 160, 0.5) 0%,
+                transparent 65%
+            ),
+            linear-gradient(160deg, #e4f3fb 0%, #eff8f4 50%, #fdf3e3 100%);
     }
+
+    /* オーバーレイ：ヘッダー保護のみ */
+    .hero::after {
+        height: 10%;
+        background: linear-gradient(
+            to bottom,
+            rgba(234, 245, 252, 0.65) 0%,
+            transparent 100%
+        );
+    }
+
+    /* ロゴ：右上に絶対配置 */
     .hero-top {
-        padding-top: 0;
+        position: absolute;
+        top: calc(64px + 4vw);
+        right: 14px;
+        left: auto;
+        padding: 0;
+        align-self: unset;
+        z-index: 12;
+        pointer-events: none;
     }
     .hero-logo-img {
-        width: clamp(230px, 66vw, 300px);
+        width: clamp(170px, 52vw, 230px);
+        mix-blend-mode: multiply;
     }
+
+    /* hero-chars を static にして .hero を直接の基準にする */
+    .hero-chars {
+        position: static;
+        display: block;
+    }
+    /* .hero(position:relative) を基準に絶対配置
+       高さ・flex-end 継承を全てリセット */
+    .hero-char-wrap {
+        position: absolute;
+        width: 82%;
+        height: auto !important; /* base CSS の height:100% を無効化 */
+        display: block !important; /* flex-end を無効化 */
+        overflow: visible;
+    }
+    /* ひなた: 左に20%はみ出し */
+    .hero-char-wrap:last-child {
+        top: 64px;
+        left: -20%;
+        width: 110%;
+        z-index: 6;
+    }
+    /* ルカ: 右に25%はみ出し・下へ・下余白なし */
+    .hero-char-wrap:first-child {
+        top: 43%;
+        right: -25%;
+        width: 125%;
+        z-index: 7;
+    }
+    /* max-width 継承もリセット・自然比率で全体表示 */
     .hero-char {
-        height: 72vh;
-        max-width: 52vw;
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
     }
+
     .hero-ring--1 {
-        width: 300px;
-        height: 300px;
+        display: none;
     }
     .hero-ring--2 {
-        width: 400px;
-        height: 400px;
+        display: none;
     }
 
     .mouse-product,
@@ -4267,13 +4406,15 @@ section {
         padding: 44px 0;
     }
     .hero-top {
-        padding-top: 0;
+        padding-top: clamp(68px, 9svh, 88px);
+        padding-right: 12px;
     }
     .hero-logo-img {
-        width: 220px;
+        width: 120px;
     }
-    .hero-char {
-        height: 68vh;
+    .hero-scroll {
+        left: 12px;
+        bottom: 32px;
     }
     .hero-ring--1 {
         width: 260px;
