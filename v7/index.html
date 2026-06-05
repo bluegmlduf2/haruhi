@@ -1227,13 +1227,6 @@
             </div>
         </section>
 
-        <!-- Back to top button -->
-        <button class="back-to-top" id="backToTop" aria-label="ページトップへ">
-            <span class="back-to-top__arrow">↑</span>
-            <span class="back-to-top__text">TOP</span>
-            <img class="back-to-top__paw" src="../img_w/top-paw.webp" alt="" aria-hidden="true" />
-        </button>
-
         <div class="grad-line"></div>
         <footer>
             <div class="footer-brand">
@@ -1243,6 +1236,11 @@
             <p style="margin-top: 8px">
                 © 2026 Haruhi Products. All rights reserved.
             </p>
+            <button class="back-to-top" id="backToTop" aria-label="ページトップへ">
+                <span class="back-to-top__arrow">↑</span>
+                <span class="back-to-top__text">TOP</span>
+                <img class="back-to-top__paw" src="../img_w/top-paw.webp" alt="" aria-hidden="true" />
+            </button>
         </footer>
 
         <script>
@@ -1285,7 +1283,7 @@
             const benefitsEl = document.getElementById("benefits");
             function updateTopBtn() {
                 const threshold = benefitsEl
-                    ? benefitsEl.offsetTop + benefitsEl.offsetHeight
+                    ? benefitsEl.offsetTop
                     : window.innerHeight * 2;
                 backToTop.classList.toggle("visible", window.scrollY > threshold);
             }
