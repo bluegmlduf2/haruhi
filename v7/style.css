@@ -742,6 +742,9 @@ section {
     backdrop-filter: blur(20px);
     border-bottom: 1.5px solid rgba(102, 193, 255, 0.2);
 }
+.header-brand-break {
+    display: inline; /* PC: 인라인으로 한 줄 유지 */
+}
 .header-brand {
     font-family: "Mamelon", "Nunito", sans-serif;
     font-size: 12px;
@@ -1093,8 +1096,8 @@ section {
 
 /* Ghost mascot icon */
 .hero-scroll-bear {
-    width: 54px;
-    height: 50px;
+    width: 42px;
+    height: 39px;
     background-image: url("../img_w/scroll-ghost.webp");
     background-size: contain;
     background-repeat: no-repeat;
@@ -4089,16 +4092,22 @@ section {
         background-attachment: scroll;
     }
     .site-header {
-        padding: 0 16px;
+        padding: 8px 16px;
         gap: 8px;
+        height: auto;
+        min-height: 56px;
     }
     .header-brand {
         font-size: 9.5px;
         flex-shrink: 1;
         min-width: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: initial;
+        line-height: 1.6;
+    }
+    .header-brand-break {
+        display: block;
     }
     .site-nav {
         display: none;
@@ -4106,6 +4115,8 @@ section {
     .hamburger {
         display: flex;
         flex-shrink: 0;
+        align-self: flex-start;
+        margin-top: 2px;
     }
     .mobile-menu {
         display: flex;
@@ -4397,16 +4408,23 @@ section {
         margin-bottom: 12px;
         border-radius: 14px;
     }
+    /* キャラクター：左右並べを強制 */
     .about-chibi-wrap {
         order: 2;
-        flex: 0 0 auto;
-        margin: 0 8px;
+        flex: 0 0 44%;
+        margin: 0 4px;
+    }
+    .about-chibi-wrap img {
+        width: 100%;
+        height: auto;
     }
     .about-chibi--left {
-        margin-right: 8px;
+        margin-right: 4px;
+        width: 44%;
     }
     .about-chibi--right {
-        margin-left: 8px;
+        margin-left: 4px;
+        width: 44%;
     }
 }
 

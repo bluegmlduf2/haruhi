@@ -29,7 +29,7 @@
         <!-- Header -->
         <header class="site-header">
             <div class="header-brand">
-                Weather Planet × Darmoshark × Haruhi Products
+                Weather Planet × Darmoshark<span class="header-brand-break"> × Haruhi Products</span>
             </div>
             <nav>
                 <ul class="site-nav">
@@ -1227,6 +1227,13 @@
             </div>
         </section>
 
+        <!-- Back to top button -->
+        <button class="back-to-top" id="backToTop" aria-label="ページトップへ">
+            <span class="back-to-top__arrow">↑</span>
+            <span class="back-to-top__text">TOP</span>
+            <img class="back-to-top__paw" src="../img_w/top-paw.webp" alt="" aria-hidden="true" />
+        </button>
+
         <div class="grad-line"></div>
         <footer>
             <div class="footer-brand">
@@ -1271,6 +1278,20 @@
 
             document.querySelectorAll(".mobile-link").forEach((link) => {
                 link.addEventListener("click", () => toggleMenu(false));
+            });
+
+            // Back to top — #benefits を過ぎたら表示
+            const backToTop = document.getElementById("backToTop");
+            const benefitsEl = document.getElementById("benefits");
+            function updateTopBtn() {
+                const threshold = benefitsEl
+                    ? benefitsEl.offsetTop + benefitsEl.offsetHeight
+                    : window.innerHeight * 2;
+                backToTop.classList.toggle("visible", window.scrollY > threshold);
+            }
+            window.addEventListener("scroll", updateTopBtn, { passive: true });
+            backToTop.addEventListener("click", () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
             });
         </script>
     </body>
