@@ -2076,7 +2076,7 @@ section {
 }
 .pad2-title-ja {
     font-family: "Mochiy Pop One", "Nunito", sans-serif;
-    font-size: clamp(26px, 4.5vw, 50px);
+    font-size: clamp(20px, 4.5vw, 50px);
     font-weight: 400;
     color: #fff;
     letter-spacing: 0.04em;
@@ -3532,6 +3532,7 @@ section {
 .kbnew-header {
     text-align: center;
     margin-bottom: clamp(52px, 7vw, 96px);
+    padding-top: clamp(32px, 4vw, 60px);
 }
 .kbnew-badge {
     display: inline-block;
@@ -3546,7 +3547,7 @@ section {
 }
 .kbnew-ja {
     font-family: "Mochiy Pop One", "Nunito", sans-serif;
-    font-size: clamp(30px, 5.5vw, 58px);
+    font-size: clamp(22px, 5.5vw, 58px);
     font-weight: 400;
     color: #fff;
     letter-spacing: 0.04em;
