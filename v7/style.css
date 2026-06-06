@@ -3992,6 +3992,9 @@ section {
     .hero-char {
         height: 82vh;
     }
+    .hero-top {
+        padding-top: clamp(30px, 3.5vh, 50px);
+    }
 }
 
 /* ─ 1920 × 1080 ─────────────────────── */
@@ -4085,7 +4088,7 @@ section {
 /* ─ Desktop 2-col layout ──────────────── */
 @media (min-width: 1024px) {
     .pad2-en-main {
-        font-size: clamp(24px, 3.0vw, 36px);
+        font-size: clamp(24px, 3vw, 36px);
     }
 }
 
@@ -4517,11 +4520,11 @@ section {
         padding: 44px 0;
     }
     .hero-top {
-        padding-top: clamp(68px, 9svh, 88px);
+        padding-top: clamp(40px, 6svh, 88px);
         padding-right: 12px;
     }
     .hero-logo-img {
-        width: 120px;
+        width: 125px;
     }
     .hero-scroll {
         left: 12px;
