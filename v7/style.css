@@ -4191,6 +4191,7 @@ section {
     }
     .mobile-menu {
         display: flex;
+        top: 58px;
     }
     .float-reserve {
         font-size: 11px;
