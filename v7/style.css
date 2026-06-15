@@ -1647,7 +1647,6 @@ section {
     font-size: clamp(24px, 3.6vw, 52px);
     font-weight: 900;
     line-height: 1;
-    margin-bottom: 18px;
     white-space: nowrap;
 }
 .mouse-panel--ruka .mp-model-line {
@@ -1673,6 +1672,7 @@ section {
 }
 .mouse-panel--hinata .mp-desc {
     color: rgba(90, 48, 8, 0.85);
+    margin-top: clamp(20px, 3vw, 40px);
 }
 
 /* Detail – below description, inside info/desc col */
@@ -3566,17 +3566,6 @@ section {
     letter-spacing: 0.24em;
     color: rgba(255, 255, 255, 0.5);
 }
-.kbnew-en::before,
-.kbnew-en::after {
-    content: "";
-    display: block;
-    width: clamp(36px, 5.5vw, 80px);
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(102, 193, 255, 0.28));
-}
-.kbnew-en::after {
-    background: linear-gradient(90deg, rgba(102, 193, 255, 0.28), transparent);
-}
 
 .kbnew-product-name {
     font-family: "Mamelon", "Nunito", sans-serif;
@@ -4447,9 +4436,12 @@ section {
     }
     .mouse-panel--ruka .mp-model-header .mp-chibi-wrap {
         position: relative;
-        top: 20px;
+        top: 15px;
     }
-
+    .mouse-panel--hinata .mp-chibi-wrap {
+        position: relative;
+        top: 15px;
+    }
     .designer-card {
         max-width: 100%;
         flex-direction: column;
@@ -4554,5 +4546,20 @@ section {
     }
     .benefit-inner {
         padding: 32px 20px;
+    }
+}
+@media (max-width: 343px) {
+    .mouse-panel--ruka .mp-chibi-wrap,
+    .mouse-panel--hinata .mp-chibi-wrap {
+        width: clamp(60px, 11vw, 130px);
+        height: auto;
+    }
+    .mouse-panel--ruka .mp-model-header .mp-chibi-wrap {
+        position: relative;
+        top: 4px;
+    }
+    .mouse-panel--hinata .mp-chibi-wrap {
+        position: relative;
+        top: 4px;
     }
 }
